@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+/* ── Tokens de marca ─────────────────────────────────────────────────────── */
+@theme {
+  --color-plum: #2d133c;
+  --color-magenta: #e4006d;
+  /* Estado hover/pressed del magenta. Blanco sobre este tono: 6.1:1 */
+  --color-magenta-press: #c2005d;
+  --color-blush: #f7d5de;
+  --color-paper: #f7f3ed;
+  --color-ink: #161216;
+  /* Sólo para etiquetas de desarrollo; nunca aparece en producción. */
+  --color-dev: #ffe45c;
+
+  --text-mega: clamp(3.25rem, 1rem + 8.4vw, 9.5rem);
+  --text-mega--line-height: 0.94;
+  --text-h1: clamp(3rem, 1.7rem + 4.4vw, 6.25rem);
+  --text-h1--line-height: 0.93;
+  --text-h2: clamp(2.6rem, 1.5rem + 4.4vw, 6rem);
+  --text-h2--line-height: 0.95;
+  --text-h3: clamp(1.9rem, 1.3rem + 2.4vw, 3.5rem);
+  --text-h3--line-height: 0.95;
+  --text-lead: clamp(1.125rem, 1.02rem + 0.45vw, 1.375rem);
+  --text-lead--line-height: 1.5;
+
+  --animate-rise: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+@theme inline {
+  --font-display: var(--font-archivo), "Arial Narrow", Arial, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Titulares: grotesca condensada, mayúsculas, con mucha presencia. */
+@utility display {
+  font-family: var(--font-display);
+  font-weight: 850;
+  font-stretch: 62%;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  /* Las condensadas en mayúsculas necesitan aire entre palabras. */
+  word-spacing: 0.1em;
+  text-wrap: balance;
+}
+
+/* ── Base ────────────────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    color-scheme: light;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Tonos de sección → color del foco con contraste ≥ 3:1. */
+  [data-tone="paper"],
+  [data-tone="blush"],
+  body {
+    --focus: var(--color-plum);
+  }
+  [data-tone="plum"],
+  [data-tone="ink"],
+  [data-tone="magenta"] {
+    --focus: var(--color-blush);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background-color: var(--color-magenta);
+    color: #fff;
+  }
+
+  [id] {
+    scroll-margin-top: 1rem;
+  }
+
+  p,
+  li {
+    text-wrap: pretty;
+  }
+
+  dialog::backdrop {
+    background-color: rgb(22 18 22 / 0.8);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Revelado ligero al hacer scroll (ver components/ui/Reveal.tsx). */
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal="pending"] {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  [data-reveal="shown"] {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+      transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+}
+
+/* Detalles del FAQ: marcador propio. */
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}

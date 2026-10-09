@@ -8,8 +8,8 @@ Todo lo que la landing necesita para salir. Cada código `P-xx` aparece en `land
 
 | Código | Qué falta | Dónde | Formato |
 |---|---|---|---|
-| P-03 | **URL final de la VSL** | `data-vsl-src="REEMPLAZAR_URL_VSL"` | YouTube, Vimeo o `.mp4` propio |
-| P-03 | Duración real | `Duración: pendiente` | Ej. `Duración: 12 min` |
+| P-03 | **URL final de la VSL** | `CONFIG.vslUrl` en `landing.js` (una sola variable) | YouTube, Vimeo o `.mp4` propio |
+| P-03 | Duración real (opcional) | `CONFIG.vslDuration` en `landing.js` | Ej. `'12 min'` |
 | P-04 | Póster del video (opcional) | Comentario dentro de `.mas-player__poster` | Frame de 1920 × 1080, WebP o JPG |
 
 ## 2. Visuales oficiales

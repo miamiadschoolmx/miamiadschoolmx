@@ -44,7 +44,7 @@ Lo que se configura al conectar no son variables de entorno: son valores que se 
 
 | Qué | Dónde |
 |---|---|
-| URL de la VSL | `data-vsl-src` en `landing.html` |
+| URL del VSL (YouTube, Vimeo o `.mp4`) y su duración | `CONFIG.vslUrl` y `CONFIG.vslDuration` en `landing.js` |
 | Formulario y calendario de GHL | `#ghl-form-slot` y `#ghl-calendar-slot` en `landing.html` |
 | Campo «Me interesa», fechas y días de cierre | `CONFIG` en `landing.js` |
 | ID del píxel nuevo de Meta y de GA4 | *Tracking Code → Header* en GHL. Después, `TRACKING_ENABLED = true` |

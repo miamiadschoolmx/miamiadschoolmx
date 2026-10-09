@@ -171,14 +171,24 @@ Cámbialo por:
 
 ## 7. Insertar la URL de la VSL
 
-1. En el HTML busca `data-vsl-src="REEMPLAZAR_URL_VSL"` y cambia el valor por la URL del video. Acepta:
-   - YouTube: `https://www.youtube.com/watch?v=ID` o `https://youtu.be/ID` (se convierte solo a `youtube-nocookie.com/embed`).
-   - Vimeo: `https://vimeo.com/ID`.
-   - Un archivo propio `.mp4` (por ejemplo, alojado en la biblioteca de medios de GHL).
-2. Cambia `Duración: pendiente` por la duración real, por ejemplo `Duración: 12 min`.
+El VSL vive en el hero, debajo del subtítulo y antes del botón «Quiero agendar una entrevista».
+
+1. En el JS (`landing.js`), dentro de `CONFIG`, llena **una sola variable**:
+   ```js
+   vslUrl: 'https://www.youtube.com/watch?v=ID',
+   ```
+   Acepta:
+   - YouTube: `youtube.com/watch?v=ID`, `youtu.be/ID`, `youtube.com/shorts/ID` o `youtube.com/live/ID`. Se convierte solo a `youtube-nocookie.com/embed`.
+   - Vimeo: `vimeo.com/ID`. Si el video es oculto, `vimeo.com/ID/HASH` también funciona.
+   - La URL directa de un `.mp4` propio (por ejemplo, alojado en la biblioteca de medios de GHL).
+2. Opcional: `vslDuration: '12 min'` muestra la duración sobre el póster. Si se queda vacía, no se muestra nada.
 3. Opcional: agrega como póster un frame del video (ver el comentario P-04 en el HTML).
 
-El video **nunca** se reproduce solo: se carga y reproduce cuando la persona da clic en play, así que el sonido es intencional.
+**Cómo se comporta**
+- **Antes del clic no se descarga nada:** ni YouTube, ni Vimeo, ni el `.mp4`. El reproductor se crea solo cuando la persona da clic en «Ver video», así que el sonido es intencional.
+- **Se reproduce dentro de la página,** sin sacar a la persona.
+- **Siempre es 16:9:** en celular ocupa todo el ancho y en escritorio va a la derecha del subtítulo.
+- **Si `vslUrl` está vacía:** se queda el póster con «Ver video». Al tocarlo aparece un aviso amable («El video estará disponible muy pronto.»), sin errores y sin registrar `vsl_play`.
 
 ## 8. Insertar el formulario nativo de GHL
 
@@ -245,8 +255,8 @@ Hoy **no se envía nada**. Todos los eventos solo se guardan en `window.masVsl.e
 
 | Evento | Cuándo ocurre | Sugerencia en Meta |
 |---|---|---|
-| `view_vsl` | La sección de la VSL entra en pantalla | personalizado |
-| `vsl_play` | Clic en play con una URL válida | personalizado |
+| `view_vsl` | El video del hero entra en pantalla | personalizado |
+| `vsl_play` | Clic en «Ver video» con `vslUrl` configurada (una vez por visita) | personalizado |
 | `vsl_50_percent` | Mitad del video (solo `.mp4` propio) | personalizado |
 | `vsl_complete` | Fin del video (solo `.mp4` propio) | personalizado |
 | `program_select` | Elige Art Direction, Copywriting o «Aún no sé» | personalizado |

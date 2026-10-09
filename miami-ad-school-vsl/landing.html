@@ -41,6 +41,25 @@
 
       <p class="mas-hero__sub">Si tienes ideas, talento o piezas sueltas, pero tu book todavía no abre las conversaciones que quieres, necesitas algo más que otro&nbsp;curso.</p>
 
+      <!-- VSL · La URL se configura en UNA sola variable: CONFIG.vslUrl en landing.js (YouTube, Vimeo o .mp4).
+           Nada se descarga hasta que la persona hace clic en «Ver video». Ver README-GHL.md · paso 7 -->
+      <div class="mas-hero__vsl" id="vsl" data-event-view="view_vsl">
+        <div class="mas-player" data-vsl-title="Entrenamiento de Miami Ad School México" data-cursor="Play">
+          <button class="mas-player__poster" type="button" data-event="vsl_play">
+            <!-- Opcional: frame del video como póster (P-04). <img class="mas-player__img" src="..." alt="" width="1920" height="1080" loading="lazy" decoding="async"> -->
+            <span class="mas-player__brand" aria-hidden="true">Entrenamiento · Miami Ad School México</span>
+            <span class="mas-player__play">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 5.8v12.4l10-6.2z"/></svg>
+              <span>Ver video</span><span class="mas-sr">:</span>
+            </span>
+            <span class="mas-player__caption">Cómo se construye un portafolio que abre conversaciones.</span>
+            <!-- Duración (P-03): se muestra sola cuando llenas CONFIG.vslDuration en landing.js -->
+            <span class="mas-player__duration" data-vsl-duration hidden></span>
+          </button>
+          <p class="mas-player__notice" role="status" hidden></p>
+        </div>
+      </div>
+
       <div class="mas-hero__act">
         <!-- Próximo inicio: lo calcula landing.js con las fechas reales de CONFIG.intakes -->
         <a class="mas-next" href="#fechas" data-intake-pill hidden>
@@ -49,11 +68,7 @@
           <span class="mas-next__left">· faltan <strong data-intake-days>0</strong> <span data-intake-days-label>días</span></span>
         </a>
         <div class="mas-actions">
-          <a class="mas-btn mas-btn--hot mas-btn--play" href="#vsl" data-cta="hero-ver-entrenamiento">
-            <svg class="mas-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor" stroke="none"/></svg>
-            Ver el entrenamiento
-          </a>
-          <a class="mas-link" href="#aplicar" data-cta="hero-agenda">
+          <a class="mas-btn mas-btn--hot" href="#aplicar" data-cta="hero-agenda">
             Quiero agendar una entrevista
             <svg class="mas-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
           </a>
@@ -129,28 +144,11 @@
     </div>
   </section>
 
-  <!-- B · VSL -->
-  <section class="mas-section mas-sec-vsl" id="vsl" aria-labelledby="mas-vsl-title" data-event-view="view_vsl">
+  <!-- B · Después del video: puente al formulario -->
+  <section class="mas-section mas-sec-vsl" aria-labelledby="mas-vsl-lead">
     <div class="mas-wrap">
-      <h2 class="mas-h2 mas-vsl__title" id="mas-vsl-title" data-reveal>Antes de elegir una carrera creativa, <em>mira&nbsp;esto.</em></h2>
-
-      <!-- REEMPLAZAR_URL_VSL en data-vsl-src. Acepta YouTube, Vimeo o un .mp4 propio. Ver README-GHL.md · paso 7 -->
-      <div class="mas-player" data-vsl-src="REEMPLAZAR_URL_VSL" data-vsl-title="Entrenamiento de Miami Ad School México" data-cursor="Play">
-        <button class="mas-player__poster" type="button" data-event="vsl_play">
-          <span class="mas-sr">Reproducir el entrenamiento: </span>
-          <!-- Opcional: frame del video como póster (P-04). <img class="mas-player__img" src="..." alt="" width="1920" height="1080" loading="lazy" decoding="async"> -->
-          <span class="mas-player__brand" aria-hidden="true">Entrenamiento · Miami Ad School México</span>
-          <span class="mas-player__play" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false"><path d="M8.5 5.8v12.4l10-6.2z"/></svg>
-          </span>
-          <span class="mas-player__caption" id="mas-vsl-caption">Cómo se construye un portafolio que abre conversaciones.</span>
-          <span class="mas-player__duration" data-placeholder="P-03"><span class="mas-sr">. </span>Duración: pendiente</span>
-        </button>
-        <p class="mas-player__notice" role="status" hidden></p>
-      </div>
-
       <div class="mas-vsl__after">
-        <p class="mas-vsl__lead" data-reveal>
+        <p class="mas-vsl__lead" id="mas-vsl-lead" data-reveal>
           <span>No se trata de hacer más piezas.</span>
           <span>Se trata de construir el tipo de book que alguien quiera&nbsp;revisar.</span>
         </p>

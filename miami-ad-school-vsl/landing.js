@@ -13,6 +13,11 @@
   /* --- Configuración ------------------------------------------------------
      Ajusta estos valores al conectar GoHighLevel (ver README-GHL.md). */
   var CONFIG = {
+    // VSL: la ÚNICA variable que hay que llenar para el video. Acepta un enlace de YouTube,
+    // de Vimeo o la URL directa de un .mp4. Vacía = se queda el póster con «Ver video».
+    vslUrl: '',
+    // Opcional: duración que se muestra sobre el póster, por ejemplo '12 min'.
+    vslDuration: '',
     // Query key del campo "Me interesa" en el formulario de GHL, para prellenarlo.
     prefillParam: 'me_interesa',
     programLabels: {
@@ -163,11 +168,20 @@
   if (player) {
     var poster = player.querySelector('.mas-player__poster');
     var notice = player.querySelector('.mas-player__notice');
+    var duration = player.querySelector('[data-vsl-duration]');
+    var vslSrc = String(CONFIG.vslUrl || '').trim();
+    if (duration && CONFIG.vslDuration) {
+      duration.textContent = 'Duración: ' + CONFIG.vslDuration;
+      duration.hidden = false;
+    }
 
+    // Carga diferida: el iframe o el <video> se crean solo al hacer clic, así que antes
+    // no se descarga nada de YouTube, Vimeo ni del .mp4.
     poster.addEventListener('click', function () {
-      var src = (player.getAttribute('data-vsl-src') || '').trim();
-      if (!src || src.indexOf('REEMPLAZAR') === 0) {
-        notice.textContent = 'Aquí se reproducirá la VSL cuando se configure su URL.';
+      var src = vslSrc;
+      if (!src) {
+        // Sin URL configurada: el póster se queda; solo un aviso amable, nunca un error.
+        notice.textContent = 'El video estará disponible muy pronto.';
         notice.hidden = false;
         return;
       }
@@ -213,11 +227,13 @@
   // El autoplay solo ocurre después del clic de la persona, así que el sonido es intencional.
   function toEmbed(src) {
     var m;
-    if ((m = src.match(/(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{6,})/))) {
+    if ((m = src.match(/(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/|live\/)|youtu\.be\/)([\w-]{6,})/))) {
       return 'https://www.youtube-nocookie.com/embed/' + m[1] + '?autoplay=1&rel=0&playsinline=1';
     }
-    if ((m = src.match(/vimeo\.com\/(?:video\/)?(\d+)/))) {
-      return 'https://player.vimeo.com/video/' + m[1] + '?autoplay=1&title=0&byline=0&portrait=0';
+    if ((m = src.match(/vimeo\.com\/(?:video\/)?(\d+)(?:\/([\da-f]+))?/))) {
+      // Videos privados u ocultos de Vimeo traen un hash (vimeo.com/123/abc o ?h=abc).
+      var hash = m[2] || (src.match(/[?&]h=([\da-f]+)/) || [])[1];
+      return 'https://player.vimeo.com/video/' + m[1] + '?autoplay=1&title=0&byline=0&portrait=0' + (hash ? '&h=' + hash : '');
     }
     return src + (src.indexOf('?') > -1 ? '&' : '?') + 'autoplay=1';
   }

@@ -316,9 +316,13 @@
     "top top top top top top top top top top top top"
     "title title title title title title title title title title title title"
     "sub sub sub sub sub sub sub sub sub sub sub sub"
+    "vsl vsl vsl vsl vsl vsl vsl vsl vsl vsl vsl vsl"
     "act act act act act act act act act act act act"
     "collage collage collage collage collage collage collage collage collage collage collage collage";
 }
+.mas-vsl .mas-hero__vsl { grid-area: vsl; margin-top: clamp(1.75rem, 4vw, 2.5rem); }
+.mas-vsl .mas-hero__vsl .mas-player { margin-top: 0; }
+.mas-vsl .mas-hero__vsl .mas-player__caption { font-size: clamp(.9375rem, .7rem + 1.1vw, 1.75rem); }
 .mas-vsl .mas-hero__top {
   grid-area: top;
   display: flex;
@@ -491,13 +495,15 @@
   .mas-vsl .mas-hero { min-height: min(100svh, 64rem); display: flex; flex-direction: column; }
   .mas-vsl .mas-hero > .mas-wrap { flex: 1; }
   .mas-vsl .mas-hero__grid {
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto 1fr auto auto;
     grid-template-areas:
       "top top top top top top top top top top top top"
       "title title title title title title title title title title title title"
-      "sub sub sub sub sub . . act act act act act";
+      "sub sub sub sub sub . vsl vsl vsl vsl vsl vsl"
+      "act act act act act . vsl vsl vsl vsl vsl vsl";
     align-items: end;
   }
+  .mas-vsl .mas-hero__vsl { align-self: start; margin-top: 2rem; }
   .mas-vsl .mas-hero__top { margin-bottom: 0; align-self: start; }
   .mas-vsl .mas-hero__title {
     /* espacio para el collage a la derecha del setup */
@@ -517,8 +523,8 @@
     z-index: 1;
   }
   .mas-vsl .mas-hero__setup { margin-bottom: auto; padding-top: 1.5rem; }
-  .mas-vsl .mas-hero__act { justify-self: end; text-align: left; margin-top: 0; }
-  .mas-vsl .mas-hero__sub { margin-top: 2rem; }
+  .mas-vsl .mas-hero__act { justify-self: start; align-self: start; text-align: left; margin-top: 2rem; }
+  .mas-vsl .mas-hero__sub { align-self: start; margin-top: 2rem; }
 }
 
 /* ==========================================================================
@@ -555,6 +561,7 @@
    B · VSL
    ========================================================================== */
 .mas-vsl .mas-sec-vsl .mas-vsl__title { max-width: 16ch; }
+.mas-vsl .mas-sec-vsl .mas-vsl__after:first-child { margin-top: 0; }
 .mas-vsl .mas-player {
   position: relative;
   margin-top: clamp(2.5rem, 6vw, 4.5rem);
@@ -589,17 +596,23 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: clamp(4.5rem, 11vw, 9.5rem);
-  height: clamp(4.5rem, 11vw, 9.5rem);
   transform: translate(-50%, -50%);
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  gap: .5em;
+  min-height: clamp(3rem, 2.5rem + 1.6vw, 4rem);
+  padding: 0 1.25em 0 1em;
+  border-radius: 999px;
   background: var(--acid);
   color: var(--black);
+  font-size: clamp(1rem, .9rem + .45vw, 1.25rem);
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, .6);
   transition: transform .5s var(--ease-out);
 }
-.mas-vsl .mas-player__play svg { width: 34%; height: 34%; fill: currentColor; transform: translateX(7%); }
+.mas-vsl .mas-player__play svg { width: 1.15em; height: 1.15em; fill: currentColor; }
 .mas-vsl .mas-player__poster:hover .mas-player__play { transform: translate(-50%, -50%) scale(1.08); }
 .mas-vsl .mas-player__poster:active .mas-player__play { transform: translate(-50%, -50%) scale(.96); }
 .mas-vsl .mas-player__caption {
@@ -648,6 +661,7 @@
 }
 @media (max-width: 47.99em) {
   .mas-vsl .mas-player { margin-inline: calc(var(--gutter) * -1); width: auto; border-radius: 0; }
+  .mas-vsl .mas-player__notice { top: .75rem; }
   .mas-vsl .mas-player__brand { display: none; }
   .mas-vsl .mas-player__caption { font-size: .9375rem; }
 }

@@ -255,7 +255,6 @@
 .mas-vsl .mas-btn:hover::before { transform: translateY(0); }
 .mas-vsl .mas-btn .mas-icon { width: 1.125rem; height: 1.125rem; flex: none; transition: transform .3s var(--ease-out); }
 .mas-vsl .mas-btn:hover .mas-icon { transform: translateX(4px); }
-.mas-vsl .mas-btn--play:hover .mas-icon { transform: scale(1.15); }
 .mas-vsl .mas-btn:active { transform: scale(.98); }
 
 .mas-vsl .mas-btn--hot { background: var(--hot); color: var(--black); }
@@ -560,7 +559,6 @@
 /* ==========================================================================
    B · VSL
    ========================================================================== */
-.mas-vsl .mas-sec-vsl .mas-vsl__title { max-width: 16ch; }
 .mas-vsl .mas-sec-vsl .mas-vsl__after:first-child { margin-top: 0; }
 .mas-vsl .mas-player {
   position: relative;

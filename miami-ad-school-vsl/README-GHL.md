@@ -143,7 +143,7 @@ La sección «10 semanas dentro de las mejores agencias del mundo» ya trae 16 l
 
 - **Formato:** SVG (lo ideal) o PNG con **fondo transparente**, versión horizontal y recortada al borde. Un logo con fondo blanco se vería como un rectángulo negro.
 - **El color no importa:** la página pinta todos los logos de negro para que el muro se vea parejo sobre el fondo claro. Si un logo tiene letras o figuras claras sobre una forma oscura (como Astillero o el cuadro de Serviceplan), hay que pasarlo a una tinta con esas partes caladas, o se vuelve una mancha negra.
-- **Solo agencias reales:** el pie dice «Agencias donde puedes hacer tus prácticas profesionales», así que cada logo debe ser de una agencia que hoy recibe practicantes de Miami Ad School (ver P-16 en `CONTENT-PLACEHOLDERS.md`).
+- **Solo agencias reales:** el pie dice «Agencias donde puedes hacer tus prácticas profesionales antes de graduarte», así que cada logo debe ser de una agencia que hoy recibe practicantes de Miami Ad School (ver P-16 en `CONTENT-PLACEHOLDERS.md`).
 - **En el HTML,** copia un `<li class="mas-logo">…</li>` completo en cualquiera de las dos filas (`<ul class="mas-logos__track">`) y cambia `src`, `alt`, `width` y `height`:
 
 ```html

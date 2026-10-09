@@ -1316,18 +1316,19 @@
 .mas-vsl .mas-intern__lead { font-size: var(--t-lead); line-height: 1.3; font-weight: 800; max-width: 30ch; }
 .mas-vsl .mas-intern__body { font-size: var(--t-lead); line-height: 1.4; font-weight: 600; max-width: 40ch; }
 .mas-vsl .mas-intern__copy { display: grid; gap: 1rem; }
-.mas-vsl .mas-intern__note { margin-top: 2rem; font-size: var(--t-small); font-weight: 600; color: var(--fg-2); max-width: 52ch; }
 @media (min-width: 64em) {
   .mas-vsl .mas-intern__text { grid-template-columns: 5fr 7fr; column-gap: var(--col-gap); margin-left: calc(100% / 12 * 4); }
 }
 
 .mas-vsl .mas-logos { margin-top: clamp(3.5rem, 8vw, 6rem); }
+.mas-vsl .mas-intern { padding-bottom: 0; }
 .mas-vsl .mas-logos__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; }
 .mas-vsl .mas-logos__caption { font-size: var(--t-small); font-weight: 600; max-width: 40ch; }
 .mas-vsl .mas-logos__nav { display: flex; gap: .5rem; flex: none; }
 .mas-vsl .mas-logos__nav[hidden] { display: none; }
-/* Con movimiento, las flechas aparecen al acercarse: su alto se reserva desde el inicio para que nada salte */
-.mas-vsl.has-motion .mas-logos__head { min-height: 3.5rem; }
+/* Con movimiento, las flechas aparecen al acercarse: su lugar (alto y ancho) se reserva desde el inicio,
+   invisible, para que el texto no cambie de líneas y nada salte */
+.mas-vsl.has-motion .mas-logos__nav[hidden] { display: flex !important; visibility: hidden; }
 .mas-vsl .mas-logos .mas-round { color: var(--black); box-shadow: inset 0 0 0 1.5px rgba(10, 10, 10, .4); }
 .mas-vsl .mas-logos .mas-round:hover { background: transparent; color: var(--black); box-shadow: inset 0 0 0 1.5px rgba(10, 10, 10, .4); }
 @media (hover: hover) {

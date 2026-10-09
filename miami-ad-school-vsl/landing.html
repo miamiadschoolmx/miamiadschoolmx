@@ -240,24 +240,41 @@
     </div>
 
     <div class="mas-logos" data-logos>
-      <div class="mas-wrap">
+      <div class="mas-wrap mas-logos__head">
         <p class="mas-logos__caption" id="mas-logos-caption">Agencias donde puedes hacer tus prácticas profesionales</p>
+        <!-- Flechas: mueven las dos filas. Solo aparecen cuando el slider está en movimiento (con JS y sin «reducir movimiento»). -->
+        <div class="mas-logos__nav" data-logos-nav hidden>
+          <button class="mas-round" type="button" data-logos-prev aria-controls="mas-logos-viewport" aria-label="Ver logos anteriores">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <button class="mas-round" type="button" data-logos-next aria-controls="mas-logos-viewport" aria-label="Ver más logos">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
       </div>
-      <div class="mas-logos__viewport">
-        <!-- REEMPLAZAR (P-16): un <li> por agencia. Cambia el <span> por el logo:
-             <li class="mas-logo"><img src="URL_DE_GHL" alt="Nombre de la agencia" width="200" height="60" loading="lazy" decoding="async"></li>
-             Borra los espacios que sobren. El carrusel se arma solo con los que dejes. -->
-        <ul class="mas-logos__track" role="list" aria-labelledby="mas-logos-caption">
-          <li class="mas-logo" data-placeholder="P-16"><span class="mas-logo__slot">Logo de agencia</span></li>
-          <li class="mas-logo" data-placeholder="P-16"><span class="mas-logo__slot">Logo de agencia</span></li>
-          <li class="mas-logo" data-placeholder="P-16"><span class="mas-logo__slot">Logo de agencia</span></li>
-          <li class="mas-logo" data-placeholder="P-16"><span class="mas-logo__slot">Logo de agencia</span></li>
-          <li class="mas-logo" data-placeholder="P-16"><span class="mas-logo__slot">Logo de agencia</span></li>
-          <li class="mas-logo" data-placeholder="P-16"><span class="mas-logo__slot">Logo de agencia</span></li>
-          <li class="mas-logo" data-placeholder="P-16"><span class="mas-logo__slot">Logo de agencia</span></li>
-          <li class="mas-logo" data-placeholder="P-16"><span class="mas-logo__slot">Logo de agencia</span></li>
-          <li class="mas-logo" data-placeholder="P-16"><span class="mas-logo__slot">Logo de agencia</span></li>
-          <li class="mas-logo" data-placeholder="P-16"><span class="mas-logo__slot">Logo de agencia</span></li>
+      <div class="mas-logos__viewport" id="mas-logos-viewport">
+        <!-- Logos de agencias (P-16), en dos filas que avanzan en sentidos opuestos. En GHL: sube img/logos/* y cambia las rutas.
+             Para agregar uno, copia un <li> completo en cualquiera de las dos filas. --logo-h ajusta el tamaño visual:
+             1 = normal, más de 1 para insignias o logos delgados, menos de 1 para logos muy anchos. --logo-w cambia el ancho máximo. -->
+        <ul class="mas-logos__track" role="list" aria-labelledby="mas-logos-caption" data-dir="1">
+          <li class="mas-logo" style="--logo-h: 1.4"><img src="img/logos/wieden-kennedy.svg" alt="Wieden+Kennedy" width="213" height="99" loading="lazy" decoding="async"></li>
+          <li class="mas-logo" style="--logo-h: 1"><img src="img/logos/gut.svg" alt="GUT" width="48" height="28" loading="lazy" decoding="async"></li>
+          <li class="mas-logo" style="--logo-h: 1.2; --logo-w: 13rem"><img src="img/logos/leo-burnett.png" alt="Leo Burnett" width="600" height="103" loading="lazy" decoding="async"></li>
+          <li class="mas-logo" style="--logo-h: 1.9"><img src="img/logos/anita-y-vega.svg" alt="Anita y Vega" width="292" height="292" loading="lazy" decoding="async"></li>
+          <li class="mas-logo" style="--logo-h: .9; --logo-w: 12rem"><img src="img/logos/jung-von-matt.svg" alt="Jung von Matt" width="570" height="115" loading="lazy" decoding="async"></li>
+          <li class="mas-logo" style="--logo-h: 1.3; --logo-w: 13rem"><img src="img/logos/founders.png" alt="Founders" width="600" height="143" loading="lazy" decoding="async"></li>
+          <li class="mas-logo" style="--logo-h: .85; --logo-w: 13rem"><img src="img/logos/samy.svg" alt="Samy" width="2101" height="378" loading="lazy" decoding="async"></li>
+          <li class="mas-logo" style="--logo-h: .85"><img src="img/logos/motor.png" alt="Motor" width="600" height="105" loading="lazy" decoding="async"></li>
+        </ul>
+        <ul class="mas-logos__track" role="list" aria-labelledby="mas-logos-caption" data-dir="-1">
+          <li class="mas-logo" style="--logo-h: 1.15"><img src="img/logos/ogilvy.svg" alt="Ogilvy" width="700" height="274" loading="lazy" decoding="async"></li>
+          <li class="mas-logo" style="--logo-h: .85"><img src="img/logos/antoni.svg" alt="Antoni" width="97" height="23" loading="lazy" decoding="async"></li>
+          <li class="mas-logo" style="--logo-h: 1.3"><img src="img/logos/astillero.svg" alt="Astillero" width="195" height="112" loading="lazy" decoding="async"></li>
+          <li class="mas-logo" style="--logo-h: .9"><img src="img/logos/monks.svg" alt="Monks" width="109" height="27" loading="lazy" decoding="async"></li>
+          <li class="mas-logo" style="--logo-h: .8; --logo-w: 12.5rem"><img src="img/logos/mc-saatchi.svg" alt="M&amp;C Saatchi" width="200" height="23" loading="lazy" decoding="async"></li>
+          <li class="mas-logo" style="--logo-h: .9"><img src="img/logos/innocean.svg" alt="Innocean" width="306" height="76" loading="lazy" decoding="async"></li>
+          <li class="mas-logo" style="--logo-h: .85; --logo-w: 15rem"><img src="img/logos/serviceplan.svg" alt="Serviceplan" width="2119" height="218" loading="lazy" decoding="async"></li>
+          <li class="mas-logo" style="--logo-h: .8; --logo-w: 16rem"><img src="img/logos/miller-oconnor.png" alt="Miller O’Connor" width="600" height="50" loading="lazy" decoding="async"></li>
         </ul>
       </div>
     </div>

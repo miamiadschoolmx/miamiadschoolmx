@@ -106,6 +106,7 @@ Sube a la biblioteca de medios de GHL los archivos de `img/` y, en el HTML que p
 | `logo-mas-300.png` | Logo del hero (provisional, ver P-01) | P-01 |
 | `hero-craft-640.webp`, `hero-craft-1080.webp` | Foto cuadrada del hero (grafitero) | P-02 |
 | `welcome-energy-640.webp`, `welcome-energy-800.webp`, `welcome-energy-1080.webp` | Bienvenida, junto a las pruebas (salto) | — |
+| Los 16 archivos de `logos/` | Slider de agencias de la sección de prácticas | P-16 |
 | `og-carrera-creativa.jpg` | Imagen para compartir en redes (no va en el HTML: va en la configuración de la página, paso 1) | — |
 | `grad-show-640.webp`, `grad-show-1080.webp` | Última tarjeta de los 18 meses, «Cuando te gradúas» (Grad Show) | — |
 | `ad-keyvisual-640.webp` | Moodboard de Art Direction (sillón) | P-05 |
@@ -130,44 +131,35 @@ Cada espacio pendiente tiene un atributo `data-placeholder="P-xx"` que coincide 
 
 ## 6 bis. Logos de agencias (slider de prácticas)
 
-La sección «10 semanas dentro de las mejores agencias del mundo» trae 10 espacios con la etiqueta «Logo de agencia». Cada uno tiene `data-placeholder="P-16"`.
+La sección «10 semanas dentro de las mejores agencias del mundo» ya trae 16 logos en dos filas: Wieden+Kennedy, GUT, Leo Burnett, Anita y Vega, Jung von Matt, Founders, Samy y Motor arriba; Ogilvy, Antoni, Astillero, Monks, M&C Saatchi, Innocean, Serviceplan y Miller O’Connor abajo. Están en `img/logos/`, ya limpios, a una tinta y listos para pantallas retina.
 
-### 1. Prepara los logos
-
-- **Formato:** SVG (lo ideal) o PNG con **fondo transparente**. Un logo con fondo blanco se vería como un rectángulo negro.
-- **Versión horizontal,** recortada al borde, sin aire alrededor. Para PNG, unos 400 px de ancho bastan.
-- **El color no importa:** la página pinta todos los logos de negro para que el muro se vea parejo sobre el fondo claro.
-- **Solo agencias reales:** el pie dice «Agencias donde puedes hacer tus prácticas profesionales», así que cada logo debe ser de una agencia que hoy recibe practicantes de Miami Ad School (ver P-16 en `CONTENT-PLACEHOLDERS.md`).
-
-### 2. Súbelos a GHL
+### 1. Súbelos a GHL
 
 1. En tu subcuenta de GHL abre la **biblioteca de medios** (*Media Storage*). También se abre desde el builder, al elegir una imagen.
-2. Crea una carpeta, por ejemplo `landing-logos`, y sube ahí los archivos.
-3. En cada archivo, usa **Copiar enlace** (*Copy link*) para obtener su URL.
+2. Crea una carpeta, por ejemplo `landing-logos`, y sube ahí los 16 archivos de `img/logos/`.
+3. En cada archivo, usa **Copiar enlace** (*Copy link*) y, en el HTML, cambia su ruta `img/logos/...` por esa URL.
 
-### 3. Ponlos en el HTML
+### 2. Para sumar más agencias
 
-En el elemento de código de la landing, busca `P-16`. Cada espacio se ve así:
-
-```html
-<li class="mas-logo" data-placeholder="P-16"><span class="mas-logo__slot">Logo de agencia</span></li>
-```
-
-Cámbialo por:
+- **Formato:** SVG (lo ideal) o PNG con **fondo transparente**, versión horizontal y recortada al borde. Un logo con fondo blanco se vería como un rectángulo negro.
+- **El color no importa:** la página pinta todos los logos de negro para que el muro se vea parejo sobre el fondo claro. Si un logo tiene letras o figuras claras sobre una forma oscura (como Astillero o el cuadro de Serviceplan), hay que pasarlo a una tinta con esas partes caladas, o se vuelve una mancha negra.
+- **Solo agencias reales:** el pie dice «Agencias donde puedes hacer tus prácticas profesionales», así que cada logo debe ser de una agencia que hoy recibe practicantes de Miami Ad School (ver P-16 en `CONTENT-PLACEHOLDERS.md`).
+- **En el HTML,** copia un `<li class="mas-logo">…</li>` completo en cualquiera de las dos filas (`<ul class="mas-logos__track">`) y cambia `src`, `alt`, `width` y `height`:
 
 ```html
-<li class="mas-logo"><img src="URL_DE_GHL" alt="Nombre de la agencia" width="200" height="60" loading="lazy" decoding="async"></li>
+<li class="mas-logo" style="--logo-h: 1"><img src="URL_DE_GHL" alt="Nombre de la agencia" width="200" height="60" loading="lazy" decoding="async"></li>
 ```
 
 - `alt` lleva el nombre de la agencia, tal cual. Es lo que escucha alguien que usa lector de pantalla.
 - `width` y `height` son las proporciones del archivo. Si el logo mide 400 × 100, pon `width="400" height="100"`. La página ajusta la altura sola.
-- **Borra los espacios que sobren.** Si tienes 6 logos, deja 6 `<li>`. El slider se arma solo con los que haya y repite la fila para que nunca quede un hueco. Con 5 o más se ve mejor.
-- **Para agregar más,** copia una línea `<li class="mas-logo">…</li>` completa.
+- **Tamaño visual:** `--logo-h` en el `<li>` equilibra el peso. Súbelo (1.3, 1.9) para insignias o logos delgados y bájalo (0.85) para logos muy anchos. `--logo-w` cambia el ancho máximo (11rem por defecto).
+- El slider se arma solo con los logos que haya y repite la fila para que nunca quede un hueco.
 
 ### Cómo se comporta
 
-- Se mueve con el scroll, igual que la cinta fucsia: cuando la persona deja de bajar, se detiene. Por eso no necesita botón de pausa y sigue cumpliendo con accesibilidad.
-- Con «reducir movimiento» activado en el sistema, los logos se quedan quietos en una cuadrícula.
+- Las dos filas se mueven con el scroll, en sentidos opuestos, igual que la cinta fucsia: cuando la persona deja de bajar, se detienen. Por eso no necesitan botón de pausa y siguen cumpliendo con accesibilidad.
+- Las flechas ‹ › junto al título adelantan o regresan las dos filas, para ver todos los logos sin tener que bajar.
+- Con «reducir movimiento» activado en el sistema, los logos se quedan quietos en una cuadrícula y las flechas no aparecen (no hacen falta: se ven todos).
 
 ## 7. Insertar la URL de la VSL
 

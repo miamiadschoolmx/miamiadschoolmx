@@ -392,36 +392,78 @@
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(refit);
   }
 
-  /* --- Logos de agencias: la fila se duplica y avanza con el scroll ---------
-     Igual que la cinta: no se mueve sola, así que no necesita botón de pausa.
-     Sin JS o con movimiento reducido, los logos se quedan quietos en una cuadrícula. */
+  /* --- Logos de agencias: dos filas que avanzan con el scroll -----------------
+     Cada fila se duplica para dar la vuelta sin saltos; la segunda va en sentido
+     contrario. No se mueven solas (por eso no necesitan botón de pausa) y las
+     flechas las adelantan o regresan. Sin JS o con movimiento reducido, los
+     logos se quedan quietos en una cuadrícula y las flechas no aparecen. */
   var logos = root.querySelector('[data-logos]');
-  var logoTrack = logos && logos.querySelector('.mas-logos__track');
-  var logoHalf = 0, logosOn = false;
-  function measureLogos() { logoHalf = logoTrack.offsetWidth / 2; }
-  if (logoTrack && root.classList.contains('has-motion') && logoTrack.children.length > 1) {
+  var logoTracks = logos ? Array.prototype.slice.call(logos.querySelectorAll('.mas-logos__track')) : [];
+  var logoRows = [], logosOn = false, logoNudge = 0, logoTarget = 0, logoAnim = 0;
+  function measureLogos() {
+    logoRows.forEach(function (row) { row.half = row.el.offsetWidth / 2; });
+  }
+  function placeLogos() {
+    var base = window.pageYOffset * 0.35 + logoNudge;
+    logoRows.forEach(function (row) {
+      if (!row.half) return;
+      var x = ((base % row.half) + row.half) % row.half;
+      if (row.dir < 0) x = row.half - x;
+      row.el.style.setProperty('--lx', x.toFixed(1));
+    });
+  }
+  function nudgeLogos(dir) {
+    var view = logos.querySelector('.mas-logos__viewport');
+    logoTarget += dir * Math.max(240, (view ? view.clientWidth : 600) * 0.6);
+    if (logoAnim) return;
+    var step = function () {
+      var diff = logoTarget - logoNudge;
+      if (Math.abs(diff) < 0.5) { logoNudge = logoTarget; logoAnim = 0; placeLogos(); return; }
+      logoNudge += diff * 0.14;
+      placeLogos();
+      logoAnim = requestAnimationFrame(step);
+    };
+    logoAnim = requestAnimationFrame(step);
+  }
+  if (logoTracks.length && root.classList.contains('has-motion')) {
     whenNear(logos, function () {
-      var originals = Array.prototype.slice.call(logoTrack.children);
-      var appendCopies = function (items) {
-        items.forEach(function (li) {
-          var copy = li.cloneNode(true);
-          copy.setAttribute('aria-hidden', 'true');
-          copy.removeAttribute('data-placeholder');
-          logoTrack.appendChild(copy);
-        });
-      };
-      var setWidth = 0;
-      originals.forEach(function (li) { setWidth += li.offsetWidth; });
-      if (!setWidth) return;
-      // Primera mitad: copias suficientes para cubrir la pantalla más ancha. Luego se duplica entera,
-      // así el salto del final al inicio no se nota.
       var span = Math.max(logos.clientWidth, (window.screen && window.screen.width) || 0);
-      var copies = Math.max(1, Math.ceil(span / setWidth));
-      for (var lc = 1; lc < copies; lc++) appendCopies(originals);
-      appendCopies(Array.prototype.slice.call(logoTrack.children));
+      logoTracks.forEach(function (track) {
+        var originals = Array.prototype.slice.call(track.children);
+        if (originals.length < 2) return;
+        var appendCopies = function (items) {
+          items.forEach(function (li) {
+            var copy = li.cloneNode(true);
+            copy.setAttribute('aria-hidden', 'true');
+            copy.removeAttribute('data-placeholder');
+            track.appendChild(copy);
+          });
+        };
+        var setWidth = 0;
+        originals.forEach(function (li) { setWidth += li.offsetWidth; });
+        if (!setWidth) return;
+        // Primera mitad: copias suficientes para cubrir la pantalla más ancha. Luego se duplica entera,
+        // así el salto del final al inicio no se nota.
+        var copies = Math.max(1, Math.ceil(span / setWidth));
+        for (var lc = 1; lc < copies; lc++) appendCopies(originals);
+        appendCopies(Array.prototype.slice.call(track.children));
+        logoRows.push({ el: track, half: 0, dir: track.getAttribute('data-dir') === '-1' ? -1 : 1 });
+      });
+      if (!logoRows.length) return;
+      // Las copias quedan fuera de la vista hasta que la fila avanza: que carguen ya, no al entrar.
+      Array.prototype.forEach.call(logos.querySelectorAll('.mas-logos__track img'), function (img) { img.loading = 'eager'; });
       logos.classList.add('is-looping');
       measureLogos();
-      window.addEventListener('resize', throttle(measureLogos), { passive: true });
+      placeLogos();
+      window.addEventListener('resize', throttle(function () { measureLogos(); placeLogos(); }), { passive: true });
+      var nav = logos.querySelector('[data-logos-nav]');
+      var prevBtn = logos.querySelector('[data-logos-prev]');
+      var nextBtn = logos.querySelector('[data-logos-next]');
+      if (nav && prevBtn && nextBtn) {
+        nav.hidden = false;
+        prevBtn.addEventListener('click', function () { nudgeLogos(-1); });
+        nextBtn.addEventListener('click', function () { nudgeLogos(1); });
+      }
       watchVisible(logos, function (v) { logosOn = v; if (v) requestAnimationFrame(onScroll); });
     });
   }
@@ -452,9 +494,7 @@
       var x = copy ? (window.pageYOffset * 0.45) % copy : 0;
       tickerRow.style.setProperty('--x', x.toFixed(1));
     }
-    if (logosOn && logoHalf) {
-      logoTrack.style.setProperty('--lx', ((window.pageYOffset * 0.35) % logoHalf).toFixed(1));
-    }
+    if (logosOn && logoRows.length) placeLogos();
     if (glowOn && glowItems.length && root.classList.contains('has-motion')) {
       for (var g = 0; g < glowItems.length; g++) {
         var top = glowItems[g].getBoundingClientRect().top;

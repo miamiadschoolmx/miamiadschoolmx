@@ -106,7 +106,7 @@ Sube a la biblioteca de medios de GHL los archivos de `img/` y, en el HTML que p
 | `logo-mas-300.png` | Logo del hero (provisional, ver P-01) | P-01 |
 | `hero-craft-640.webp`, `hero-craft-1080.webp` | Foto cuadrada del hero (grafitero) | P-02 |
 | `welcome-energy-640.webp`, `welcome-energy-800.webp`, `welcome-energy-1080.webp` | Bienvenida, junto a las pruebas (salto) | — |
-| Los 16 archivos de `logos/` | Slider de agencias de la sección de prácticas | P-16 |
+| Los 29 archivos de `logos/` | Slider de agencias de la sección de prácticas | P-16 |
 | `og-carrera-creativa.jpg` | Imagen para compartir en redes (no va en el HTML: va en la configuración de la página, paso 1) | — |
 | `grad-show-640.webp`, `grad-show-1080.webp` | Última tarjeta de los 18 meses, «Cuando te gradúas» (Grad Show) | — |
 | `ad-keyvisual-640.webp` | Moodboard de Art Direction (sillón) | P-05 |
@@ -131,12 +131,12 @@ Cada espacio pendiente tiene un atributo `data-placeholder="P-xx"` que coincide 
 
 ## 6 bis. Logos de agencias (slider de prácticas)
 
-La sección «10 semanas dentro de las mejores agencias del mundo» ya trae 16 logos en dos filas: Wieden+Kennedy, GUT, Leo Burnett, Anita y Vega, Jung von Matt, Founders, Samy y Motor arriba; Ogilvy, Antoni, Astillero, Monks, M&C Saatchi, Innocean, Serviceplan y Miller O’Connor abajo. Están en `img/logos/`, ya limpios, a una tinta y listos para pantallas retina.
+La sección «10 semanas dentro de las mejores agencias del mundo» ya trae 29 logos en dos filas. Arriba (15): Wieden+Kennedy, FCB México, GUT, Leo Burnett, Good Rebels, Jung von Matt, Anita y Vega, TBWA\Chiat\Day NY, Founders, niji, Samy, Impact BBDO, CW, Motor y Mass Appeal. Abajo (14): Ogilvy, Famous, Antoni, Astillero, Superheroes, Monks, Nu Creative Hub, M&C Saatchi, talented, Innocean, UTAG, Serviceplan, Mediaplus y Miller O’Connor. Están en `img/logos/`, ya limpios, a una tinta y listos para pantallas retina.
 
 ### 1. Súbelos a GHL
 
 1. En tu subcuenta de GHL abre la **biblioteca de medios** (*Media Storage*). También se abre desde el builder, al elegir una imagen.
-2. Crea una carpeta, por ejemplo `landing-logos`, y sube ahí los 16 archivos de `img/logos/`.
+2. Crea una carpeta, por ejemplo `landing-logos`, y sube ahí los 29 archivos de `img/logos/`.
 3. En cada archivo, usa **Copiar enlace** (*Copy link*) y, en el HTML, cambia su ruta `img/logos/...` por esa URL.
 
 ### 2. Para sumar más agencias

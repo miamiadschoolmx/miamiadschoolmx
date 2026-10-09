@@ -130,14 +130,14 @@ Cada espacio pendiente tiene un atributo `data-placeholder="P-xx"` que coincide 
 
 ## 6 bis. Logos de agencias (slider de prácticas)
 
-La sección «10 semanas dentro de las mejores agencias del mundo» trae 10 espacios con la etiqueta «Logo de agencia». Cada uno tiene `data-placeholder="P-16"`.
+La sección «10 semanas fuera del salón» trae 10 espacios con la etiqueta «Logo de agencia». Cada uno tiene `data-placeholder="P-16"`.
 
 ### 1. Prepara los logos
 
 - **Formato:** SVG (lo ideal) o PNG con **fondo transparente**. Un logo con fondo blanco se vería como un rectángulo negro.
 - **Versión horizontal,** recortada al borde, sin aire alrededor. Para PNG, unos 400 px de ancho bastan.
 - **El color no importa:** la página pinta todos los logos de negro para que el muro se vea parejo sobre el fondo claro.
-- **Solo agencias reales:** cada logo debe ser de una agencia donde alumnos de Miami Ad School de verdad hicieron prácticas (ver P-16 en `CONTENT-PLACEHOLDERS.md`).
+- **Solo agencias reales:** el pie dice «Agencias donde puedes hacer tus prácticas profesionales», así que cada logo debe ser de una agencia que hoy recibe practicantes de Miami Ad School (ver P-16 en `CONTENT-PLACEHOLDERS.md`).
 
 ### 2. Súbelos a GHL
 

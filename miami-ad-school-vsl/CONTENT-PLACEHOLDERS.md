@@ -32,9 +32,9 @@ No usar fotografía de stock de estudiantes sonriendo frente a una laptop.
 
 | Código | Qué falta | Dónde | Formato |
 |---|---|---|---|
-| P-16 | **Logos de agencias** donde alumnos de Miami Ad School hicieron prácticas (hay 10 espacios; se borran los que sobren) | Sección «10 semanas dentro de una agencia» · `.mas-logo` | SVG o PNG con fondo transparente, versión horizontal (README · paso 6 bis) |
-| P-16 | Confirmar que cada agencia es un caso real y que la red MAS está de acuerdo en mostrar su logo | Misma sección | — |
-| P-16 | Validar los textos: «después del primer año de clases», «10 semanas», «10 semanas dentro de las mejores agencias del mundo» (titular pedido por Ricardo: los logos que se muestren tienen que sostenerlo) y «Algunas agencias donde alumnos de Miami Ad School han hecho sus prácticas» | Hero, cinta, capítulo 3 de los 18 meses, sección de prácticas y preguntas frecuentes | — |
+| P-16 | **Logos de agencias** donde quien entra hoy puede hacer sus prácticas (hay 10 espacios; se borran los que sobren) | Sección «10 semanas fuera del salón» · `.mas-logo` | SVG o PNG con fondo transparente, versión horizontal (README · paso 6 bis) |
+| P-16 | Confirmar que cada agencia recibe hoy practicantes de Miami Ad School (el pie dice «Agencias donde puedes hacer tus prácticas profesionales») y que la red MAS está de acuerdo en mostrar su logo | Misma sección | — |
+| P-16 | Validar los textos: «después de tu primer año», «10 semanas», «en las mejores agencias del mundo» (copy de Ricardo: los logos que se muestren tienen que sostenerlo), «el estándar de una agencia global» y «esas 10 semanas pueden abrirte conversaciones y oportunidades reales» (dice «pueden», no promete empleo) | Hero, cinta, sección de prácticas y preguntas frecuentes | — |
 | P-16 | Cómo se asignan las prácticas, en qué ciudad o modalidad, si tienen costo extra y si aplican a todas las personas. Hoy la página **no** promete nada de esto: dice que se explica en la entrevista | Nota de la sección de prácticas y pregunta frecuente | — |
 
 ## 3. Tipografías

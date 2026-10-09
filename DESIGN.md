@@ -92,7 +92,7 @@ Implementación de referencia: `miami-ad-school-vsl/landing.css` (todo bajo `.ma
 - **Hot** `#FF009B` (Rhodamine Red C): el color de la marca. Campos completos (cinta, veredicto, entrevista), botones principales y la palabra «portafolio». Encima, siempre texto negro (5.4:1).
 
 ### Secondary (paleta secundaria M.AD, en campos completos)
-- **Acid** `#FFFF3E` (101 C): el punto. Cursor, progreso, play y la sección «No vengas a coleccionar clases».
+- **Acid** `#FFFF3E` (101 C): el punto. Cursor, progreso, «Ver video» y la cuenta regresiva de inicios.
 - **Blue** `#3391F4` (2727 C): panel de Art Direction.
 - **Green** `#00D357` (2420 C): «Esto es para ti si…».
 - **Campo claro** `#F7F5F2` con titular negro + magenta `#C2007A` (la referencia de «La diferencia»): panel de Copywriting, capítulo 3 y la sección de prácticas. Ricardo descartó el violeta y el naranja como campos.
@@ -148,7 +148,7 @@ Píldora de 60 px. El hover llena el botón desde abajo con el color de acción 
 
 ### Do:
 - Usar los archivos oficiales del logo y del M-dot; nunca redibujarlos.
-- Mostrar evidencia real (books, testimonio y crítica en video con permiso) antes que afirmar resultados.
+- Mostrar evidencia real (books y testimonio con permiso) antes que afirmar resultados.
 - Mantener todo el contenido visible sin JavaScript y con `prefers-reduced-motion`.
 
 ### Don't:

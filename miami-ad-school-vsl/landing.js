@@ -352,20 +352,6 @@
   }
 
   /* --- Movimiento ------------------------------------------------------------ */
-  var processEl = root.querySelector('.mas-process');
-  function measureProcess() {
-    if (!processEl) return;
-    var items = processEl.querySelectorAll('.mas-process__steps li');
-    var dot = processEl.querySelector('.mas-process__dot');
-    if (!items.length || !dot) return;
-    // En móvil el proceso es vertical y el punto no viaja (ver CSS).
-    var distance = items[items.length - 1].getBoundingClientRect().left - items[0].getBoundingClientRect().left;
-    processEl.style.setProperty('--track', Math.max(0, Math.round(distance)) + 'px');
-  }
-  var processMeasured = false;
-  whenNear(processEl, function () { processMeasured = true; measureProcess(); });
-  window.addEventListener('resize', throttle(function () { if (processMeasured) measureProcess(); }), { passive: true });
-
   if (!mqReduce.matches && canObserve) {
     root.classList.add('has-motion');
     var reveals = root.querySelectorAll('[data-reveal]');

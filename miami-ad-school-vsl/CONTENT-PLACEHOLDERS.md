@@ -48,8 +48,7 @@ No usar fotografía de stock de estudiantes sonriendo frente a una laptop.
 
 | Código | Qué falta | Notas |
 |---|---|---|
-| P-07 | Un testimonio real y específico, con nombre, rol actual y autorización por escrito | Va en la tarjeta fucsia de «Pruebas», justo después del hero. Hoy dice que está pendiente. Nunca inventarlo ni parafrasearlo. |
-| P-15 | Video corto (30–60 s) de un maestro criticando un proyecto real | Tarjeta negra de «Pruebas». Con permiso del alumno cuyo proyecto se critica. |
+| P-07 | Un testimonio real y específico, con nombre, rol actual y autorización por escrito | Va en la tarjeta fucsia de la bienvenida, junto a la foto del salto. Hoy dice que está pendiente. Nunca inventarlo ni parafrasearlo. |
 
 ## 5. Datos académicos y fechas
 

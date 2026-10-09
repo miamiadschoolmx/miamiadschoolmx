@@ -27,7 +27,7 @@ Para ver la vista previa local, abre una terminal en esta carpeta y corre `pytho
 3. Elige **plantilla en blanco**. No uses una plantilla con header, menú o footer: la landing no debe tener enlaces que saquen a la persona del recorrido.
 4. En la configuración de la página (**Settings**) define:
    - **Título SEO:** `Construye tu portafolio creativo · Miami Ad School México`
-   - **Descripción:** `Art Direction y Copywriting, online y en vivo. Construye el book, el criterio y la confianza para competir en la industria creativa. Agenda tu entrevista sin costo.`
+   - **Descripción:** `Art Direction y Copywriting, online y en vivo, en la escuela siete veces Escuela del Año en Cannes Lions. Construye el book que abre conversaciones con la industria. Agenda tu entrevista sin costo.`
    - **Idioma:** español (`es-MX`), si tu cuenta lo permite.
    - **Imagen para compartir (OG):** una imagen oficial de 1200 × 630 px (ver `CONTENT-PLACEHOLDERS.md`).
 5. **No publiques todavía.**
@@ -69,12 +69,13 @@ Las rutas `fonts/...` del CSS solo funcionan en la vista previa local. En GHL ne
 
 1. Sube a la **biblioteca de medios** de GHL:
    - `fonts/archivo-latin-wdth-normal.woff2` (texto y respaldo de titulares).
-   - `Obviously-Narrow_Medium.woff`, de la carpeta de Drive *01 Brand Kit › 07 Tipografia › Web* (titulares de marca).
+   - `Obviously-Narrow_Bold.woff` y `Obviously-Narrow_Medium.woff`, de la carpeta de Drive *01 Brand Kit › 07 Tipografia › Web*. Los titulares usan la **Bold**.
 2. Copia la URL pública de cada archivo.
 3. En el CSS:
    - Reemplaza las dos apariciones de `fonts/archivo-latin-wdth-normal.woff2` por la URL de Archivo.
-   - Descomenta el bloque `@font-face` de **Obviously Narrow** (quita `/*` y `*/`) y pon su URL en lugar de `REEMPLAZAR_URL_OBVIOUSLY_NARROW_MEDIUM.woff`.
-4. Confirma con quien administre la licencia de Obviously que cubre uso web en `tufuturocreativo.com`.
+   - Descomenta los dos bloques `@font-face` de **Obviously Narrow** (quita `/*` y `*/`) y pon sus URLs en lugar de `REEMPLAZAR_URL_OBVIOUSLY_NARROW_BOLD.woff` y `REEMPLAZAR_URL_OBVIOUSLY_NARROW_MEDIUM.woff`.
+4. En `.mas-vsl` del CSS, cambia `--display-weight: 800;` por `700` (el 800 solo engorda a Archivo para imitar a Obviously Bold). Deja `--display-stretch` igual: sirve para que el respaldo en Archivo se vea angosto si Obviously no carga. Los titulares gigantes se ajustan solos al ancho con el JS, así que no se desbordan aunque Obviously mida distinto.
+5. Confirma con quien administre la licencia de Obviously que cubre uso web en `tufuturocreativo.com`.
 
 Si la biblioteca de medios no acepta archivos de fuente, súbelos a otro almacenamiento propio con HTTPS, o pídele al equipo técnico que los sirva desde el dominio. Evita cargar fuentes desde servicios de terceros sin decidirlo antes.
 
@@ -214,6 +215,8 @@ Hoy **no se envía nada**. Todos los eventos solo se guardan en `window.masVsl.e
 - [ ] Con «reducir movimiento» activado en el sistema, no hay animaciones.
 - [ ] Corre Lighthouse en la URL de vista previa de GHL. Ojo: GHL agrega sus propios scripts, así que el puntaje será menor que en la vista previa local (que dio 99–100).
 - [ ] Revisa que los estilos globales de GHL no cambien titulares, botones ni listas dentro de la landing.
+- [ ] Con mouse: el punto amarillo sigue al cursor y dice «Ver» sobre los books y «Play» sobre el video. En celular no aparece (es correcto).
+- [ ] Si el builder de GHL aplica `transform` a la sección contenedora, el cursor-punto y el indicador de progreso podrían desfasarse; en ese caso quita el `transform` de esa sección.
 
 **Medición** (solo cuando se active el paso 10)
 - [ ] Meta Events Manager → **Probar eventos**: llegan `Lead` y `Schedule` sin duplicarse.

@@ -16,7 +16,7 @@ Todo lo que la landing necesita para salir. Cada código `P-xx` aparece en `land
 
 | Código | Qué falta | Dónde | Formato |
 |---|---|---|---|
-| P-01 | Logo oficial Miami Ad School México | `.mas-brand` (hoy es texto) | SVG |
+| P-01 | Logo oficial Miami Ad School México, versión para fondo negro | `.mas-brand` (hoy es texto) | SVG |
 | P-02 | Imagen del hero: pieza real del book de un graduado, con autorización | `.mas-plate--image` | 4:5 · 1600 × 2000 px |
 | P-05 | Key visual de Art Direction | `.mas-board__tile--key` | 4:5 o cuadrado, mínimo 800 px |
 | P-06 | Preview de cada uno de los 8 books, autorizado por su autor | `.mas-book__cover` | 4:5 · 1000 × 1250 px |
@@ -29,7 +29,7 @@ No usar fotografía de stock de estudiantes sonriendo frente a una laptop.
 
 | Código | Qué falta | Notas |
 |---|---|---|
-| P-13 | URL de **Obviously Narrow Medium** en GHL | El archivo `.woff` está en Drive (*01 Brand Kit › 07 Tipografia › Web*). Hay que confirmar que la licencia cubre uso web en `tufuturocreativo.com`. |
+| P-13 | URL de **Obviously Narrow Bold** (titulares) y **Medium** en GHL | Los `.woff` están en Drive (*01 Brand Kit › 07 Tipografia › Web*). Hay que confirmar que la licencia cubre uso web en `tufuturocreativo.com`. |
 | P-13 | **Obviously Regular** (texto corrido, según el manual de marca) | No está en Drive. Mientras no llegue, el texto usa Archivo. |
 | P-13 | URL de Archivo en GHL | Subir `fonts/archivo-latin-wdth-normal.woff2` (licencia OFL). |
 
@@ -37,7 +37,8 @@ No usar fotografía de stock de estudiantes sonriendo frente a una laptop.
 
 | Código | Qué falta | Notas |
 |---|---|---|
-| P-07 | Testimonios reales, con nombre y autorización por escrito | La landing **no tiene testimonios** porque no hay ninguno autorizado. Si se consiguen, su lugar natural es justo después de los books. Nunca inventarlos ni parafrasearlos. |
+| P-07 | Un testimonio real y específico, con nombre, rol actual y autorización por escrito | Va en la tarjeta fucsia de «Pruebas», justo después del hero. Hoy dice que está pendiente. Nunca inventarlo ni parafrasearlo. |
+| P-15 | Video corto (30–60 s) de un maestro criticando un proyecto real | Tarjeta negra de «Pruebas». Con permiso del alumno cuyo proyecto se critica. |
 
 ## 5. Datos académicos y fechas
 
@@ -52,7 +53,9 @@ No usar fotografía de stock de estudiantes sonriendo frente a una laptop.
 
 | Código | Texto | Qué validar |
 |---|---|---|
-| P-14 | «Miami Ad School ha sido reconocida como Escuela del Año en Cannes Lions en múltiples ocasiones.» | Fuente verificable (Cannes Lions). No agregar número de veces sin fuente. |
+| P-14 | «Miami Ad School ha sido reconocida siete veces como Future Lions School of the Year, incluyendo 2025.» (también en el sello del hero y en la descripción SEO) | Verificado en prensa: The Drum, «Miami Ad School claims record seventh Future Lions School of the Year title» (10 jul 2025), y en miamiadschool.com. Confirmar con la red MAS que México puede usarlo así. |
+| — | «Carrera Creativa», «18 meses» | Nombre del programa y duración vigentes. |
+| — | «Muchas personas llegan mientras trabajan.» (preguntas frecuentes) | Que sea cierto en la generación actual. |
 | — | «Emmanuel Rocha y Antonio Fragoso son maestros activos en Miami Ad School México.» | Que sigan activos al publicar y que estén de acuerdo con aparecer. |
 | — | Los 8 graduados y sus URLs | Que cada persona autorice aparecer y que su sitio siga en línea. No se pudieron abrir desde el entorno donde se construyó la página. |
 | — | «Online y en vivo», «Entrevista sin costo» | Que sigan siendo ciertos. |

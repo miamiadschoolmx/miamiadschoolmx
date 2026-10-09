@@ -334,21 +334,120 @@
     for (var a2 = 0; a2 < all.length; a2++) all[a2].classList.add('is-in');
   }
 
-  /* --- Progreso de lectura (escritorio) ------------------------------------- */
+  /* --- Titulares gigantes: se ajustan al ancho disponible -------------------
+     Cada fuente mide distinto (Archivo en la vista previa, Obviously en GHL):
+     si la línea no cabe, se reduce lo justo para que nunca desborde. */
+  var fits = root.querySelectorAll('[data-fit]');
+  function fitAll() {
+    for (var f = 0; f < fits.length; f++) {
+      var el = fits[f];
+      el.style.fontSize = '';
+      var avail = el.clientWidth;
+      var need = el.scrollWidth;
+      // data-fit="fill" además crece hasta ocupar todo el ancho.
+      if (avail > 0 && (need > avail || el.getAttribute('data-fit') === 'fill')) {
+        var size = parseFloat(getComputedStyle(el).fontSize);
+        el.style.fontSize = Math.floor(size * (avail / need) * 0.98) + 'px';
+      }
+    }
+  }
+  if (fits.length) {
+    requestAnimationFrame(fitAll);
+    window.addEventListener('resize', throttle(fitAll), { passive: true });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitAll);
+  }
+
+  /* --- Motor de scroll: progreso, cinta y líneas que se encienden ----------- */
   var progress = root.querySelector('.mas-progress');
-  if (progress) {
-    var ticking = false;
-    var update = function () {
-      ticking = false;
+  var tickerRow = root.querySelector('[data-ticker]');
+  var glowItems = root.querySelectorAll('[data-glow] > *');
+  var motionOK = !mqReduce.matches;
+  var ticking = false;
+
+  function onScroll() {
+    ticking = false;
+    var vh = window.innerHeight;
+    if (progress) {
       var rect = root.getBoundingClientRect();
-      var total = rect.height - window.innerHeight;
+      var total = rect.height - vh;
       var p = total > 0 ? Math.min(1, Math.max(0, -rect.top / total)) : 0;
       progress.style.setProperty('--p', p.toFixed(4));
+    }
+    if (tickerRow && motionOK) {
+      // La cinta avanza con el scroll (no se mueve sola), así que no necesita botón de pausa.
+      var copy = tickerRow.scrollWidth / 3;
+      var x = copy ? (window.pageYOffset * 0.45) % copy : 0;
+      tickerRow.style.setProperty('--x', x.toFixed(1));
+    }
+    if (glowItems.length && root.classList.contains('has-motion')) {
+      for (var g = 0; g < glowItems.length; g++) {
+        var top = glowItems[g].getBoundingClientRect().top;
+        glowItems[g].classList.toggle('is-lit', top < vh * 0.62);
+      }
+    }
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+  }, { passive: true });
+  window.addEventListener('resize', throttle(onScroll), { passive: true });
+  requestAnimationFrame(onScroll);
+
+  /* --- Cursor-punto (solo mouse, solo si se permite movimiento) -------------
+     Es un acompañante del cursor nativo, nunca lo reemplaza. */
+  var cursor = root.querySelector('.mas-cursor');
+  var fine = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (cursor && fine && motionOK) {
+    root.classList.add('has-cursor');
+    var label = cursor.querySelector('.mas-cursor__label');
+    var tx = -100, ty = -100, cx = -100, cy = -100, running = false;
+    var loop = function () {
+      cx += (tx - cx) * 0.22;
+      cy += (ty - cy) * 0.22;
+      cursor.style.transform = 'translate3d(' + cx.toFixed(1) + 'px,' + cy.toFixed(1) + 'px,0)';
+      if (Math.abs(tx - cx) > 0.1 || Math.abs(ty - cy) > 0.1) requestAnimationFrame(loop);
+      else running = false;
     };
-    window.addEventListener('scroll', function () {
-      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    document.addEventListener('mousemove', function (e) {
+      tx = e.clientX; ty = e.clientY;
+      cursor.classList.remove('is-hidden');
+      if (!running) { running = true; requestAnimationFrame(loop); }
     }, { passive: true });
-    requestAnimationFrame(update);
+    document.documentElement.addEventListener('mouseleave', function () { cursor.classList.add('is-hidden'); });
+    root.addEventListener('mouseover', function (e) {
+      var t = e.target.closest ? e.target.closest('[data-cursor]') : null;
+      var player = e.target.closest ? e.target.closest('.mas-player') : null;
+      var playing = player && player.querySelector('iframe, video');
+      if (t && !playing) {
+        label.textContent = t.getAttribute('data-cursor');
+        cursor.classList.add('is-big');
+      } else {
+        cursor.classList.remove('is-big');
+      }
+      cursor.classList.toggle('is-hidden', !!playing);
+    });
+  }
+
+  /* --- Galería de books: arrastrar con el mouse ----------------------------- */
+  var dragEl = root.querySelector('[data-drag]');
+  if (dragEl) {
+    var down = false, moved = false, startX = 0, startLeft = 0;
+    dragEl.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      down = true; moved = false; startX = e.clientX; startLeft = dragEl.scrollLeft;
+    });
+    window.addEventListener('pointermove', function (e) {
+      if (!down) return;
+      var dx = e.clientX - startX;
+      if (!moved && Math.abs(dx) > 6) { moved = true; dragEl.classList.add('is-dragging'); }
+      if (moved) dragEl.scrollLeft = startLeft - dx;
+    });
+    window.addEventListener('pointerup', function () {
+      if (!down) return;
+      down = false;
+      if (moved) setTimeout(function () { dragEl.classList.remove('is-dragging'); }, 0);
+    });
+    // Si hubo arrastre, el clic no abre el book.
+    dragEl.addEventListener('click', function (e) { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
   }
 
   /* --- Utilidades ------------------------------------------------------------ */

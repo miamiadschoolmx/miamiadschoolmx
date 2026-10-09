@@ -18,11 +18,11 @@ Tráfico frío de Meta Ads (Instagram y Facebook) en México y LATAM: personas c
 
 ## Product Purpose
 
-Miami Ad School México forma en Art Direction y Copywriting, online y en vivo. La landing convierte tráfico frío en entrevistas calificadas por videollamada con Ricardo. Éxito = entrevistas agendadas con personas que entienden qué ofrece la escuela y por qué.
+Miami Ad School México forma en Art Direction y Copywriting con Carrera Creativa: un proceso de 18 meses, online y en vivo. La landing convierte tráfico frío en entrevistas calificadas por videollamada con Ricardo. Éxito = entrevistas agendadas con personas que entienden qué ofrece la escuela y por qué.
 
 ## Positioning
 
-«Tu título no te abrirá las puertas de las mejores agencias. Tu portafolio sí.» No se vende una carrera académica, sino una transformación profesional: pasar de tener interés o talento creativo a tener un portafolio que abra conversaciones con la industria.
+Big Idea: «El talento no te consigue trabajo. Tu portafolio sí.» (variante usada antes: «Tu título no te abrirá las puertas de las mejores agencias. Tu portafolio sí.»). No se vende una carrera académica, sino una transformación profesional: pasar de tener interés o talento creativo a tener un portafolio que abra conversaciones con la industria.
 
 ## Operating Context
 
@@ -39,7 +39,7 @@ Anuncio en Meta → landing → VSL → explicación del programa → evidencia 
 
 - Manual de identidad M.AD School of Ideas 1.0 y guía web de Miami Ad School (en Drive: *01 Brand Kit › 01 Identidad*). Se pronuncia «em-ad».
 - Tipografía: Obviously Narrow (Regular, Medium, Semibold, Bold) para titulares y Obviously Regular para texto. Obviously Regular no está disponible todavía.
-- Color: paleta primaria de rosas (M.AD Pink, PMS 238 C, `#FF5CCD`) y paleta secundaria solo para el punto del M-dot.
+- Color: paleta primaria de rosas y paleta secundaria M.AD. Para la landing, Ricardo dio libertad de color y descartó el rosa pastel: negro, fucsia Rhodamine y campos de la paleta secundaria.
 - Texto alineado a la izquierda, en sentence case, sin mayúsculas en titulares y sin tracking abierto.
 - El M-dot y el wordmark se usan solo con los archivos oficiales; nunca se redibujan.
 
@@ -47,8 +47,8 @@ Anuncio en Meta → landing → VSL → explicación del programa → evidencia 
 
 - Books de graduados con URL: Emmanuel Rocha, Antonio Fragoso, Fernando Carrión, Jacky Salomé (Copywriting); Sarah Cardona, Xavi Ocaña, Catarina Barcala, Hanna Choi (Art Direction).
 - Emmanuel Rocha y Antonio Fragoso son maestros activos en Miami Ad School México.
-- Claim permitido con redacción prudente: «Miami Ad School ha sido reconocida como Escuela del Año en Cannes Lions en múltiples ocasiones» (fuente por adjuntar).
-- **No hay:** testimonios autorizados, datos de colocación, salarios ni imágenes oficiales de books. No fabricarlos.
+- Miami Ad School ha sido reconocida siete veces como Future Lions School of the Year, incluyendo 2025 (récord; fuente: The Drum, 10 jul 2025, y miamiadschool.com).
+- **No hay todavía:** testimonios autorizados, video de crítica, datos de colocación, salarios ni imágenes oficiales de books. No fabricarlos.
 
 ## Product Principles
 

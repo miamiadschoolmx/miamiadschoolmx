@@ -1,154 +1,153 @@
 ---
 name: Miami Ad School México · Landing VSL
-description: Editorial, preciso y aspiracional; el rosa es la pluma del maestro y el amarillo es la siguiente acción.
+description: Negro, fucsia M.AD a toda potencia y la paleta secundaria en campos completos; tipografía gorda que ocupa la pantalla.
 colors:
-  paper: "#FFF3F7"
-  sheet: "#FFFFFF"
-  ink: "#111010"
-  ink-secondary: "#5A4852"
-  night: "#111010"
-  night-raised: "#1B1A1A"
-  on-night: "#FFF3F7"
-  on-night-secondary: "#D2BEC8"
-  action-yellow: "#FFCF00"
-  action-yellow-press: "#F0C000"
-  pink-soft: "#FFCEDD"
-  pink-pen: "#EC009F"
-  pink-text: "#AD007A"
-  pink-on-night: "#FF5CCD"
+  black: "#0A0A0A"
+  black-raised: "#151515"
+  white: "#F7F5F2"
+  white-secondary: "#A9A39E"
+  dim: "#6E6964"
+  hot: "#FF009B"
+  hot-press: "#E6008B"
+  hot-ink: "#C2007A"
+  on-hot-secondary: "#2B0019"
+  acid: "#FFFF3E"
+  blue: "#3391F4"
+  orange: "#FF9812"
+  green: "#00D357"
+  violet: "#A572FF"
+  pink: "#FF5CCD"
+  light: "#F7F5F2"
+  light-secondary: "#4D4844"
 typography:
-  display:
-    fontFamily: "Obviously Narrow, Archivo Variable (font-stretch 74%), sans-serif"
-    fontSize: "clamp(2.25rem, 1.45rem + 3.4vw, 4.5rem)"
-    fontWeight: 560
-    lineHeight: 0.98
-    letterSpacing: "-0.012em"
-  hero-punch:
-    fontFamily: "Obviously Narrow, Archivo Variable (font-stretch 74%), sans-serif"
-    fontSize: "clamp(3.1rem, 1.6rem + 6.6vw, 6rem)"
-    fontWeight: 560
-    lineHeight: 0.95
+  giant:
+    fontFamily: "Obviously Narrow Bold, Archivo Variable (wght 800, wdth 74%), sans-serif"
+    fontSize: "clamp(2.4rem, 13.2vw, 12rem)"
+    fontWeight: 800
+    lineHeight: 0.86
+    letterSpacing: "-0.035em"
+  poster:
+    fontFamily: "Obviously Narrow Bold, Archivo Variable (wght 800, wdth 74%), sans-serif"
+    fontSize: "clamp(3rem, 0.8rem + 9vw, 10.5rem)"
+    fontWeight: 800
+    lineHeight: 0.88
+    letterSpacing: "-0.03em"
+  heading-2:
+    fontFamily: "Obviously Narrow Bold, Archivo Variable (wght 800, wdth 74%), sans-serif"
+    fontSize: "clamp(2.75rem, 1.3rem + 5.2vw, 6.75rem)"
+    fontWeight: 800
+    lineHeight: 0.9
     letterSpacing: "-0.02em"
   heading-3:
-    fontFamily: "Obviously Narrow, Archivo Variable (font-stretch 74%), sans-serif"
-    fontSize: "clamp(1.375rem, 1.15rem + 0.9vw, 1.875rem)"
-    fontWeight: 560
-    lineHeight: 1.05
+    fontFamily: "Obviously Narrow Bold, Archivo Variable (wght 800, wdth 74%), sans-serif"
+    fontSize: "clamp(1.5rem, 1.2rem + 1.1vw, 2.25rem)"
+    fontWeight: 800
+    lineHeight: 1
   body:
     fontFamily: "Archivo Variable, Archivo, system-ui, sans-serif"
     fontSize: "clamp(1.0625rem, 1rem + 0.22vw, 1.1875rem)"
     fontWeight: 400
     lineHeight: 1.5
-  small:
-    fontFamily: "Archivo Variable, Archivo, system-ui, sans-serif"
-    fontSize: "0.9375rem"
-    fontWeight: 400
-    lineHeight: 1.4
 rounded:
-  none: "0px"
+  card: "clamp(0.75rem, 1.6vw, 1.5rem)"
   pill: "999px"
 spacing:
   gutter: "clamp(1rem, 5vw, 4.5rem)"
   column-gap: "clamp(0.75rem, 1.6vw, 1.5rem)"
-  section: "clamp(5rem, 3rem + 8vw, 10rem)"
+  section: "clamp(5.5rem, 3rem + 9vw, 11rem)"
 components:
-  button-primary:
-    backgroundColor: "{colors.action-yellow}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.none}"
-    padding: "14px 24px"
-    height: "56px"
-  button-primary-hover:
-    backgroundColor: "{colors.action-yellow-press}"
-  button-ink:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.paper}"
-    rounded: "{rounded.none}"
-    height: "56px"
-  button-light:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.none}"
-    height: "56px"
-  chip:
-    textColor: "{colors.ink}"
+  button-hot:
+    backgroundColor: "{colors.hot}"
+    textColor: "{colors.black}"
     rounded: "{rounded.pill}"
-    height: "44px"
+    height: "60px"
+  button-hot-hover:
+    backgroundColor: "{colors.acid}"
+  button-ink:
+    backgroundColor: "{colors.black}"
+    textColor: "{colors.white}"
+    rounded: "{rounded.pill}"
+    height: "60px"
+  button-ink-hover:
+    backgroundColor: "{colors.white}"
+    textColor: "{colors.black}"
   chip-selected:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.paper}"
+    backgroundColor: "{colors.hot}"
+    textColor: "{colors.black}"
+    rounded: "{rounded.pill}"
 ---
 
 # Design System: Miami Ad School México · Landing VSL
 
 ## Overview
 
-Una escuela de ideas, no una universidad. La página se lee como un book en proceso: piezas de papel, bocetos y borradores con correcciones a mano en rosa. Fondo claro de la paleta M.AD, negro para los momentos de máxima atención (VSL, veredicto, books) y amarillo solo donde hay una acción. Minimalista sin estar vacía; cada sección alterna silencio e impacto.
+La escuela con más títulos de Future Lions School of the Year, en voz alta. Base negra, porque el tráfico llega de Instagram de noche y en modo oscuro. Encima va tipografía gorda que ocupa la pantalla. Cada sección toma un color de la paleta M.AD a campo completo, igual que el punto del M-dot cambia de color cada vez: fucsia, ácido, azul, naranja y verde. Nunca rosa pastel.
 
 Implementación de referencia: `miami-ad-school-vsl/landing.css` (todo bajo `.mas-vsl`).
 
 ## Colors
 
 ### Primary
-- **Paper** `#FFF3F7`: el rosa más claro de la guía web; fondo base.
-- **Ink** `#111010`: texto, negro de marca y fondos de alto contraste.
+- **Black** `#0A0A0A` y **White** `#F7F5F2`: base y texto.
+- **Hot** `#FF009B` (Rhodamine Red C): el color de la marca. Campos completos (cinta, veredicto, entrevista), botones principales y la palabra «portafolio». Encima, siempre texto negro (5.4:1).
 
-### Secondary
-- **Action yellow** `#FFCF00` (PMS 7548 C): **solo** botones de acción y el botón de play. Texto negro encima (12.8:1).
-
-### Tertiary
-- **Pink pen** `#EC009F` (PMS 226 C) sobre claro y `#FF5CCD` (M.AD Pink) sobre negro: marcas de corrección, el punto del proceso y el progreso de lectura.
-- **Pink text** `#AD007A` (PMS 2425 C): texto rosa sobre claro (6.3:1).
-- **Pink soft** `#FFCEDD` (PMS 182 C): paneles de Copywriting y de la sección de entrevista.
+### Secondary (paleta secundaria M.AD, en campos completos)
+- **Acid** `#FFFF3E` (101 C): el punto. Cursor, progreso, play y la sección «No vengas a coleccionar clases».
+- **Blue** `#3391F4` (2727 C): panel de Art Direction.
+- **Orange** `#FF9812` (1495 C): panel de Copywriting.
+- **Green** `#00D357` (2420 C): «Esto es para ti si…».
+- Portadas de books: rotan fucsia, ácido, azul, naranja, verde, violeta `#A572FF`, blanco y rosa `#FF5CCD`.
 
 ### Named Rules
-- El rosa corrige y el amarillo actúa: nunca se intercambian.
-- Texto secundario teñido de la marca (`#5A4852`, `#D2BEC8`), nunca gris neutro.
+- Sobre cualquier color de la paleta el texto va en negro. El blanco solo va sobre negro.
+- Fucsia como texto sobre claro: `#C2007A` (5.4:1), nunca `#FF009B` (3.4:1).
+- Texto secundario teñido del campo, nunca gris neutro sobre color.
 
 ## Typography
 
-Obviously Narrow Medium para titulares (fuente de marca; en la vista previa se usa Archivo con ancho condensado). Archivo Regular para texto, mientras llega Obviously Regular. Máximo dos familias.
+Obviously Narrow **Bold** para todos los titulares. En la vista previa se imita con Archivo a peso 800 y ancho 74%. El texto corrido va en Archivo Regular hasta que llegue Obviously Regular.
 
 ### Hierarchy
-- Display: el titular del hero, en dos tiempos (la premisa a tamaño medio y «Tu portafolio sí.» a gran escala).
-- Títulos de sección: medianos, interlineado cerrado y ancho máximo de 13 a 22 caracteres.
-- Texto: entre 65 y 75 caracteres por línea, interlineado 1.5.
+- **Giant:** «Tu portafolio sí.» en el hero y en el cierre. Ocupa el ancho; el JS (`data-fit`) la ajusta para que nunca desborde.
+- **Poster:** frases de sección a pantalla completa (veredicto, la diferencia).
+- **H2:** de 13 a 15 caracteres por línea, interlineado 0.9.
+- **Texto:** 1.0625–1.1875rem, 65–75 caracteres por línea.
 
 ### Named Rules
-- Todo alineado a la izquierda, en sentence case, sin mayúsculas en titulares y sin tracking abierto (manual M.AD).
+- Sentence case, alineado a la izquierda, sin mayúsculas en titulares y sin tracking abierto (manual M.AD). El tracking negativo solo se usa en tamaños grandes.
 
 ## Layout
 
-Grid de 12 columnas, ancho máximo de 90rem y medianil fluido hasta 72 px (la guía web pide márgenes de 72 px). Mobile-first: en menos de 48em todo va a una columna; los pasos del proceso y las etapas se vuelven verticales. Secciones asimétricas: la escalera del problema, los paneles desiguales de Art Direction y Copywriting, y la galería horizontal de books que desborda el grid.
+Grid de 12 columnas, ancho máximo de 90rem y medianil fluido hasta 72 px. Secciones a sangre completa que alternan negro, campo de color y claro. Composición asimétrica: escalera en «La brecha», paneles que se expanden en Art Direction y Copywriting, galería que se arrastra y tarjetas de etapas que se apilan con `position: sticky`.
 
 ## Elevation & Depth
 
-Solo las piezas de papel del collage, el manuscrito y el módulo de entrevista llevan sombra suave con desplazamiento. No hay sombras duras ni brillos de color.
+Solo el papel del collage, el manuscrito, el módulo de entrevista y las tarjetas apiladas llevan sombra suave con desplazamiento. No hay brillos de color.
 
 ## Shapes
 
-Botones y planos con esquinas rectas. Solo los chips de selección y los puntos son redondos: el punto viene del M-dot.
+Botones y chips en píldora; tarjetas con radio de 0.75 a 1.5rem. El punto (círculo ácido) es la forma de marca: viene del M-dot.
 
 ## Components
 
 ### Buttons
-Rectangulares de 56 px de alto con flecha que avanza 3 px al hover. Variantes: amarillo (acción principal), tinta (sobre claro) y papel (sobre negro).
+Píldora de 60 px. El hover llena el botón desde abajo con el color de acción (fucsia → ácido; tinta → blanco) y la flecha avanza 4 px.
 
-### Chips
-Selector «Me interesa» con `aria-pressed`; seleccionado = tinta sólida.
-
-### Signature: pluma del maestro
-Círculos, tachados y subrayados en rosa, como SVG con trazo dibujado. El círculo alrededor de «portafolio» es el único momento animado al cargar.
+### Signature: el punto y la pluma
+- Cursor-punto ácido que sigue al mouse y crece con una etiqueta («Ver», «Play»). Solo con mouse y solo si se permite movimiento; nunca reemplaza al cursor nativo.
+- Pluma: el círculo ácido alrededor de «portafolio», la barra negra que tacha «intención» y los tachados fucsia de «No es para ti».
+- Cinta fucsia que avanza con el scroll, no por tiempo.
+- Las líneas de «La brecha» se encienden al leerlas.
 
 ## Do's and Don'ts
 
 ### Do:
-- Usar el logo y el M-dot oficiales en archivo, nunca redibujados.
-- Mostrar evidencia real (books, maestros y proceso) en vez de afirmar resultados.
-- Respetar `prefers-reduced-motion` y mantener el contenido visible sin JavaScript.
+- Usar los archivos oficiales del logo y del M-dot; nunca redibujarlos.
+- Mostrar evidencia real (books, testimonio y crítica en video con permiso) antes que afirmar resultados.
+- Mantener todo el contenido visible sin JavaScript y con `prefers-reduced-motion`.
 
 ### Don't:
-- Degradados tipo SaaS, fondos morados, neones o glassmorphism.
+- Rosa pastel, degradados tipo SaaS, glassmorphism ni neones con brillo.
+- Recortar al 100% un elemento observado por IntersectionObserver: deja de detectarse y no se revela.
 - Tarjetas iguales de ícono + título + texto como estructura de la página.
-- Eyebrows en mayúsculas espaciadas sobre los títulos, o numeración de secciones.
 - Fotos de stock de estudiantes sonriendo frente a una laptop.

@@ -76,7 +76,7 @@
     target.scrollIntoView({ behavior: mqReduce.matches ? 'auto' : 'smooth', block: 'start' });
     if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
     target.focus({ preventScroll: true });
-    if (window.history && history.replaceState) history.replaceState(null, '', '#' + id);
+    try { if (window.history && history.replaceState) history.replaceState(null, '', '#' + id); } catch (err) { /* marco aislado: se ignora */ }
   });
 
   /* --- Eventos por clic (data-event) --------------------------------------- */

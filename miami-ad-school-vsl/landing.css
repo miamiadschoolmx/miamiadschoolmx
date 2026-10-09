@@ -90,7 +90,7 @@
   color: var(--fg);
   font-family: var(--font);
   font-size: var(--t-body);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.5;
   text-align: left;
   -webkit-font-smoothing: antialiased;
@@ -145,6 +145,9 @@
   background: var(--bg); color: var(--fg);
 }
 
+/* Texto sobre campos de color: semibold para que se lea con claridad en pantalla */
+.mas-vsl :where(.mas-path, .mas-sec-build, .mas-fit__col--yes, .mas-ev--quote, .mas-apply__intro, .mas-stage, .mas-verdict) :where(p, li, dd, span) { font-weight: 650; }
+
 /* --- Reset local ---------------------------------------------------------- */
 .mas-vsl,
 .mas-vsl *,
@@ -167,7 +170,7 @@
 }
 .mas-vsl :where(img, svg, video, iframe) { display: block; max-width: 100%; }
 .mas-vsl :where(img, video) { height: auto; }
-.mas-vsl :where(strong) { font-weight: 700; }
+.mas-vsl :where(strong) { font-weight: 750; }
 .mas-vsl [hidden] { display: none !important; }
 
 .mas-vsl ::selection { background: var(--hot); color: var(--black); }
@@ -1086,8 +1089,8 @@
   max-width: 20ch;
   text-wrap: balance;
 }
-.mas-vsl .mas-path__support { margin-top: 1.25rem; color: var(--fg); max-width: 40ch; }
-.mas-vsl .mas-path__for { margin-top: .75rem; color: var(--fg-2); max-width: 40ch; font-size: var(--t-small); }
+.mas-vsl .mas-path__support { margin-top: 1.25rem; color: var(--fg); max-width: 40ch; font-size: clamp(1.125rem, 1rem + .4vw, 1.3125rem); line-height: 1.4; }
+.mas-vsl .mas-path__for { margin-top: .875rem; color: var(--fg); max-width: 40ch; font-size: 1rem; line-height: 1.45; }
 .mas-vsl .mas-path .mas-btn { margin-top: 2rem; }
 @media (max-width: 47.99em) {
   .mas-vsl .mas-path .mas-btn { width: 100%; justify-content: space-between; text-align: left; }

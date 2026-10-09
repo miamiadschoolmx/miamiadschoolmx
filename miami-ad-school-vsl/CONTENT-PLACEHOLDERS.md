@@ -1,0 +1,98 @@
+# Pendientes antes de publicar
+
+Todo lo que la landing necesita para salir. Cada código `P-xx` aparece en `landing.html` como `data-placeholder="P-xx"` o en un comentario `REEMPLAZAR`, para encontrarlo rápido con buscar.
+
+**Regla:** nada de esta lista se rellena con datos supuestos. Si un dato no está validado, se queda como pendiente.
+
+## 1. VSL
+
+| Código | Qué falta | Dónde | Formato |
+|---|---|---|---|
+| P-03 | **URL final de la VSL** | `data-vsl-src="REEMPLAZAR_URL_VSL"` | YouTube, Vimeo o `.mp4` propio |
+| P-03 | Duración real | `Duración: pendiente` | Ej. `Duración: 12 min` |
+| P-04 | Póster del video (opcional) | Comentario dentro de `.mas-player__poster` | Frame de 1920 × 1080, WebP o JPG |
+
+## 2. Visuales oficiales
+
+| Código | Qué falta | Dónde | Formato |
+|---|---|---|---|
+| P-01 | Logo oficial Miami Ad School México | `.mas-brand` (hoy es texto) | SVG |
+| P-02 | Imagen del hero: pieza real del book de un graduado, con autorización | `.mas-plate--image` | 4:5 · 1600 × 2000 px |
+| P-05 | Key visual de Art Direction | `.mas-board__tile--key` | 4:5 o cuadrado, mínimo 800 px |
+| P-06 | Preview de cada uno de los 8 books, autorizado por su autor | `.mas-book__cover` | 4:5 · 1000 × 1250 px |
+| P-08 | Foto de Ricardo | `.mas-host__photo` | Cuadrada, mínimo 320 × 320 px |
+| — | Imagen para compartir en redes (OG) | Settings de la página en GHL | 1200 × 630 px |
+
+No usar fotografía de stock de estudiantes sonriendo frente a una laptop.
+
+## 3. Tipografías
+
+| Código | Qué falta | Notas |
+|---|---|---|
+| P-13 | URL de **Obviously Narrow Medium** en GHL | El archivo `.woff` está en Drive (*01 Brand Kit › 07 Tipografia › Web*). Hay que confirmar que la licencia cubre uso web en `tufuturocreativo.com`. |
+| P-13 | **Obviously Regular** (texto corrido, según el manual de marca) | No está en Drive. Mientras no llegue, el texto usa Archivo. |
+| P-13 | URL de Archivo en GHL | Subir `fonts/archivo-latin-wdth-normal.woff2` (licencia OFL). |
+
+## 4. Testimonios autorizados
+
+| Código | Qué falta | Notas |
+|---|---|---|
+| P-07 | Testimonios reales, con nombre y autorización por escrito | La landing **no tiene testimonios** porque no hay ninguno autorizado. Si se consiguen, su lugar natural es justo después de los books. Nunca inventarlos ni parafrasearlos. |
+
+## 5. Datos académicos y fechas
+
+| Código | Qué falta | Dónde |
+|---|---|---|
+| P-11 | Confirmar los nombres de las tres etapas | Sección «De potencial a portafolio» |
+| P-11 | Confirmar la duración: tres etapas de seis meses (meses 1–6, 7–12, 13–18) | Misma sección |
+| P-11 | **Fechas de inicio reales** | Opciones del formulario: Enero / Abril / Julio / Octubre |
+| P-11 | Horario de clases y carga semanal | Se mencionan en las preguntas frecuentes como algo que se confirma en la entrevista |
+
+## 6. Claims y textos por validar
+
+| Código | Texto | Qué validar |
+|---|---|---|
+| P-14 | «Miami Ad School ha sido reconocida como Escuela del Año en Cannes Lions en múltiples ocasiones.» | Fuente verificable (Cannes Lions). No agregar número de veces sin fuente. |
+| — | «Emmanuel Rocha y Antonio Fragoso son maestros activos en Miami Ad School México.» | Que sigan activos al publicar y que estén de acuerdo con aparecer. |
+| — | Los 8 graduados y sus URLs | Que cada persona autorice aparecer y que su sitio siga en línea. No se pudieron abrir desde el entorno donde se construyó la página. |
+| — | «Online y en vivo», «Entrevista sin costo» | Que sigan siendo ciertos. |
+| — | Preguntas frecuentes: «clases con horario fijo», «recibes la confirmación por correo», «solicitar la entrevista no te compromete a inscribirte» | Que coincidan con la operación real. |
+| — | «Tu entrevista es con Ricardo» | Que Ricardo sea quien hace las entrevistas, o cambiar el nombre. |
+
+## 7. Políticas legales
+
+| Código | Qué falta | Dónde |
+|---|---|---|
+| P-12 | URL del **aviso de privacidad** | `href="REEMPLAZAR_URL_PRIVACIDAD"` en el footer, y en el texto de consentimiento del formulario |
+| P-12 | URL de **términos y condiciones** | `href="REEMPLAZAR_URL_TERMINOS"` en el footer |
+
+Mientras un enlace diga `REEMPLAZAR`, el JS lo desactiva y lo marca como «pendiente».
+
+## 8. Formulario de GHL
+
+| Código | Qué falta |
+|---|---|
+| P-09 | Crear la encuesta o formulario con los campos de `README-GHL.md` · paso 8 |
+| P-09 | Query key del campo «Me interesa» y actualizar `prefillParam` en `landing.js` |
+| P-09 | Redirección al enviar: `?paso=agenda#aplicar` |
+| P-09 | Código de inserción dentro de `#ghl-form-slot` |
+| P-09 | Texto de consentimiento con enlace al aviso de privacidad |
+
+## 9. Calendario de GHL
+
+| Código | Qué falta |
+|---|---|
+| P-10 | Calendario de entrevistas con Ricardo, con ubicación de videollamada |
+| P-10 | Correo de confirmación con fecha, hora y enlace |
+| P-10 | Redirección al agendar: `?paso=confirmado#aplicar` |
+| P-10 | Código de inserción dentro de `#ghl-calendar-slot` |
+
+## 10. Medición: píxel nuevo de Meta y GA4
+
+| Qué falta | Notas |
+|---|---|
+| ID del **píxel nuevo** de Meta | Instalar en el head de la página (README · paso 10) |
+| ID de medición de **GA4** | Igual |
+| Activar `TRACKING_ENABLED` en `landing.js` | Solo después de instalar los códigos base |
+| CAPI para `Lead` y `Schedule` | Desde un workflow de GHL, con deduplicación por `eventID` |
+| Prueba en Meta *Probar eventos* y GA4 *DebugView* | Antes de publicar |

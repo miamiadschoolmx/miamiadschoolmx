@@ -122,7 +122,11 @@ Grid de 12 columnas, ancho máximo de 90rem y medianil fluido hasta 72 px. Secci
 
 ## Elevation & Depth
 
-Solo el papel del collage, el manuscrito, el módulo de entrevista y las tarjetas apiladas llevan sombra suave con desplazamiento. No hay brillos de color.
+Solo el manuscrito, el módulo de entrevista y las tarjetas apiladas llevan sombra suave con desplazamiento. No hay brillos de color.
+
+## Photography
+
+Fotos de marca M.AD: personas haciendo (pintar, saltar, desplegar un póster, pensar), con la M fluida y el punto como gráfico o en el vestuario. Blanco y negro contra campo de color, o color saturado de la paleta. Se colocan como piezas físicas: cuadro girado 2° en el hero y −2° en «La diferencia», a sangre dentro de la última tarjeta de los 18 meses. WebP en dos tamaños con `srcset`; solo la del hero carga con prioridad.
 
 ## Shapes
 

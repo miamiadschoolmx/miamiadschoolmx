@@ -21,8 +21,8 @@
   <header class="mas-hero" aria-labelledby="mas-hero-title">
     <div class="mas-wrap mas-hero__grid">
       <div class="mas-hero__top">
-        <!-- REEMPLAZAR: logo oficial de Miami Ad School México (SVG, versión para fondo negro). P-01 -->
-        <p class="mas-brand" data-placeholder="P-01">Miami Ad School <span>México</span></p>
+        <!-- Logo provisional (recortado de PNG). Ideal: SVG oficial para fondo negro (P-01). En GHL: sube img/logo-mas.png y cambia la ruta. -->
+        <p class="mas-brand" data-placeholder="P-01"><img class="mas-brand__logo" src="img/logo-mas.png" alt="Miami Ad School" width="551" height="249" decoding="async"><span>México</span></p>
         <p class="mas-badge"><span class="mas-badge__n">7</span><span>veces Future Lions<br>School of the Year</span></p>
       </div>
 
@@ -59,36 +59,9 @@
 
       <!-- Collage editorial: proceso + espacio para imagen oficial (P-02) -->
       <div class="mas-collage" aria-hidden="true">
+        <!-- Foto de marca. En GHL: sube img/hero-craft-*.webp y cambia las rutas (P-02) -->
         <div class="mas-plate mas-plate--image" data-placeholder="P-02">
-          <!-- REEMPLAZAR por: <img src="..." alt="" width="1600" height="2000" fetchpriority="high" decoding="async"> -->
-          <span class="mas-plate__label">
-            <span class="mas-plate__kind">Imagen oficial</span>
-            <span>Pieza real del book de un graduado · 4:5</span>
-          </span>
-        </div>
-        <div class="mas-paper mas-paper--thumbs">
-          <span class="mas-paper__tag">Bocetos · layout</span>
-          <svg class="mas-thumbs" viewBox="0 0 240 150" focusable="false">
-            <g class="mas-thumbs__frame">
-              <rect x="6" y="8" width="66" height="52"/><rect x="87" y="8" width="66" height="52"/><rect x="168" y="8" width="66" height="52"/>
-              <rect x="6" y="84" width="66" height="52"/><rect x="87" y="84" width="66" height="52"/><rect x="168" y="84" width="66" height="52"/>
-            </g>
-            <g class="mas-thumbs__ink">
-              <path d="M12 16h30M12 22h22M14 32l52 22M66 32l-52 22"/>
-              <path d="M93 46h40M93 52h28M128 16a10 10 0 1 1 0 .1"/>
-              <path d="M174 16h54v22h-54zM174 46h34M174 52h20"/>
-              <path d="M12 92h54M12 98h40M24 110l14 18 14-18"/>
-              <path d="M93 92h20v36h-20zM120 96h26M120 104h22M120 112h24"/>
-              <path d="M174 92h54M174 128h30M200 104a6 6 0 1 1 0 .1"/>
-            </g>
-            <path class="mas-thumbs__pick" d="M84 4C112 0 150 2 158 10C164 22 160 58 150 64C120 70 92 68 84 60C78 44 78 18 86 6"/>
-          </svg>
-        </div>
-        <div class="mas-paper mas-paper--draft">
-          <span class="mas-paper__tag">Copy · versión 3</span>
-          <p class="mas-draft__line mas-draft__line--cut">Tu futuro creativo empieza aquí.<svg class="mas-pen mas-pen--strike" viewBox="0 0 200 20" preserveAspectRatio="none" focusable="false"><path pathLength="1" d="M2 12C50 8 120 13 198 7"/></svg></p>
-          <p class="mas-draft__line">Nadie contrata lo que no puede&nbsp;ver.</p>
-          <p class="mas-draft__note">Esta sí. Ahora hazla más corta.</p>
+          <img src="img/hero-craft-1080.webp" srcset="img/hero-craft-640.webp 640w, img/hero-craft-1080.webp 1080w" sizes="(min-width: 64em) 38vw, 88vw" alt="" width="1080" height="1080" fetchpriority="high" decoding="async">
         </div>
       </div>
     </div>
@@ -122,6 +95,11 @@
         </div>
       </div>
 
+      <div class="mas-welcome__media">
+        <!-- Foto de marca. En GHL: sube img/welcome-energy-*.webp y cambia las rutas -->
+        <figure class="mas-welcome__photo" data-reveal>
+          <img src="img/welcome-energy-1080.webp" srcset="img/welcome-energy-640.webp 640w, img/welcome-energy-1080.webp 1080w" sizes="(min-width: 64em) 52vw, 92vw" alt="Una joven salta frente a un muro, en blanco y negro, junto a la M fluida rosa y el punto azul de Miami Ad School." width="1080" height="1080" loading="lazy" decoding="async">
+        </figure>
       <!-- Pruebas reales: solo con permiso (P-07, P-15) -->
       <ul class="mas-evidence__grid" role="list" aria-label="Pruebas reales">
         <li class="mas-ev mas-ev--quote" data-placeholder="P-07">
@@ -136,6 +114,7 @@
           <p class="mas-ev__who">Clip de 30 a 60 s · pendiente</p>
         </li>
       </ul>
+      </div>
     </div>
   </section>
 
@@ -282,6 +261,9 @@
             <h3 class="mas-stage__name">Entras a la sala.</h3>
             <p class="mas-stage__story">Antes de que digas una palabra, tu portafolio ya respondió la pregunta que importa: cómo&nbsp;piensas.</p>
           </div>
+          <figure class="mas-stage__photo">
+            <img src="img/grad-show-640.webp" srcset="img/grad-show-640.webp 640w, img/grad-show-1080.webp 1080w" sizes="(min-width: 48em) 32vw, 92vw" alt="Una persona despliega en el piso un póster rosa del Grad Show, frente a un mural de colores." width="640" height="800" loading="lazy" decoding="async">
+          </figure>
         </li>
       </ol>
       <p class="mas-structure__note">La estructura académica puede ajustarse. Confirma los detalles vigentes durante tu entrevista.</p>
@@ -399,7 +381,7 @@
     <div class="mas-paths">
       <article class="mas-path mas-path--ad" aria-labelledby="mas-path-ad">
         <div class="mas-path__board" aria-hidden="true">
-          <span class="mas-board__tile mas-board__tile--key" data-placeholder="P-05"><span>Key visual · imagen oficial</span></span>
+          <span class="mas-board__tile mas-board__tile--key" data-placeholder="P-05"><img src="img/ad-keyvisual-640.webp" alt="" width="640" height="640" loading="lazy" decoding="async"></span>
           <span class="mas-board__tile mas-board__tile--type"><span class="mas-board__aa">Aa</span><span>Tipografía</span></span>
           <span class="mas-board__tile mas-board__tile--swatch"><i></i><i></i><i></i><i></i><span>Paleta</span></span>
           <span class="mas-board__tile mas-board__tile--layout"><svg viewBox="0 0 80 60" focusable="false"><path d="M6 6h68v30H6zM6 44h40M6 52h28M56 44h18v10H56z"/></svg><span>Layout</span></span>
@@ -471,15 +453,22 @@
         <p data-reveal>Una universidad puede darte teoría.</p>
         <p data-reveal><strong>Pero un director creativo quiere ver cómo piensas.</strong></p>
       </div>
-      <p class="mas-diff__close" data-reveal>Tu portafolio responde esa pregunta antes de que tú entres a la&nbsp;sala.</p>
+      <div class="mas-diff__end">
+        <figure class="mas-diff__photo" data-reveal>
+          <img src="img/diff-think-640.webp" srcset="img/diff-think-640.webp 640w, img/diff-think-1000.webp 1000w" sizes="(min-width: 64em) 28vw, 80vw" alt="Alguien con la gorra rosa de la M de Miami Ad School apoya la cabeza en la mano, pensando, frente a un muro magenta." width="640" height="960" loading="lazy" decoding="async">
+        </figure>
+        <div class="mas-diff__text">
+          <p class="mas-diff__close" data-reveal>Tu portafolio responde esa pregunta antes de que tú entres a la&nbsp;sala.</p>
 
-      <div class="mas-diff__cta">
-        <p class="mas-diff__why" data-reveal>El reconocimiento importa menos que lo que haces con el tiempo que decidas invertir en&nbsp;ti.</p>
-        <a class="mas-btn mas-btn--ink" href="#aplicar" data-cta="diff-agenda">
-          Agenda una entrevista
-          <svg class="mas-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
-        </a>
-        <p class="mas-diff__fine">Sin presión. Sin promesas falsas. Una conversación para entender si este proceso encaja con tu momento y tu ambición.</p>
+          <div class="mas-diff__cta">
+            <p class="mas-diff__why" data-reveal>El reconocimiento importa menos que lo que haces con el tiempo que decidas invertir en&nbsp;ti.</p>
+            <a class="mas-btn mas-btn--ink" href="#aplicar" data-cta="diff-agenda">
+              Agenda una entrevista
+              <svg class="mas-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+            </a>
+            <p class="mas-diff__fine">Sin presión. Sin promesas falsas. Una conversación para entender si este proceso encaja con tu momento y tu ambición.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

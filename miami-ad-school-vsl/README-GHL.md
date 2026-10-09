@@ -14,6 +14,7 @@ Guía paso a paso para montar `landing.html`, `landing.css` y `landing.js` en Go
 | `landing.css` | Estilos. Todo está bajo `.mas-vsl`, así que no toca la plantilla de GHL. |
 | `landing.js` | Comportamiento: VSL, acordeón, galería, selección de programa, etapas del formulario y eventos de medición (desactivados). |
 | `fonts/` | Archivo (licencia SIL OFL, se puede usar y redistribuir). Obviously Narrow **no** está incluida porque es una fuente con licencia comercial. |
+| `img/` | Fotos de marca ya optimizadas (WebP) y el logo provisional. **No están en el repositorio** (es público): se entregan aparte, en un zip. Sin esta carpeta, la vista previa local se ve sin fotos. |
 | `CONTENT-PLACEHOLDERS.md` | Todo lo que hay que reemplazar antes de publicar. |
 
 Para ver la vista previa local, abre una terminal en esta carpeta y corre `python3 -m http.server 8000`; después entra a `http://localhost:8000/landing.html`. Para ver los otros estados del formulario usa `?paso=agenda` y `?paso=confirmado`.
@@ -92,12 +93,29 @@ Si la biblioteca de medios no acepta archivos de fuente, súbelos a otro almacen
 
 El script se protege solo contra ejecuciones dobles. Si un día lo pegas en los dos lugares, no se duplican los eventos. Aun así, pégalo **en un solo lugar**.
 
-## 6. Sustituir imágenes
+## 6. Subir las imágenes
+
+### Las fotos que ya están en la página
+
+Sube a la biblioteca de medios de GHL los archivos de `img/` y, en el HTML que pegaste, cambia cada ruta `img/...` por la URL que te da GHL. Ojo: las fotos con dos tamaños aparecen **dos veces**, en `src` y en `srcset`. Cambia las dos.
+
+| Archivo | Dónde va | Código |
+|---|---|---|
+| `logo-mas.png` | Logo del hero (provisional, ver P-01) | P-01 |
+| `hero-craft-640.webp`, `hero-craft-1080.webp` | Foto cuadrada del hero (grafitero) | P-02 |
+| `welcome-energy-640.webp`, `welcome-energy-1080.webp` | Bienvenida, junto a las pruebas (salto) | — |
+| `grad-show-640.webp`, `grad-show-1080.webp` | Último capítulo de los 18 meses, «Entras a la sala» (Grad Show) | — |
+| `ad-keyvisual-640.webp` | Moodboard de Art Direction (sillón) | P-05 |
+| `diff-think-640.webp`, `diff-think-1000.webp` | «La diferencia no es saber más» (gorra con la M) | — |
+
+Para encontrarlas rápido, busca `img/` en el HTML. Si al publicar alguna foto no aparece, casi siempre es una ruta `img/...` que se quedó sin cambiar.
+
+### Las que todavía faltan
 
 Cada espacio pendiente tiene un atributo `data-placeholder="P-xx"` que coincide con `CONTENT-PLACEHOLDERS.md`.
 
 1. Sube la imagen a la biblioteca de medios de GHL (WebP o JPG optimizado; lo ideal es menos de 250 KB por imagen).
-2. Dentro del elemento con ese `data-placeholder`, reemplaza las etiquetas de texto (`mas-plate__label`, `mas-book__pending`, etc.) por una imagen con su tamaño real:
+2. Dentro del elemento con ese `data-placeholder`, reemplaza las etiquetas de texto (`mas-book__pending`, `mas-host__photo`, etc.) por una imagen con su tamaño real:
    ```html
    <img src="URL_DE_GHL" alt="Descripción útil de la pieza" width="1600" height="2000" loading="lazy" decoding="async">
    ```

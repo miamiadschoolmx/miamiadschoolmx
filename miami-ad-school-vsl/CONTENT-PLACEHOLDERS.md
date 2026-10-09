@@ -16,14 +16,16 @@ Todo lo que la landing necesita para salir. Cada código `P-xx` aparece en `land
 
 | Código | Qué falta | Dónde | Formato |
 |---|---|---|---|
-| P-01 | Logo oficial Miami Ad School México, versión para fondo negro | `.mas-brand` (hoy es texto) | SVG |
-| P-02 | Imagen del hero: pieza real del book de un graduado, con autorización | `.mas-plate--image` | 4:5 · 1600 × 2000 px |
-| P-05 | Key visual de Art Direction | `.mas-board__tile--key` | 4:5 o cuadrado, mínimo 800 px |
+| P-01 | Logo oficial Miami Ad School México, versión para fondo negro. **Hoy hay uno provisional** (`img/logo-mas.png`), recortado de la imagen que mandó Ricardo: sirve para la prueba, pero en pantallas grandes se puede ver suave. | `.mas-brand__logo` | SVG |
+| P-02 | ~~Imagen del hero~~ **Resuelto** con foto de marca (grafitero). Opcional más adelante: una pieza real del book de un graduado, con autorización. | `.mas-plate--image` | Cuadrada · 1080 × 1080 px |
+| P-05 | ~~Key visual de Art Direction~~ **Resuelto** con foto de marca (sillón). | `.mas-board__tile--key` | Cuadrado, mínimo 640 px |
 | P-06 | Preview de cada uno de los 8 books, autorizado por su autor | `.mas-book__cover` | 4:5 · 1000 × 1250 px |
 | P-08 | Foto de Ricardo | `.mas-host__photo` | Cuadrada, mínimo 320 × 320 px |
 | — | Imagen para compartir en redes (OG) | Settings de la página en GHL | 1200 × 630 px |
 
 No usar fotografía de stock de estudiantes sonriendo frente a una laptop.
+
+**Fotos de marca en uso** (las mandó Ricardo; están en `img/`, fuera del repositorio): grafitero (hero), salto (bienvenida), Grad Show (último capítulo de los 18 meses), sillón (Art Direction) y gorra con la M («La diferencia»). **Confirmar** que Miami Ad School México tiene derechos para usarlas en una página de anuncios pagados, incluida la autorización de las personas que aparecen.
 
 ## 3. Tipografías
 

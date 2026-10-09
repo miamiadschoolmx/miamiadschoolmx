@@ -130,7 +130,7 @@ Cada espacio pendiente tiene un atributo `data-placeholder="P-xx"` que coincide 
 
 ## 6 bis. Logos de agencias (slider de prácticas)
 
-La sección «10 semanas fuera del salón» trae 10 espacios con la etiqueta «Logo de agencia». Cada uno tiene `data-placeholder="P-16"`.
+La sección «10 semanas dentro de las mejores agencias del mundo» trae 10 espacios con la etiqueta «Logo de agencia». Cada uno tiene `data-placeholder="P-16"`.
 
 ### 1. Prepara los logos
 

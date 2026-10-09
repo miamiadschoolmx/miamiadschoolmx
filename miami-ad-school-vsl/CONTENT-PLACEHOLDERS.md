@@ -75,7 +75,8 @@ No usar fotografía de stock de estudiantes sonriendo frente a una laptop.
 | — | Los 8 graduados y sus URLs | Que cada persona autorice aparecer y que su sitio siga en línea. No se pudieron abrir desde el entorno donde se construyó la página. |
 | — | «Online y en vivo», «Entrevista sin costo» | Que sigan siendo ciertos. |
 | — | Preguntas frecuentes: «clases con horario fijo», «recibes la confirmación por correo», «solicitar la entrevista no te compromete a inscribirte» | Que coincidan con la operación real. |
-| — | «Tu entrevista es con Ricardo» | Que Ricardo sea quien hace las entrevistas, o cambiar el nombre. |
+| — | ~~«Tu entrevista es con Ricardo»~~ **Confirmado por Ricardo:** «Tu entrevista es con Ricardo Ampudia» | — |
+| — | «Dos minutos para conocer tu trabajo actual…» (paso 1 del formulario) | Que el formulario de GHL de verdad se llene en unos dos minutos; si tiene más campos, ajustar el texto. |
 
 ## 7. Políticas legales
 

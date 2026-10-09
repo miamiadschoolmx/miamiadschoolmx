@@ -590,24 +590,30 @@
   <section class="mas-section mas-sec-apply" id="aplicar" aria-labelledby="mas-apply-title">
     <div class="mas-wrap mas-apply">
       <div class="mas-apply__intro">
-        <h2 class="mas-h2 mas-apply__title" id="mas-apply-title">No necesitas que alguien te diga que tienes&nbsp;talento.</h2>
-        <p class="mas-apply__sub">Necesitas construir la evidencia de lo que puedes hacer con&nbsp;él.</p>
-        <p class="mas-apply__how">Primero entendemos dónde estás y hacia dónde quieres ir. Después vemos si MAS es la ruta correcta para&nbsp;ti.</p>
+        <h2 class="mas-h2 mas-apply__title" id="mas-apply-title">No necesitas que alguien crea en tu&nbsp;talento.</h2>
+        <p class="mas-apply__sub">Necesitas un book que lo&nbsp;demuestre.</p>
+        <p class="mas-apply__how">Antes de hablar de inscripciones, queremos entender dónde estás, qué quieres construir y si esta carrera es el siguiente paso correcto para&nbsp;ti.</p>
 
         <ol class="mas-steps" role="list" aria-label="Cómo funciona">
-          <li class="mas-step" data-step="form"><span class="mas-step__n" aria-hidden="true">1</span><span><strong>Cuéntanos de ti.</strong> Dos partes cortas: tus datos y tu punto de partida.</span></li>
-          <li class="mas-step" data-step="agenda"><span class="mas-step__n" aria-hidden="true">2</span><span><strong>Elige tu horario.</strong> Agenda tu entrevista en el calendario.</span></li>
-          <li class="mas-step" data-step="confirmado"><span class="mas-step__n" aria-hidden="true">3</span><span><strong>Hablemos.</strong> Videollamada con Ricardo, sin costo.</span></li>
+          <li class="mas-step" data-step="form"><span class="mas-step__n" aria-hidden="true">1</span><span><strong>Cuéntanos dónde estás.</strong> Dos minutos para conocer tu trabajo actual y el tipo de carrera que quieres construir.</span></li>
+          <li class="mas-step" data-step="agenda"><span class="mas-step__n" aria-hidden="true">2</span><span><strong>Elige un horario.</strong> Agenda la entrevista en el horario que mejor te funcione.</span></li>
+          <li class="mas-step" data-step="confirmado"><span class="mas-step__n" aria-hidden="true">3</span><span><strong>Hablemos.</strong> Una videollamada sin costo con Ricardo para revisar tu punto de partida, resolver tus dudas y ver si hay fit.</span></li>
         </ol>
 
         <div class="mas-host">
-          <!-- REEMPLAZAR: foto de Ricardo (P-08). <img src="..." alt="Ricardo, de Miami Ad School México" width="160" height="160" loading="lazy" decoding="async"> -->
+          <!-- REEMPLAZAR: foto de Ricardo (P-08). <img src="..." alt="Ricardo Ampudia, de Miami Ad School México" width="160" height="160" loading="lazy" decoding="async"> -->
           <span class="mas-host__photo" data-placeholder="P-08" aria-hidden="true"><span>Foto</span></span>
-          <p class="mas-host__text">Tu entrevista es con <strong>Ricardo</strong>, de Miami Ad School México.</p>
+          <p class="mas-host__text">Tu entrevista es con <strong>Ricardo Ampudia</strong> <span class="mas-host__org">Miami Ad School México</span></p>
         </div>
+
+        <!-- Lleva al formulario (o a la agenda, según la etapa). Se oculta cuando la entrevista ya está agendada. -->
+        <a class="mas-btn mas-btn--ink mas-apply__cta" href="#mas-apply-module" data-cta="apply-agenda">
+          Agenda tu entrevista
+          <svg class="mas-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        </a>
       </div>
 
-      <div class="mas-apply__module">
+      <div class="mas-apply__module" id="mas-apply-module">
         <div class="mas-interest" role="group" aria-labelledby="mas-interest-label">
           <p class="mas-interest__label" id="mas-interest-label">Me interesa</p>
           <div class="mas-interest__options">
@@ -618,7 +624,7 @@
         </div>
 
         <div class="mas-stagebox" data-stage-panel="form">
-          <p class="mas-stagebox__title">Cuéntanos de ti</p>
+          <p class="mas-stagebox__title">Cuéntanos dónde estás</p>
           <div id="ghl-form-slot" class="mas-slot" data-placeholder="P-09">
             <!-- REEMPLAZAR POR FORMULARIO NATIVO DE GOHIGHLEVEL (pega aquí el código de inserción del formulario o encuesta). Ver README-GHL.md · paso 8 -->
             <p class="mas-slot__flag">REEMPLAZAR POR FORMULARIO NATIVO DE GOHIGHLEVEL</p>

@@ -55,8 +55,8 @@ No usar fotografía de stock de estudiantes sonriendo frente a una laptop.
 
 | Código | Qué falta | Dónde |
 |---|---|---|
-| P-11 | Confirmar los nombres de las tres etapas y dónde caen las prácticas (hoy: capítulo 3, después del primer año y antes de editar el book) | Sección «Lo que construyes durante 18 meses» |
-| P-11 | Confirmar la duración: tres etapas de seis meses (meses 1–6, 7–12, 13–18) | Misma sección |
+| P-11 | Confirmar los tiempos de las cuatro tarjetas: «Los primeros 6 meses», «Del mes 7 al 12», «Después del primer año» y «Cuando te gradúas» | Sección «18 meses. Cuatro momentos que cambian cómo trabajas.» |
+| P-11 | Confirmar la duración total de 18 meses | Misma sección |
 | P-11 | ~~Fechas de inicio reales~~ **Confirmadas:** 10 de enero, 10 de abril, 10 de julio y 10 de octubre | Cuenta regresiva y opciones del formulario. |
 | P-11 | **Cierre de admisión antes de cada inicio** | Hoy el contador salta al siguiente inicio 7 días antes (`intakeCutoffDays` en `landing.js`). Confirmar el número real de días. |
 | P-11 | Horario de clases y carga semanal | Se mencionan en las preguntas frecuentes como algo que se confirma en la entrevista |
@@ -67,7 +67,7 @@ No usar fotografía de stock de estudiantes sonriendo frente a una laptop.
 |---|---|---|
 | P-14 | «Miami Ad School ha sido reconocida siete veces como Future Lions School of the Year, incluyendo 2025.» (también en el sello del hero y en la descripción SEO) | Verificado en prensa: The Drum, «Miami Ad School claims record seventh Future Lions School of the Year title» (10 jul 2025), y en miamiadschool.com. Confirmar con la red MAS que México puede usarlo así. |
 | P-14 | «Somos Miami Ad School. La escuela de publicidad y creatividad más premiada del mundo.» (bienvenida) | Es el posicionamiento oficial de la red Miami Ad School (lo usa miamiadschool.com y sus sedes). No existe un ranking independiente que lo compare: por eso va siempre junto a la prueba de los siete Future Lions School of the Year. |
-| — | Capítulos de «Así se ven esos 18 meses» (llegas con ideas sueltas, primera campaña, editas tu book, entras a la sala) | Narrativa ilustrativa escrita para la landing: confirmar que describe bien la experiencia real de cada etapa. |
+| — | Las cuatro tarjetas de «18 meses» (copy de Ricardo) | Confirmar que describen bien cada momento. La tarjeta 3 no dice «Trabajas dentro de una agencia»: se puede cambiar a esa frase si las prácticas en agencia aplican a la generación que entra. |
 | — | «Miami Ad School es una red internacional de escuelas creativas… con la misma exigencia y el mismo objetivo» (bienvenida) | Que el equipo esté de acuerdo con la formulación. |
 | — | «Carrera Creativa», «18 meses» | Nombre del programa y duración vigentes. |
 | — | «Muchas personas llegan mientras trabajan.» (preguntas frecuentes) | Que sea cierto en la generación actual. |

@@ -95,7 +95,7 @@ Implementación de referencia: `miami-ad-school-vsl/landing.css` (todo bajo `.ma
 - **Acid** `#FFFF3E` (101 C): el punto. Cursor, progreso, «Ver video» y la cuenta regresiva de inicios.
 - **Blue** `#3391F4` (2727 C): panel de Art Direction.
 - **Green** `#00D357` (2420 C): «Esto es para ti si…».
-- **Campo claro** `#F7F5F2` con titular negro + magenta `#C2007A` (la referencia de «La diferencia»): panel de Copywriting, capítulo 3 y la sección de prácticas. Ricardo descartó el violeta y el naranja como campos.
+- **Campo claro** `#F7F5F2` con titular negro + magenta `#C2007A` (la referencia de «La diferencia»): panel de Copywriting, la tarjeta «Después del primer año» y la sección de prácticas. Ricardo descartó el violeta y el naranja como campos.
 - Portadas de books: rotan fucsia, ácido, azul, naranja, verde, violeta `#A572FF`, blanco y rosa `#FF5CCD`.
 
 ### Named Rules
@@ -118,7 +118,7 @@ Obviously Narrow **Bold** para todos los titulares. En la vista previa se imita 
 
 ## Layout
 
-Grid de 12 columnas, ancho máximo de 90rem y medianil fluido hasta 72 px. Secciones a sangre completa que alternan negro, campo de color y claro. Composición asimétrica: escalera en «La brecha», paneles que se expanden en Art Direction y Copywriting, galería que se arrastra y tarjetas de etapas que se apilan con `position: sticky`.
+Grid de 12 columnas, ancho máximo de 90rem y medianil fluido hasta 72 px. Secciones a sangre completa que alternan negro, campo de color y claro. Composición asimétrica: escalera en «La brecha», paneles que se expanden en Art Direction y Copywriting, galería que se arrastra y las cuatro tarjetas de «18 meses» que se apilan con `position: sticky` en tablet y escritorio (en móvil y en pantallas bajas van una debajo de otra, para que ninguna tape texto).
 
 ## Elevation & Depth
 

@@ -107,7 +107,7 @@ Sube a la biblioteca de medios de GHL los archivos de `img/` y, en el HTML que p
 | `hero-craft-640.webp`, `hero-craft-1080.webp` | Foto cuadrada del hero (grafitero) | P-02 |
 | `welcome-energy-640.webp`, `welcome-energy-800.webp`, `welcome-energy-1080.webp` | Bienvenida, junto a las pruebas (salto) | — |
 | `og-carrera-creativa.jpg` | Imagen para compartir en redes (no va en el HTML: va en la configuración de la página, paso 1) | — |
-| `grad-show-640.webp`, `grad-show-1080.webp` | Último capítulo de los 18 meses, «Entras a la sala» (Grad Show) | — |
+| `grad-show-640.webp`, `grad-show-1080.webp` | Última tarjeta de los 18 meses, «Cuando te gradúas» (Grad Show) | — |
 | `ad-keyvisual-640.webp` | Moodboard de Art Direction (sillón) | P-05 |
 | `diff-think-640.webp`, `diff-think-1000.webp` | «La diferencia no es saber más» (gorra con la M) | — |
 

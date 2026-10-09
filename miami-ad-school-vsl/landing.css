@@ -114,7 +114,7 @@
 .mas-vsl .mas-verdict,
 .mas-vsl .mas-ticker,
 .mas-vsl .mas-sec-apply,
-.mas-vsl .mas-stage:nth-child(2) {
+.mas-vsl .mas-stage--hot {
   --bg: var(--hot);
   --fg: var(--black);
   --fg-2: var(--on-hot-2);
@@ -126,8 +126,7 @@
 }
 
 /* Campos de la paleta secundaria M.AD: cada sección, su propio color de punto */
-.mas-vsl .mas-dates,
-.mas-vsl .mas-stage:nth-child(4) {
+.mas-vsl .mas-dates {
   --bg: var(--acid); --fg: var(--black); --fg-2: #3A3A12; --rule: rgba(10, 10, 10, .25); --pen: var(--hot-ink); --focus: var(--black);
   background: var(--bg); color: var(--fg);
 }
@@ -1187,36 +1186,28 @@
 }
 
 /* ==========================================================================
-   G · ESTRUCTURA (tarjetas que se apilan al hacer scroll)
+   G · 18 MESES: cuatro momentos (tarjetas que se apilan al hacer scroll en
+   tablet y escritorio; en móvil van una debajo de otra y nada tapa el texto)
    ========================================================================== */
-.mas-vsl .mas-structure__title { max-width: 11ch; }
-.mas-vsl .mas-what { display: grid; gap: 2.5rem var(--col-gap); }
-.mas-vsl .mas-what__lead { font-size: var(--t-lead); line-height: 1.35; color: var(--fg-2); max-width: 36ch; }
-.mas-vsl .mas-what__lead span { display: block; color: var(--fg); font-weight: 700; }
-.mas-vsl .mas-what__list { display: grid; gap: 0; margin-top: 2rem; border-top: 1px solid var(--rule); }
-.mas-vsl .mas-what__list li {
-  padding-block: 1rem;
-  border-bottom: 1px solid var(--rule);
-  font-size: var(--t-lead);
-  line-height: 1.3;
-  color: var(--fg-2);
-}
-.mas-vsl .mas-what__list strong { color: var(--fg); font-family: var(--font-display); font-stretch: var(--display-stretch); font-weight: var(--display-weight); font-size: 1.15em; letter-spacing: -.01em; }
+.mas-vsl .mas-stages__intro { display: grid; gap: 1.5rem var(--col-gap); align-items: end; }
+.mas-vsl .mas-stages__title { max-width: 15ch; }
+.mas-vsl .mas-stages__title span { display: block; }
+.mas-vsl .mas-stages__title span + span { color: var(--hot); }
+.mas-vsl .mas-stages__lead { font-size: var(--t-lead); line-height: 1.4; font-weight: 650; max-width: 34ch; }
 @media (min-width: 64em) {
-  .mas-vsl .mas-what { grid-template-columns: repeat(12, minmax(0, 1fr)); }
-  .mas-vsl .mas-what .mas-structure__title { grid-column: 1 / span 6; }
-  .mas-vsl .mas-what__intro { grid-column: 7 / -1; padding-top: .75rem; }
+  .mas-vsl .mas-stages__intro { grid-template-columns: 7fr 5fr; }
+  .mas-vsl .mas-stages__lead { padding-bottom: .5rem; }
 }
 .mas-vsl .mas-stages {
   display: grid;
   gap: clamp(1rem, 3vw, 2rem);
-  margin-top: clamp(4rem, 9vw, 7rem);
+  margin-top: clamp(3rem, 7vw, 5rem);
 }
 .mas-vsl .mas-stage {
   position: sticky;
   top: calc(1rem + var(--i, 0) * 1.25rem);
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: minmax(0, 1fr);
   align-items: end;
   gap: clamp(1rem, 4vw, 4rem);
   min-height: clamp(18rem, 52vh, 30rem);
@@ -1229,32 +1220,39 @@
 }
 .mas-vsl .mas-stage:nth-child(2) { --i: 1; }
 .mas-vsl .mas-stage:nth-child(3) { --i: 2; }
-.mas-vsl .mas-stage__n {
-  font-family: var(--font-display);
-  font-stretch: var(--display-stretch);
-  font-weight: var(--display-weight);
-  font-size: clamp(7rem, 4rem + 14vw, 17rem);
-  line-height: .72;
-  letter-spacing: -.05em;
-}
-.mas-vsl .mas-stage__body { display: grid; gap: .875rem; padding-bottom: .5rem; }
-.mas-vsl .mas-stage__when { font-size: var(--t-small); font-weight: 650; color: var(--fg-2); font-variant-numeric: tabular-nums; }
-.mas-vsl .mas-chapters__intro {
-  margin-top: clamp(4rem, 9vw, 7rem);
-  font-family: var(--font-display);
-  font-stretch: var(--display-stretch);
-  font-weight: var(--display-weight);
-  font-size: clamp(1.75rem, 1.1rem + 2.6vw, 3.75rem);
-  line-height: .95;
-  letter-spacing: -.02em;
-  max-width: 20ch;
-}
-.mas-vsl .mas-chapters__intro + .mas-stages { margin-top: clamp(2rem, 5vw, 3.5rem); }
-.mas-vsl .mas-stage__story { max-width: 40ch; font-size: var(--t-lead); line-height: 1.35; }
 .mas-vsl .mas-stage:nth-child(4) { --i: 3; }
-.mas-vsl .mas-stage:nth-child(5) { --i: 4; }
-.mas-vsl .mas-stage--intern .mas-stage__n,
-.mas-vsl .mas-stage--intern .mas-stage__when { color: var(--hot-ink); }
+.mas-vsl .mas-stage__body { display: grid; gap: 1rem; padding-bottom: .5rem; }
+/* Etiqueta de tiempo: lo primero que se lee en cada tarjeta */
+.mas-vsl .mas-stage__when {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.25rem;
+  padding: .375rem 1rem;
+  border-radius: 999px;
+  background: var(--black);
+  color: var(--white);
+  font-size: clamp(.9375rem, .85rem + .35vw, 1.125rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
+.mas-vsl .mas-stage__name {
+  font-family: var(--font-display);
+  font-stretch: var(--display-stretch);
+  font-weight: var(--display-weight);
+  font-size: clamp(1.875rem, 1.2rem + 2.8vw, 4rem);
+  line-height: .92;
+  letter-spacing: -.02em;
+  max-width: 17ch;
+  text-wrap: balance;
+}
+.mas-vsl .mas-stage__story { max-width: 40ch; font-size: var(--t-lead); line-height: 1.35; }
+/* Tarjeta 2: rosa intenso (más específica que .mas-stage, que pinta el claro) */
+.mas-vsl .mas-stage.mas-stage--hot { background: var(--hot); --fg-2: var(--on-hot-2); }
+/* Tarjeta 3: campo claro con acento magenta */
+.mas-vsl .mas-stage--accent .mas-stage__when { background: var(--hot-ink); color: #FFFFFF; }
+.mas-vsl .mas-stage--accent .mas-stage__name { color: var(--hot-ink); }
+/* Tarjeta 4: azul, con la foto del Grad Show a sangre */
 .mas-vsl .mas-stage.mas-stage--end { background: #3391F4; --fg-2: #0B2340; --pad: clamp(1.5rem, 4vw, 3.5rem); overflow: hidden; }
 .mas-vsl .mas-stage__photo {
   align-self: stretch;
@@ -1264,23 +1262,19 @@
 }
 .mas-vsl .mas-stage__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
 @media (min-width: 48em) {
-  .mas-vsl .mas-stage.mas-stage--end { grid-template-columns: auto minmax(0, 1fr) minmax(13rem, 34%); }
+  .mas-vsl .mas-stage.mas-stage--end { grid-template-columns: minmax(0, 1fr) minmax(13rem, 38%); }
   .mas-vsl .mas-stage__photo { aspect-ratio: auto; min-height: 100%; margin: calc(-1 * var(--pad)) calc(-1 * var(--pad)) calc(-1 * var(--pad)) 0; }
 }
-.mas-vsl .mas-stage__arrow { width: .8em; height: .8em; fill: none; stroke: currentColor; stroke-width: 12; stroke-linecap: square; }
-.mas-vsl .mas-stage__name {
-  font-family: var(--font-display);
-  font-stretch: var(--display-stretch);
-  font-weight: var(--display-weight);
-  font-size: clamp(1.875rem, 1.2rem + 2.8vw, 4rem);
-  line-height: .92;
-  letter-spacing: -.02em;
-  max-width: 16ch;
-  text-wrap: balance;
+@media (min-width: 64em) {
+  /* Escritorio: el título a la izquierda y el texto a la derecha, para que la tarjeta se llene */
+  .mas-vsl .mas-stage:not(.mas-stage--end) .mas-stage__body { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: clamp(2rem, 4vw, 4rem); align-items: end; }
+  .mas-vsl .mas-stage:not(.mas-stage--end) .mas-stage__when { grid-column: 1 / -1; }
+  .mas-vsl .mas-stage:not(.mas-stage--end) .mas-stage__story { padding-bottom: .3em; }
 }
-@media (max-width: 47.99em) {
-  .mas-vsl .mas-stage { min-height: 0; gap: 1.25rem; grid-template-columns: 1fr; align-items: start; }
-  .mas-vsl .mas-stage__n { font-size: 5.5rem; }
+@media (max-width: 47.99em), (max-height: 37.49em) {
+  /* En móvil (y en pantallas bajas, como un celular acostado) no se apilan:
+     cada tarjeta se lee completa y ninguna tapa a otra */
+  .mas-vsl .mas-stage { position: relative; top: auto; min-height: 0; gap: 1.25rem; align-items: start; box-shadow: none; }
 }
 .mas-vsl .mas-structure__note {
   margin-top: 2.5rem;
@@ -1780,13 +1774,9 @@
     opacity: 0;
   }
   .mas-vsl.has-motion [data-reveal].is-in { clip-path: inset(-20% -100vw -20% -100vw); }
-  .mas-vsl.has-motion .mas-what__list li:nth-child(2),
   .mas-vsl.has-motion .mas-fit__list li:nth-child(2) { transition-delay: .06s; }
-  .mas-vsl.has-motion .mas-what__list li:nth-child(3),
   .mas-vsl.has-motion .mas-fit__list li:nth-child(3) { transition-delay: .12s; }
-  .mas-vsl.has-motion .mas-what__list li:nth-child(4),
   .mas-vsl.has-motion .mas-fit__list li:nth-child(4) { transition-delay: .18s; }
-  .mas-vsl.has-motion .mas-what__list li:nth-child(5),
   .mas-vsl.has-motion .mas-fit__list li:nth-child(5) { transition-delay: .24s; }
 }
 

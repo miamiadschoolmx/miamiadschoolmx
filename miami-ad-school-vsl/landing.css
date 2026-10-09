@@ -128,7 +128,7 @@
 /* Campos de la paleta secundaria M.AD: cada sección, su propio color de punto */
 .mas-vsl .mas-sec-build,
 .mas-vsl .mas-dates,
-.mas-vsl .mas-stage:nth-child(3) {
+.mas-vsl .mas-stage:nth-child(4) {
   --bg: var(--acid); --fg: var(--black); --fg-2: #3A3A12; --rule: rgba(10, 10, 10, .25); --pen: var(--hot-ink); --focus: var(--black);
   background: var(--bg); color: var(--fg);
 }
@@ -141,13 +141,18 @@
   --bg: #FF9812; --fg: var(--black); --fg-2: #3D2200; --rule: rgba(10, 10, 10, .25); --pen: var(--black); --focus: var(--black);
   background: var(--bg); color: var(--fg);
 }
+.mas-vsl .mas-intern,
+.mas-vsl .mas-stage--intern {
+  --bg: #A572FF; --fg: var(--black); --fg-2: #1E0B40; --rule: rgba(10, 10, 10, .25); --pen: var(--black); --focus: var(--black);
+  background: var(--bg); color: var(--fg);
+}
 .mas-vsl .mas-fit__col--yes {
   --bg: #00D357; --fg: var(--black); --fg-2: #063D1E; --rule: rgba(10, 10, 10, .25); --pen: var(--black); --focus: var(--black);
   background: var(--bg); color: var(--fg);
 }
 
 /* Texto sobre campos de color: semibold para que se lea con claridad en pantalla */
-.mas-vsl :where(.mas-path, .mas-sec-build, .mas-fit__col--yes, .mas-ev--quote, .mas-apply__intro, .mas-stage, .mas-verdict, .mas-welcome__story) :where(p, li, dd, span) { font-weight: 650; }
+.mas-vsl :where(.mas-path, .mas-sec-build, .mas-intern, .mas-fit__col--yes, .mas-ev--quote, .mas-apply__intro, .mas-stage, .mas-verdict, .mas-welcome__story) :where(p, li, dd, span) { font-weight: 650; }
 
 /* --- Reset local ---------------------------------------------------------- */
 .mas-vsl,
@@ -1394,6 +1399,8 @@
 .mas-vsl .mas-chapters__intro + .mas-stages { margin-top: clamp(2rem, 5vw, 3.5rem); }
 .mas-vsl .mas-stage__story { max-width: 40ch; font-size: var(--t-lead); line-height: 1.35; }
 .mas-vsl .mas-stage:nth-child(4) { --i: 3; }
+.mas-vsl .mas-stage:nth-child(5) { --i: 4; }
+.mas-vsl .mas-stage.mas-stage--intern { background: #A572FF; --fg-2: #1E0B40; }
 .mas-vsl .mas-stage.mas-stage--end { background: #3391F4; --fg-2: #0B2340; --pad: clamp(1.5rem, 4vw, 3.5rem); overflow: hidden; }
 .mas-vsl .mas-stage__photo {
   align-self: stretch;
@@ -1426,6 +1433,118 @@
   font-size: var(--t-small);
   color: var(--fg-2);
   max-width: 52ch;
+}
+
+/* ==========================================================================
+   Prácticas profesionales (campo violeta) + carrusel de logos
+   ========================================================================== */
+.mas-vsl .mas-intern__grid { display: grid; gap: clamp(2rem, 5vw, 3rem) var(--col-gap); align-items: end; }
+.mas-vsl .mas-intern__title {
+  font-family: var(--font-display);
+  font-stretch: var(--display-stretch);
+  font-weight: var(--display-weight);
+  line-height: .9;
+  letter-spacing: -.02em;
+}
+.mas-vsl .mas-intern__n {
+  display: block;
+  font-weight: 900;
+  font-size: clamp(12rem, 6rem + 22vw, 26rem);
+  line-height: .74;
+  letter-spacing: -.06em;
+}
+.mas-vsl .mas-intern__unit {
+  display: block;
+  margin-top: .35em;
+  font-size: clamp(2rem, 1.2rem + 3.4vw, 4.5rem);
+  max-width: 11ch;
+  text-wrap: balance;
+}
+.mas-vsl .mas-intern__text { display: grid; gap: 1.25rem; }
+.mas-vsl .mas-intern__lead { font-size: var(--t-lead); line-height: 1.3; max-width: 30ch; font-weight: 700; }
+.mas-vsl .mas-intern__body { font-size: var(--t-lead); line-height: 1.4; max-width: 38ch; }
+.mas-vsl .mas-intern__note { margin-top: 2rem; font-size: var(--t-small); color: var(--fg-2); max-width: 52ch; }
+@media (min-width: 48em) {
+  .mas-vsl .mas-intern__title { display: flex; align-items: flex-end; gap: clamp(1rem, 2.2vw, 2rem); }
+  .mas-vsl .mas-intern__unit { margin-top: 0; padding-bottom: .1em; }
+}
+@media (min-width: 64em) {
+  .mas-vsl .mas-intern__grid { grid-template-columns: 7fr 5fr; }
+  .mas-vsl .mas-intern__text { padding-bottom: .5rem; }
+}
+
+.mas-vsl .mas-logos { margin-top: clamp(3.5rem, 8vw, 6rem); }
+.mas-vsl .mas-logos__head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem 1.5rem; }
+.mas-vsl .mas-logos__caption { font-size: var(--t-small); max-width: 40ch; }
+.mas-vsl .mas-logos__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  min-height: 2.75rem;
+  padding: 0 1.125rem;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: var(--t-small);
+  font-weight: 700;
+  cursor: pointer;
+}
+.mas-vsl .mas-logos__toggle:hover { background: var(--black); color: var(--bg); }
+.mas-vsl .mas-logos__toggle .mas-icon { width: 1rem; height: 1rem; stroke-width: 2.5; }
+.mas-vsl .mas-icon--play { fill: currentColor; }
+.mas-vsl .mas-logos:not(.is-paused) .mas-icon--play,
+.mas-vsl .mas-logos.is-paused .mas-icon--pause { display: none; }
+.mas-vsl .mas-logos__viewport {
+  margin-top: 1rem;
+  padding-inline: var(--gutter);
+  border-block: 2px solid var(--black);
+}
+.mas-vsl .mas-logos__track { display: flex; flex-wrap: wrap; align-items: center; }
+.mas-vsl .mas-logo {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: clamp(5.5rem, 4.5rem + 3vw, 7.5rem);
+  padding-inline: clamp(1.25rem, 3vw, 2.75rem);
+}
+/* Cualquier logo (PNG o SVG con fondo transparente) se vuelve negro para que el muro se vea parejo */
+.mas-vsl .mas-logo img {
+  width: auto;
+  height: clamp(1.75rem, 1.4rem + 1.2vw, 2.75rem);
+  max-width: 10rem;
+  object-fit: contain;
+  filter: brightness(0);
+}
+.mas-vsl .mas-logo__slot {
+  display: grid;
+  place-items: center;
+  width: clamp(8rem, 6.5rem + 4vw, 10rem);
+  height: clamp(2.75rem, 2.4rem + 1.2vw, 3.5rem);
+  border: 2px dashed rgba(10, 10, 10, .45);
+  border-radius: .5rem;
+  font-size: var(--t-micro);
+  color: var(--fg-2);
+}
+/* Con JS y movimiento permitido, la fila se duplica y avanza sola (con pausa) */
+.mas-vsl .mas-logos.is-looping .mas-logos__viewport {
+  overflow: hidden;
+  padding-inline: 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.mas-vsl .mas-logos.is-looping .mas-logos__track {
+  flex-wrap: nowrap;
+  width: max-content;
+  animation: mas-marquee var(--logos-dur, 40s) linear infinite;
+}
+.mas-vsl .mas-logos.is-looping .mas-logos__viewport:hover .mas-logos__track,
+.mas-vsl .mas-logos.is-paused .mas-logos__track,
+.mas-vsl .mas-logos.is-offscreen .mas-logos__track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .mas-vsl .mas-logos.is-looping .mas-logos__track { animation: none; }
 }
 
 /* ==========================================================================
@@ -1865,6 +1984,7 @@
   to { opacity: 1; translate: 0 0; }
 }
 @keyframes mas-draw { to { stroke-dashoffset: 0; } }
+@keyframes mas-marquee { to { transform: translate3d(-50%, 0, 0); } }
 
 /* Solo vista previa local: en GHL el fondo de página lo define el builder */
 .mas-preview-body { margin: 0; background: #0A0A0A; }

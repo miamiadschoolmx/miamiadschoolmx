@@ -125,6 +125,47 @@ Cada espacio pendiente tiene un atributo `data-placeholder="P-xx"` que coincide 
    - Si la imagen es decorativa, usa `alt=""`. Si muestra trabajo, describe la pieza y su autor.
    - Las portadas de los books (P-06) deben ser capturas o piezas **autorizadas** por cada graduado.
 
+## 6 bis. Logos de agencias (slider de prácticas)
+
+La sección violeta «10 semanas dentro de una agencia» trae 10 espacios con la etiqueta «Logo de agencia». Cada uno tiene `data-placeholder="P-16"`.
+
+### 1. Prepara los logos
+
+- **Formato:** SVG (lo ideal) o PNG con **fondo transparente**. Un logo con fondo blanco se vería como un rectángulo negro.
+- **Versión horizontal,** recortada al borde, sin aire alrededor. Para PNG, unos 400 px de ancho bastan.
+- **El color no importa:** la página pinta todos los logos de negro para que el muro se vea parejo sobre el violeta.
+- **Solo agencias reales:** cada logo debe ser de una agencia donde alumnos de Miami Ad School de verdad hicieron prácticas (ver P-16 en `CONTENT-PLACEHOLDERS.md`).
+
+### 2. Súbelos a GHL
+
+1. En tu subcuenta de GHL abre la **biblioteca de medios** (*Media Storage*). También se abre desde el builder, al elegir una imagen.
+2. Crea una carpeta, por ejemplo `landing-logos`, y sube ahí los archivos.
+3. En cada archivo, usa **Copiar enlace** (*Copy link*) para obtener su URL.
+
+### 3. Ponlos en el HTML
+
+En el elemento de código de la landing, busca `P-16`. Cada espacio se ve así:
+
+```html
+<li class="mas-logo" data-placeholder="P-16"><span class="mas-logo__slot">Logo de agencia</span></li>
+```
+
+Cámbialo por:
+
+```html
+<li class="mas-logo"><img src="URL_DE_GHL" alt="Nombre de la agencia" width="200" height="60" loading="lazy" decoding="async"></li>
+```
+
+- `alt` lleva el nombre de la agencia, tal cual. Es lo que escucha alguien que usa lector de pantalla.
+- `width` y `height` son las proporciones del archivo. Si el logo mide 400 × 100, pon `width="400" height="100"`. La página ajusta la altura sola.
+- **Borra los espacios que sobren.** Si tienes 6 logos, deja 6 `<li>`. El slider se arma solo con los que haya y repite la fila para que nunca quede un hueco. Con 5 o más se ve mejor.
+- **Para agregar más,** copia una línea `<li class="mas-logo">…</li>` completa.
+
+### Cómo se comporta
+
+- Avanza solo, de forma continua. Se detiene con el mouse encima, con el botón «Pausar logos» y cuando no está en pantalla.
+- Con «reducir movimiento» activado en el sistema, los logos se quedan quietos en una cuadrícula.
+
 ## 7. Insertar la URL de la VSL
 
 1. En el HTML busca `data-vsl-src="REEMPLAZAR_URL_VSL"` y cambia el valor por la URL del video. Acepta:
@@ -239,6 +280,7 @@ Si un trimestre cambia la fecha, edita solo `intakes`. Los segundos solo corren 
 - [ ] El formulario se envía y redirige a `?paso=agenda`; aparece la agenda.
 - [ ] Agendar redirige a `?paso=confirmado`; aparece la confirmación y llega el correo con el enlace.
 - [ ] Los 8 links de books abren en pestaña nueva y cargan bien.
+- [ ] El slider de logos avanza, se pausa con el botón y ya no queda ningún «Logo de agencia» vacío.
 - [ ] Aviso de privacidad y términos abren sus páginas reales.
 
 **Calidad**

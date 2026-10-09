@@ -53,6 +53,7 @@
         <ul class="mas-micro" role="list">
           <li>Carrera Creativa · 18 meses</li>
           <li>Online y en vivo</li>
+          <li>10 semanas de prácticas en agencia</li>
           <li>Entrevista sin costo</li>
         </ul>
       </div>
@@ -70,7 +71,7 @@
   <!-- Cinta que avanza con el scroll (decorativa: el contenido ya está en la página) -->
   <div class="mas-ticker" aria-hidden="true">
     <div class="mas-ticker__row" data-ticker>
-      <span>Carrera Creativa</span><i></i><span>Art Direction</span><i></i><span>Copywriting</span><i></i><span>18 meses</span><i></i><span>Online y en vivo</span><i></i><span>Tu book</span><i></i><span>Carrera Creativa</span><i></i><span>Art Direction</span><i></i><span>Copywriting</span><i></i><span>18 meses</span><i></i><span>Online y en vivo</span><i></i><span>Tu book</span><i></i><span>Carrera Creativa</span><i></i><span>Art Direction</span><i></i><span>Copywriting</span><i></i><span>18 meses</span><i></i><span>Online y en vivo</span><i></i><span>Tu book</span><i></i>
+      <span>Carrera Creativa</span><i></i><span>Art Direction</span><i></i><span>Copywriting</span><i></i><span>18 meses</span><i></i><span>Online y en vivo</span><i></i><span>Prácticas en agencias</span><i></i><span>Tu book</span><i></i><span>Carrera Creativa</span><i></i><span>Art Direction</span><i></i><span>Copywriting</span><i></i><span>18 meses</span><i></i><span>Online y en vivo</span><i></i><span>Prácticas en agencias</span><i></i><span>Tu book</span><i></i><span>Carrera Creativa</span><i></i><span>Art Direction</span><i></i><span>Copywriting</span><i></i><span>18 meses</span><i></i><span>Online y en vivo</span><i></i><span>Prácticas en agencias</span><i></i><span>Tu book</span><i></i>
     </div>
   </div>
 
@@ -229,7 +230,7 @@
 
       <p class="mas-chapters__intro" data-reveal>Así se ven esos 18 meses, contados como lo que son: una&nbsp;historia.</p>
       <!-- Etapas: datos académicos por validar (P-11). La narrativa de cada capítulo es ilustrativa y debe revisarse. -->
-      <ol class="mas-stages" role="list" aria-label="La historia de tu book, en cuatro capítulos">
+      <ol class="mas-stages" role="list" aria-label="La historia de tu book, en cinco capítulos">
         <li class="mas-stage">
           <span class="mas-stage__n" aria-hidden="true">1</span>
           <div class="mas-stage__body">
@@ -246,10 +247,18 @@
             <p class="mas-stage__story">La presentas. Te dicen qué no funciona. La rehaces. Dejas de mostrar piezas y empiezas a defender&nbsp;decisiones.</p>
           </div>
         </li>
-        <li class="mas-stage">
+        <li class="mas-stage mas-stage--intern">
           <span class="mas-stage__n" aria-hidden="true">3</span>
           <div class="mas-stage__body">
-            <span class="mas-stage__when">Mes 13 · Etapa 3: book, presentación y preparación profesional</span>
+            <span class="mas-stage__when">Después del primer año · 10 semanas de prácticas profesionales</span>
+            <h3 class="mas-stage__name">Trabajas dentro de una agencia.</h3>
+            <p class="mas-stage__story">Por primera vez, tu trabajo se mide fuera del salón: con briefs, tiempos y equipos de&nbsp;verdad.</p>
+          </div>
+        </li>
+        <li class="mas-stage">
+          <span class="mas-stage__n" aria-hidden="true">4</span>
+          <div class="mas-stage__body">
+            <span class="mas-stage__when">Etapa 3: book, presentación y preparación profesional</span>
             <h3 class="mas-stage__name">Editas tu book como lo haría un director&nbsp;creativo.</h3>
             <p class="mas-stage__story">Qué se queda, qué se va y en qué orden se cuenta. Practicas presentarlo hasta que hable por&nbsp;ti.</p>
           </div>
@@ -267,6 +276,49 @@
         </li>
       </ol>
       <p class="mas-structure__note">La estructura académica puede ajustarse. Confirma los detalles vigentes durante tu entrevista.</p>
+    </div>
+  </section>
+
+  <!-- PRÁCTICAS PROFESIONALES · detalles por validar (P-16) -->
+  <section class="mas-section mas-intern" id="practicas" aria-labelledby="mas-intern-title">
+    <div class="mas-wrap mas-intern__grid">
+      <h2 class="mas-intern__title" id="mas-intern-title" data-reveal><span class="mas-intern__n">10</span> <span class="mas-intern__unit">semanas dentro de una&nbsp;agencia.</span></h2>
+      <div class="mas-intern__text">
+        <p class="mas-intern__lead" data-reveal>Después del primer año de clases haces prácticas profesionales en algunas de las mejores agencias del&nbsp;mundo.</p>
+        <p class="mas-intern__body" data-reveal>Llegas con un book en construcción y lo pones a prueba donde se hace el trabajo que quieres&nbsp;hacer.</p>
+      </div>
+    </div>
+
+    <div class="mas-logos" data-logos>
+      <div class="mas-wrap mas-logos__head">
+        <p class="mas-logos__caption" id="mas-logos-caption">Algunas agencias donde alumnos de Miami Ad School han hecho sus prácticas.</p>
+        <button class="mas-logos__toggle" type="button" data-logos-toggle hidden>
+          <svg class="mas-icon mas-icon--pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14M16 5v14"/></svg>
+          <svg class="mas-icon mas-icon--play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 5l12 7-12 7z"/></svg>
+          <span data-logos-label>Pausar logos</span>
+        </button>
+      </div>
+      <div class="mas-logos__viewport">
+        <!-- REEMPLAZAR (P-16): un <li> por agencia. Cambia el <span> por el logo:
+             <li class="mas-logo"><img src="URL_DE_GHL" alt="Nombre de la agencia" width="200" height="60" loading="lazy" decoding="async"></li>
+             Borra los espacios que sobren. El carrusel se arma solo con los que dejes. -->
+        <ul class="mas-logos__track" role="list" aria-labelledby="mas-logos-caption">
+          <li class="mas-logo" data-placeholder="P-16"><span class="mas-logo__slot">Logo de agencia</span></li>
+          <li class="mas-logo" data-placeholder="P-16"><span class="mas-logo__slot">Logo de agencia</span></li>
+          <li class="mas-logo" data-placeholder="P-16"><span class="mas-logo__slot">Logo de agencia</span></li>
+          <li class="mas-logo" data-placeholder="P-16"><span class="mas-logo__slot">Logo de agencia</span></li>
+          <li class="mas-logo" data-placeholder="P-16"><span class="mas-logo__slot">Logo de agencia</span></li>
+          <li class="mas-logo" data-placeholder="P-16"><span class="mas-logo__slot">Logo de agencia</span></li>
+          <li class="mas-logo" data-placeholder="P-16"><span class="mas-logo__slot">Logo de agencia</span></li>
+          <li class="mas-logo" data-placeholder="P-16"><span class="mas-logo__slot">Logo de agencia</span></li>
+          <li class="mas-logo" data-placeholder="P-16"><span class="mas-logo__slot">Logo de agencia</span></li>
+          <li class="mas-logo" data-placeholder="P-16"><span class="mas-logo__slot">Logo de agencia</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mas-wrap">
+      <p class="mas-intern__note">Cómo se asignan, en qué ciudad o modalidad y qué necesitas tener listo: te lo explicamos en tu entrevista.</p>
     </div>
   </section>
 
@@ -527,6 +579,12 @@
           <h3 class="mas-qa__q"><button type="button" class="mas-qa__btn" aria-expanded="true" aria-controls="mas-a3" id="mas-q3">¿Necesito tener experiencia en una agencia?<span class="mas-qa__icon" aria-hidden="true"></span></button></h3>
           <div class="mas-qa__a" id="mas-a3" role="region" aria-labelledby="mas-q3"><div class="mas-qa__inner">
             <p>No para agendar tu entrevista. Puedes venir sin experiencia o desde otro trabajo. En la conversación revisamos desde dónde empiezas y qué tendría sentido para ti.</p>
+          </div></div>
+        </div>
+        <div class="mas-qa">
+          <h3 class="mas-qa__q"><button type="button" class="mas-qa__btn" aria-expanded="true" aria-controls="mas-a10" id="mas-q10">¿Cómo funcionan las prácticas profesionales?<span class="mas-qa__icon" aria-hidden="true"></span></button></h3>
+          <div class="mas-qa__a" id="mas-a10" role="region" aria-labelledby="mas-q10"><div class="mas-qa__inner">
+            <p>Después del primer año de clases haces 10 semanas de prácticas en una agencia. Son experiencia profesional dentro de la industria, no una promesa de empleo. Cómo se asignan, en qué ciudad o modalidad y qué necesitas tener listo te lo explicamos en la entrevista.</p>
           </div></div>
         </div>
         <div class="mas-qa">

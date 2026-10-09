@@ -420,6 +420,48 @@
   }, { passive: true });
   window.addEventListener('resize', throttle(onScroll), { passive: true });
 
+  /* --- Logos de agencias: carrusel continuo ---------------------------------
+     Se mueve solo, así que lleva botón de pausa (WCAG 2.2.2); también se detiene
+     con el mouse encima y fuera de pantalla. Sin JS o con movimiento reducido,
+     los logos se quedan quietos en una cuadrícula. */
+  var logos = root.querySelector('[data-logos]');
+  var logoTrack = logos && logos.querySelector('.mas-logos__track');
+  if (logoTrack && motionOK && logoTrack.children.length > 1) {
+    whenNear(logos, function () {
+      var originals = Array.prototype.slice.call(logoTrack.children);
+      var appendCopies = function (items) {
+        items.forEach(function (li) {
+          var copy = li.cloneNode(true);
+          copy.setAttribute('aria-hidden', 'true');
+          copy.removeAttribute('data-placeholder');
+          logoTrack.appendChild(copy);
+        });
+      };
+      var setWidth = 0;
+      originals.forEach(function (li) { setWidth += li.offsetWidth; });
+      if (!setWidth) return;
+      // Primera mitad: copias suficientes para cubrir la pantalla más ancha. Luego se duplica entera
+      // y la fila avanza -50%, así el salto del final al inicio no se nota.
+      var span = Math.max(logos.clientWidth, (window.screen && window.screen.width) || 0);
+      var copies = Math.max(1, Math.ceil(span / setWidth));
+      for (var lc = 1; lc < copies; lc++) appendCopies(originals);
+      appendCopies(Array.prototype.slice.call(logoTrack.children));
+      logos.style.setProperty('--logos-dur', Math.round(setWidth * copies / 45) + 's');
+      logos.classList.add('is-looping');
+
+      var logoToggle = logos.querySelector('[data-logos-toggle]');
+      var logoLabel = logos.querySelector('[data-logos-label]');
+      if (logoToggle) {
+        logoToggle.hidden = false;
+        logoToggle.addEventListener('click', function () {
+          var paused = logos.classList.toggle('is-paused');
+          if (logoLabel) logoLabel.textContent = paused ? 'Reanudar logos' : 'Pausar logos';
+        });
+      }
+      watchVisible(logos, function (v) { logos.classList.toggle('is-offscreen', !v); });
+    });
+  }
+
   /* --- Cursor-punto (solo mouse, solo si se permite movimiento) -------------
      Es un acompañante del cursor nativo, nunca lo reemplaza. */
   var cursor = root.querySelector('.mas-cursor');

@@ -27,6 +27,15 @@ No usar fotografía de stock de estudiantes sonriendo frente a una laptop.
 
 **Fotos de marca en uso** (las mandó Ricardo; están en `img/`, fuera del repositorio): grafitero (hero), salto (bienvenida), Grad Show (último capítulo de los 18 meses), sillón (Art Direction) y gorra con la M («La diferencia»). **Confirmar** que Miami Ad School México tiene derechos para usarlas en una página de anuncios pagados, incluida la autorización de las personas que aparecen.
 
+## 2 bis. Prácticas profesionales
+
+| Código | Qué falta | Dónde | Formato |
+|---|---|---|---|
+| P-16 | **Logos de agencias** donde alumnos de Miami Ad School hicieron prácticas (hay 10 espacios; se borran los que sobren) | Sección «10 semanas dentro de una agencia» · `.mas-logo` | SVG o PNG con fondo transparente, versión horizontal (README · paso 6 bis) |
+| P-16 | Confirmar que cada agencia es un caso real y que la red MAS está de acuerdo en mostrar su logo | Misma sección | — |
+| P-16 | Validar los textos: «después del primer año de clases», «10 semanas», «algunas de las mejores agencias del mundo» y «Algunas agencias donde alumnos de Miami Ad School han hecho sus prácticas» | Hero, cinta, capítulo 3 de los 18 meses, sección violeta y preguntas frecuentes | — |
+| P-16 | Cómo se asignan las prácticas, en qué ciudad o modalidad, si tienen costo extra y si aplican a todas las personas. Hoy la página **no** promete nada de esto: dice que se explica en la entrevista | Nota de la sección violeta y pregunta frecuente | — |
+
 ## 3. Tipografías
 
 | Código | Qué falta | Notas |
@@ -46,7 +55,7 @@ No usar fotografía de stock de estudiantes sonriendo frente a una laptop.
 
 | Código | Qué falta | Dónde |
 |---|---|---|
-| P-11 | Confirmar los nombres de las tres etapas | Sección «De potencial a portafolio» |
+| P-11 | Confirmar los nombres de las tres etapas y dónde caen las prácticas (hoy: capítulo 3, después del primer año y antes de editar el book) | Sección «Lo que construyes durante 18 meses» |
 | P-11 | Confirmar la duración: tres etapas de seis meses (meses 1–6, 7–12, 13–18) | Misma sección |
 | P-11 | ~~Fechas de inicio reales~~ **Confirmadas:** 10 de enero, 10 de abril, 10 de julio y 10 de octubre | Cuenta regresiva y opciones del formulario. |
 | P-11 | **Cierre de admisión antes de cada inicio** | Hoy el contador salta al siguiente inicio 7 días antes (`intakeCutoffDays` en `landing.js`). Confirmar el número real de días. |

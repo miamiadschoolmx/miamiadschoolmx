@@ -32,7 +32,8 @@ Anuncio en Meta → landing → VSL → explicación del programa → evidencia 
 
 - Programas: Art Direction y Copywriting. Modalidad: online y en vivo. Entrevista sin costo.
 - Inicios: 10 de enero, 10 de abril, 10 de julio y 10 de octubre (confirmado por Ricardo). Cierre de admisión antes de cada inicio: por validar.
-- Estructura: tres etapas de seis meses. Nombres de etapas, fechas de inicio, horarios y carga semanal: por validar.
+- Estructura: tres etapas de seis meses. Nombres de etapas, horarios y carga semanal: por validar.
+- Prácticas profesionales: 10 semanas en agencias después del primer año de clases (dato de Ricardo). Asignación, ciudad o modalidad y logos de agencias: por validar.
 - Prohibido: urgencia falsa, cupos o contadores falsos, testimonios o salarios inventados, promesas de empleo, premios sin fuente, «resultados garantizados», «la mejor escuela del mundo».
 - Sin menú, sin WhatsApp y sin enlaces que saquen del recorrido. La medición está preparada pero desactivada hasta instalar el píxel nuevo de Meta y GA4.
 

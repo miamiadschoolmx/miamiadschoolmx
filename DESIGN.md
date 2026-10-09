@@ -96,6 +96,7 @@ Implementación de referencia: `miami-ad-school-vsl/landing.css` (todo bajo `.ma
 - **Blue** `#3391F4` (2727 C): panel de Art Direction.
 - **Orange** `#FF9812` (1495 C): panel de Copywriting.
 - **Green** `#00D357` (2420 C): «Esto es para ti si…».
+- **Violet** `#A572FF`: las prácticas profesionales (capítulo 3 de los 18 meses y la sección «10 semanas dentro de una agencia»). Texto negro (6:1).
 - Portadas de books: rotan fucsia, ácido, azul, naranja, verde, violeta `#A572FF`, blanco y rosa `#FF5CCD`.
 
 ### Named Rules
@@ -142,6 +143,7 @@ Píldora de 60 px. El hover llena el botón desde abajo con el color de acción 
 - Pluma: el círculo ácido alrededor de «portafolio», la barra negra que tacha «intención» y los tachados fucsia de «No es para ti».
 - Cinta fucsia que avanza con el scroll, no por tiempo.
 - Las líneas de «La brecha» se encienden al leerlas.
+- Muro de logos de agencias que avanza solo, con botón de pausa; todos los logos en negro sobre violeta. Con movimiento reducido es una cuadrícula quieta.
 
 ## Do's and Don'ts
 

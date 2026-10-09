@@ -27,6 +27,23 @@
   var mqReduce = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : { matches: false };
   var canObserve = 'IntersectionObserver' in window;
 
+  // Rendimiento: nada se mide al cargar. Cada parte mide su sección
+  // solo cuando está cerca de la pantalla (evita bloquear el celular).
+  function whenNear(el, cb) {
+    if (!el) return;
+    if (!canObserve) { requestAnimationFrame(cb); return; }
+    var io = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) { io.disconnect(); cb(); }
+    }, { rootMargin: '100% 0px 100% 0px' });
+    io.observe(el);
+  }
+  function watchVisible(el, onChange) {
+    if (!el || !canObserve) { if (el) onChange(true); return; }
+    new IntersectionObserver(function (entries) {
+      onChange(entries[0].isIntersecting);
+    }).observe(el);
+  }
+
   /* --- Medición: preparada, desactivada ------------------------------------
      Hoy NO se envía nada a ningún servicio. track() solo guarda el evento en
      window.masVsl.events y emite un CustomEvent local "mas:track".
@@ -229,9 +246,10 @@
     next.addEventListener('click', function () {
       track_.scrollBy({ left: step(), behavior: mqReduce.matches ? 'auto' : 'smooth' });
     });
+    prev.disabled = true;
     track_.addEventListener('scroll', throttle(sync), { passive: true });
     window.addEventListener('resize', throttle(sync), { passive: true });
-    requestAnimationFrame(sync);
+    whenNear(track_, sync);
   }
 
   /* --- Etapas: formulario → agenda → confirmación ---------------------------
@@ -314,9 +332,9 @@
     var distance = items[items.length - 1].getBoundingClientRect().left - items[0].getBoundingClientRect().left;
     processEl.style.setProperty('--track', Math.max(0, Math.round(distance)) + 'px');
   }
-  requestAnimationFrame(measureProcess);
-  window.addEventListener('resize', throttle(measureProcess), { passive: true });
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measureProcess);
+  var processMeasured = false;
+  whenNear(processEl, function () { processMeasured = true; measureProcess(); });
+  window.addEventListener('resize', throttle(function () { if (processMeasured) measureProcess(); }), { passive: true });
 
   if (!mqReduce.matches && canObserve) {
     root.classList.add('has-motion');
@@ -338,31 +356,36 @@
      Cada fuente mide distinto (Archivo en la vista previa, Obviously en GHL):
      si la línea no cabe, se reduce lo justo para que nunca desborde. */
   var fits = root.querySelectorAll('[data-fit]');
-  function fitAll() {
-    for (var f = 0; f < fits.length; f++) {
-      var el = fits[f];
-      el.style.fontSize = '';
-      var avail = el.clientWidth;
-      var need = el.scrollWidth;
-      // data-fit="fill" además crece hasta ocupar todo el ancho.
-      if (avail > 0 && (need > avail || el.getAttribute('data-fit') === 'fill')) {
-        var size = parseFloat(getComputedStyle(el).fontSize);
-        el.style.fontSize = Math.floor(size * (avail / need) * 0.98) + 'px';
-      }
+  var fitted = [];
+  function fitOne(el) {
+    el.style.fontSize = '';
+    var avail = el.clientWidth;
+    var need = el.scrollWidth;
+    // data-fit="fill" además crece hasta ocupar todo el ancho.
+    if (avail > 0 && (need > avail || el.getAttribute('data-fit') === 'fill')) {
+      var size = parseFloat(getComputedStyle(el).fontSize);
+      el.style.fontSize = Math.floor(size * (avail / need) * 0.98) + 'px';
     }
   }
+  function refit() { for (var f = 0; f < fitted.length; f++) fitOne(fitted[f]); }
+  for (var fi = 0; fi < fits.length; fi++) {
+    (function (el) { whenNear(el, function () { fitted.push(el); fitOne(el); }); })(fits[fi]);
+  }
   if (fits.length) {
-    requestAnimationFrame(fitAll);
-    window.addEventListener('resize', throttle(fitAll), { passive: true });
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitAll);
+    window.addEventListener('resize', throttle(refit), { passive: true });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(refit);
   }
 
   /* --- Motor de scroll: progreso, cinta y líneas que se encienden ----------- */
   var progress = root.querySelector('.mas-progress');
   var tickerRow = root.querySelector('[data-ticker]');
+  var glowBox = root.querySelector('[data-glow]');
   var glowItems = root.querySelectorAll('[data-glow] > *');
   var motionOK = !mqReduce.matches;
   var ticking = false;
+  var tickerOn = false, glowOn = false;
+  watchVisible(tickerRow, function (v) { tickerOn = v; });
+  watchVisible(glowBox, function (v) { glowOn = v; if (v) requestAnimationFrame(onScroll); });
 
   function onScroll() {
     ticking = false;
@@ -373,13 +396,13 @@
       var p = total > 0 ? Math.min(1, Math.max(0, -rect.top / total)) : 0;
       progress.style.setProperty('--p', p.toFixed(4));
     }
-    if (tickerRow && motionOK) {
+    if (tickerRow && tickerOn && motionOK) {
       // La cinta avanza con el scroll (no se mueve sola), así que no necesita botón de pausa.
       var copy = tickerRow.scrollWidth / 3;
       var x = copy ? (window.pageYOffset * 0.45) % copy : 0;
       tickerRow.style.setProperty('--x', x.toFixed(1));
     }
-    if (glowItems.length && root.classList.contains('has-motion')) {
+    if (glowOn && glowItems.length && root.classList.contains('has-motion')) {
       for (var g = 0; g < glowItems.length; g++) {
         var top = glowItems[g].getBoundingClientRect().top;
         glowItems[g].classList.toggle('is-lit', top < vh * 0.62);
@@ -390,7 +413,6 @@
     if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
   }, { passive: true });
   window.addEventListener('resize', throttle(onScroll), { passive: true });
-  requestAnimationFrame(onScroll);
 
   /* --- Cursor-punto (solo mouse, solo si se permite movimiento) -------------
      Es un acompañante del cursor nativo, nunca lo reemplaza. */

@@ -54,6 +54,9 @@ No usar fotografía de stock de estudiantes sonriendo frente a una laptop.
 | Código | Texto | Qué validar |
 |---|---|---|
 | P-14 | «Miami Ad School ha sido reconocida siete veces como Future Lions School of the Year, incluyendo 2025.» (también en el sello del hero y en la descripción SEO) | Verificado en prensa: The Drum, «Miami Ad School claims record seventh Future Lions School of the Year title» (10 jul 2025), y en miamiadschool.com. Confirmar con la red MAS que México puede usarlo así. |
+| P-14 | «Somos Miami Ad School. La escuela de publicidad y creatividad más premiada del mundo.» (bienvenida) | Es el posicionamiento oficial de la red Miami Ad School (lo usa miamiadschool.com y sus sedes). No existe un ranking independiente que lo compare: por eso va siempre junto a la prueba de los siete Future Lions School of the Year. |
+| — | Capítulos de «Así se ven esos 18 meses» (llegas con ideas sueltas, primera campaña, editas tu book, entras a la sala) | Narrativa ilustrativa escrita para la landing: confirmar que describe bien la experiencia real de cada etapa. |
+| — | «Miami Ad School es una red internacional de escuelas creativas… con la misma exigencia y el mismo objetivo» (bienvenida) | Que el equipo esté de acuerdo con la formulación. |
 | — | «Carrera Creativa», «18 meses» | Nombre del programa y duración vigentes. |
 | — | «Muchas personas llegan mientras trabajan.» (preguntas frecuentes) | Que sea cierto en la generación actual. |
 | — | «Emmanuel Rocha y Antonio Fragoso son maestros activos en Miami Ad School México.» | Que sigan activos al publicar y que estén de acuerdo con aparecer. |

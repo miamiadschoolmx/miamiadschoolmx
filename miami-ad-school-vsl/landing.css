@@ -101,8 +101,7 @@
 }
 
 /* Contextos de color */
-.mas-vsl .mas-light,
-.mas-vsl .mas-sec-faq {
+.mas-vsl .mas-light {
   --bg: var(--light);
   --fg: var(--black);
   --fg-2: var(--light-2);
@@ -132,7 +131,8 @@
   --bg: var(--acid); --fg: var(--black); --fg-2: #3A3A12; --rule: rgba(10, 10, 10, .25); --pen: var(--hot-ink); --focus: var(--black);
   background: var(--bg); color: var(--fg);
 }
-.mas-vsl .mas-path--ad {
+.mas-vsl .mas-path--ad,
+.mas-vsl .mas-stage--end {
   --bg: #3391F4; --fg: var(--black); --fg-2: #0B2340; --rule: rgba(10, 10, 10, .25); --pen: var(--black); --focus: var(--black);
   background: var(--bg); color: var(--fg);
 }
@@ -146,7 +146,7 @@
 }
 
 /* Texto sobre campos de color: semibold para que se lea con claridad en pantalla */
-.mas-vsl :where(.mas-path, .mas-sec-build, .mas-fit__col--yes, .mas-ev--quote, .mas-apply__intro, .mas-stage, .mas-verdict) :where(p, li, dd, span) { font-weight: 650; }
+.mas-vsl :where(.mas-path, .mas-sec-build, .mas-fit__col--yes, .mas-ev--quote, .mas-apply__intro, .mas-stage, .mas-verdict, .mas-welcome__story) :where(p, li, dd, span) { font-weight: 650; }
 
 /* --- Reset local ---------------------------------------------------------- */
 .mas-vsl,
@@ -694,10 +694,60 @@
 }
 
 /* ==========================================================================
-   Pruebas después del hero
+   Bienvenida: somos Miami Ad School
    ========================================================================== */
-.mas-vsl .mas-evidence { padding-block: clamp(3rem, 6vw, 5rem) 0; }
-.mas-vsl .mas-evidence__grid { display: grid; gap: var(--col-gap); }
+.mas-vsl .mas-welcome { padding-block: clamp(5rem, 3rem + 8vw, 10rem); }
+.mas-vsl .mas-welcome__hi {
+  font-size: var(--t-lead);
+  font-weight: 700;
+  color: var(--hot-ink);
+}
+.mas-vsl .mas-welcome__title {
+  margin-top: .75rem;
+  font-family: var(--font-display);
+  font-stretch: var(--display-stretch);
+  font-weight: var(--display-weight);
+  font-size: var(--t-poster);
+  line-height: .88;
+  letter-spacing: -.03em;
+  text-wrap: balance;
+}
+.mas-vsl .mas-welcome__title span { display: block; }
+.mas-vsl .mas-welcome__title span + span {
+  margin-top: .3em;
+  font-size: max(.5em, 1.875rem);
+  line-height: .95;
+  letter-spacing: -.02em;
+  max-width: 22ch;
+}
+.mas-vsl .mas-welcome__grid {
+  display: grid;
+  gap: 2.5rem var(--col-gap);
+  margin-top: clamp(3rem, 7vw, 5.5rem);
+  align-items: end;
+}
+.mas-vsl .mas-welcome__seven { display: flex; align-items: flex-end; gap: 1.25rem; }
+.mas-vsl .mas-welcome__n {
+  flex: none;
+  font-family: var(--font-display);
+  font-stretch: var(--display-stretch);
+  font-weight: 900;
+  font-size: clamp(9rem, 5rem + 16vw, 20rem);
+  line-height: .74;
+  letter-spacing: -.06em;
+  color: var(--hot);
+}
+.mas-vsl .mas-welcome__claim { font-size: var(--t-lead); line-height: 1.3; max-width: 22ch; padding-bottom: .25rem; }
+.mas-vsl .mas-welcome__story { display: grid; gap: 1.25rem; justify-items: start; }
+.mas-vsl .mas-welcome__story p { font-size: var(--t-lead); line-height: 1.4; max-width: 40ch; }
+.mas-vsl .mas-welcome__story p + p { color: var(--fg-2); }
+@media (min-width: 64em) {
+  .mas-vsl .mas-welcome__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+  .mas-vsl .mas-welcome__seven { grid-column: 1 / span 6; }
+  .mas-vsl .mas-welcome__story { grid-column: 7 / -1; }
+}
+
+.mas-vsl .mas-evidence__grid { display: grid; gap: var(--col-gap); margin-top: clamp(3.5rem, 8vw, 6rem); }
 .mas-vsl .mas-ev {
   position: relative;
   display: flex;
@@ -756,9 +806,9 @@
   font-size: clamp(1.5rem, 1.1rem + 1.2vw, 2.125rem);
   line-height: 1;
 }
-@media (min-width: 64em) {
-  .mas-vsl .mas-evidence__grid { grid-template-columns: 1.25fr 1fr .9fr; align-items: stretch; }
-  .mas-vsl .mas-ev--quote { margin-top: 3rem; }
+@media (min-width: 48em) {
+  .mas-vsl .mas-evidence__grid { grid-template-columns: 1.2fr 1fr; align-items: start; }
+  .mas-vsl .mas-ev--video { margin-top: 3rem; }
 }
 
 /* ==========================================================================
@@ -1018,38 +1068,24 @@
   letter-spacing: -.02em;
   max-width: 22ch;
 }
+.mas-vsl .mas-diff__cta {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+  margin-top: clamp(3.5rem, 8vw, 6rem);
+  padding-top: 2rem;
+  border-top: 2px solid var(--black);
+}
+.mas-vsl .mas-diff__why { font-size: var(--t-lead); font-weight: 600; max-width: 36ch; }
+.mas-vsl .mas-diff__fine { font-size: var(--t-small); color: var(--fg-2); max-width: 44ch; }
 @media (min-width: 48em) {
   .mas-vsl .mas-diff__cols { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (min-width: 64em) {
-  .mas-vsl .mas-diff__close { margin-left: calc(100% / 12 * 4); }
+  .mas-vsl .mas-diff__cta { margin-left: calc(100% / 12 * 4); }
 }
-
-/* ==========================================================================
-   Escuela global · 7 veces Future Lions School of the Year
-   ========================================================================== */
-.mas-vsl .mas-proof { padding-block: clamp(5rem, 3rem + 9vw, 11rem); overflow: hidden; }
-.mas-vsl .mas-proof__grid { display: grid; gap: 1rem var(--col-gap); align-items: center; }
-.mas-vsl .mas-proof__seven {
-  font-family: var(--font-display);
-  font-stretch: var(--display-stretch);
-  font-weight: 900;
-  font-size: clamp(16rem, 10rem + 30vw, 44rem);
-  line-height: .72;
-  letter-spacing: -.06em;
-  color: var(--hot);
-  margin-left: -.06em;
-}
-.mas-vsl .mas-proof__title { max-width: 15ch; font-size: clamp(2.25rem, 1.2rem + 3.6vw, 5rem); }
-.mas-vsl .mas-proof__claim { margin-top: 1.75rem; font-size: var(--t-lead); line-height: 1.35; max-width: 34ch; }
-.mas-vsl .mas-proof__claim strong { color: var(--white); background: linear-gradient(transparent 60%, rgba(255, 0, 155, .55) 60%); }
-.mas-vsl .mas-proof__small { margin-top: 1rem; max-width: 40ch; color: var(--white-2); }
-.mas-vsl .mas-proof .mas-btn { margin-top: 2.25rem; }
-.mas-vsl .mas-proof__fine { margin-top: 1rem; font-size: var(--t-small); color: var(--white-2); max-width: 44ch; }
 @media (min-width: 64em) {
-  .mas-vsl .mas-proof__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); }
-  .mas-vsl .mas-proof__seven { grid-column: 1 / span 5; }
-  .mas-vsl .mas-proof__copy { grid-column: 6 / -1; }
+  .mas-vsl .mas-diff__close { margin-left: calc(100% / 12 * 4); }
 }
 
 /* ==========================================================================
@@ -1351,6 +1387,21 @@
 }
 .mas-vsl .mas-stage__body { display: grid; gap: .875rem; padding-bottom: .5rem; }
 .mas-vsl .mas-stage__when { font-size: var(--t-small); font-weight: 650; color: var(--fg-2); font-variant-numeric: tabular-nums; }
+.mas-vsl .mas-chapters__intro {
+  margin-top: clamp(4rem, 9vw, 7rem);
+  font-family: var(--font-display);
+  font-stretch: var(--display-stretch);
+  font-weight: var(--display-weight);
+  font-size: clamp(1.75rem, 1.1rem + 2.6vw, 3.75rem);
+  line-height: .95;
+  letter-spacing: -.02em;
+  max-width: 20ch;
+}
+.mas-vsl .mas-chapters__intro + .mas-stages { margin-top: clamp(2rem, 5vw, 3.5rem); }
+.mas-vsl .mas-stage__story { max-width: 40ch; font-size: var(--t-lead); line-height: 1.35; }
+.mas-vsl .mas-stage:nth-child(4) { --i: 3; }
+.mas-vsl .mas-stage.mas-stage--end { background: #3391F4; --fg-2: #0B2340; }
+.mas-vsl .mas-stage__arrow { width: .8em; height: .8em; fill: none; stroke: currentColor; stroke-width: 12; stroke-linecap: square; }
 .mas-vsl .mas-stage__name {
   font-family: var(--font-display);
   font-stretch: var(--display-stretch);
@@ -1358,12 +1409,12 @@
   font-size: clamp(1.875rem, 1.2rem + 2.8vw, 4rem);
   line-height: .92;
   letter-spacing: -.02em;
-  max-width: 14ch;
+  max-width: 16ch;
   text-wrap: balance;
 }
 @media (max-width: 47.99em) {
-  .mas-vsl .mas-stage { min-height: 15rem; gap: 1rem; }
-  .mas-vsl .mas-stage__n { font-size: 8.5rem; }
+  .mas-vsl .mas-stage { min-height: 0; gap: 1.25rem; grid-template-columns: 1fr; align-items: start; }
+  .mas-vsl .mas-stage__n { font-size: 5.5rem; }
 }
 .mas-vsl .mas-structure__note {
   margin-top: 2.5rem;
@@ -1377,7 +1428,7 @@
    ========================================================================== */
 .mas-vsl .mas-faq { display: grid; gap: 2.5rem; }
 .mas-vsl .mas-faq__title { max-width: 9ch; }
-.mas-vsl .mas-accordion { border-top: 2px solid var(--black); }
+.mas-vsl .mas-accordion { border-top: 2px solid var(--fg); }
 .mas-vsl .mas-qa { border-bottom: 1px solid var(--rule); }
 .mas-vsl .mas-qa__btn {
   display: flex;
@@ -1403,7 +1454,7 @@
   place-items: center;
   width: 2.5rem; height: 2.5rem;
   border-radius: 50%;
-  background: var(--black);
+  background: var(--fg);
   transition: background-color .25s var(--ease-out), transform .4s var(--ease-out);
 }
 .mas-vsl .mas-qa__icon::before,
@@ -1412,14 +1463,14 @@
   position: absolute;
   left: 50%; top: 50%;
   width: 40%; height: 2px;
-  background: var(--white);
+  background: var(--bg);
   transform: translate(-50%, -50%);
 }
 .mas-vsl .mas-qa__icon::after { transform: translate(-50%, -50%) rotate(90deg); }
 .mas-vsl .mas-qa__btn[aria-expanded="true"] .mas-qa__icon { transform: rotate(45deg); background: var(--hot); }
 .mas-vsl .mas-qa__btn[aria-expanded="true"] .mas-qa__icon::before,
 .mas-vsl .mas-qa__btn[aria-expanded="true"] .mas-qa__icon::after { background: var(--black); }
-.mas-vsl .mas-qa__btn:hover { color: var(--hot-ink); }
+.mas-vsl .mas-qa__btn:hover { color: var(--hot); }
 .mas-vsl .mas-qa__a {
   display: grid;
   grid-template-rows: 1fr;

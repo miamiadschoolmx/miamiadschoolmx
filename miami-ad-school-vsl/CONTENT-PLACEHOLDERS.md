@@ -25,7 +25,7 @@ Todo lo que la landing necesita para salir. Cada código `P-xx` aparece en `land
 
 No usar fotografía de stock de estudiantes sonriendo frente a una laptop.
 
-**Fotos de marca en uso** (las mandó Ricardo; están en `img/`, fuera del repositorio): grafitero (hero), salto (bienvenida), Grad Show (último capítulo de los 18 meses), sillón (Art Direction) y gorra con la M («La diferencia»). **Confirmar** que Miami Ad School México tiene derechos para usarlas en una página de anuncios pagados, incluida la autorización de las personas que aparecen.
+**Fotos de marca en uso** (las mandó Ricardo; están en `img/`): grafitero (hero), salto (bienvenida), Grad Show (último capítulo de los 18 meses), sillón (Art Direction) y gorra con la M («La diferencia»). **Confirmar** que Miami Ad School México tiene derechos para usarlas en una página de anuncios pagados, incluida la autorización de las personas que aparecen.
 
 ## 2 bis. Prácticas profesionales
 

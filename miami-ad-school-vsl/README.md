@@ -15,7 +15,7 @@ Landing para tráfico de Meta Ads. Lleva a la persona del video (VSL) al formula
 | `landing.css` | Estilos. Va en *Settings → Custom CSS* de la página en GHL. |
 | `landing.js` | Comportamiento y eventos de medición. Va en *Tracking Code → Footer*. |
 | `fonts/` | Archivo (OFL). |
-| `img/` | Fotos de marca, logo provisional e imagen para compartir. **No está en el repositorio** (es público): se entrega en un zip aparte. |
+| `img/` | Fotos de marca optimizadas (WebP), logo provisional e imagen para compartir (1200 × 630). |
 | `README-GHL.md` | Guía paso a paso para montarla en GHL. |
 | `CONTENT-PLACEHOLDERS.md` | Lo que falta antes de publicar. |
 
@@ -28,7 +28,6 @@ git clone https://github.com/miamiadschoolmx/miamiadschoolmx.git
 cd miamiadschoolmx
 git checkout claude/jolly-keller-7d0dw6
 cd miami-ad-school-vsl
-# Descomprime aquí el zip de imágenes para que exista la carpeta img/
 python3 -m http.server 8000
 ```
 
@@ -36,7 +35,6 @@ Abre <http://localhost:8000/landing.html>.
 
 - **Etapas del formulario:** `landing.html?paso=agenda` y `landing.html?paso=confirmado`.
 - **Usa el servidor.** Si abres el archivo con doble clic (`file://`), el navegador bloquea la fuente por CORS.
-- **Sin la carpeta `img/`,** la página funciona pero se ve sin fotos.
 
 ## Variables de entorno
 

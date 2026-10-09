@@ -14,7 +14,7 @@ Guía paso a paso para montar `landing.html`, `landing.css` y `landing.js` en Go
 | `landing.css` | Estilos. Todo está bajo `.mas-vsl`, así que no toca la plantilla de GHL. |
 | `landing.js` | Comportamiento: VSL, acordeón, galería, selección de programa, etapas del formulario y eventos de medición (desactivados). |
 | `fonts/` | Archivo (licencia SIL OFL, se puede usar y redistribuir). Obviously Narrow **no** está incluida porque es una fuente con licencia comercial. |
-| `img/` | Fotos de marca ya optimizadas (WebP) y el logo provisional. **No están en el repositorio** (es público): se entregan aparte, en un zip. Sin esta carpeta, la vista previa local se ve sin fotos. |
+| `img/` | Fotos de marca ya optimizadas (WebP), el logo provisional y la imagen para compartir. Son las que se suben a la biblioteca de medios de GHL (paso 6). |
 | `CONTENT-PLACEHOLDERS.md` | Todo lo que hay que reemplazar antes de publicar. |
 
 Para ver la vista previa local, abre una terminal en esta carpeta y corre `python3 -m http.server 8000`; después entra a `http://localhost:8000/landing.html`. Para ver los otros estados del formulario usa `?paso=agenda` y `?paso=confirmado`.
@@ -30,7 +30,7 @@ Para ver la vista previa local, abre una terminal en esta carpeta y corre `pytho
    - **Título SEO:** `Construye tu portafolio creativo · Miami Ad School México`
    - **Descripción** (153 caracteres, cabe completa en Google): `Art Direction y Copywriting, online y en vivo, con prácticas en agencias. Miami Ad School: 7 veces Future Lions School of the Year. Agenda tu entrevista.`
    - **Idioma:** español (`es-MX`), si tu cuenta lo permite.
-   - **Imagen para compartir (OG):** sube `img/og-carrera-creativa.jpg` (1200 × 630, viene en el zip de imágenes) y úsala aquí. Es el hero de la landing, sin la fecha, para que no caduque.
+   - **Imagen para compartir (OG):** sube `img/og-carrera-creativa.jpg` (1200 × 630, está en `img/`) y úsala aquí. Es el hero de la landing, sin la fecha, para que no caduque.
    - **Título y descripción para redes** (si GHL los pide aparte): `El talento no te consigue trabajo. Tu portafolio sí.` / `Art Direction y Copywriting, online y en vivo, con prácticas en agencias. Agenda tu entrevista sin costo con Miami Ad School México.`
    - **Velocidad:** cuando ya tengas las fuentes en GHL (paso 4), en **Tracking Code → Header** precarga la de titulares para que aparezcan sin parpadeo: `<link rel="preload" href="URL_DE_OBVIOUSLY_NARROW_BOLD.woff" as="font" type="font/woff" crossorigin>`.
 5. **No publiques todavía.**

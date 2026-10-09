@@ -28,9 +28,11 @@ Para ver la vista previa local, abre una terminal en esta carpeta y corre `pytho
 3. Elige **plantilla en blanco**. No uses una plantilla con header, menú o footer: la landing no debe tener enlaces que saquen a la persona del recorrido.
 4. En la configuración de la página (**Settings**) define:
    - **Título SEO:** `Construye tu portafolio creativo · Miami Ad School México`
-   - **Descripción:** `Art Direction y Copywriting, online y en vivo, en la escuela siete veces Escuela del Año en Cannes Lions. Construye el book que abre conversaciones con la industria. Agenda tu entrevista sin costo.`
+   - **Descripción** (153 caracteres, cabe completa en Google): `Art Direction y Copywriting, online y en vivo, con prácticas en agencias. Miami Ad School: 7 veces Future Lions School of the Year. Agenda tu entrevista.`
    - **Idioma:** español (`es-MX`), si tu cuenta lo permite.
-   - **Imagen para compartir (OG):** una imagen oficial de 1200 × 630 px (ver `CONTENT-PLACEHOLDERS.md`).
+   - **Imagen para compartir (OG):** sube `img/og-carrera-creativa.jpg` (1200 × 630, viene en el zip de imágenes) y úsala aquí. Es el hero de la landing, sin la fecha, para que no caduque.
+   - **Título y descripción para redes** (si GHL los pide aparte): `El talento no te consigue trabajo. Tu portafolio sí.` / `Art Direction y Copywriting, online y en vivo, con prácticas en agencias. Agenda tu entrevista sin costo con Miami Ad School México.`
+   - **Velocidad:** cuando ya tengas las fuentes en GHL (paso 4), en **Tracking Code → Header** precarga la de titulares para que aparezcan sin parpadeo: `<link rel="preload" href="URL_DE_OBVIOUSLY_NARROW_BOLD.woff" as="font" type="font/woff" crossorigin>`.
 5. **No publiques todavía.**
 
 ## 2. Preparar la sección que va a contener la landing
@@ -97,13 +99,14 @@ El script se protege solo contra ejecuciones dobles. Si un día lo pegas en los 
 
 ### Las fotos que ya están en la página
 
-Sube a la biblioteca de medios de GHL los archivos de `img/` y, en el HTML que pegaste, cambia cada ruta `img/...` por la URL que te da GHL. Ojo: las fotos con dos tamaños aparecen **dos veces**, en `src` y en `srcset`. Cambia las dos.
+Sube a la biblioteca de medios de GHL los archivos de `img/` y, en el HTML que pegaste, cambia cada ruta `img/...` por la URL que te da GHL. Ojo: las fotos con varios tamaños aparecen en `src` y en `srcset`. Cambia todas las rutas.
 
 | Archivo | Dónde va | Código |
 |---|---|---|
-| `logo-mas.png` | Logo del hero (provisional, ver P-01) | P-01 |
+| `logo-mas-300.png` | Logo del hero (provisional, ver P-01) | P-01 |
 | `hero-craft-640.webp`, `hero-craft-1080.webp` | Foto cuadrada del hero (grafitero) | P-02 |
-| `welcome-energy-640.webp`, `welcome-energy-1080.webp` | Bienvenida, junto a las pruebas (salto) | — |
+| `welcome-energy-640.webp`, `welcome-energy-800.webp`, `welcome-energy-1080.webp` | Bienvenida, junto a las pruebas (salto) | — |
+| `og-carrera-creativa.jpg` | Imagen para compartir en redes (no va en el HTML: va en la configuración de la página, paso 1) | — |
 | `grad-show-640.webp`, `grad-show-1080.webp` | Último capítulo de los 18 meses, «Entras a la sala» (Grad Show) | — |
 | `ad-keyvisual-640.webp` | Moodboard de Art Direction (sillón) | P-05 |
 | `diff-think-640.webp`, `diff-think-1000.webp` | «La diferencia no es saber más» (gorra con la M) | — |

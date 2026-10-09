@@ -16,12 +16,12 @@ Todo lo que la landing necesita para salir. Cada código `P-xx` aparece en `land
 
 | Código | Qué falta | Dónde | Formato |
 |---|---|---|---|
-| P-01 | Logo oficial Miami Ad School México, versión para fondo negro. **Hoy hay uno provisional** (`img/logo-mas.png`), recortado de la imagen que mandó Ricardo: sirve para la prueba, pero en pantallas grandes se puede ver suave. | `.mas-brand__logo` | SVG |
+| P-01 | Logo oficial Miami Ad School México, versión para fondo negro. **Hoy hay uno provisional** (`img/logo-mas-300.png`), recortado de la imagen que mandó Ricardo: sirve para la prueba, pero en pantallas grandes se puede ver suave. | `.mas-brand__logo` | SVG |
 | P-02 | ~~Imagen del hero~~ **Resuelto** con foto de marca (grafitero). Opcional más adelante: una pieza real del book de un graduado, con autorización. | `.mas-plate--image` | Cuadrada · 1080 × 1080 px |
 | P-05 | ~~Key visual de Art Direction~~ **Resuelto** con foto de marca (sillón). | `.mas-board__tile--key` | Cuadrado, mínimo 640 px |
 | P-06 | Preview de cada uno de los 8 books, autorizado por su autor | `.mas-book__cover` | 4:5 · 1000 × 1250 px |
 | P-08 | Foto de Ricardo | `.mas-host__photo` | Cuadrada, mínimo 320 × 320 px |
-| — | Imagen para compartir en redes (OG) | Settings de la página en GHL | 1200 × 630 px |
+| — | ~~Imagen para compartir en redes (OG)~~ **Lista:** `img/og-carrera-creativa.jpg` (el hero sin la fecha). Falta subirla a GHL | Settings de la página en GHL | 1200 × 630 px |
 
 No usar fotografía de stock de estudiantes sonriendo frente a una laptop.
 

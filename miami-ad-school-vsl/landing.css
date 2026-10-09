@@ -401,7 +401,8 @@
   color: var(--white-2);
   text-wrap: pretty;
 }
-.mas-vsl .mas-hero__act { grid-area: act; margin-top: 1.75rem; }
+/* Encima del titular gigante: en escritorio su caja de línea tapaba la cápsula de fechas y no se podía hacer clic */
+.mas-vsl .mas-hero__act { grid-area: act; margin-top: 1.75rem; position: relative; z-index: 2; }
 .mas-vsl .mas-next {
   display: inline-flex;
   flex-wrap: wrap;
@@ -1497,18 +1498,17 @@
   font-weight: 650;
   color: var(--fg-2);
 }
-/* Con JS y movimiento permitido, la fila se duplica y avanza con el scroll (como la cinta) */
-.mas-vsl .mas-logos.is-looping .mas-logos__viewport {
+/* Con JS y movimiento permitido, la fila se duplica y avanza con el scroll (como la cinta).
+   Va en una sola fila desde el inicio: si cambiara de alto al duplicarse, los CTA que pasan
+   por aquí con scroll suave aterrizarían más abajo de su destino. */
+.mas-vsl.has-motion .mas-logos__viewport {
   overflow: hidden;
   padding-inline: 0;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
 }
-.mas-vsl .mas-logos.is-looping .mas-logos__track {
-  flex-wrap: nowrap;
-  width: max-content;
-  transform: translate3d(calc(var(--lx, 0) * -1px), 0, 0);
-}
+.mas-vsl.has-motion .mas-logos__track { flex-wrap: nowrap; width: max-content; }
+.mas-vsl .mas-logos.is-looping .mas-logos__track { transform: translate3d(calc(var(--lx, 0) * -1px), 0, 0); }
 
 /* ==========================================================================
    Próximos inicios · cuenta regresiva real (campo ácido)

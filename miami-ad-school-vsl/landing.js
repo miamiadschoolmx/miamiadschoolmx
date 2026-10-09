@@ -67,12 +67,20 @@
     } catch (e) { /* navegadores sin CustomEvent: se ignora */ }
     if (!TRACKING_ENABLED) return;
 
-    // Meta Pixel (navegador). Usa eventId para deduplicar con la API de Conversiones (CAPI):
-    // if (window.fbq) window.fbq('trackCustom', name, payload.detail, { eventID: name + '-' + payload.ts });
-    // Eventos estándar sugeridos: lead_submit -> 'Lead'; appointment_booked -> 'Schedule'.
+    // Meta Pixel (navegador): los eventos con equivalente estándar van como estándar, el resto como
+    // personalizados. eventID sirve para deduplicar con la API de Conversiones (CAPI).
+    // var META_STANDARD = { lead_submit: 'Lead', appointment_booked: 'Schedule', view_books: 'ViewContent' };
+    // if (window.fbq) {
+    //   var metaOpts = { eventID: name + '-' + payload.ts };
+    //   if (META_STANDARD[name]) window.fbq('track', META_STANDARD[name], payload.detail, metaOpts);
+    //   else window.fbq('trackCustom', name, payload.detail, metaOpts);
+    // }
 
-    // GA4 (gtag.js):
-    // if (window.gtag) window.gtag('event', name, payload.detail);
+    // GA4 (gtag.js). lead_submit también sale como el evento recomendado generate_lead:
+    // if (window.gtag) {
+    //   window.gtag('event', name, payload.detail);
+    //   if (name === 'lead_submit') window.gtag('event', 'generate_lead', payload.detail);
+    // }
 
     // Google Tag Manager:
     // (window.dataLayer = window.dataLayer || []).push({ event: name, mas: payload.detail });
@@ -389,7 +397,7 @@
   var logoTrack = logos && logos.querySelector('.mas-logos__track');
   var logoHalf = 0, logosOn = false;
   function measureLogos() { logoHalf = logoTrack.offsetWidth / 2; }
-  if (logoTrack && !mqReduce.matches && logoTrack.children.length > 1) {
+  if (logoTrack && root.classList.contains('has-motion') && logoTrack.children.length > 1) {
     whenNear(logos, function () {
       var originals = Array.prototype.slice.call(logoTrack.children);
       var appendCopies = function (items) {

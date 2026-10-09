@@ -21,7 +21,13 @@
       'no-se': 'Aún no sé'
     },
     // Valores del parámetro ?paso= que GHL agrega al redirigir (ver README-GHL.md · paso 8).
-    stageParam: 'paso'
+    stageParam: 'paso',
+    // Fechas reales de inicio (mes 0 = enero). La cuenta regresiva apunta a la siguiente.
+    intakes: [{ month: 0, day: 10 }, { month: 3, day: 10 }, { month: 6, day: 10 }, { month: 9, day: 10 }],
+    // Días antes del inicio en que el contador ya muestra el siguiente (cierre de admisión).
+    intakeCutoffDays: 7,
+    // Hora de inicio en Ciudad de México (UTC-6, sin horario de verano).
+    intakeUtcOffsetHours: -6
   };
 
   var mqReduce = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : { matches: false };
@@ -471,6 +477,73 @@
     // Si hubo arrastre, el clic no abre el book.
     dragEl.addEventListener('click', function (e) { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
   }
+
+  /* --- Próximo inicio y cuenta regresiva -----------------------------------
+     Real: cuenta hacia la siguiente fecha de CONFIG.intakes. No se reinicia por
+     visitante y salta sola al siguiente inicio cuando cierra el actual. */
+  var MONTHS = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+  var DAY = 86400000;
+  function nextIntake(now) {
+    var y = new Date(now).getUTCFullYear();
+    for (var yy = y; yy <= y + 1; yy++) {
+      for (var n = 0; n < CONFIG.intakes.length; n++) {
+        var it = CONFIG.intakes[n];
+        var t = Date.UTC(yy, it.month, it.day, -CONFIG.intakeUtcOffsetHours, 0, 0);
+        if (t - CONFIG.intakeCutoffDays * DAY > now) return { t: t, year: yy, index: n, month: it.month, day: it.day };
+      }
+    }
+    return null;
+  }
+  function pad(v) { return v < 10 ? '0' + v : String(v); }
+  function setText(sel, txt) {
+    var els = root.querySelectorAll(sel);
+    for (var e = 0; e < els.length; e++) els[e].textContent = txt;
+  }
+  var cdBox = root.querySelector('[data-countdown]');
+  var pill = root.querySelector('[data-intake-pill]');
+  var titleEl = root.querySelector('[data-intake-title]');
+  var current = null;
+  function renderIntake() {
+    var now = Date.now();
+    var nx = nextIntake(now);
+    if (!nx) return;
+    var thisYear = new Date(now).getUTCFullYear();
+    var short = nx.day + '\u00a0de ' + MONTHS[nx.month];
+    var label = short + (nx.year !== thisYear ? ' de ' + nx.year : '');
+    var left = Math.max(0, nx.t - now);
+    var d = Math.floor(left / DAY);
+    var h = Math.floor(left % DAY / 3600000);
+    var m = Math.floor(left % 3600000 / 60000);
+    var sec = Math.floor(left % 60000 / 1000);
+    if (!current || current.t !== nx.t) {
+      current = nx;
+      setText('[data-intake-date]', label);
+      setText('[data-intake-date-short]', short);
+      if (titleEl) titleEl.textContent = 'Próximo inicio: ' + label + '.';
+      var items = root.querySelectorAll('[data-intake]');
+      for (var i = 0; i < items.length; i++) {
+        items[i].classList.toggle('is-next', Number(items[i].getAttribute('data-intake')) === nx.index);
+      }
+    }
+    setText('[data-intake-days]', String(d));
+    setText('[data-intake-days-label]', d === 1 ? 'día' : 'días');
+    setText('[data-cd-d]', pad(d));
+    setText('[data-cd-h]', pad(h));
+    setText('[data-cd-m]', pad(m));
+    setText('[data-cd-s]', pad(sec));
+    var sr = root.querySelector('[data-countdown-sr]');
+    if (sr) sr.textContent = 'Faltan ' + d + (d === 1 ? ' día' : ' días') + ' para el inicio del ' + label + '.';
+  }
+  renderIntake();
+  if (pill) pill.hidden = false;
+  if (cdBox) cdBox.hidden = false;
+  // Los segundos solo corren mientras la cuenta regresiva está en pantalla.
+  var tickTimer = null;
+  watchVisible(cdBox, function (v) {
+    if (v && !tickTimer) tickTimer = setInterval(renderIntake, 1000);
+    if (!v && tickTimer) { clearInterval(tickTimer); tickTimer = null; }
+  });
+  setInterval(function () { if (!tickTimer) renderIntake(); }, 60000);
 
   /* --- Utilidades ------------------------------------------------------------ */
   function throttle(fn) {

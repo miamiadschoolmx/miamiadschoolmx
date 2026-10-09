@@ -34,6 +34,12 @@
       <p class="mas-hero__sub">Si tienes ideas, talento o piezas sueltas, pero tu book todavía no abre las conversaciones que quieres, necesitas algo más que otro&nbsp;curso.</p>
 
       <div class="mas-hero__act">
+        <!-- Próximo inicio: lo calcula landing.js con las fechas reales de CONFIG.intakes -->
+        <a class="mas-next" href="#fechas" data-intake-pill hidden>
+          <span class="mas-next__dot" aria-hidden="true"></span>
+          <span>Próximo inicio: <strong data-intake-date-short>10 de enero</strong></span>
+          <span class="mas-next__left">· faltan <strong data-intake-days>0</strong> <span data-intake-days-label>días</span></span>
+        </a>
         <div class="mas-actions">
           <a class="mas-btn mas-btn--hot mas-btn--play" href="#vsl" data-cta="hero-ver-entrenamiento">
             <svg class="mas-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor" stroke="none"/></svg>
@@ -474,6 +480,38 @@
           <svg class="mas-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
         </a>
         <p class="mas-diff__fine">Sin presión. Sin promesas falsas. Una conversación para entender si este proceso encaja con tu momento y tu ambición.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRÓXIMOS INICIOS · cuenta regresiva real a la siguiente fecha (no se reinicia por visitante) -->
+  <section class="mas-section mas-dates" id="fechas" aria-labelledby="mas-dates-title">
+    <div class="mas-wrap">
+      <h2 class="mas-h2 mas-dates__title" id="mas-dates-title" data-intake-title>Cuatro inicios al&nbsp;año.</h2>
+
+      <div class="mas-countdown" data-countdown hidden>
+        <p class="mas-sr" data-countdown-sr></p>
+        <div class="mas-countdown__grid" aria-hidden="true">
+          <div class="mas-cd"><span class="mas-cd__n" data-cd-d>00</span><span class="mas-cd__u">días</span></div>
+          <div class="mas-cd"><span class="mas-cd__n" data-cd-h>00</span><span class="mas-cd__u">horas</span></div>
+          <div class="mas-cd"><span class="mas-cd__n" data-cd-m>00</span><span class="mas-cd__u">min</span></div>
+          <div class="mas-cd"><span class="mas-cd__n" data-cd-s>00</span><span class="mas-cd__u">seg</span></div>
+        </div>
+      </div>
+
+      <ol class="mas-dates__list" role="list" aria-label="Fechas de inicio de Carrera Creativa">
+        <li class="mas-date" data-intake="0"><span class="mas-date__d">10</span> <span class="mas-date__m">enero</span></li>
+        <li class="mas-date" data-intake="1"><span class="mas-date__d">10</span> <span class="mas-date__m">abril</span></li>
+        <li class="mas-date" data-intake="2"><span class="mas-date__d">10</span> <span class="mas-date__m">julio</span></li>
+        <li class="mas-date" data-intake="3"><span class="mas-date__d">10</span> <span class="mas-date__m">octubre</span></li>
+      </ol>
+
+      <div class="mas-dates__foot">
+        <p class="mas-dates__copy">Carrera Creativa arranca cuatro veces al año. Agenda tu entrevista con tiempo: juntos elegimos el inicio que mejor encaja con tu&nbsp;momento.</p>
+        <a class="mas-btn mas-btn--ink" href="#aplicar" data-cta="dates-agenda">
+          Quiero agendar una entrevista
+          <svg class="mas-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        </a>
       </div>
     </div>
   </section>

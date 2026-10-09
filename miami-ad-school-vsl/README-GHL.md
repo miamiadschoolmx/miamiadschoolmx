@@ -198,6 +198,20 @@ Hoy **no se envía nada**. Todos los eventos solo se guardan en `window.masVsl.e
 4. **YouTube o Vimeo:** `vsl_50_percent` y `vsl_complete` requieren la API de su reproductor (YouTube IFrame API o Vimeo Player SDK). Si los necesitas, súmalos en ese momento o aloja la VSL como `.mp4`.
 5. **API de Conversiones (CAPI):** envía `Lead` y `Schedule` desde el servidor con un workflow de GHL (acción de Meta Conversions API, si tu cuenta la tiene) y usa el mismo `eventID` que el navegador para deduplicar. Nunca pongas tokens de CAPI en este JS.
 
+## 10 bis. Cuenta regresiva de inicios
+
+La landing trae su propia cuenta regresiva (sección «Próximo inicio» y aviso en el hero). Es **real**: cuenta hacia la siguiente fecha de inicio, no se reinicia por visitante y salta sola al siguiente inicio. No necesitas el elemento Countdown de GHL; si lo usas, **nunca** en modo *evergreen* (reinicia el contador a cada persona: es urgencia falsa).
+
+Se configura en `landing.js`, dentro de `CONFIG`:
+
+| Ajuste | Valor actual | Qué hace |
+|---|---|---|
+| `intakes` | 10 de enero, abril, julio y octubre | Fechas de inicio (mes 0 = enero). |
+| `intakeCutoffDays` | `7` | Días antes del inicio en que el contador ya muestra el siguiente (cierre de admisión). Con `0` cuenta hasta el mismo día del inicio. |
+| `intakeUtcOffsetHours` | `-6` | Hora de Ciudad de México. El contador llega a cero a las 00:00 del día de inicio. |
+
+Si un trimestre cambia la fecha, edita solo `intakes`. Los segundos solo corren mientras la sección está en pantalla.
+
 ## 11. Probar antes de publicar
 
 **Recorrido**

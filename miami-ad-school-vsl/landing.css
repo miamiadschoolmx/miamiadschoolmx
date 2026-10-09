@@ -127,6 +127,7 @@
 
 /* Campos de la paleta secundaria M.AD: cada sección, su propio color de punto */
 .mas-vsl .mas-sec-build,
+.mas-vsl .mas-dates,
 .mas-vsl .mas-stage:nth-child(3) {
   --bg: var(--acid); --fg: var(--black); --fg-2: #3A3A12; --rule: rgba(10, 10, 10, .25); --pen: var(--hot-ink); --focus: var(--black);
   background: var(--bg); color: var(--fg);
@@ -399,6 +400,38 @@
   text-wrap: pretty;
 }
 .mas-vsl .mas-hero__act { grid-area: act; margin-top: 1.75rem; }
+.mas-vsl .mas-next {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .25rem .5rem;
+  margin-bottom: 1.25rem;
+  padding: .5rem .875rem .5rem .625rem;
+  border-radius: 999px;
+  background: var(--black-2);
+  box-shadow: inset 0 0 0 1px rgba(247, 245, 242, .14);
+  font-size: var(--t-small);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--white);
+  transition: box-shadow .25s var(--ease-out);
+}
+.mas-vsl .mas-next:hover { box-shadow: inset 0 0 0 1px var(--acid); }
+.mas-vsl .mas-next strong { font-weight: 800; }
+.mas-vsl .mas-next__left { color: var(--acid); }
+.mas-vsl .mas-next__dot {
+  width: .625rem; height: .625rem;
+  border-radius: 50%;
+  background: var(--acid);
+  box-shadow: 0 0 0 0 rgba(255, 255, 62, .6);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .mas-vsl .mas-next__dot { animation: mas-pulse 2.4s var(--ease-out) 3; }
+}
+@keyframes mas-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 255, 62, .6); }
+  100% { box-shadow: 0 0 0 .75rem rgba(255, 255, 62, 0); }
+}
 .mas-vsl .mas-actions {
   display: flex;
   flex-wrap: wrap;
@@ -1421,6 +1454,71 @@
   font-size: var(--t-small);
   color: var(--fg-2);
   max-width: 52ch;
+}
+
+/* ==========================================================================
+   Próximos inicios · cuenta regresiva real (campo ácido)
+   ========================================================================== */
+.mas-vsl .mas-dates__title { max-width: 14ch; }
+.mas-vsl .mas-countdown { margin-top: clamp(2.5rem, 6vw, 4rem); }
+.mas-vsl .mas-countdown__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(.5rem, 1.6vw, 1.25rem);
+  max-width: 64rem;
+}
+.mas-vsl .mas-cd {
+  display: grid;
+  justify-items: start;
+  gap: .25rem;
+  padding: clamp(.875rem, 2.4vw, 1.75rem);
+  border-radius: clamp(.75rem, 1.6vw, 1.25rem);
+  background: var(--black);
+  color: var(--acid);
+}
+.mas-vsl .mas-cd__n {
+  font-family: var(--font-display);
+  font-stretch: var(--display-stretch);
+  font-weight: var(--display-weight);
+  font-size: clamp(2.5rem, 1rem + 7vw, 8rem);
+  line-height: .85;
+  letter-spacing: -.03em;
+  font-variant-numeric: tabular-nums;
+}
+.mas-vsl .mas-cd__u { font-size: var(--t-small); font-weight: 700; color: var(--white); }
+.mas-vsl .mas-dates__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: 2rem;
+}
+.mas-vsl .mas-date {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .375rem;
+  padding: .5rem 1rem;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 2px var(--black);
+  font-weight: 700;
+}
+.mas-vsl .mas-date__d {
+  font-family: var(--font-display);
+  font-stretch: var(--display-stretch);
+  font-weight: var(--display-weight);
+  font-size: 1.375rem;
+  line-height: 1;
+}
+.mas-vsl .mas-date.is-next { background: var(--black); color: var(--acid); }
+.mas-vsl .mas-dates__foot {
+  display: grid;
+  gap: 1.75rem;
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+  align-items: end;
+}
+.mas-vsl .mas-dates__copy { font-size: var(--t-lead); line-height: 1.35; max-width: 40ch; font-weight: 650; }
+.mas-vsl .mas-dates__foot .mas-btn { justify-self: start; }
+@media (min-width: 64em) {
+  .mas-vsl .mas-dates__foot { grid-template-columns: 1fr auto; }
 }
 
 /* ==========================================================================

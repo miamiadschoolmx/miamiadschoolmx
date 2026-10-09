@@ -46,7 +46,8 @@ No usar fotografía de stock de estudiantes sonriendo frente a una laptop.
 |---|---|---|
 | P-11 | Confirmar los nombres de las tres etapas | Sección «De potencial a portafolio» |
 | P-11 | Confirmar la duración: tres etapas de seis meses (meses 1–6, 7–12, 13–18) | Misma sección |
-| P-11 | **Fechas de inicio reales** | Opciones del formulario: Enero / Abril / Julio / Octubre |
+| P-11 | ~~Fechas de inicio reales~~ **Confirmadas:** 10 de enero, 10 de abril, 10 de julio y 10 de octubre | Cuenta regresiva y opciones del formulario. |
+| P-11 | **Cierre de admisión antes de cada inicio** | Hoy el contador salta al siguiente inicio 7 días antes (`intakeCutoffDays` en `landing.js`). Confirmar el número real de días. |
 | P-11 | Horario de clases y carga semanal | Se mencionan en las preguntas frecuentes como algo que se confirma en la entrevista |
 
 ## 6. Claims y textos por validar

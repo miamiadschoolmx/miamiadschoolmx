@@ -939,7 +939,8 @@
 /* ==========================================================================
    E · ELECCIÓN DE CAMINO (los paneles se expanden)
    ========================================================================== */
-.mas-vsl .mas-sec-paths { padding-top: 0; }
+/* Los paneles tocan la sección siguiente: bloques de color pegados, sin franja negra en medio */
+.mas-vsl .mas-sec-paths { padding-top: 0; padding-bottom: 0; }
 .mas-vsl .mas-paths {
   display: grid;
   gap: 0;

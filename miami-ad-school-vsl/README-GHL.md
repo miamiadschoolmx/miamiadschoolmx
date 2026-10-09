@@ -127,13 +127,13 @@ Cada espacio pendiente tiene un atributo `data-placeholder="P-xx"` que coincide 
 
 ## 6 bis. Logos de agencias (slider de prácticas)
 
-La sección violeta «10 semanas dentro de una agencia» trae 10 espacios con la etiqueta «Logo de agencia». Cada uno tiene `data-placeholder="P-16"`.
+La sección «10 semanas dentro de las mejores agencias del mundo» trae 10 espacios con la etiqueta «Logo de agencia». Cada uno tiene `data-placeholder="P-16"`.
 
 ### 1. Prepara los logos
 
 - **Formato:** SVG (lo ideal) o PNG con **fondo transparente**. Un logo con fondo blanco se vería como un rectángulo negro.
 - **Versión horizontal,** recortada al borde, sin aire alrededor. Para PNG, unos 400 px de ancho bastan.
-- **El color no importa:** la página pinta todos los logos de negro para que el muro se vea parejo sobre el violeta.
+- **El color no importa:** la página pinta todos los logos de negro para que el muro se vea parejo sobre el fondo claro.
 - **Solo agencias reales:** cada logo debe ser de una agencia donde alumnos de Miami Ad School de verdad hicieron prácticas (ver P-16 en `CONTENT-PLACEHOLDERS.md`).
 
 ### 2. Súbelos a GHL
@@ -163,7 +163,7 @@ Cámbialo por:
 
 ### Cómo se comporta
 
-- Avanza solo, de forma continua. Se detiene con el mouse encima, con el botón «Pausar logos» y cuando no está en pantalla.
+- Se mueve con el scroll, igual que la cinta fucsia: cuando la persona deja de bajar, se detiene. Por eso no necesita botón de pausa y sigue cumpliendo con accesibilidad.
 - Con «reducir movimiento» activado en el sistema, los logos se quedan quietos en una cuadrícula.
 
 ## 7. Insertar la URL de la VSL
@@ -280,7 +280,7 @@ Si un trimestre cambia la fecha, edita solo `intakes`. Los segundos solo corren 
 - [ ] El formulario se envía y redirige a `?paso=agenda`; aparece la agenda.
 - [ ] Agendar redirige a `?paso=confirmado`; aparece la confirmación y llega el correo con el enlace.
 - [ ] Los 8 links de books abren en pestaña nueva y cargan bien.
-- [ ] El slider de logos avanza, se pausa con el botón y ya no queda ningún «Logo de agencia» vacío.
+- [ ] El slider de logos se mueve al hacer scroll y ya no queda ningún «Logo de agencia» vacío.
 - [ ] Aviso de privacidad y términos abren sus páginas reales.
 
 **Calidad**

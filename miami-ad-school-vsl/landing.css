@@ -138,12 +138,7 @@
   background: var(--bg); color: var(--fg);
 }
 .mas-vsl .mas-path--cw {
-  --bg: #FF9812; --fg: var(--black); --fg-2: #3D2200; --rule: rgba(10, 10, 10, .25); --pen: var(--black); --focus: var(--black);
-  background: var(--bg); color: var(--fg);
-}
-.mas-vsl .mas-intern,
-.mas-vsl .mas-stage--intern {
-  --bg: #A572FF; --fg: var(--black); --fg-2: #1E0B40; --rule: rgba(10, 10, 10, .25); --pen: var(--black); --focus: var(--black);
+  --bg: var(--light); --fg: var(--black); --fg-2: var(--light-2); --rule: var(--rule-light); --pen: var(--hot); --focus: var(--black);
   background: var(--bg); color: var(--fg);
 }
 .mas-vsl .mas-fit__col--yes {
@@ -152,7 +147,7 @@
 }
 
 /* Texto sobre campos de color: semibold para que se lea con claridad en pantalla */
-.mas-vsl :where(.mas-path, .mas-sec-build, .mas-intern, .mas-fit__col--yes, .mas-ev--quote, .mas-apply__intro, .mas-stage, .mas-verdict, .mas-welcome__story) :where(p, li, dd, span) { font-weight: 650; }
+.mas-vsl :where(.mas-path, .mas-sec-build, .mas-fit__col--yes, .mas-ev--quote, .mas-apply__intro, .mas-stage, .mas-verdict, .mas-welcome__story) :where(p, li, dd, span) { font-weight: 650; }
 
 /* --- Reset local ---------------------------------------------------------- */
 .mas-vsl,
@@ -1126,6 +1121,7 @@
 .mas-vsl .mas-path__support { margin-top: 1.25rem; color: var(--fg); max-width: 40ch; font-size: clamp(1.125rem, 1rem + .4vw, 1.3125rem); line-height: 1.4; }
 .mas-vsl .mas-path__for { margin-top: .875rem; color: var(--fg); max-width: 40ch; font-size: 1rem; line-height: 1.45; }
 .mas-vsl .mas-path .mas-btn { margin-top: 2rem; }
+.mas-vsl .mas-path--cw .mas-path__claim { color: var(--hot-ink); }
 @media (max-width: 47.99em) {
   .mas-vsl .mas-path .mas-btn { width: 100%; justify-content: space-between; text-align: left; }
 }
@@ -1167,7 +1163,7 @@
 .mas-vsl .mas-board__tile--swatch i:nth-child(1) { background: #FF009B; }
 .mas-vsl .mas-board__tile--swatch i:nth-child(2) { background: #FFFF3E; }
 .mas-vsl .mas-board__tile--swatch i:nth-child(3) { background: #00D357; }
-.mas-vsl .mas-board__tile--swatch i:nth-child(4) { background: #FF9812; }
+.mas-vsl .mas-board__tile--swatch i:nth-child(4) { background: #F7F5F2; }
 .mas-vsl .mas-board__tile--swatch span { flex: 1 1 100%; padding: .5rem .75rem .625rem; }
 .mas-vsl .mas-board__tile--layout svg { width: 70%; margin-bottom: auto; fill: none; stroke: var(--white); stroke-width: 1.2; }
 .mas-vsl .mas-board__tile--type { grid-column: 2 / -1; }
@@ -1175,14 +1171,14 @@
 .mas-vsl .mas-path__manuscript {
   max-width: 26rem;
   padding: 1.125rem 1.25rem 1.375rem;
-  background: var(--white);
-  color: var(--black);
+  background: var(--black);
+  color: var(--white);
   --pen: var(--hot);
   box-shadow: 0 2px 2px rgba(0, 0, 0, .12), 0 24px 44px -18px rgba(60, 0, 35, .6);
   transform: rotate(-2deg);
   transition: transform .8s var(--ease-out);
 }
-.mas-vsl .mas-path__manuscript .mas-paper__tag { color: var(--light-2); }
+.mas-vsl .mas-path__manuscript .mas-paper__tag { color: var(--white-2); }
 .mas-vsl .mas-ms__line {
   position: relative;
   width: fit-content;
@@ -1193,8 +1189,8 @@
   line-height: 1.05;
 }
 .mas-vsl .mas-ms__line + .mas-ms__line { margin-top: .625rem; }
-.mas-vsl .mas-ms__line--cut { color: rgba(10, 10, 10, .38); }
-.mas-vsl .mas-ms__line--keep { padding: .125rem .375rem; margin-left: -.375rem; background: var(--acid); }
+.mas-vsl .mas-ms__line--cut { color: rgba(247, 245, 242, .42); }
+.mas-vsl .mas-ms__line--keep { padding: .125rem .375rem; margin-left: -.375rem; background: var(--acid); color: var(--black); }
 
 @media (min-width: 64em) {
   .mas-vsl .mas-paths {
@@ -1400,7 +1396,8 @@
 .mas-vsl .mas-stage__story { max-width: 40ch; font-size: var(--t-lead); line-height: 1.35; }
 .mas-vsl .mas-stage:nth-child(4) { --i: 3; }
 .mas-vsl .mas-stage:nth-child(5) { --i: 4; }
-.mas-vsl .mas-stage.mas-stage--intern { background: #A572FF; --fg-2: #1E0B40; }
+.mas-vsl .mas-stage--intern .mas-stage__n,
+.mas-vsl .mas-stage--intern .mas-stage__when { color: var(--hot-ink); }
 .mas-vsl .mas-stage.mas-stage--end { background: #3391F4; --fg-2: #0B2340; --pad: clamp(1.5rem, 4vw, 3.5rem); overflow: hidden; }
 .mas-vsl .mas-stage__photo {
   align-self: stretch;
@@ -1438,64 +1435,35 @@
 /* ==========================================================================
    Prácticas profesionales (campo violeta) + carrusel de logos
    ========================================================================== */
-.mas-vsl .mas-intern__grid { display: grid; gap: clamp(2rem, 5vw, 3rem) var(--col-gap); align-items: end; }
 .mas-vsl .mas-intern__title {
+  display: block;
   font-family: var(--font-display);
   font-stretch: var(--display-stretch);
-  font-weight: var(--display-weight);
-  line-height: .9;
-  letter-spacing: -.02em;
-}
-.mas-vsl .mas-intern__n {
-  display: block;
   font-weight: 900;
-  font-size: clamp(12rem, 6rem + 22vw, 26rem);
-  line-height: .74;
-  letter-spacing: -.06em;
+  font-size: var(--t-poster);
+  line-height: .88;
+  letter-spacing: -.03em;
 }
-.mas-vsl .mas-intern__unit {
-  display: block;
-  margin-top: .35em;
-  font-size: clamp(2rem, 1.2rem + 3.4vw, 4.5rem);
-  max-width: 11ch;
-  text-wrap: balance;
+.mas-vsl .mas-intern__top { display: flex; align-items: flex-end; gap: .12em; }
+.mas-vsl .mas-intern__n { font-size: 2.3em; line-height: .74; letter-spacing: -.06em; }
+.mas-vsl .mas-intern__unit { padding-bottom: .02em; }
+.mas-vsl .mas-intern__rest { display: block; margin-top: .12em; max-width: 13ch; color: var(--hot-ink); text-wrap: balance; }
+.mas-vsl .mas-intern__text {
+  display: grid;
+  gap: 1rem;
+  margin-top: clamp(3rem, 7vw, 5rem);
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--black);
 }
-.mas-vsl .mas-intern__text { display: grid; gap: 1.25rem; }
-.mas-vsl .mas-intern__lead { font-size: var(--t-lead); line-height: 1.3; max-width: 30ch; font-weight: 700; }
-.mas-vsl .mas-intern__body { font-size: var(--t-lead); line-height: 1.4; max-width: 38ch; }
-.mas-vsl .mas-intern__note { margin-top: 2rem; font-size: var(--t-small); color: var(--fg-2); max-width: 52ch; }
-@media (min-width: 48em) {
-  .mas-vsl .mas-intern__title { display: flex; align-items: flex-end; gap: clamp(1rem, 2.2vw, 2rem); }
-  .mas-vsl .mas-intern__unit { margin-top: 0; padding-bottom: .1em; }
-}
+.mas-vsl .mas-intern__lead { font-size: var(--t-lead); line-height: 1.3; font-weight: 800; max-width: 30ch; }
+.mas-vsl .mas-intern__body { font-size: var(--t-lead); line-height: 1.4; font-weight: 600; max-width: 40ch; }
+.mas-vsl .mas-intern__note { margin-top: 2rem; font-size: var(--t-small); font-weight: 600; color: var(--fg-2); max-width: 52ch; }
 @media (min-width: 64em) {
-  .mas-vsl .mas-intern__grid { grid-template-columns: 7fr 5fr; }
-  .mas-vsl .mas-intern__text { padding-bottom: .5rem; }
+  .mas-vsl .mas-intern__text { grid-template-columns: 5fr 7fr; column-gap: var(--col-gap); margin-left: calc(100% / 12 * 4); }
 }
 
 .mas-vsl .mas-logos { margin-top: clamp(3.5rem, 8vw, 6rem); }
-.mas-vsl .mas-logos__head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem 1.5rem; }
-.mas-vsl .mas-logos__caption { font-size: var(--t-small); max-width: 40ch; }
-.mas-vsl .mas-logos__toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  min-height: 2.75rem;
-  padding: 0 1.125rem;
-  border: 2px solid currentColor;
-  border-radius: 999px;
-  background: transparent;
-  color: inherit;
-  font: inherit;
-  font-size: var(--t-small);
-  font-weight: 700;
-  cursor: pointer;
-}
-.mas-vsl .mas-logos__toggle:hover { background: var(--black); color: var(--bg); }
-.mas-vsl .mas-logos__toggle .mas-icon { width: 1rem; height: 1rem; stroke-width: 2.5; }
-.mas-vsl .mas-icon--play { fill: currentColor; }
-.mas-vsl .mas-logos:not(.is-paused) .mas-icon--play,
-.mas-vsl .mas-logos.is-paused .mas-icon--pause { display: none; }
+.mas-vsl .mas-logos__caption { font-size: var(--t-small); font-weight: 600; max-width: 40ch; }
 .mas-vsl .mas-logos__viewport {
   margin-top: 1rem;
   padding-inline: var(--gutter);
@@ -1526,9 +1494,10 @@
   border: 2px dashed rgba(10, 10, 10, .45);
   border-radius: .5rem;
   font-size: var(--t-micro);
+  font-weight: 650;
   color: var(--fg-2);
 }
-/* Con JS y movimiento permitido, la fila se duplica y avanza sola (con pausa) */
+/* Con JS y movimiento permitido, la fila se duplica y avanza con el scroll (como la cinta) */
 .mas-vsl .mas-logos.is-looping .mas-logos__viewport {
   overflow: hidden;
   padding-inline: 0;
@@ -1538,13 +1507,7 @@
 .mas-vsl .mas-logos.is-looping .mas-logos__track {
   flex-wrap: nowrap;
   width: max-content;
-  animation: mas-marquee var(--logos-dur, 40s) linear infinite;
-}
-.mas-vsl .mas-logos.is-looping .mas-logos__viewport:hover .mas-logos__track,
-.mas-vsl .mas-logos.is-paused .mas-logos__track,
-.mas-vsl .mas-logos.is-offscreen .mas-logos__track { animation-play-state: paused; }
-@media (prefers-reduced-motion: reduce) {
-  .mas-vsl .mas-logos.is-looping .mas-logos__track { animation: none; }
+  transform: translate3d(calc(var(--lx, 0) * -1px), 0, 0);
 }
 
 /* ==========================================================================
@@ -1984,7 +1947,6 @@
   to { opacity: 1; translate: 0 0; }
 }
 @keyframes mas-draw { to { stroke-dashoffset: 0; } }
-@keyframes mas-marquee { to { transform: translate3d(-50%, 0, 0); } }
 
 /* Solo vista previa local: en GHL el fondo de página lo define el builder */
 .mas-preview-body { margin: 0; background: #0A0A0A; }

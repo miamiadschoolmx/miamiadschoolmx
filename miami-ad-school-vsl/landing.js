@@ -382,6 +382,40 @@
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(refit);
   }
 
+  /* --- Logos de agencias: la fila se duplica y avanza con el scroll ---------
+     Igual que la cinta: no se mueve sola, así que no necesita botón de pausa.
+     Sin JS o con movimiento reducido, los logos se quedan quietos en una cuadrícula. */
+  var logos = root.querySelector('[data-logos]');
+  var logoTrack = logos && logos.querySelector('.mas-logos__track');
+  var logoHalf = 0, logosOn = false;
+  function measureLogos() { logoHalf = logoTrack.offsetWidth / 2; }
+  if (logoTrack && !mqReduce.matches && logoTrack.children.length > 1) {
+    whenNear(logos, function () {
+      var originals = Array.prototype.slice.call(logoTrack.children);
+      var appendCopies = function (items) {
+        items.forEach(function (li) {
+          var copy = li.cloneNode(true);
+          copy.setAttribute('aria-hidden', 'true');
+          copy.removeAttribute('data-placeholder');
+          logoTrack.appendChild(copy);
+        });
+      };
+      var setWidth = 0;
+      originals.forEach(function (li) { setWidth += li.offsetWidth; });
+      if (!setWidth) return;
+      // Primera mitad: copias suficientes para cubrir la pantalla más ancha. Luego se duplica entera,
+      // así el salto del final al inicio no se nota.
+      var span = Math.max(logos.clientWidth, (window.screen && window.screen.width) || 0);
+      var copies = Math.max(1, Math.ceil(span / setWidth));
+      for (var lc = 1; lc < copies; lc++) appendCopies(originals);
+      appendCopies(Array.prototype.slice.call(logoTrack.children));
+      logos.classList.add('is-looping');
+      measureLogos();
+      window.addEventListener('resize', throttle(measureLogos), { passive: true });
+      watchVisible(logos, function (v) { logosOn = v; if (v) requestAnimationFrame(onScroll); });
+    });
+  }
+
   /* --- Motor de scroll: progreso, cinta y líneas que se encienden ----------- */
   var progress = root.querySelector('.mas-progress');
   var tickerRow = root.querySelector('[data-ticker]');
@@ -408,6 +442,9 @@
       var x = copy ? (window.pageYOffset * 0.45) % copy : 0;
       tickerRow.style.setProperty('--x', x.toFixed(1));
     }
+    if (logosOn && logoHalf) {
+      logoTrack.style.setProperty('--lx', ((window.pageYOffset * 0.35) % logoHalf).toFixed(1));
+    }
     if (glowOn && glowItems.length && root.classList.contains('has-motion')) {
       for (var g = 0; g < glowItems.length; g++) {
         var top = glowItems[g].getBoundingClientRect().top;
@@ -419,48 +456,6 @@
     if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
   }, { passive: true });
   window.addEventListener('resize', throttle(onScroll), { passive: true });
-
-  /* --- Logos de agencias: carrusel continuo ---------------------------------
-     Se mueve solo, así que lleva botón de pausa (WCAG 2.2.2); también se detiene
-     con el mouse encima y fuera de pantalla. Sin JS o con movimiento reducido,
-     los logos se quedan quietos en una cuadrícula. */
-  var logos = root.querySelector('[data-logos]');
-  var logoTrack = logos && logos.querySelector('.mas-logos__track');
-  if (logoTrack && motionOK && logoTrack.children.length > 1) {
-    whenNear(logos, function () {
-      var originals = Array.prototype.slice.call(logoTrack.children);
-      var appendCopies = function (items) {
-        items.forEach(function (li) {
-          var copy = li.cloneNode(true);
-          copy.setAttribute('aria-hidden', 'true');
-          copy.removeAttribute('data-placeholder');
-          logoTrack.appendChild(copy);
-        });
-      };
-      var setWidth = 0;
-      originals.forEach(function (li) { setWidth += li.offsetWidth; });
-      if (!setWidth) return;
-      // Primera mitad: copias suficientes para cubrir la pantalla más ancha. Luego se duplica entera
-      // y la fila avanza -50%, así el salto del final al inicio no se nota.
-      var span = Math.max(logos.clientWidth, (window.screen && window.screen.width) || 0);
-      var copies = Math.max(1, Math.ceil(span / setWidth));
-      for (var lc = 1; lc < copies; lc++) appendCopies(originals);
-      appendCopies(Array.prototype.slice.call(logoTrack.children));
-      logos.style.setProperty('--logos-dur', Math.round(setWidth * copies / 45) + 's');
-      logos.classList.add('is-looping');
-
-      var logoToggle = logos.querySelector('[data-logos-toggle]');
-      var logoLabel = logos.querySelector('[data-logos-label]');
-      if (logoToggle) {
-        logoToggle.hidden = false;
-        logoToggle.addEventListener('click', function () {
-          var paused = logos.classList.toggle('is-paused');
-          if (logoLabel) logoLabel.textContent = paused ? 'Reanudar logos' : 'Pausar logos';
-        });
-      }
-      watchVisible(logos, function (v) { logos.classList.toggle('is-offscreen', !v); });
-    });
-  }
 
   /* --- Cursor-punto (solo mouse, solo si se permite movimiento) -------------
      Es un acompañante del cursor nativo, nunca lo reemplaza. */

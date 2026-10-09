@@ -81,7 +81,7 @@ components:
 
 ## Overview
 
-La escuela con más títulos de Future Lions School of the Year, en voz alta. Base negra, porque el tráfico llega de Instagram de noche y en modo oscuro. Encima va tipografía gorda que ocupa la pantalla. Cada sección toma un color de la paleta M.AD a campo completo, igual que el punto del M-dot cambia de color cada vez: fucsia, ácido, azul, naranja y verde. Nunca rosa pastel.
+La escuela con más títulos de Future Lions School of the Year, en voz alta. Base negra, porque el tráfico llega de Instagram de noche y en modo oscuro. Encima va tipografía gorda que ocupa la pantalla. Cada sección toma un color de la paleta M.AD a campo completo, igual que el punto del M-dot cambia de color cada vez: fucsia, ácido, azul y verde, con campos claros donde el titular pasa de negro a magenta. Nunca rosa pastel.
 
 Implementación de referencia: `miami-ad-school-vsl/landing.css` (todo bajo `.mas-vsl`).
 
@@ -94,9 +94,8 @@ Implementación de referencia: `miami-ad-school-vsl/landing.css` (todo bajo `.ma
 ### Secondary (paleta secundaria M.AD, en campos completos)
 - **Acid** `#FFFF3E` (101 C): el punto. Cursor, progreso, play y la sección «No vengas a coleccionar clases».
 - **Blue** `#3391F4` (2727 C): panel de Art Direction.
-- **Orange** `#FF9812` (1495 C): panel de Copywriting.
 - **Green** `#00D357` (2420 C): «Esto es para ti si…».
-- **Violet** `#A572FF`: las prácticas profesionales (capítulo 3 de los 18 meses y la sección «10 semanas dentro de una agencia»). Texto negro (6:1).
+- **Campo claro** `#F7F5F2` con titular negro + magenta `#C2007A` (la referencia de «La diferencia»): panel de Copywriting, capítulo 3 y la sección de prácticas. Ricardo descartó el violeta y el naranja como campos.
 - Portadas de books: rotan fucsia, ácido, azul, naranja, verde, violeta `#A572FF`, blanco y rosa `#FF5CCD`.
 
 ### Named Rules
@@ -143,7 +142,7 @@ Píldora de 60 px. El hover llena el botón desde abajo con el color de acción 
 - Pluma: el círculo ácido alrededor de «portafolio», la barra negra que tacha «intención» y los tachados fucsia de «No es para ti».
 - Cinta fucsia que avanza con el scroll, no por tiempo.
 - Las líneas de «La brecha» se encienden al leerlas.
-- Muro de logos de agencias que avanza solo, con botón de pausa; todos los logos en negro sobre violeta. Con movimiento reducido es una cuadrícula quieta.
+- Muro de logos de agencias que avanza con el scroll, como la cinta (sin botón de pausa); todos los logos en negro. Con movimiento reducido es una cuadrícula quieta.
 
 ## Do's and Don'ts
 

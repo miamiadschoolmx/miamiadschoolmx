@@ -947,6 +947,7 @@
   padding: clamp(1.5rem, 4vw, 4rem) var(--gutter);
   overflow: hidden;
 }
+.mas-vsl .mas-path__program { margin-bottom: .75rem; font-size: var(--t-small); font-weight: 700; }
 .mas-vsl .mas-path__name {
   font-family: var(--font-display);
   font-stretch: var(--display-stretch);
@@ -967,10 +968,12 @@
   max-width: 20ch;
   text-wrap: balance;
 }
+.mas-vsl .mas-path__claim span { display: block; font-weight: inherit; }
+.mas-vsl .mas-path__support + .mas-path__support { margin-top: .875rem; }
 .mas-vsl .mas-path__support { margin-top: 1.25rem; color: var(--fg); max-width: 40ch; font-size: clamp(1.125rem, 1rem + .4vw, 1.3125rem); line-height: 1.4; }
 .mas-vsl .mas-path__for { margin-top: .875rem; color: var(--fg); max-width: 40ch; font-size: 1rem; line-height: 1.45; }
 .mas-vsl .mas-path .mas-btn { margin-top: 2rem; }
-.mas-vsl .mas-path--cw .mas-path__claim { color: var(--hot-ink); }
+.mas-vsl .mas-path--cw .mas-path__claim span + span { color: var(--hot-ink); }
 @media (max-width: 47.99em) {
   .mas-vsl .mas-path .mas-btn { width: 100%; justify-content: space-between; text-align: left; }
 }

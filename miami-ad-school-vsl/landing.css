@@ -145,9 +145,6 @@
   background: var(--bg); color: var(--fg);
 }
 
-/* Texto sobre campos de color: semibold para que se lea con claridad en pantalla */
-.mas-vsl :where(.mas-path, .mas-fit__col--yes, .mas-ev--quote, .mas-apply__intro, .mas-stage, .mas-verdict, .mas-welcome__story) :where(p, li, dd, span) { font-weight: 650; }
-
 /* --- Reset local ---------------------------------------------------------- */
 .mas-vsl,
 .mas-vsl *,
@@ -172,6 +169,10 @@
 .mas-vsl :where(img, video) { height: auto; }
 .mas-vsl :where(strong) { font-weight: 750; }
 .mas-vsl [hidden] { display: none !important; }
+
+/* Texto sobre campos de color: semibold para que se lea con claridad en pantalla.
+   Va DESPUÉS del reset: con la misma especificidad, su «font: inherit» lo anulaba. */
+.mas-vsl :where(.mas-path, .mas-fit__col--yes, .mas-ev--quote, .mas-apply__intro, .mas-stage, .mas-verdict, .mas-welcome__story) :where(p, li, dd, span) { font-weight: 650; }
 
 .mas-vsl ::selection { background: var(--hot); color: var(--black); }
 .mas-vsl .mas-verdict ::selection,
@@ -971,6 +972,8 @@
 .mas-vsl .mas-path__claim span { display: block; font-weight: inherit; }
 .mas-vsl .mas-path__support + .mas-path__support { margin-top: .875rem; }
 .mas-vsl .mas-path__support { margin-top: 1.25rem; color: var(--fg); max-width: 40ch; font-size: clamp(1.125rem, 1rem + .4vw, 1.3125rem); line-height: 1.4; }
+.mas-vsl .mas-path__support,
+.mas-vsl .mas-path__for { font-weight: 700; }
 .mas-vsl .mas-path__for { margin-top: .875rem; color: var(--fg); max-width: 40ch; font-size: 1rem; line-height: 1.45; }
 .mas-vsl .mas-path .mas-btn { margin-top: 2rem; }
 .mas-vsl .mas-path--cw .mas-path__claim span + span { color: var(--hot-ink); }

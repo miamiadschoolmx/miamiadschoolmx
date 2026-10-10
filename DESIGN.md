@@ -108,7 +108,8 @@ Implementación de referencia: `miami-ad-school-vsl/landing.css` (todo bajo `.ma
 Obviously Narrow **Bold** para todos los titulares. En la vista previa se imita con Archivo a peso 800 y ancho 74%. El texto corrido va en Archivo Regular hasta que llegue Obviously Regular.
 
 ### Hierarchy
-- **Giant:** «Tu portafolio sí.» en el hero y en el cierre. Ocupa el ancho; el JS (`data-fit`) la ajusta para que nunca desborde.
+- **Hero:** eyebrow con el programa y titular en dos líneas («Aprende a crear campañas.» / «Construye un book para entrar a la industria creativa.»), a la izquierda del collage, con «book» encerrado en la pluma. En laptops bajas el tamaño también depende del alto de pantalla, para que el botón quepa sin hacer scroll.
+- **Giant:** «Tu portafolio sí.» en el cierre. Ocupa el ancho; el JS (`data-fit`) la ajusta para que nunca desborde.
 - **Poster:** frases de sección a pantalla completa (veredicto, la diferencia).
 - **H2:** de 13 a 15 caracteres por línea, interlineado 0.9.
 - **Texto:** 1.0625–1.1875rem, 65–75 caracteres por línea.

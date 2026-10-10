@@ -304,6 +304,7 @@ Hoy **no se envía nada**. Todos los eventos solo se guardan en `window.masVsl.e
 | `program_select` | Elige Art Direction, Copywriting o «Aún no sé» | personalizado |
 | `view_books` | La sección de books entra en pantalla | `ViewContent` |
 | `external_book_click` | Clic en el book de un graduado | personalizado |
+| `social_click` | Clic en una red del footer (Instagram, TikTok, YouTube o LinkedIn) | personalizado |
 | `form_start` | La persona entra al formulario | personalizado |
 | `lead_submit` | Regresa con `?paso=agenda` (una vez por sesión) | `Lead` |
 | `calendar_view` | La agenda entra en pantalla | personalizado |
@@ -363,6 +364,6 @@ Solo después de esta lista: **publicar**.
 
 ## Qué no hacer
 
-- No agregar menú, enlaces a redes ni WhatsApp: cada salida le resta a la entrevista.
+- No agregar menú ni WhatsApp: cada salida le resta a la entrevista. Las únicas redes van en el footer («Síguenos», decisión de Ricardo) y se abren en una pestaña nueva.
 - No inventar urgencia, cupos, contadores, testimonios, salarios ni promesas de empleo.
 - No quitar la clase `mas-vsl` ni los `id` (`vsl`, `aplicar`, `ghl-form-slot`, `ghl-calendar-slot`): el CSS y el JS dependen de ellos.

@@ -1490,35 +1490,48 @@
   .mas-vsl .mas-apply__module { grid-column: 7 / -1; }
 }
 .mas-vsl .mas-footer { padding-block: clamp(4rem, 8vw, 7rem) 2.5rem; font-size: var(--t-small); }
-.mas-vsl .mas-footer__sign {
+.mas-vsl .mas-footer__main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.75rem 3rem;
+}
+.mas-vsl .mas-footer__brand {
+  flex-basis: 100%;
+  margin-bottom: -.75rem;
   font-family: var(--font-display);
   font-stretch: var(--display-stretch);
   font-weight: var(--display-weight);
-  font-size: var(--t-giant);
-  line-height: .86;
-  letter-spacing: -.035em;
-  white-space: nowrap;
-  color: var(--hot);
-  margin-left: -.04em;
+  font-size: clamp(2.25rem, 1rem + 4.2vw, 4.75rem);
+  line-height: .92;
+  letter-spacing: -.02em;
+  color: var(--white);
 }
+.mas-vsl .mas-footer__brand span { color: var(--hot); }
+.mas-vsl .mas-footer__program {
+  font-size: var(--t-lead);
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--white-2);
+}
+.mas-vsl .mas-footer__program span { white-space: nowrap; }
+.mas-vsl .mas-footer__cta { flex: none; }
 .mas-vsl .mas-footer__inner {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 1rem 2rem;
+  gap: .5rem 2rem;
   align-items: center;
   margin-top: clamp(2.5rem, 5vw, 4rem);
-  padding-top: 1.5rem;
+  padding-top: 1rem;
   border-top: 1px solid var(--rule);
 }
-.mas-vsl .mas-footer__brand {
-  font-family: var(--font-display);
-  font-stretch: var(--display-stretch);
-  font-weight: var(--display-weight);
-  font-size: 1.25rem;
-}
+.mas-vsl .mas-footer__social { display: flex; flex-wrap: wrap; align-items: center; gap: 0 1.25rem; }
+.mas-vsl .mas-footer__label { font-weight: 700; color: var(--white); }
 .mas-vsl .mas-footer__links { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; }
 .mas-vsl .mas-footer__links a {
+  position: relative;
   display: inline-flex;
   align-items: center;
   min-height: 2.75rem;
@@ -1529,7 +1542,7 @@
 }
 .mas-vsl .mas-footer__links a:hover { color: var(--white); text-decoration-color: var(--hot); }
 .mas-vsl .mas-footer__links a[aria-disabled="true"] { cursor: not-allowed; }
-.mas-vsl .mas-footer__links a[aria-disabled="true"]::after { content: " · pendiente"; color: var(--acid); text-decoration: none; }
+.mas-vsl .mas-footer__links a[aria-disabled="true"]::after { content: "\00a0· pendiente"; color: var(--acid); text-decoration: none; }
 .mas-vsl .mas-progress {
   position: fixed;
   right: 1.25rem;

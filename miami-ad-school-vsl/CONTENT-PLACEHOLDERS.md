@@ -87,6 +87,17 @@ No usar fotografía de stock de estudiantes sonriendo frente a una laptop.
 
 Mientras un enlace diga `REEMPLAZAR`, el JS lo desactiva y lo marca como «pendiente».
 
+## 7 bis. Redes sociales del footer
+
+| Código | Qué falta | Dónde |
+|---|---|---|
+| P-18 | URL del perfil de **Instagram** de Miami Ad School México | `href="REEMPLAZAR_URL_INSTAGRAM"` en el footer («Síguenos») |
+| P-18 | URL de **TikTok** | `href="REEMPLAZAR_URL_TIKTOK"` |
+| P-18 | URL de **YouTube** | `href="REEMPLAZAR_URL_YOUTUBE"` |
+| P-18 | URL de **LinkedIn** | `href="REEMPLAZAR_URL_LINKEDIN"` |
+
+Se abren en una pestaña nueva, así la landing sigue abierta. Si una red no se usa, borra su `<li>` completo.
+
 ## 8. Formulario de GHL
 
 | Código | Qué falta |

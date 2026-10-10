@@ -175,6 +175,9 @@
       if (name === 'external_book_click') {
         track(name, { book: el.getAttribute('data-book'), url: el.href });
       }
+      if (name === 'social_click' && el.getAttribute('aria-disabled') !== 'true') {
+        track(name, { network: el.getAttribute('data-social') });
+      }
     });
 
     /* --- Programa elegido ---------------------------------------------------- */
@@ -824,9 +827,12 @@
           if (counts[code]) add(code === 'P-01' ? 'aviso' : 'falta', labels[code], (counts[code] > 1 ? counts[code] + ' espacios' : 'Pendiente') + ' · ' + code + ' en CONTENT-PLACEHOLDERS.md.');
         });
         if (!Object.keys(counts).length) add('ok', 'Contenido pendiente', 'No queda ningún espacio pendiente visible.');
-        var legal = root.querySelectorAll('a[href^="REEMPLAZAR"]').length;
+        var legal = root.querySelectorAll('.mas-footer__legal a[href^="REEMPLAZAR"]').length;
         if (legal) add('falta', 'Aviso de privacidad y términos', legal + ' enlaces siguen con REEMPLAZAR (P-12).');
         else add('ok', 'Aviso de privacidad y términos', 'Con URL real.');
+        var social = root.querySelectorAll('.mas-footer__social a[href^="REEMPLAZAR"]').length;
+        if (social) add('falta', 'Redes sociales del footer', social + ' enlaces siguen con REEMPLAZAR (P-18).');
+        else add('ok', 'Redes sociales del footer', 'Con URL real.');
 
         // 6. Cómo quedó montada la sección en GHL
         var vw = document.documentElement.clientWidth, rw = root.getBoundingClientRect().width;

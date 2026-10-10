@@ -116,8 +116,11 @@ def main():
         pend.append('Falta el código de inserción del formulario (paso 8)')
     if 'REEMPLAZAR POR WIDGET DE CALENDARIO' in block:
         pend.append('Falta el código de inserción del calendario (paso 9)')
-    if 'href="REEMPLAZAR' in block:
+    if 'REEMPLAZAR_URL_PRIVACIDAD' in block or 'REEMPLAZAR_URL_TERMINOS' in block:
         pend.append('Faltan las URLs del aviso de privacidad y términos (P-12)')
+    redes = [n for n in ('INSTAGRAM', 'TIKTOK', 'YOUTUBE', 'LINKEDIN') if 'REEMPLAZAR_URL_' + n in block]
+    if redes:
+        pend.append('Faltan las URLs de redes del footer: ' + ', '.join(r.capitalize() for r in redes) + ' (P-18)')
     for k in bad:
         pend.append('URL inválida en medios.json (debe empezar con https://): ' + k)
     for k in dropped:

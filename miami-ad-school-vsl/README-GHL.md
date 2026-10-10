@@ -211,7 +211,7 @@ La sección «10 semanas dentro de las mejores agencias del mundo» ya trae 29 l
 
 ## 7. Insertar la URL de la VSL
 
-El VSL vive en el hero, debajo del subtítulo y antes del botón «Quiero agendar una entrevista».
+El VSL vive en el hero, debajo del titular y antes del botón «Agenda una entrevista».
 
 1. En el JS (`landing.js`), dentro de `CONFIG`, llena **una sola variable**:
    ```js
@@ -227,7 +227,7 @@ El VSL vive en el hero, debajo del subtítulo y antes del botón «Quiero agenda
 **Cómo se comporta**
 - **Antes del clic no se descarga nada:** ni YouTube, ni Vimeo, ni el `.mp4`. El reproductor se crea solo cuando la persona da clic en «Ver video», así que el sonido es intencional.
 - **Se reproduce dentro de la página,** sin sacar a la persona.
-- **Siempre es 16:9:** en celular ocupa todo el ancho y en escritorio va a la derecha del subtítulo.
+- **Siempre es 16:9:** en celular ocupa todo el ancho y en escritorio va a la derecha de los botones.
 - **Si `vslUrl` está vacía:** se queda el póster con «Ver video». Al tocarlo aparece un aviso amable («El video estará disponible muy pronto.»), sin errores y sin registrar `vsl_play`.
 
 ## 8. Insertar el formulario nativo de GHL

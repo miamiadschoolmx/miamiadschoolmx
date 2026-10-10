@@ -290,7 +290,6 @@
   grid-template-areas:
     "top top top top top top top top top top top top"
     "title title title title title title title title title title title title"
-    "sub sub sub sub sub sub sub sub sub sub sub sub"
     "vsl vsl vsl vsl vsl vsl vsl vsl vsl vsl vsl vsl"
     "act act act act act act act act act act act act"
     "collage collage collage collage collage collage collage collage collage collage collage collage";
@@ -380,15 +379,6 @@
 .mas-vsl .mas-pen--circle { left: -6%; top: -10%; width: 112%; height: 124%; --pen: var(--acid); }
 .mas-vsl .mas-pen--circle path { stroke-width: 5; }
 
-.mas-vsl .mas-hero__sub {
-  grid-area: sub;
-  margin-top: clamp(1.75rem, 3.5vw, 2.75rem);
-  max-width: 32rem;
-  font-size: var(--t-lead);
-  line-height: 1.4;
-  color: var(--white-2);
-  text-wrap: pretty;
-}
 /* Encima del titular: en escritorio su caja de línea tapaba la cápsula de fechas y no se podía hacer clic */
 .mas-vsl .mas-hero__act {
   grid-area: act;
@@ -509,7 +499,6 @@
     grid-template-areas:
       "top top top top top top top top top top top top"
       "title title title title title title title title title title title title"
-      "sub sub sub sub sub . vsl vsl vsl vsl vsl vsl"
       "act act act act act act vsl vsl vsl vsl vsl vsl";
     align-items: end;
   }
@@ -533,9 +522,8 @@
     max-width: none;
     z-index: 1;
   }
-  .mas-vsl .mas-hero__act { justify-self: start; align-self: start; text-align: left; margin-top: clamp(1.25rem, 3vh, 2rem); }
+  .mas-vsl .mas-hero__act { justify-self: start; align-self: start; text-align: left; margin-top: clamp(1.5rem, 4vh, 2.5rem); }
   .mas-vsl .mas-hero__act .mas-next { margin-bottom: 1rem; }
-  .mas-vsl .mas-hero__sub { align-self: start; margin-top: clamp(1.25rem, 3.5vh, 2rem); }
 }
 
 /* ==========================================================================

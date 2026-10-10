@@ -16,6 +16,8 @@ Landing para tráfico de Meta Ads. Lleva a la persona del video (VSL) al formula
 | `landing.js` | Comportamiento y eventos de medición. Va en *Tracking Code → Footer*. |
 | `fonts/` | Archivo (OFL). |
 | `img/` | Fotos de marca optimizadas (WebP), logo provisional e imagen para compartir (1200 × 630). |
+| `ghl/` | Kit para pegar en GHL: los 3 bloques ya cortados y `medios.json` con las URLs de GHL de cada archivo. |
+| `tools/ghl-kit.py` | Arma el kit (`python3 tools/ghl-kit.py`). Solo Python 3, sin dependencias. |
 | `README-GHL.md` | Guía paso a paso para montarla en GHL. |
 | `CONTENT-PLACEHOLDERS.md` | Lo que falta antes de publicar. |
 
@@ -34,6 +36,7 @@ python3 -m http.server 8000
 Abre <http://localhost:8000/landing.html>.
 
 - **Etapas del formulario:** `landing.html?paso=agenda` y `landing.html?paso=confirmado`.
+- **Revisión antes de publicar:** `landing.html?revisar=1` muestra un panel con lo que falta. En GHL, úsalo en la página publicada.
 - **Usa el servidor.** Si abres el archivo con doble clic (`file://`), el navegador bloquea la fuente por CORS.
 
 ## Variables de entorno
@@ -61,8 +64,8 @@ El token de la API de Conversiones de Meta (CAPI) **sí** es secreto. Va solo en
 Sigue `README-GHL.md`. En resumen:
 
 1. Crea la página en blanco en GHL.
-2. Pega el HTML, el CSS y el JS.
-3. Sube fuentes e imágenes y cambia las rutas `fonts/...` e `img/...` por las URLs de GHL.
+2. Sube fuentes e imágenes a la biblioteca de medios y pon sus URLs en `ghl/medios.json`.
+3. Corre `python3 tools/ghl-kit.py` y pega los 3 bloques de `ghl/`.
 4. Conecta la VSL, el formulario y el calendario.
 5. Prueba con la lista del paso 11.
 

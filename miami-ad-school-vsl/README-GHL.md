@@ -16,8 +16,37 @@ Guía paso a paso para montar `landing.html`, `landing.css` y `landing.js` en Go
 | `fonts/` | Archivo (licencia SIL OFL, se puede usar y redistribuir). Obviously Narrow **no** está incluida porque es una fuente con licencia comercial. |
 | `img/` | Fotos de marca ya optimizadas (WebP), el logo provisional y la imagen para compartir. Son las que se suben a la biblioteca de medios de GHL (paso 6). |
 | `CONTENT-PLACEHOLDERS.md` | Todo lo que hay que reemplazar antes de publicar. |
+| `ghl/` | **El kit para pegar:** los 3 bloques ya cortados (`1-custom-code.html`, `2-custom-css.css`, `3-footer.html`) y `medios.json`, la lista de archivos con su URL de GHL. |
+| `tools/ghl-kit.py` | Arma el kit. Cambia todas las rutas `img/...` y `fonts/...` por las URLs de GHL de una sola vez. |
 
 Para ver la vista previa local, abre una terminal en esta carpeta y corre `python3 -m http.server 8000`; después entra a `http://localhost:8000/landing.html`. Para ver los otros estados del formulario usa `?paso=agenda` y `?paso=confirmado`.
+
+### Atajo: el kit para pegar
+
+En lugar de cortar el HTML entre marcas y cambiar más de 40 rutas a mano:
+
+1. Sube a la biblioteca de medios de GHL los archivos de `img/` y `fonts/` (pasos 4 y 6).
+2. En `ghl/medios.json`, pon junto a cada archivo la URL que te dio GHL. Si prefieres, pásale la lista de URLs a Claude y lo hace por ti.
+3. En una terminal, dentro de esta carpeta, corre `python3 tools/ghl-kit.py`. El script reescribe los 3 bloques de `ghl/` y te dice qué falta.
+4. Pega cada bloque en su lugar:
+   - `ghl/1-custom-code.html` en el elemento Custom JS/HTML (paso 3).
+   - `ghl/2-custom-css.css` en Custom CSS (paso 4).
+   - `ghl/3-footer.html` en Tracking Code → Footer (paso 5).
+
+Si cambias `landing.html`, `landing.css` o `landing.js`, vuelve a correr el script antes de pegar. Los bloques de `ghl/` nunca se editan a mano.
+
+### Revisión en la página real: `?revisar=1`
+
+Cuando ya esté pegada, abre la página publicada con `?revisar=1` al final (por ejemplo, `tufuturocreativo.com/entrevista?revisar=1`). Aparece un panel que solo ves tú. Te dice:
+
+- Si ya están el video, el formulario y el calendario.
+- Qué imágenes no cargan y cuáles siguen con ruta local.
+- Si cargan las fuentes.
+- Qué contenido pendiente se vería todavía.
+- Si la sección ocupa todo el ancho.
+- Si algún contenedor de GHL puede estorbar al scroll.
+
+Sin `?revisar=1` nadie lo ve, y no envía nada.
 
 ---
 
@@ -41,7 +70,19 @@ Para ver la vista previa local, abre una terminal en esta carpeta y corre `pytho
 2. En la sección: ancho **completo** (full width), padding **0** arriba, abajo y a los lados, y sin color de fondo.
 3. Haz lo mismo en la fila y en la columna: padding 0 y ancho completo.
 
-Si la sección queda angosta o con márgenes, el fondo negro de algunas secciones no llegará a los bordes. Revísalo en la vista previa.
+Si la sección queda angosta o con márgenes, el fondo negro de algunas secciones no llegará a los bordes. Revísalo en la página publicada con `?revisar=1`: el panel te dice cuánto mide la landing y cuánto la pantalla.
+
+Si el builder está en ancho completo pero la página publicada sigue con márgenes:
+
+1. Dale a la sección la clase personalizada `mas-seccion`. Está en la configuración avanzada de la sección.
+2. Agrega esto **al final** del Custom CSS:
+   ```css
+   .mas-seccion, .mas-seccion .inner, .mas-seccion .c-row, .mas-seccion .c-column {
+     max-width: none !important; width: 100% !important; padding: 0 !important; margin: 0 !important;
+   }
+   ```
+
+No le pongas a esta sección animaciones de entrada de GHL, ni `overflow` o `transform` en sus ajustes. Rompen las tarjetas que se apilan al hacer scroll.
 
 ## 3. Insertar el HTML
 
@@ -53,6 +94,7 @@ Si la sección queda angosta o con márgenes, el fondo negro de algunas seccione
    <!-- ================= GHL · HASTA AQUÍ ================= -->
    ```
    Empieza en `<div class="mas-vsl" ...>` y termina en el `</div>` que lo cierra. No copies `<html>`, `<head>` ni `<body>`.
+   Con el kit es más fácil: copia completo `ghl/1-custom-code.html`.
 3. Pégalo en el elemento y guarda.
 
 ## 4. Pegar el CSS
@@ -84,7 +126,7 @@ Si la biblioteca de medios no acepta archivos de fuente, súbelos a otro almacen
 
 ## 5. Pegar el JavaScript
 
-**Opción recomendada:** en **Settings → Tracking Code → Footer code** (o *Body*) pega:
+**Opción recomendada:** en **Settings → Tracking Code → Footer code** **de esta página** (no en el del funnel completo) pega `ghl/3-footer.html` completo, o:
 ```html
 <script>
   /* contenido completo de landing.js */
@@ -94,6 +136,10 @@ Si la biblioteca de medios no acepta archivos de fuente, súbelos a otro almacen
 **Alternativa:** al final del mismo elemento Custom JS/HTML, también dentro de `<script>...</script>`.
 
 El script se protege solo contra ejecuciones dobles. Si un día lo pegas en los dos lugares, no se duplican los eventos. Aun así, pégalo **en un solo lugar**.
+
+- **Nunca dentro del `<div class="mas-vsl">`:** en GHL, un `<script>` que queda dentro de un `div` del elemento de código no corre.
+- **Tiempos de GHL:** GHL arma la página en dos tiempos (la «hidratación»), y si «Optimize JavaScript» está encendido puede esperar a que la persona toque la pantalla. El script ya lo resuelve: espera a que exista el bloque `.mas-vsl`, arranca una sola vez y, si GHL vuelve a dibujar el bloque, arranca de nuevo. Aun así, si tu cuenta tiene **Optimize JavaScript**, prueba la página publicada con la opción apagada y encendida.
+- **Al duplicar la página:** GHL **no copia** el Tracking Code de la página. Vuelve a pegar `ghl/3-footer.html` en la copia.
 
 ## 6. Subir las imágenes
 
@@ -119,7 +165,9 @@ Para encontrarlas rápido, busca `img/` en el HTML. Si al publicar alguna foto n
 Cada espacio pendiente tiene un atributo `data-placeholder="P-xx"` que coincide con `CONTENT-PLACEHOLDERS.md`.
 
 1. Sube la imagen a la biblioteca de medios de GHL (WebP o JPG optimizado; lo ideal es menos de 250 KB por imagen).
-2. Dentro del elemento con ese `data-placeholder`, reemplaza las etiquetas de texto (`mas-book__pending`, `mas-host__photo`, etc.) por una imagen con su tamaño real:
+2. Dentro del elemento con ese `data-placeholder`, reemplaza las etiquetas de texto (`mas-book__pending`, etc.) por una imagen con su tamaño real.
+   - **Foto de Ricardo (P-08):** deja el `<span class="mas-host__photo">`, que es el que la recorta en círculo. Cambia solo el `<span>Foto</span>` de adentro por el `<img>`, y quítale al span `aria-hidden="true"` y `data-placeholder`.
+   - La imagen se escribe así:
    ```html
    <img src="URL_DE_GHL" alt="Descripción útil de la pieza" width="1600" height="2000" loading="lazy" decoding="async">
    ```
@@ -204,7 +252,7 @@ Agrega el texto de consentimiento con el enlace a tu aviso de privacidad (P-12).
 
 ### Prellenar el programa
 
-Cuando alguien da clic en «Quiero explorar Art Direction» o «Quiero explorar Copywriting», la página intenta prellenar el campo «Me interesa».
+Cuando alguien da clic en «Quiero dirigir ideas que se noten» (Art Direction) o «Quiero escribir ideas que muevan» (Copywriting), o elige un programa en las opciones de «Me interesa» junto al formulario, la página intenta prellenar ese campo.
 
 1. En el campo personalizado «Me interesa», revisa su **query key** (clave de parámetro).
 2. En `landing.js`, cambia `prefillParam: 'me_interesa'` por esa clave.
@@ -221,9 +269,11 @@ Así la página muestra la agenda en lugar del formulario y registra `lead_submi
 
 ### Pegar el código
 
-1. En el formulario o encuesta ve a **Integrate / Integrar** y copia el código de inserción (iframe + script).
-2. En el HTML, dentro de `<div id="ghl-form-slot" ...>`, borra el contenido de ejemplo (`mas-slot__flag` y `mas-slot__spec`) y pega el código.
-3. No cambies el `id="ghl-form-slot"`: el JS lo usa para detectar `form_start` y para prellenar.
+1. En el formulario o encuesta ve a **Integrate / Integrar** y copia el código de inserción. Trae dos partes: un `<iframe …>` y un `<script src="…/form_embed.js">`.
+2. En el HTML, dentro de `<div id="ghl-form-slot" ...>`, borra el contenido de ejemplo (`mas-slot__flag` y `mas-slot__spec`) y pega **solo el `<iframe>`**.
+3. Pega la línea `<script src="…/form_embed.js"></script>` **una sola vez** en el Tracking Code → Footer, **antes** del script de la landing. Dentro del `div` no correría (paso 5). Sirve para el formulario y el calendario.
+4. No cambies el `id="ghl-form-slot"`: el JS lo usa para detectar `form_start` y para prellenar.
+5. Activa **Sticky Contact** en el formulario y en el calendario. Así, quien llena el formulario no tiene que volver a escribir sus datos al agendar.
 
 ## 9. Insertar el calendario
 
@@ -233,7 +283,7 @@ Así la página muestra la agenda en lugar del formulario y registra `lead_submi
    ```
    https://tufuturocreativo.com/TU-RUTA?paso=confirmado#aplicar
    ```
-4. Copia el código de inserción del calendario y pégalo dentro de `<div id="ghl-calendar-slot" ...>`, borrando el `mas-slot__flag`.
+4. Copia el código de inserción del calendario. Pega su `<iframe>` dentro de `<div id="ghl-calendar-slot" ...>`, borrando el `mas-slot__flag`. Su `form_embed.js` es el mismo del formulario: si ya está en el Footer, no lo repitas.
 
 El recorrido queda así: **formulario enviado → `?paso=agenda` muestra la agenda → cita agendada → `?paso=confirmado` muestra la confirmación**.
 
@@ -272,27 +322,34 @@ Se configura en `landing.js`, dentro de `CONFIG`:
 |---|---|---|
 | `intakes` | 10 de enero, abril, julio y octubre | Fechas de inicio (mes 0 = enero). |
 | `intakeCutoffDays` | `7` | Días antes del inicio en que el contador ya muestra el siguiente (cierre de admisión). Con `0` cuenta hasta el mismo día del inicio. |
-| `intakeUtcOffsetHours` | `-6` | Hora de Ciudad de México. El contador llega a cero a las 00:00 del día de inicio. |
+| `intakeUtcOffsetHours` | `-6` | Hora de Ciudad de México. El inicio cuenta desde las 00:00 de ese día. |
 
-Si un trimestre cambia la fecha, edita solo `intakes`. Los segundos solo corren mientras la sección está en pantalla.
+Con `intakeCutoffDays: 7`, el contador nunca llega a cero: 7 días antes del inicio salta solo al siguiente, porque ya cerró la admisión.
+
+Si un trimestre cambia la fecha, edita `intakes`; pueden ir en cualquier orden. Cambia también la lista visible de fechas en el HTML: los cuatro `<li class="mas-date" data-intake="…">` de la sección «Cuatro inicios al año», en el mismo orden que `intakes`. Los segundos solo corren mientras la sección está en pantalla.
 
 ## 11. Probar antes de publicar
 
+Prueba en la **página publicada** en `tufuturocreativo.com`, no solo en el builder: el elemento de código no se ve dentro del builder y el Tracking Code no corre ahí.
+
+**Primero**
+- [ ] Abre la página con `?revisar=1` y resuelve todo lo que diga «Falta».
+
 **Recorrido**
-- [ ] Todos los botones llevan a `#vsl` o `#aplicar`, sin salir de la página.
+- [ ] Todos los botones llevan a su sección (`#vsl`, `#fechas`, `#aplicar` o `#mas-apply-module`), sin salir de la página.
 - [ ] La VSL se reproduce con sonido solo después del clic.
-- [ ] «Quiero explorar Art Direction / Copywriting» marca el programa en «Me interesa».
+- [ ] «Quiero dirigir ideas que se noten» y «Quiero escribir ideas que muevan» marcan el programa en «Me interesa».
 - [ ] El formulario se envía y redirige a `?paso=agenda`; aparece la agenda.
 - [ ] Agendar redirige a `?paso=confirmado`; aparece la confirmación y llega el correo con el enlace.
 - [ ] Los 8 links de books abren en pestaña nueva y cargan bien.
-- [ ] El slider de logos se mueve al hacer scroll y ya no queda ningún «Logo de agencia» vacío.
+- [ ] El slider de logos se mueve al hacer scroll, las flechas lo adelantan y cargan los 29 logos.
 - [ ] Aviso de privacidad y términos abren sus páginas reales.
 
 **Calidad**
 - [ ] Revisa en un teléfono real (iPhone y Android), no solo en el modo móvil de la computadora.
 - [ ] Recorre la página solo con teclado (Tab, Enter, Espacio): todo se alcanza y el foco se ve.
-- [ ] Con «reducir movimiento» activado en el sistema, no hay animaciones.
-- [ ] Corre Lighthouse en la URL de vista previa de GHL. Ojo: GHL agrega sus propios scripts, así que el puntaje será menor que en la vista previa local (que dio 99–100).
+- [ ] Con «reducir movimiento» activado en el sistema, no hay animaciones: ni al hacer scroll ni al pasar el mouse.
+- [ ] Corre Lighthouse en la URL de vista previa de GHL. Ojo: GHL agrega sus propios scripts, así que el puntaje será menor que en la vista previa local (en la última revisión: rendimiento 94–96 en celular y 100 en escritorio; accesibilidad, buenas prácticas y SEO en 100).
 - [ ] Revisa que los estilos globales de GHL no cambien titulares, botones ni listas dentro de la landing.
 - [ ] Con mouse: el punto amarillo sigue al cursor y dice «Ver» sobre los books y «Play» sobre el video. En celular no aparece (es correcto).
 - [ ] Si el builder de GHL aplica `transform` a la sección contenedora, el cursor-punto y el indicador de progreso podrían desfasarse; en ese caso quita el `transform` de esa sección.

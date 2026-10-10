@@ -1,30 +1,4 @@
-/* ==========================================================================
-   Miami Ad School México · Landing VSL
-   Todo vive bajo .mas-vsl para no chocar con los estilos globales de GHL.
-   ========================================================================== */
-
-/* --- Tipografía -----------------------------------------------------------
-   Titulares: Obviously Narrow (fuente de marca, licencia comercial).
-   Súbela a la biblioteca de medios de GHL y descomenta este bloque con sus URLs.
-   Mientras tanto, los titulares usan Archivo en ancho condensado.
-
-@font-face {
-  font-family: "Obviously Narrow";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("REEMPLAZAR_URL_OBVIOUSLY_NARROW_BOLD.woff") format("woff");
-}
-@font-face {
-  font-family: "Obviously Narrow";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("REEMPLAZAR_URL_OBVIOUSLY_NARROW_MEDIUM.woff") format("woff");
-}
-*/
-
-/* Texto: Archivo (SIL Open Font License). En GHL cambia la URL por la del archivo subido. */
+/* Generado por tools/ghl-kit.py desde landing.*. No lo edites a mano: cambia el original y vuelve a correr el script. */
 @font-face {
   font-family: "Archivo Variable";
   font-style: normal;
@@ -35,34 +9,27 @@
        url("fonts/archivo-latin-wdth-normal.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-
-/* --- Tokens --------------------------------------------------------------- */
 .mas-vsl {
-  /* Color: negro, fucsia M.AD a toda potencia y un punto ácido (paleta secundaria M.AD) */
   --black: #0A0A0A;
   --black-2: #151515;
   --white: #F7F5F2;
-  --white-2: #A9A39E;      /* texto secundario sobre negro (7.9:1) */
-  --dim: #6E6964;          /* texto grande antes de encenderse (3.6:1) */
-  --hot: #FF009B;          /* Rhodamine Red: fucsia de marca */
+  --white-2: #A9A39E;
+  --dim: #6E6964;
+  --hot: #FF009B;
   --hot-press: #E6008B;
-  --hot-ink: #C2007A;      /* fucsia para texto sobre claro (5.4:1) */
-  --on-hot-2: #2B0019;     /* texto secundario sobre fucsia (5.1:1) */
-  --acid: #FFFF3E;         /* PMS 101: el punto */
+  --hot-ink: #C2007A;
+  --on-hot-2: #2B0019;
+  --acid: #FFFF3E;
   --light: #F7F5F2;
-  --light-2: #4D4844;      /* texto secundario sobre claro (8.3:1) */
+  --light-2: #4D4844;
   --rule-dark: rgba(247, 245, 242, .16);
   --rule-light: rgba(10, 10, 10, .16);
-
-  /* Contexto (cambia por sección) */
   --bg: var(--black);
   --fg: var(--white);
   --fg-2: var(--white-2);
   --rule: var(--rule-dark);
   --pen: var(--hot);
   --focus: var(--acid);
-
-  /* Tipo */
   --font: "Archivo Variable", "Archivo", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-display: "Obviously Narrow", var(--font);
   --display-stretch: 74%;
@@ -75,14 +42,11 @@
   --t-h2: clamp(2.75rem, 1.3rem + 5.2vw, 6.75rem);
   --t-poster: clamp(3rem, .8rem + 9vw, 10.5rem);
   --t-giant: clamp(2.4rem, 13.2vw, 12rem);
-
-  /* Espacio y grid */
   --gutter: clamp(1rem, 5vw, 4.5rem);
   --col-gap: clamp(.75rem, 1.6vw, 1.5rem);
   --section: clamp(5.5rem, 3rem + 9vw, 11rem);
   --ease-out: cubic-bezier(.16, 1, .3, 1);
   --ease-io: cubic-bezier(.65, 0, .35, 1);
-
   position: relative;
   display: block;
   width: 100%;
@@ -99,8 +63,6 @@
   overflow-x: clip;
   caret-color: var(--hot);
 }
-
-/* Contextos de color */
 .mas-vsl .mas-light {
   --bg: var(--light);
   --fg: var(--black);
@@ -124,8 +86,6 @@
   background: var(--bg);
   color: var(--fg);
 }
-
-/* Campos de la paleta secundaria M.AD: cada sección, su propio color de punto */
 .mas-vsl .mas-dates {
   --bg: var(--acid); --fg: var(--black); --fg-2: #3A3A12; --rule: rgba(10, 10, 10, .25); --pen: var(--hot-ink); --focus: var(--black);
   background: var(--bg); color: var(--fg);
@@ -143,13 +103,10 @@
   --bg: #00D357; --fg: var(--black); --fg-2: #063D1E; --rule: rgba(10, 10, 10, .25); --pen: var(--black); --focus: var(--black);
   background: var(--bg); color: var(--fg);
 }
-
-/* --- Reset local ---------------------------------------------------------- */
 .mas-vsl,
 .mas-vsl *,
 .mas-vsl *::before,
 .mas-vsl *::after { box-sizing: border-box; }
-
 .mas-vsl :where(h1, h2, h3, h4, p, ul, ol, li, dl, dt, dd, figure, figcaption, blockquote, em) {
   margin: 0;
   padding: 0;
@@ -168,24 +125,17 @@
 .mas-vsl :where(img, video) { height: auto; }
 .mas-vsl :where(strong) { font-weight: 750; }
 .mas-vsl [hidden] { display: none !important; }
-
-/* Texto sobre campos de color: semibold para que se lea con claridad en pantalla.
-   Va DESPUÉS del reset: con la misma especificidad, su «font: inherit» lo anulaba. */
 .mas-vsl :where(.mas-path, .mas-fit__col--yes, .mas-ev--quote, .mas-apply__intro, .mas-stage, .mas-verdict, .mas-welcome__story) :where(p, li, dd, span) { font-weight: 650; }
-
 .mas-vsl ::selection { background: var(--hot); color: var(--black); }
 .mas-vsl .mas-verdict ::selection,
 .mas-vsl .mas-sec-apply ::selection { background: var(--black); color: var(--hot); }
-
 .mas-vsl :focus:not(:focus-visible) { outline: none; }
 .mas-vsl :focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: 4px;
   border-radius: 2px;
 }
-/* Las secciones que reciben el foco al saltar desde un botón no se enmarcan completas */
 .mas-vsl [tabindex="-1"]:focus { outline: none; }
-
 .mas-vsl .mas-sr {
   position: absolute !important;
   width: 1px; height: 1px;
@@ -193,8 +143,6 @@
   overflow: hidden; clip: rect(0 0 0 0);
   white-space: nowrap; border: 0;
 }
-
-/* --- Layout base ---------------------------------------------------------- */
 .mas-vsl .mas-wrap {
   width: 100%;
   max-width: 90rem;
@@ -202,7 +150,6 @@
   padding-inline: var(--gutter);
 }
 .mas-vsl .mas-section { padding-block: var(--section); }
-
 .mas-vsl .mas-h2 {
   font-family: var(--font-display);
   font-stretch: var(--display-stretch);
@@ -213,8 +160,6 @@
   text-wrap: balance;
   max-width: 13ch;
 }
-
-/* --- Botones y enlaces ---------------------------------------------------- */
 .mas-vsl .mas-btn {
   position: relative;
   display: inline-flex;
@@ -233,7 +178,6 @@
   transition: color .3s var(--ease-out), transform .2s var(--ease-out);
   -webkit-tap-highlight-color: transparent;
 }
-/* Relleno que sube al hover: el botón "se llena" */
 .mas-vsl .mas-btn::before {
   content: "";
   position: absolute;
@@ -247,13 +191,11 @@
 .mas-vsl .mas-btn .mas-icon { width: 1.125rem; height: 1.125rem; flex: none; transition: transform .3s var(--ease-out); }
 .mas-vsl .mas-btn:hover .mas-icon { transform: translateX(4px); }
 .mas-vsl .mas-btn:active { transform: scale(.98); }
-
 .mas-vsl .mas-btn--hot { background: var(--hot); color: var(--black); }
 .mas-vsl .mas-btn--hot::before { background: var(--acid); }
 .mas-vsl .mas-btn--ink { background: var(--black); color: var(--white); }
 .mas-vsl .mas-btn--ink::before { background: var(--white); }
 .mas-vsl .mas-btn--ink:hover { color: var(--black); }
-
 .mas-vsl .mas-icon {
   fill: none;
   stroke: currentColor;
@@ -261,9 +203,6 @@
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-
-
-/* --- Pluma (la corrección del maestro) ------------------------------------ */
 .mas-vsl .mas-pen {
   position: absolute;
   max-width: none;
@@ -275,10 +214,6 @@
   stroke-linejoin: round;
 }
 .mas-vsl .mas-pen path { stroke-width: 3; vector-effect: non-scaling-stroke; }
-
-/* ==========================================================================
-   A · HERO
-   ========================================================================== */
 .mas-vsl .mas-hero {
   position: relative;
   padding-block: clamp(1.25rem, 2.5vw, 2rem) clamp(3.5rem, 7vw, 6rem);
@@ -339,7 +274,6 @@
   font-size: 1.375rem;
   line-height: 1;
 }
-
 .mas-vsl .mas-hero__title {
   grid-area: title;
   position: relative;
@@ -370,7 +304,6 @@
 .mas-vsl .mas-circled { position: relative; display: inline-block; color: var(--hot); }
 .mas-vsl .mas-pen--circle { left: -6%; top: -10%; width: 112%; height: 124%; --pen: var(--acid); }
 .mas-vsl .mas-pen--circle path { stroke-width: 5; }
-
 .mas-vsl .mas-hero__sub {
   grid-area: sub;
   margin-top: clamp(1.75rem, 3.5vw, 2.75rem);
@@ -380,7 +313,6 @@
   color: var(--white-2);
   text-wrap: pretty;
 }
-/* Encima del titular gigante: en escritorio su caja de línea tapaba la cápsula de fechas y no se podía hacer clic */
 .mas-vsl .mas-hero__act { grid-area: act; margin-top: 1.75rem; position: relative; z-index: 2; }
 .mas-vsl .mas-next {
   display: inline-flex;
@@ -435,8 +367,6 @@
   border-radius: 50%;
   background: var(--hot);
 }
-
-/* Collage */
 .mas-vsl .mas-collage {
   grid-area: collage;
   position: relative;
@@ -465,7 +395,6 @@
 }
 .mas-vsl .mas-pen--strike { left: -2%; top: 50%; width: 104%; height: .6em; transform: translateY(-50%); }
 .mas-vsl .mas-pen--strike path { stroke-width: 3; }
-
 @media (min-width: 64em) {
   .mas-vsl .mas-hero { min-height: min(100svh, 64rem); display: flex; flex-direction: column; }
   .mas-vsl .mas-hero > .mas-wrap { flex: 1; }
@@ -481,7 +410,6 @@
   .mas-vsl .mas-hero__vsl { align-self: start; margin-top: 2rem; }
   .mas-vsl .mas-hero__top { margin-bottom: 0; align-self: start; }
   .mas-vsl .mas-hero__title {
-    /* espacio para el collage a la derecha del setup */
     padding-top: 2rem;
     min-height: clamp(28rem, 43vw, 41rem);
     display: flex;
@@ -501,10 +429,6 @@
   .mas-vsl .mas-hero__act { justify-self: start; align-self: start; text-align: left; margin-top: 2rem; }
   .mas-vsl .mas-hero__sub { align-self: start; margin-top: 2rem; }
 }
-
-/* ==========================================================================
-   Cinta que avanza con el scroll
-   ========================================================================== */
 .mas-vsl .mas-ticker {
   overflow: hidden;
   padding-block: clamp(.875rem, 1.6vw, 1.25rem);
@@ -531,10 +455,6 @@
   border-radius: 50%;
   background: var(--black);
 }
-
-/* ==========================================================================
-   B · VSL
-   ========================================================================== */
 .mas-vsl .mas-sec-vsl .mas-vsl__after:first-child { margin-top: 0; }
 .mas-vsl .mas-player {
   position: relative;
@@ -640,7 +560,6 @@
   .mas-vsl .mas-player__brand { display: none; }
   .mas-vsl .mas-player__caption { font-size: .9375rem; }
 }
-
 .mas-vsl .mas-vsl__after {
   display: grid;
   gap: 2rem;
@@ -662,10 +581,6 @@
 @media (min-width: 64em) {
   .mas-vsl .mas-vsl__after { grid-template-columns: 1fr auto; }
 }
-
-/* ==========================================================================
-   Bienvenida: somos Miami Ad School
-   ========================================================================== */
 .mas-vsl .mas-welcome { padding-block: clamp(5rem, 3rem + 8vw, 10rem); }
 .mas-vsl .mas-welcome__hi {
   font-size: var(--t-lead);
@@ -716,13 +631,11 @@
   .mas-vsl .mas-welcome__seven { grid-column: 1 / span 6; }
   .mas-vsl .mas-welcome__story { grid-column: 7 / -1; }
 }
-
 .mas-vsl .mas-welcome__media { display: grid; gap: var(--col-gap); margin-top: clamp(3.5rem, 8vw, 6rem); align-items: start; }
 .mas-vsl .mas-welcome__photo { overflow: hidden; border-radius: clamp(.75rem, 1.4vw, 1.25rem); background: #ddd; }
 .mas-vsl .mas-welcome__photo img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; }
 .mas-vsl .mas-evidence__grid { display: grid; gap: var(--col-gap); }
 @media (min-width: 64em) {
-  /* El testimonio ocupa la altura de la foto: la cita queda abajo, como un póster */
   .mas-vsl .mas-welcome__media { grid-template-columns: 7fr 5fr; align-items: stretch; }
 }
 .mas-vsl .mas-ev {
@@ -747,10 +660,6 @@
   letter-spacing: -.015em;
 }
 .mas-vsl .mas-ev__who { font-size: var(--t-small); color: var(--on-hot-2); }
-
-/* ==========================================================================
-   C · LA BRECHA (las líneas se encienden al leerlas)
-   ========================================================================== */
 .mas-vsl .mas-gap__title { max-width: 11ch; }
 .mas-vsl .mas-lines {
   display: grid;
@@ -775,8 +684,6 @@
 @media (max-width: 47.99em) {
   .mas-vsl .mas-lines p:nth-child(n) { margin-left: 0; }
 }
-
-/* Veredicto: campo fucsia */
 .mas-vsl .mas-verdict { padding-block: clamp(5rem, 3rem + 10vw, 12rem); }
 .mas-vsl .mas-verdict__text {
   font-family: var(--font-display);
@@ -792,10 +699,6 @@
 .mas-vsl .mas-struck { position: relative; display: inline-block; }
 .mas-vsl .mas-pen--bar { left: -2%; top: 50%; width: 104%; height: .2em; transform: translateY(-40%); }
 .mas-vsl .mas-pen--bar path { stroke-width: 10; }
-
-/* ==========================================================================
-   Para quién es
-   ========================================================================== */
 .mas-vsl .mas-fit { display: grid; }
 .mas-vsl .mas-fit__col { padding: clamp(4rem, 8vw, 8rem) var(--gutter); }
 .mas-vsl .mas-fit__col--no { background: var(--black); }
@@ -851,10 +754,6 @@
   .mas-vsl .mas-fit__col { padding-inline: clamp(2rem, 5vw, 5.5rem); }
   .mas-vsl .mas-fit__col--yes { padding-left: max(var(--gutter), calc((100vw - 90rem) / 2 + var(--gutter))); }
 }
-
-/* ==========================================================================
-   La diferencia (campo claro)
-   ========================================================================== */
 .mas-vsl .mas-diff__big {
   font-family: var(--font-display);
   font-stretch: var(--display-stretch);
@@ -913,11 +812,6 @@
   .mas-vsl .mas-diff__end { grid-template-columns: 4fr 8fr; align-items: start; }
   .mas-vsl .mas-diff__photo { width: 100%; aspect-ratio: 2 / 3; margin-top: .5rem; }
 }
-
-/* ==========================================================================
-   E · ELECCIÓN DE CAMINO (los paneles se expanden)
-   ========================================================================== */
-/* Los paneles tocan la sección siguiente: bloques de color pegados, sin franja negra en medio */
 .mas-vsl .mas-sec-paths { padding-top: 0; padding-bottom: 0; }
 .mas-vsl .mas-paths {
   display: grid;
@@ -964,7 +858,6 @@
 @media (max-width: 47.99em) {
   .mas-vsl .mas-path .mas-btn { width: 100%; justify-content: space-between; text-align: left; }
 }
-
 .mas-vsl .mas-path__board {
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr;
@@ -1006,7 +899,6 @@
 .mas-vsl .mas-board__tile--swatch span { flex: 1 1 100%; padding: .5rem .75rem .625rem; }
 .mas-vsl .mas-board__tile--layout svg { width: 70%; margin-bottom: auto; fill: none; stroke: var(--white); stroke-width: 1.2; }
 .mas-vsl .mas-board__tile--type { grid-column: 2 / -1; }
-
 .mas-vsl .mas-path__manuscript {
   max-width: 26rem;
   padding: 1.125rem 1.25rem 1.375rem;
@@ -1030,7 +922,6 @@
 .mas-vsl .mas-ms__line + .mas-ms__line { margin-top: .625rem; }
 .mas-vsl .mas-ms__line--cut { color: rgba(247, 245, 242, .42); }
 .mas-vsl .mas-ms__line--keep { padding: .125rem .375rem; margin-left: -.375rem; background: var(--acid); color: var(--black); }
-
 @media (min-width: 64em) {
   .mas-vsl .mas-paths {
     display: flex;
@@ -1046,10 +937,6 @@
   .mas-vsl .mas-path:hover .mas-path__board { transform: translateY(-.5rem) rotate(-1deg); }
   .mas-vsl .mas-path:hover .mas-path__manuscript { transform: rotate(0deg) translateY(-.5rem); }
 }
-
-/* ==========================================================================
-   F · EVIDENCIA (galería que se arrastra)
-   ========================================================================== */
 .mas-vsl .mas-books__head {
   display: flex;
   align-items: flex-end;
@@ -1071,7 +958,6 @@
 .mas-vsl .mas-round:hover { background: var(--hot); color: var(--black); box-shadow: none; }
 .mas-vsl .mas-round[disabled] { opacity: .3; cursor: default; background: transparent; color: var(--white); box-shadow: inset 0 0 0 1.5px rgba(247, 245, 242, .4); }
 @media (min-width: 64em) { .mas-vsl .mas-books__nav { display: flex; } }
-
 .mas-vsl .mas-books {
   position: relative;
   margin-top: calc(clamp(2.5rem, 6vw, 4rem) - 8px);
@@ -1159,7 +1045,6 @@
 }
 .mas-vsl .mas-book__url .mas-icon { width: .9rem; height: .9rem; }
 .mas-vsl .mas-book__link:hover .mas-book__url { text-decoration-color: var(--hot); }
-
 .mas-vsl .mas-books__foot {
   display: grid;
   gap: 2rem;
@@ -1171,11 +1056,6 @@
 @media (min-width: 64em) {
   .mas-vsl .mas-books__foot { grid-template-columns: 1fr auto; }
 }
-
-/* ==========================================================================
-   G · 18 MESES: cuatro momentos (tarjetas que se apilan al hacer scroll en
-   tablet y escritorio; en móvil van una debajo de otra y nada tapa el texto)
-   ========================================================================== */
 .mas-vsl .mas-stages__intro { display: grid; gap: 1.5rem var(--col-gap); align-items: end; }
 .mas-vsl .mas-stages__title { max-width: 15ch; }
 .mas-vsl .mas-stages__title span { display: block; }
@@ -1209,7 +1089,6 @@
 .mas-vsl .mas-stage:nth-child(3) { --i: 2; }
 .mas-vsl .mas-stage:nth-child(4) { --i: 3; }
 .mas-vsl .mas-stage__body { display: grid; gap: 1rem; padding-bottom: .5rem; }
-/* Etiqueta de tiempo: lo primero que se lee en cada tarjeta */
 .mas-vsl .mas-stage__when {
   justify-self: start;
   display: inline-flex;
@@ -1234,12 +1113,9 @@
   text-wrap: balance;
 }
 .mas-vsl .mas-stage__story { max-width: 40ch; font-size: var(--t-lead); line-height: 1.35; }
-/* Tarjeta 2: rosa intenso (más específica que .mas-stage, que pinta el claro) */
 .mas-vsl .mas-stage.mas-stage--hot { background: var(--hot); --fg-2: var(--on-hot-2); }
-/* Tarjeta 3: campo claro con acento magenta */
 .mas-vsl .mas-stage--accent .mas-stage__when { background: var(--hot-ink); color: #FFFFFF; }
 .mas-vsl .mas-stage--accent .mas-stage__name { color: var(--hot-ink); }
-/* Tarjeta 4: azul, con la foto del Grad Show a sangre */
 .mas-vsl .mas-stage.mas-stage--end { background: #3391F4; --fg-2: #0B2340; --pad: clamp(1.5rem, 4vw, 3.5rem); overflow: hidden; }
 .mas-vsl .mas-stage__photo {
   align-self: stretch;
@@ -1253,14 +1129,11 @@
   .mas-vsl .mas-stage__photo { aspect-ratio: auto; min-height: 100%; margin: calc(-1 * var(--pad)) calc(-1 * var(--pad)) calc(-1 * var(--pad)) 0; }
 }
 @media (min-width: 64em) {
-  /* Escritorio: el título a la izquierda y el texto a la derecha, para que la tarjeta se llene */
   .mas-vsl .mas-stage:not(.mas-stage--end) .mas-stage__body { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: clamp(2rem, 4vw, 4rem); align-items: end; }
   .mas-vsl .mas-stage:not(.mas-stage--end) .mas-stage__when { grid-column: 1 / -1; }
   .mas-vsl .mas-stage:not(.mas-stage--end) .mas-stage__story { padding-bottom: .3em; }
 }
 @media (max-width: 47.99em), (max-height: 37.49em) {
-  /* En móvil (y en pantallas bajas, como un celular acostado) no se apilan:
-     cada tarjeta se lee completa y ninguna tapa a otra */
   .mas-vsl .mas-stage { position: relative; top: auto; min-height: 0; gap: 1.25rem; align-items: start; box-shadow: none; }
 }
 .mas-vsl .mas-structure__note {
@@ -1269,10 +1142,6 @@
   color: var(--fg-2);
   max-width: 52ch;
 }
-
-/* ==========================================================================
-   Prácticas profesionales (campo violeta) + carrusel de logos
-   ========================================================================== */
 .mas-vsl .mas-intern__title {
   display: block;
   font-family: var(--font-display);
@@ -1299,14 +1168,11 @@
 @media (min-width: 64em) {
   .mas-vsl .mas-intern__text { grid-template-columns: 5fr 7fr; column-gap: var(--col-gap); margin-left: calc(100% / 12 * 4); }
 }
-
 .mas-vsl .mas-logos { margin-top: clamp(3.5rem, 8vw, 6rem); }
 .mas-vsl .mas-intern { padding-bottom: 0; }
 .mas-vsl .mas-logos__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; }
 .mas-vsl .mas-logos__caption { font-size: var(--t-small); font-weight: 600; max-width: 40ch; }
 .mas-vsl .mas-logos__nav { display: flex; gap: .5rem; flex: none; }
-/* Con movimiento, las flechas aparecen al acercarse: su lugar (alto y ancho) se reserva desde el inicio,
-   invisible, para que el texto no cambie de líneas y nada salte */
 .mas-vsl.has-motion .mas-logos__nav[hidden] { display: flex !important; visibility: hidden; }
 .mas-vsl .mas-logos .mas-round { color: var(--black); box-shadow: inset 0 0 0 1.5px rgba(10, 10, 10, .4); }
 .mas-vsl .mas-logos .mas-round:hover { background: transparent; color: var(--black); box-shadow: inset 0 0 0 1.5px rgba(10, 10, 10, .4); }
@@ -1328,18 +1194,13 @@
   height: clamp(5.5rem, 4.5rem + 3vw, 7.5rem);
   padding-inline: clamp(1.25rem, 3vw, 2.75rem);
 }
-/* Cualquier logo (PNG o SVG con fondo transparente) se vuelve negro para que el muro se vea parejo */
 .mas-vsl .mas-logo img {
   width: auto;
-  /* --logo-h (en el <li>) equilibra el peso visual entre logos anchos, insignias y logos delgados */
   height: calc(var(--logo-h, 1) * clamp(1.75rem, 1.4rem + 1.2vw, 2.75rem));
   max-width: var(--logo-w, 11rem);
   object-fit: contain;
   filter: brightness(0);
 }
-/* Con JS y movimiento permitido, la fila se duplica y avanza con el scroll (como la cinta).
-   Va en una sola fila desde el inicio: si cambiara de alto al duplicarse, los CTA que pasan
-   por aquí con scroll suave aterrizarían más abajo de su destino. */
 .mas-vsl.has-motion .mas-logos__viewport {
   overflow: hidden;
   padding-inline: 0;
@@ -1349,10 +1210,6 @@
 .mas-vsl.has-motion .mas-logos__track { flex-wrap: nowrap; width: max-content; }
 .mas-vsl.has-motion .mas-logos__track + .mas-logos__track { margin-top: -.5rem; }
 .mas-vsl .mas-logos.is-looping .mas-logos__track { transform: translate3d(calc(var(--lx, 0) * -1px), 0, 0); }
-
-/* ==========================================================================
-   Próximos inicios · cuenta regresiva real (campo ácido)
-   ========================================================================== */
 .mas-vsl .mas-dates__title { max-width: 14ch; }
 .mas-vsl .mas-countdown { margin-top: clamp(2.5rem, 6vw, 4rem); }
 .mas-vsl .mas-countdown__grid {
@@ -1414,10 +1271,6 @@
 @media (min-width: 64em) {
   .mas-vsl .mas-dates__foot { grid-template-columns: 1fr auto; }
 }
-
-/* ==========================================================================
-   H · OBJECIONES (sección clara)
-   ========================================================================== */
 .mas-vsl .mas-faq { display: grid; gap: 2.5rem; }
 .mas-vsl .mas-faq__title { max-width: 9ch; }
 .mas-vsl .mas-accordion { border-top: 2px solid var(--fg); }
@@ -1482,10 +1335,6 @@
   .mas-vsl .mas-faq__title { grid-column: 1 / span 5; position: sticky; top: 2rem; }
   .mas-vsl .mas-accordion { grid-column: 6 / -1; }
 }
-
-/* ==========================================================================
-   I · CONVERSIÓN (campo fucsia)
-   ========================================================================== */
 .mas-vsl .mas-apply { display: grid; gap: clamp(2.5rem, 6vw, 4rem); }
 .mas-vsl .mas-apply__title { max-width: 12ch; font-size: clamp(2.5rem, 1.2rem + 4.4vw, 6rem); }
 .mas-vsl .mas-apply__how { margin-top: 1.25rem; max-width: 36ch; color: var(--fg-2); }
@@ -1515,7 +1364,6 @@
 .mas-vsl[data-stage="form"] .mas-step[data-step="form"] .mas-step__n,
 .mas-vsl[data-stage="agenda"] .mas-step[data-step="agenda"] .mas-step__n,
 .mas-vsl[data-stage="confirmado"] .mas-step[data-step="confirmado"] .mas-step__n { background: var(--black); color: var(--hot); }
-
 .mas-vsl .mas-host { display: flex; align-items: center; gap: 1rem; margin-top: 2.5rem; max-width: 30rem; }
 .mas-vsl .mas-host__photo {
   flex: none;
@@ -1534,7 +1382,6 @@
 .mas-vsl .mas-host__org { display: block; }
 .mas-vsl .mas-apply__cta { margin-top: 2.5rem; }
 .mas-vsl[data-stage="confirmado"] .mas-apply__cta { display: none; }
-
 .mas-vsl .mas-apply__module {
   --fg: var(--black);
   --fg-2: var(--light-2);
@@ -1560,7 +1407,6 @@
 }
 .mas-vsl .mas-chip:hover { box-shadow: inset 0 0 0 1.5px var(--black); }
 .mas-vsl .mas-chip[aria-pressed="true"] { background: var(--hot); color: var(--black); box-shadow: inset 0 0 0 1.5px var(--hot); }
-
 .mas-vsl .mas-stagebox { margin-top: 2rem; }
 .mas-vsl .mas-stagebox__title {
   font-family: var(--font-display);
@@ -1618,14 +1464,9 @@
 .mas-vsl .mas-done p:not(.mas-done__title) { color: var(--light-2); max-width: 46ch; }
 @media (min-width: 64em) {
   .mas-vsl .mas-apply { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--col-gap); align-items: start; }
-  /* Sin sticky: el texto mide más que la pantalla y su parte de abajo (Ricardo y el botón) quedaría oculta */
   .mas-vsl .mas-apply__intro { grid-column: 1 / span 5; }
   .mas-vsl .mas-apply__module { grid-column: 7 / -1; }
 }
-
-/* ==========================================================================
-   J · FOOTER
-   ========================================================================== */
 .mas-vsl .mas-footer { padding-block: clamp(4rem, 8vw, 7rem) 2.5rem; font-size: var(--t-small); }
 .mas-vsl .mas-footer__sign {
   font-family: var(--font-display);
@@ -1667,10 +1508,6 @@
 .mas-vsl .mas-footer__links a:hover { color: var(--white); text-decoration-color: var(--hot); }
 .mas-vsl .mas-footer__links a[aria-disabled="true"] { cursor: not-allowed; }
 .mas-vsl .mas-footer__links a[aria-disabled="true"]::after { content: " · pendiente"; color: var(--acid); text-decoration: none; }
-
-/* ==========================================================================
-   Progreso de lectura y cursor-punto (solo escritorio con mouse)
-   ========================================================================== */
 .mas-vsl .mas-progress {
   position: fixed;
   right: 1.25rem;
@@ -1694,7 +1531,6 @@
   transform: translateY(calc(var(--p, 0) * 7rem));
 }
 @media (min-width: 64em) { .mas-vsl.has-js .mas-progress { display: block; } }
-
 .mas-vsl .mas-cursor {
   position: fixed;
   left: 0; top: 0;
@@ -1728,10 +1564,6 @@
 .mas-vsl .mas-cursor.is-big::before { transform: scale(6); }
 .mas-vsl .mas-cursor.is-big .mas-cursor__label { opacity: 1; transition-delay: .1s; }
 .mas-vsl .mas-cursor.is-hidden::before { opacity: 0; }
-
-/* ==========================================================================
-   Revisión antes de publicar (solo con ?revisar=1 en la URL; la crea el JS)
-   ========================================================================== */
 .mas-vsl .mas-review {
   position: fixed;
   right: 1rem;
@@ -1778,24 +1610,17 @@
 .mas-vsl .mas-review__links { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
 .mas-vsl .mas-review__links a { color: var(--acid); text-decoration: underline; text-underline-offset: .2em; }
 .mas-vsl .mas-review__foot { margin-top: .75rem; color: var(--white-2); font-size: .75rem; }
-
-/* ==========================================================================
-   Movimiento (solo si el usuario lo permite)
-   ========================================================================== */
 @media (prefers-reduced-motion: no-preference) {
   .mas-vsl .mas-actions,
   .mas-vsl .mas-micro { animation: mas-rise .8s var(--ease-out) both; }
   .mas-vsl .mas-actions { animation-delay: .25s; }
   .mas-vsl .mas-micro { animation-delay: .35s; }
   .mas-vsl .mas-collage > * { animation: mas-drop 1s var(--ease-out) .15s both; }
-
-  /* La pluma: dasharray 3 cubre el trazo aunque el SVG esté estirado */
   .mas-vsl .mas-hero .mas-pen path {
     stroke-dasharray: 3;
     stroke-dashoffset: 3;
     animation: mas-draw .9s var(--ease-io) .7s forwards;
   }
-
   .mas-vsl.has-motion .mas-verdict .mas-pen path,
   .mas-vsl.has-motion .mas-path--cw .mas-pen path {
     stroke-dasharray: 3;
@@ -1804,14 +1629,9 @@
   }
   .mas-vsl.has-motion .mas-path--cw .mas-ms__line:nth-child(3) .mas-pen path { transition-delay: .7s; }
   .mas-vsl.has-motion .is-in .mas-pen path { stroke-dashoffset: 0; }
-
-  /* Títulos: suben desde una máscara */
   .mas-vsl.has-motion [data-reveal] {
     transition: clip-path 1s var(--ease-out), transform 1s var(--ease-out), opacity .6s var(--ease-out);
   }
-  /* Nunca recortar al 100%: IntersectionObserver deja de "ver" el elemento y no se revelaría.
-     A los lados el recorte es enorme a propósito: si un titular se sale de su caja (otra fuente,
-     una palabra larga con &nbsp;), la animación nunca debe cortarlo. */
   .mas-vsl.has-motion [data-reveal]:not(.is-in) {
     clip-path: inset(0 -100vw 55% -100vw);
     transform: translateY(2rem);
@@ -1823,7 +1643,6 @@
   .mas-vsl.has-motion .mas-fit__list li:nth-child(4) { transition-delay: .18s; }
   .mas-vsl.has-motion .mas-fit__list li:nth-child(5) { transition-delay: .24s; }
 }
-
 @keyframes mas-rise {
   from { opacity: 0; transform: translateY(1rem); }
   to { opacity: 1; transform: none; }
@@ -1833,8 +1652,6 @@
   to { opacity: 1; translate: 0 0; }
 }
 @keyframes mas-draw { to { stroke-dashoffset: 0; } }
-
-/* Con «reducir movimiento»: los cambios de hover y de estado ocurren al instante, sin animar */
 @media (prefers-reduced-motion: reduce) {
   .mas-vsl *,
   .mas-vsl *::before,
@@ -1846,6 +1663,4 @@
     animation-iteration-count: 1 !important;
   }
 }
-
-/* Solo vista previa local: en GHL el fondo de página lo define el builder */
 .mas-preview-body { margin: 0; background: #0A0A0A; }

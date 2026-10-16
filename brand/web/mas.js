@@ -108,7 +108,34 @@
     }
   }
 
+  // Foto con recorte (rect | circle) y duotono opcional en dos rosas de la paleta:
+  // <mas-photo src="foto.jpg" duo="pink-2425,pink-182" shape="circle" pos="50% 30%">
+  // duo = "oscuro,claro": las sombras toman el primer color y las luces el segundo. Sin duo, la foto va a color.
+  const rgb = (hex) => { const h = hex.replace('#', ''); return [0, 2, 4].map((i) => parseInt(h.slice(i, i + 2), 16) / 255); };
+  class MasPhoto extends HTMLElement {
+    connectedCallback() {
+      const a = (k, d) => this.getAttribute(k) ?? d;
+      const img = document.createElement('img');
+      img.src = a('src', ''); img.alt = a('alt', '');
+      img.style.cssText = `width:100%;height:100%;display:block;object-fit:cover;object-position:${a('pos', '50% 50%')};${a('shape') === 'circle' ? 'border-radius:50%;' : ''}`;
+      const parts = [img];
+      if (a('duo')) {
+        const [dark, light] = a('duo').split(',').map((c) => rgb(color(c.trim())));
+        const id = 'duo' + Math.random().toString(36).slice(2, 8);
+        const svg = el('svg', { width: 0, height: 0, style: 'position:absolute' });
+        const f = el('filter', { id, 'color-interpolation-filters': 'sRGB' });
+        f.append(el('feColorMatrix', { type: 'matrix', values: '.2126 .7152 .0722 0 0  .2126 .7152 .0722 0 0  .2126 .7152 .0722 0 0  0 0 0 1 0' }));
+        const ct = el('feComponentTransfer');
+        ['R', 'G', 'B'].forEach((ch, i) => ct.append(el('feFunc' + ch, { type: 'table', tableValues: `${dark[i]} ${light[i]}` })));
+        f.append(ct); svg.append(f); parts.push(svg);
+        img.style.filter = `url(#${id}) contrast(1.08)`;
+      }
+      this.replaceChildren(...parts);
+    }
+  }
+
   customElements.define('mas-mdot', MasMdot);
+  customElements.define('mas-photo', MasPhoto);
   customElements.define('mas-wordmark', MasWordmark);
   customElements.define('mas-lockup', MasLockup);
   customElements.define('mas-pattern', MasPattern);
@@ -133,6 +160,8 @@
 
   const ready = async () => {
     await document.fonts.ready;
+    // Espera a que carguen las fotos (si una falla, sigue y avisa).
+    await Promise.all([...document.images].map((im) => im.decode().catch(() => console.warn(`[MAS] No cargó la imagen ${im.src}`))));
     // Comprueba que cada peso usado exista de verdad (si falta, el navegador lo simula y se ve mal).
     const hasText = (n) => [...n.childNodes].some((c) => c.nodeType === 3 && c.textContent.trim());
     const family = (n) => getComputedStyle(n).fontFamily.split(',')[0].trim().replace(/["']/g, '');

@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>MAS — Librería de layouts Collins</title>
+<link rel="stylesheet" href="../web/mas.css">
+<link rel="stylesheet" href="../web/collins.css">
+<style>
+  /* Los 12 Master Templates de Collins convertidos en 20 layouts HTML (ver brand/web/collins.css).
+     Copia los slides que necesites a una pieza en brand/work/. El texto es de muestra (el de los masters
+     de Collins traducido y nombres genéricos): verifica cifras, citas y fuentes antes de publicar.
+     Las fotos son huecos .c-slot[data-photo]. Con window.MAS_PHOTO_DIR = 'carpeta/' se cambian por <mas-photo>. */
+  .arrows { list-style: none; }
+  .arrows li { display: grid; grid-template-columns: 1.05em 1fr; }
+  .arrows li + li { margin-top: 0.5em; }
+  .arrows li::before { content: '→'; font-weight: 800; }
+</style>
+</head>
+<body>
+
+<!-- 01 · Tips · portada -->
+<section class="page ig-post c-tips-cover" style="--bg: var(--pink-2425); --fg: var(--pink-245)">
+  <div class="c-top"><div class="h" data-fit="both">5 libros<br>que todo<br>creativo<br>tiene que leer</div></div>
+  <div class="c-bot support">Desliza <span class="arrow"></span></div>
+</section>
+
+<!-- 02 · Tips · interior: headline + texto abajo -->
+<section class="page ig-post c-tips" style="--bg: var(--pink-182); --fg: var(--pink-2425)">
+  <div class="c-top"><div class="h" data-fit>Las miniaturas<br>tienen que<br>antojarse</div></div>
+  <div class="c-bot support">
+    <p>Cada imagen tiene que invitar a dar clic y ver el trabajo.</p>
+    <p>Que pensemos: “Tengo que ver eso”. Evita a toda costa una cuadrícula aburrida de logos.</p>
+  </div>
+</section>
+
+<!-- 03 · Tips with Images: título + subtítulo, texto abajo a la izquierda, imagen abajo a la derecha -->
+<section class="page ig-post c-tips-img" style="--bg: var(--pink-245); --fg: var(--pink-2425)">
+  <div class="c-top"><div class="h" data-fit data-fit-max="200">Sapiens</div><div class="c-sub">De animales a dioses<br>Yuval Noah Harari</div></div>
+  <div class="c-bot support sm"><p>Léelo para entender cómo las historias que compartimos mueven a millones de personas.</p></div>
+  <div class="c-img c-slot" data-photo="IMG_0786.JPG" data-duo="pink-2425,pink-245"></div>
+</section>
+
+<!-- 04 · Facts: dato arriba + "M.AD Facts" abajo -->
+<section class="page ig-post c-fact" style="--bg: var(--pink-176); --fg: var(--pink-2425)">
+  <div class="c-top"><div class="h" data-fit>Soñar despierto<br>no es perder<br>el tiempo.<br>Impulsa la<br>creatividad.</div></div>
+  <div class="c-bot c-info">M.AD<br>Facts</div>
+</section>
+
+<!-- 05 · Facts · estudio: entrada + cita + fuente -->
+<section class="page ig-post c-fact-study" style="--bg: var(--pink-230); --fg: var(--pink-220)">
+  <div class="c-top">
+    <div class="c-lead">Como sugirió un estudio:</div>
+    <div class="h" data-fit>“El impulso<br>de explorar<br>podría ser el factor<br>que mejor predice<br>el logro creativo.”</div>
+  </div>
+  <div class="c-bot c-label">Fuente: Scientific American</div>
+</section>
+
+<!-- 06 · Quotes: cita gigante + autor abajo (sin M-dot) -->
+<section class="page ig-post c-quote" style="--bg: var(--pink-220); --fg: var(--pink-182)">
+  <div class="c-top"><div class="h" data-fit="both">Si al principio<br>la idea no<br>es absurda,<br>no hay esperanza<br>para ella.</div></div>
+  <div class="c-bot c-info sm">Albert<br>Einstein</div>
+</section>
+
+<!-- 07 · Poll Results: pregunta + porcentajes -->
+<section class="page ig-post c-poll" style="--bg: var(--pink-231); --fg: var(--pink-2425)">
+  <div class="c-top">
+    <div class="c-q">P. ¿Cuáles son las 2 características más importantes que un creativo puede desarrollar para impulsar su carrera?</div>
+    <ul class="c-results">
+      <li><b>62.5 %</b> Apertura</li>
+      <li><b>59.4 %</b> Curiosidad</li>
+      <li><b>50 %</b> Actitud positiva</li>
+      <li><b>48.4 %</b> Inteligencia emocional</li>
+      <li><b>35.9 %</b> Ambición</li>
+      <li><b>32.8 %</b> Ética de trabajo</li>
+      <li><b>9.4 %</b> Independencia</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 08 · Single Photo: noticia con foto circular -->
+<section class="page ig-post c-news" style="--bg: var(--pink-182); --fg: var(--pink-220)">
+  <div class="c-top"><div class="h" data-fit data-fit-max="230">Noticias de<br>egresados</div></div>
+  <div class="c-img round c-slot" data-photo="IMG_0785.JPG" data-duo="pink-220,pink-182" data-shape="circle"></div>
+  <div class="c-bot c-info sm">Nombre Apellido se une a Agencia como directora creativa.</div>
+</section>
+
+<!-- 09 · Single Photo · variante: texto bajo el headline y foto horizontal abajo -->
+<section class="page ig-post c-news-2" style="--bg: var(--pink-2425); --fg: var(--pink-176)">
+  <div class="c-top">
+    <div class="h" data-fit data-fit-max="230">Semana de<br>portafolio</div>
+    <div class="c-text c-info sm">Briefs reales, críticas abiertas y muchas ideas en la pared.</div>
+  </div>
+  <div class="c-img c-slot" data-photo="IMG_0784.JPG" data-duo="pink-2425,pink-176" data-pos="50% 40%"></div>
+</section>
+
+<!-- 10 · Insighters · speaker: nombre | fecha y lugar arriba, foto grande (donde Collins ponía el M-dot) -->
+<section class="page ig-post c-speaker" style="--bg: var(--pink-245); --fg: var(--pink-220)">
+  <div class="c-top c-cols c-info sm"><div>Nombre<br>Apellido</div><div>17 de feb<br>Zoom</div></div>
+  <div class="c-img round c-slot" data-photo="IMG_0223.JPG" data-duo="pink-220,pink-245" data-shape="circle"></div>
+</section>
+
+<!-- 11 · Insighters · charla: título gigante + fecha y hora abajo -->
+<section class="page ig-post c-talk" style="--bg: var(--pink-220); --fg: var(--pink-245)">
+  <div class="c-top"><div class="h" data-fit>Dominar<br>la marca</div></div>
+  <div class="c-bot c-info">17 de feb<br>4 pm CDMX</div>
+</section>
+
+<!-- 12 · Hired: palabra gigante, foto y nombre + puesto abajo -->
+<section class="page ig-post c-hired" style="--bg: var(--pink-176); --fg: var(--pink-2425)">
+  <div class="c-top"><div class="h w9" data-fit>Hired</div></div>
+  <div class="c-img c-slot" data-photo="IMG_0313.JPG" data-duo="pink-2425,pink-176"></div>
+  <div class="c-bot c-info sm">Nombre Apellido<br>Diseñadora @Agencia</div>
+</section>
+
+<!-- 13 · 2BeHired: palabra gigante a todo el ancho + nombre y puesto -->
+<section class="page ig-post c-2behired" style="--bg: var(--pink-2425); --fg: var(--pink-245)">
+  <div class="c-top"><div class="h w9" data-fit>2BeHired</div></div>
+  <div class="c-bot c-info">Nombre Apellido<br>Diseñadora</div>
+</section>
+
+<!-- 14 · Award Winner: encabezado chico + imagen grande del trabajo -->
+<section class="page ig-post c-award" style="--bg: var(--pink-182); --fg: var(--pink-2425)">
+  <div class="c-top c-head">
+    <div class="c-label">Miami Ad School México</div>
+    <div class="c-award-name">Oro en Cannes Lions</div>
+    <div class="c-label" style="font-weight: 500">AD: Nombre Apellido · CW: Nombre Apellido</div>
+  </div>
+  <div class="c-img c-slot" data-photo="IMG_0244.JPG"></div>
+</section>
+
+<!-- 15 · Award Winner Carousel · portada: "Student Award" + premio | nombre -->
+<section class="page ig-post c-award-cover" style="--bg: var(--pink-220); --fg: var(--pink-182)">
+  <div class="c-top"><div class="h w9" data-fit>Student<br>Award</div></div>
+  <div class="c-bot c-cols c-info sm"><div>Oro en<br>One Show</div><div>Nombre<br>Apellido</div></div>
+</section>
+
+<!-- 16 · Foto a sangre (Award Winner Carousel 2, Hired 3) -->
+<section class="page ig-post c-photo-full" style="--bg: var(--pink-2425)">
+  <div class="c-img c-slot" data-photo="IMG_0327.JPG" data-duo="pink-2425,pink-182"></div>
+</section>
+
+<!-- 17 · Multiple Photo · 12 círculos -->
+<section class="page ig-post c-photos-12" style="--bg: var(--pink-230); --fg: var(--pink-2425)">
+  <div class="c-circles">
+    <div class="c-slot" data-photo="IMG_0223.JPG" data-duo="pink-2425,pink-230" data-shape="circle"></div>
+    <div class="c-slot" data-photo="IMG_0244.JPG" data-duo="pink-2425,pink-230" data-shape="circle"></div>
+    <div class="c-slot" data-photo="IMG_0291.JPG" data-duo="pink-2425,pink-230" data-shape="circle"></div>
+    <div class="c-slot" data-photo="IMG_0313.JPG" data-duo="pink-2425,pink-230" data-shape="circle"></div>
+    <div class="c-slot" data-photo="IMG_0327.JPG" data-duo="pink-2425,pink-230" data-shape="circle"></div>
+    <div class="c-slot" data-photo="IMG_0784.JPG" data-duo="pink-2425,pink-230" data-shape="circle"></div>
+    <div class="c-slot" data-photo="IMG_0785.JPG" data-duo="pink-2425,pink-230" data-shape="circle"></div>
+    <div class="c-slot" data-photo="IMG_0786.JPG" data-duo="pink-2425,pink-230" data-shape="circle"></div>
+    <div class="c-slot" data-photo="IMG_0291.JPG" data-duo="pink-2425,pink-230" data-shape="circle" data-pos="80% 50%"></div>
+    <div class="c-slot" data-photo="IMG_0244.JPG" data-duo="pink-2425,pink-230" data-shape="circle" data-pos="20% 50%"></div>
+    <div class="c-slot" data-photo="IMG_0327.JPG" data-duo="pink-2425,pink-230" data-shape="circle" data-pos="80% 50%"></div>
+    <div class="c-slot" data-photo="IMG_0313.JPG" data-duo="pink-2425,pink-230" data-shape="circle" data-pos="20% 50%"></div>
+  </div>
+  <div class="c-bot c-info sm">Bootcamp de Dirección de Arte<br>Julio 2026</div>
+</section>
+
+<!-- 18 · Multiple Photo · 4 círculos -->
+<section class="page ig-post c-photos-4" style="--bg: var(--pink-176); --fg: var(--pink-2425)">
+  <div class="c-circles">
+    <div class="c-slot" data-photo="IMG_0784.JPG" data-duo="pink-2425,pink-176" data-shape="circle"></div>
+    <div class="c-slot" data-photo="IMG_0785.JPG" data-duo="pink-2425,pink-176" data-shape="circle"></div>
+    <div class="c-slot" data-photo="IMG_0786.JPG" data-duo="pink-2425,pink-176" data-shape="circle"></div>
+    <div class="c-slot" data-photo="IMG_0223.JPG" data-duo="pink-2425,pink-176" data-shape="circle"></div>
+  </div>
+  <div class="c-bot c-info sm">Bootcamp de Dirección de Arte<br>Julio 2026</div>
+</section>
+
+<!-- 19 · Multiple Photo · 2 personas -->
+<section class="page ig-post c-photos-2" style="--bg: var(--pink-182); --fg: var(--pink-220)">
+  <div class="c-top c-cols">
+    <div class="c-person"><div class="c-name">Nombre Apellido</div><div class="c-label">Directora de Alianzas de Marca, Agencia</div></div>
+    <div class="c-person"><div class="c-name">Nombre Apellido</div><div class="c-label">ACD/AD Global, Marca</div></div>
+  </div>
+  <div class="c-circles">
+    <div class="c-slot" data-photo="IMG_0291.JPG" data-duo="pink-220,pink-182" data-shape="circle"></div>
+    <div class="c-slot" data-photo="IMG_0327.JPG" data-duo="pink-220,pink-182" data-shape="circle"></div>
+  </div>
+  <div class="c-bot c-info sm">Bootcamp de Dirección de Arte<br>Julio 2026</div>
+</section>
+
+<!-- 20 · Cierre: único lugar con logo -->
+<section class="page ig-post c-cierre" style="--bg: var(--pink-2425); --fg: var(--pink-182)">
+  <div class="c-top"><div class="h" data-fit>Guarda este<br>carrusel para<br>tu próximo brief.</div></div>
+  <div class="c-bot"><mas-lockup m="pink-182" dot="orange-1495" text="pink-182" style="height: 250px"></mas-lockup></div>
+</section>
+
+<script>
+  // Si hay carpeta de fotos (demo en brand/work/), cambia los huecos .c-slot[data-photo] por <mas-photo>.
+  (() => {
+    const dir = window.MAS_PHOTO_DIR;
+    if (!dir) return;
+    document.querySelectorAll('.c-slot[data-photo]').forEach((s) => {
+      const p = document.createElement('mas-photo');
+      p.className = s.className.replace('c-slot', '').trim();
+      p.setAttribute('src', dir + s.dataset.photo);
+      for (const k of ['duo', 'shape', 'pos']) if (s.dataset[k]) p.setAttribute(k, s.dataset[k]);
+      s.replaceWith(p);
+    });
+  })();
+</script>
+<script src="../web/mas-data.js"></script>
+<script src="../web/mas.js"></script>
+</body>
+</html>

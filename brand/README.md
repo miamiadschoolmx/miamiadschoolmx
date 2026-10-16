@@ -12,8 +12,8 @@ brand/
   assets/mdots/         30 M-dots oficiales en SVG + mdots.json (M y dot separados)
   assets/logo/          wordmark.svg y lockup.svg (vectoriales, de los cierres oficiales)
   fonts/                Obviously Narrow y Obviously (no versionadas; ver README) + Archivo
-  web/                  mas.css, mas.js (componentes) y mas-data.js (generado)
-  templates/            carousel · document (PDF) · motion-reel (MP4) · brand-sheet (referencia)
+  web/                  mas.css, collins.css (layouts Collins), mas.js (componentes) y mas-data.js (generado)
+  templates/            collins (12 masters Collins como layouts) · carousel · document (PDF) · motion-reel (MP4) · brand-sheet
   scripts/              build-data.mjs · render.mjs · drive-save.py
 ```
 

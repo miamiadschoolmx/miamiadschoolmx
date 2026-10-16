@@ -106,7 +106,9 @@ sup, .sup { font-size: 0.5em; line-height: 0; vertical-align: 0.72em; letter-spa
 .wm-corner.bl { bottom: var(--pad); left: var(--pad); right: auto; }
 
 /* ---------- Componentes ---------- */
-mas-mdot, mas-pattern { display: block; position: absolute; }
+mas-mdot, mas-pattern, mas-photo { display: block; position: absolute; }
+mas-photo { overflow: hidden; }
+mas-photo[shape="circle"] { border-radius: 50%; aspect-ratio: 1; }
 mas-mdot svg, mas-pattern svg { display: block; width: 100%; height: 100%; overflow: visible; }
 mas-wordmark, mas-lockup { display: block; }
 mas-wordmark svg, mas-lockup svg { display: block; height: 100%; width: auto; overflow: visible; }

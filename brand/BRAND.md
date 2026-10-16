@@ -235,23 +235,39 @@ Web (styleguide 4): H1 Narrow Medium 70/61 pt · H2 48/44 · H3 30/21 · body Ob
 - Cortes secos o wipes verticales entre escenas, a ritmo de beat. Fondos sólidos que cambian de rosa por escena siguiendo la gramática de color.
 - Cierre: lockup (Variante MX) con el dot entrando al final. Duración típica de 6 a 8 s para reels/intros y 2 a 3 s para cortinillas.
 
-## 9. Master Templates (Collins 1080×1350)
+## 9. Master Templates (Collins 1080×1350) y dirección de arte
 
-Los 12 masters existen como `.ai` (wireframes, Drive "Templates Collins 1080 x 1350") y como **Brand Templates en Canva** ("MAS · Collins 1080×1350 · …"; ninguno tiene campos de autofill).
+Los 12 masters existen como `.ai` (wireframes, Drive "Templates Collins 1080 x 1350", `1L-x3QP79ntpc7aYAxCs7H8inV0riUZnS`) y como **Brand Templates en Canva** ("MAS · Collins 1080×1350 · …"; ninguno tiene campos de autofill). En HTML están todos como layouts en `web/collins.css`, con un ejemplo de cada uno en `templates/collins.html`.
 
-Al usar un master en MAS México: quita los M-dots de los slides interiores (el logo va solo en el cierre) y cambia a rosa cualquier texto negro.
+**Gramática Collins**: grid de 6 columnas × 6 filas dentro del margen · headline arriba a la izquierda, información abajo a la izquierda (a veces en 2 columnas) · imágenes abajo a la derecha (½ del ancho) o en círculos cuando son personas · info (nombres, fechas, lugares) grande, casi del tamaño de un subtítulo · nunca texto sobre foto.
 
-| Template | Estructura | Uso |
+**Adaptación MAS México** (indicaciones de Ricardo): fondos rosas y texto en rosas (los masters vienen en blanco y negro) · donde Collins ponía un M-dot (Quotes, Poll, Insighters, Hired, 2BeHired) va una foto o nada · sin wordmark en la portada, el logo solo en el cierre · headlines en Black o Super, más pesados que los de Collins.
+
+| Contenido | Master | Clase HTML |
 |---|---|---|
-| Tips | Portada: headline + wordmark abajo · Interior: headline + cuerpo abajo | carruseles educativos |
-| Tips with Images | igual + imagen abajo a la derecha con pie | listas de recursos y referencias |
-| Facts | dato/claim arriba + "M.AD FACTS" o fuente abajo | datos y estudios |
-| Quotes | cita arriba + autor abajo + M-dot chico abajo a la derecha | citas |
-| Poll Results | pregunta + lista de % en bold + M-dot chico | encuestas |
-| Insighters | nombre + fecha/lugar arriba en 2 columnas + M-dot grande abajo | speakers, eventos |
-| Hired / 2BeHired | "Hired" gigante + nombre y puesto abajo + M-dot | colocaciones de alumnos |
-| Award Winner / Carousel | encabezado chico ("MIAMI AD SCHOOL / Cannes Gold Award Winner / créditos") + logo del premio arriba a la derecha + imagen grande | premios |
-| Single / Multiple Photo | fotos en círculo (1, 2, 4 o 12) + programa y fecha abajo | alumnos, bootcamps |
+| Portada de carrusel educativo | Tips (portada) | `c-tips-cover` |
+| Consejo o paso con 1–3 frases | Tips (interior) | `c-tips` |
+| Recurso, libro, herramienta o campaña con imagen | Tips with Images | `c-tips-img` |
+| Dato o insight en una frase | Facts | `c-fact` |
+| Hallazgo de un estudio con fuente | Facts (estudio) | `c-fact-study` |
+| Cita de una persona | Quotes | `c-quote` |
+| Encuesta, ranking, porcentajes | Poll Results | `c-poll` |
+| Noticia de un egresado o del campus | Single Photo | `c-news` (foto circular) · `c-news-2` (foto horizontal) |
+| Speaker, masterclass, evento | Insighters | `c-speaker` (nombre, fecha, foto) + `c-talk` (título y hora) |
+| Colocación laboral | Hired | `c-hired` |
+| Alumno buscando trabajo | 2BeHired | `c-2behired` |
+| Premio | Award Winner · Award Winner Carousel | `c-award` (imagen del trabajo) · `c-award-cover` + `c-photo-full` |
+| Generación, bootcamp, grupo | Multiple Photo | `c-photos-12` · `c-photos-4` · `c-photos-2` |
+| Cierre (único con logo) | — | `c-cierre` |
+
+**Cómo combinarlos en un carrusel** (dirección de arte):
+1. Un carrusel usa de 3 a 5 layouts: una portada, uno o dos layouts de contenido, un "respiro" y el cierre.
+2. Los elementos paralelos (las 7 herramientas, los 5 libros) van todos en el mismo layout para que se lean como serie. Rompe la serie a la mitad con un respiro: un Facts, un Quote o una foto a sangre.
+3. Alterna slides de lectura con slides visuales (foto, dato gigante, palabra gigante). Nunca más de dos slides de texto seguidos.
+4. Cada slide en un par de color distinto, saltando entre fondos claros y profundos.
+5. Elige el layout por lo que tienes, no al revés: sin foto, no uses un layout de foto con el hueco vacío.
+
+**Fotos**: `<mas-photo src duo shape pos>` (`web/mas.js`). Usa `duo="oscuro,claro"` (duotono en dos rosas del slide) cuando las fotos vienen de fuentes distintas o sus colores pelean con el rosa. A color, solo fotos propias de MAS que no peleen con el fondo. Imágenes de terceros, siempre con crédito (estudio o agencia) en `.c-label`. Las fotos se guardan en `brand/work/fotos/` (fuera de git): nunca subas fotos de alumnos al repo.
 
 ## 10. Checklist antes de entregar
 

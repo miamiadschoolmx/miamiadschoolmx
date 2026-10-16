@@ -32,7 +32,17 @@ El logo, la paleta y la alineación a la izquierda no cambian.
 
 Si no está claro, pregunta una vez: "¿lo quieres editable en Canva o listo para publicar?"
 
-## 2. Decide el color ANTES de diseñar
+## 2. Dirección de arte: elige los layouts Collins
+
+Antes de diseñar, haz el plan slide por slide: qué layout Collins (`BRAND.md §9`) le toca a cada slide según su contenido, y qué par de color. Reglas:
+- 3 a 5 layouts por carrusel: portada, 1–2 de contenido, un respiro (Facts, Quote o foto a sangre) y cierre.
+- Los elementos paralelos van en el mismo layout. Rompe la serie a la mitad con un respiro.
+- Alterna lectura y golpe visual. Nunca más de dos slides de texto seguidos.
+- Si la pieza tiene personas, premios, eventos o datos, usa su master (Hired, Award, Insighters, Facts, Poll). No lo resuelvas todo con Tips.
+- Sin foto disponible, no uses layouts de foto con huecos vacíos: pide las fotos o elige otro layout.
+- Fotos de fuentes mezcladas: duotono (`duo`) en los dos rosas del slide.
+
+## 2b. Decide el color ANTES de diseñar
 
 1. Elige el **ritmo** (BRAND.md §3.6): A Alternancia Plum↔Blush (educativo, mucho texto) · B Escalera tonal (narrativa de progreso) · C Golpe + M-dot (impacto, poco texto).
 2. Toma los pares de `tokens/colors.json`:
@@ -47,12 +57,14 @@ Si no está claro, pregunta una vez: "¿lo quieres editable en Canva o listo par
 ## A. Render HTML → PNG / PDF
 
 1. Copia la plantilla más cercana a una carpeta de trabajo fuera de git, p. ej. `brand/work/<slug>.html` (crea la carpeta; `**/out/` ya está ignorado; agrega `brand/work/` a `.gitignore` si no está). Ajusta las rutas relativas (`../web/…`) a la ubicación nueva.
-   - `templates/carousel.html`: carrusel IG 1080×1350 con 10 layouts distintos y sin M-dots: portada tipográfica (golpe ancho + Narrow Black), headline + ejemplo como cita, headline + frases + remate con flecha, statement en Super, lista con flechas, headline que crece línea a línea, pregunta protagonista, comparación a dos columnas, golpe ancho, cierre con frase + lockup.
+   - **`templates/collins.html` + `web/collins.css`: los 12 Master Templates de Collins como 20 layouts** (clases `c-…`). Es la base para cualquier carrusel o post: elige el layout de cada slide con la tabla de `BRAND.md §9` (Tips, Tips with Images, Facts, Quotes, Poll, Single Photo, Insighters, Hired, 2BeHired, Award Winner, Multiple Photo, cierre).
+   - `templates/carousel.html`: carrusel tipográfico de ejemplo con 10 layouts propios, sin M-dots: portada tipográfica (golpe ancho + Narrow Black), headline + ejemplo como cita, headline + frases + remate con flecha, statement en Super, lista con flechas, headline que crece línea a línea, pregunta protagonista, comparación a dos columnas, golpe ancho, cierre con frase + lockup.
    - `templates/document.html`: PDF carta (portada tipográfica, interior legible, contraportada con lockup).
    - `templates/brand-sheet.html`: referencia del sistema (deck 1920×1080).
    - Formatos disponibles como clase de `.page`: `ig-post`, `ig-square`, `story`, `deck`, `yt-thumb`, `letter`, `a4`.
 2. Componentes (`web/mas.js`):
    - `<mas-lockup m dot text>`: el logo, **solo en el cierre**.
+   - `<mas-photo src duo="oscuro,claro" shape="circle" pos="50% 30%">`: foto recortada, con duotono opcional en dos rosas. Las fotos van en `brand/work/fotos/` (fuera de git).
    - `<mas-mdot>`, `<mas-wordmark>` y `<mas-pattern>` existen para la hoja de marca; no los pongas dentro de los slides.
    - En headlines, `data-fit` / `data-fit="both"` ajusta el tamaño a la caja. `.h` = Black por defecto; `.h.w9` = Super, `.h.w7` = Bold; `.h.wide` = Obviously ancha (Black; con `.w9`, Super). Texto de apoyo: `.support` (Narrow Bold 64 px) y `.support.sm` (52 px). `.body` (Obviously Regular) solo para párrafos largos de PDF. Colores = keys de tokens (`pink-2425`) o hex. Variables CSS: `var(--pink-2425)`.
 3. Render: `node brand/scripts/render.mjs <archivo.html> --png` (y/o `--pdf`) `--out <dir>`. Si aparece "⚠ Faltan pesos de Obviously", detente y arregla las fuentes.
@@ -81,7 +93,7 @@ IDs (cuenta del usuario):
 
 Flujos:
 1. **Partir de una pieza buena** (preferido para carruseles): `copy-design` del diseño de referencia → `read-design` con `open_transaction: true` (obtén los locator IDs) → `edit-design` con `replace_text` / `find_and_replace_text`, `format_text` (color hex de tokens), `recolor_element`, `add_page` (`background_color` = hex de fondo) → muestra la vista previa → **pide aprobación** → `commit`.
-2. **Desde Brand Template**: `create-design-from-brand-template` con el ID → editar igual que arriba → pintar los fondos y el tipo con un par aprobado (los masters vienen en blanco y negro).
+2. **Desde Brand Template**: elige el master por contenido con la tabla de `BRAND.md §9` (puedes combinar varios masters en un carrusel: crea uno por tipo de slide y júntalos con `merge-designs`) → `create-design-from-brand-template` con el ID → editar igual que arriba → pintar los fondos y el tipo con un par aprobado (los masters vienen en blanco y negro) y borrar los M-dots de los slides interiores.
 3. **Logo en Canva (solo en el cierre)**: los Collins traen M-dots en slides interiores (Quotes, Poll Results, Insighters, Hired): bórralos. Si el cierre necesita el logo, usa el lockup del brand kit o `insert_shape` con el `d` del M (`brand/assets/mdots/mdots.json` o `assets/logo/lockup.svg`) en un rosa tonal, más el dot como círculo `M cx-r,cy A r,r 0 1 0 cx+r,cy A r,r 0 1 0 cx-r,cy Z` en el secundario. Todo el texto en rosas: cambia a rosa cualquier texto negro de los masters.
 4. **Generación rápida** (ideas, no final): `generate-design` con `brand_kit_id: kAG8MAKnMso` y un query que incluya las reglas (fondo rosa sólido, par de color exacto en hex, tipo alineado a la izquierda, sentence case, sin blanco ni degradados). Siempre haz QA contra la checklist antes de proponerlo.
 5. **Llevar un PNG/PDF renderizado a Canva**: las herramientas de import solo aceptan URLs públicas existentes. Nunca subas archivos a un hosting público para conseguir una URL. Entrega el archivo y pide que lo arrastren a Canva.

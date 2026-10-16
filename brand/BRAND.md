@@ -182,9 +182,9 @@ El dot nunca es negro, nunca se encima con el M y nunca se recorta.
 
 | Nivel | Fuente | Tamaño | Interlineado |
 |---|---|---|---|
-| Golpe / portada | Narrow Super | 160–360 px, ≤ 3 palabras por línea | 0.86 |
-| Golpe ancho (opcional) | Obviously Black / Super (`.h.wide`) | 140–300 px, 1–2 palabras por línea | 0.9 |
-| Headline | Narrow Black (Bold si son 4+ líneas) | 120–320 px, auto-fit al ancho | 0.86 |
+| Golpe / portada | Narrow Super | 160–360 px, ≤ 3 palabras por línea | 0.96 |
+| Golpe ancho (opcional) | Obviously Black / Super (`.h.wide`) | 140–300 px, 1–2 palabras por línea | 0.98 |
+| Headline | Narrow Black (Bold si son 4+ líneas) | 120–320 px, auto-fit al ancho | 0.96 |
 | Subhead / lista | Narrow Medium | 60–80 px | 0.95 |
 | Info (fecha, lugar, nombre) | Narrow Medium | 50–60 px | 0.9 |
 | Texto de apoyo (slides) | Narrow Bold (`.support`) | 52–64 px | 0.98 |
@@ -192,6 +192,8 @@ El dot nunca es negro, nunca se encima con el M y nunca se recorta.
 | Etiquetas, folio | Narrow Medium | 24–30 px | 1 |
 
 Web (styleguide 4): H1 Narrow Medium 70/61 pt · H2 48/44 · H3 30/21 · body Obviously Regular 18/21 · secundario 14/17 · botones Regular 18 en versalitas · links 18 subrayado (offset 4).
+
+**Interlineado mínimo 0.96 en headlines**: a 0.86 los descendentes (g, j, p, q, y) chocan con los acentos y ascendentes de la línea siguiente.
 
 **Reglas**: alineado a la izquierda (nunca centrado ni a la derecha) · sentence case (nunca headlines en MAYÚSCULAS) · tracking normal (nunca abrirlo) · headlines grandes: pocas palabras por línea para que el tipo llene el ancho · contraste de tamaño (headline gigante, apoyo en Narrow Bold de 52–64 px) · párrafos largos de PDF o web en Obviously Regular; en slides, máximo 2–3 frases de apoyo · ordinales en superíndice (16<sup>th</sup>, 4<sup>o</sup>) · flecha → como recurso tipográfico.
 
@@ -261,6 +263,7 @@ Al usar un master en MAS México: quita los M-dots de los slides interiores (el 
 - [ ] Un solo secundario por pieza, y solo en el dot del lockup.
 - [ ] Todo alineado a la izquierda, sentence case, sin tracking abierto.
 - [ ] Headline en Black/Super, grande, llenando el ancho (pocas palabras por línea).
+- [ ] Ningún descendente (g, j, p, q, y) toca la línea siguiente, un filete o el texto de abajo (interlineado ≥ 0.96).
 - [ ] Todos los pesos de Obviously (Narrow y ancho normal) cargados (si el render avisa "Faltan pesos", no entregar).
 - [ ] Claims verificados (premios, %, cifras).
 - [ ] Safe zones respetadas en story/reel.

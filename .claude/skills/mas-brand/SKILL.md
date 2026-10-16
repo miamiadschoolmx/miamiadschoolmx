@@ -56,7 +56,7 @@ Si no está claro, pregunta una vez: "¿lo quieres editable en Canva o listo par
    - `<mas-mdot>`, `<mas-wordmark>` y `<mas-pattern>` existen para la hoja de marca; no los pongas dentro de los slides.
    - En headlines, `data-fit` / `data-fit="both"` ajusta el tamaño a la caja. `.h` = Black por defecto; `.h.w9` = Super, `.h.w7` = Bold; `.h.wide` = Obviously ancha (Black; con `.w9`, Super). Texto de apoyo: `.support` (Narrow Bold 64 px) y `.support.sm` (52 px). `.body` (Obviously Regular) solo para párrafos largos de PDF. Colores = keys de tokens (`pink-2425`) o hex. Variables CSS: `var(--pink-2425)`.
 3. Render: `node brand/scripts/render.mjs <archivo.html> --png` (y/o `--pdf`) `--out <dir>`. Si aparece "⚠ Faltan pesos de Obviously", detente y arregla las fuentes.
-4. **QA visual obligatorio**: arma una hoja con `montage <dir>/*.png -tile 4x -geometry 432x540+8+8 -background '#333' sheet.png` y mírala con Read. Revisa la checklist de `BRAND.md §10`: nada de texto negro, ningún M-dot fuera del cierre, texto de apoyo legible a tamaño de teléfono (Narrow Bold ≥ 52 px), overflow, contraste, alineación. Itera hasta que pase.
+4. **QA visual obligatorio**: arma una hoja con `montage <dir>/*.png -tile 4x -geometry 432x540+8+8 -background '#333' sheet.png` y mírala con Read. Revisa la checklist de `BRAND.md §10`: descendentes (g, j, p, y) que toquen la línea de abajo o un filete, nada de texto negro, ningún M-dot fuera del cierre, texto de apoyo legible a tamaño de teléfono (Narrow Bold ≥ 52 px), overflow, contraste, alineación. Itera hasta que pase.
 5. Entrega con SendUserFile (PNGs del carrusel y/o PDF). Para LinkedIn: `--pdf` de un HTML con páginas 1080×1350.
 
 ## B. Canva

@@ -29,8 +29,9 @@
 :root {
   --font-display: 'Obviously Narrow', 'Arial Narrow', sans-serif;
   --font-body: 'Obviously', 'Archivo', 'Helvetica Neue', Arial, sans-serif;
-  /* Interlineado y tracking de headline: compacto, NUNCA tracking abierto. */
-  --lead-display: 0.86;
+  /* Interlineado y tracking de headline: compacto, NUNCA tracking abierto. 0.96 es el mínimo para que los
+     descendentes (g, j, p, q, y) no choquen con los acentos y ascendentes de la línea siguiente. */
+  --lead-display: 0.96;
   --track-display: -0.01em;
 }
 
@@ -70,7 +71,7 @@ body { display: flex; flex-direction: column; align-items: center; gap: 40px; pa
 }
 .h.w4 { font-weight: 400; } .h.w5 { font-weight: 500; } .h.w6 { font-weight: 600; } .h.w7 { font-weight: 700; } .h.w8 { font-weight: 800; } .h.w9 { font-weight: 900; }
 /* Headline ancho (Obviously Black/Super): para 1–2 palabras por línea, como golpe. Solo pesos 800/900. */
-.h.wide { font-family: 'Obviously', var(--font-display); line-height: 0.9; }
+.h.wide { font-family: 'Obviously', var(--font-display); line-height: 0.98; }
 .meta {
   font-family: var(--font-display); font-weight: 500;
   font-size: 58px; line-height: 0.9; letter-spacing: -0.005em;

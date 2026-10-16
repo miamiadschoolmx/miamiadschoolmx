@@ -20,16 +20,16 @@ Obviously es de **OH no Type Co.** y tiene licencia **Desktop (13–18 usuarios)
 
 ## Instalar en una sesión nueva
 
-Los archivos están en Google Drive (BRANDING – MIAMI AD SCHOOL → Tipografías). `.woff` (07 Tipografia → Web):
+Fuente oficial: carpeta **BRAND** en el Drive de ricardo@tufuturocreativo.com (`176DZ0g0KZmKeiqxdg7z31zccdx419p9k`), **privada** (solo el dueño). Úsala en lugar de "BRANDING – MIAMI AD SCHOOL", que está abierta con enlace público.
 
-| Archivo | Drive file ID |
-|---|---|
-| Obviously-Narrow.woff | `1m03sp912xKsIzLe4YuZDCveEQTDjHN9Y` |
-| Obviously-Narrow_Medium.woff | `16LZBjDprmoM-f0b2msSett_H9Roy81Iq` |
-| Obviously-Narrow_Semibold.woff | `1REAmi9L-ME3s-fKtTBHFsTaKjOaQxLO1` |
-| Obviously-Narrow_Bold.woff | `1EJLONjjOvwmSgQ87L_bInxvkuIqIrEJL` |
-| Obviously-NarrowBlack.otf | pendiente: Ricardo la sube a Drive (oct 2026); búscala por nombre |
-| Obviously-NarrowSuper.otf | pendiente: Ricardo la sube a Drive (oct 2026); búscala por nombre |
+| Archivo | Carpeta | Drive file ID |
+|---|---|---|
+| Obviously-Narrow.woff | BRAND → Web 2 | `1DCacOVa9BkAos1Py7v2cRCnyZfSaNDU1` |
+| Obviously-Narrow_Medium.woff | BRAND → Web 2 | `1_aUfi1IKfEh2bn-5KQGgtUOajrfPTsYM` |
+| Obviously-Narrow_Semibold.woff | BRAND → Web 2 | `1PUg8FZV-OjZvoQPw8AfINHSYK-HUELqf` |
+| Obviously-Narrow_Bold.woff | BRAND → Web 2 | `1fjZ9pmwMjtp4cdt9q8ebx3dmYZ8gt8xs` |
+| Obviously-NarrowBlack.otf | BRAND → Desktop (`1dLW0fr9IWu_eYh7G8TvkVfAyV2vQZhMI`) | pendiente: aún no está en la carpeta; búscala por nombre |
+| Obviously-NarrowSuper.otf | BRAND → Desktop | pendiente: aún no está en la carpeta; búscala por nombre |
 
 1. Busca cada archivo con `search_files` (`title contains 'Obviously-Narrow'`) y descárgalo con `download_file_content`. Como el resultado es grande, Claude Code lo guarda en `~/.claude/projects/.../tool-results/`.
 2. `python3 -I brand/scripts/drive-save.py brand/fonts ~/.claude/projects --only Obviously-Narrow`

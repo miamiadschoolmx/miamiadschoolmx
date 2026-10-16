@@ -89,7 +89,8 @@ Flujos:
 
 ## Fuentes originales (Google Drive)
 
-- Carpeta BRANDING – MIAMI AD SCHOOL: `1mqQB7tKVkhZ1IGAfGBoLDFnu9sD66-X9`
+- **Carpeta BRAND (privada, preferida)**: `176DZ0g0KZmKeiqxdg7z31zccdx419p9k` (Desktop = OTF, Web 2 = WOFF, LOGOS, 04 Paleta de color, templates Collins, Artes 2 = fotos con tratamiento M-dot)
+- Carpeta BRANDING – MIAMI AD SCHOOL (pública por enlace; no subir ahí fuentes): `1mqQB7tKVkhZ1IGAfGBoLDFnu9sD66-X9`
 - Manual de identidad: `1L4-Bp2DnjfQk9EvcXYPqgXhAWI8Jvp-Z` (72 pp.). El brand book completo de 85 pp. lo compartió el usuario por chat: "brand book.pdf" (Drive `1QGMB-xU7OG5Qfj2SwfYYmr5f1kA1J-KA`).
 - Paleta `.ai`: `1HDKsckaI23GDOC75FTm8KermxIDHe0xP` · `.ase`: `1fxApl6reymGskW8IUYW0DhP4HE0Fa438`
 - M-dots SVG (carpeta): `19kvGKrZJsVVbGcydKlyZDNgQ3FqsKI70` · Cierres `.ai`: `1tFJY5FrkQ7zMyZNElh7UCu6vTLVUjPB9`

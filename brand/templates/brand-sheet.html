@@ -7,7 +7,7 @@
 <style>
   /* Hoja de referencia 1920×1080. Render: node brand/scripts/render.mjs brand/templates/brand-sheet.html --pdf --png
      Todo se genera desde MAS_DATA (tokens/colors.json + assets): si cambian los tokens, la hoja se actualiza sola. */
-  .sheet { --bg: #FFF7FC; --fg: #000; --pad: 56px; }
+  .sheet { --bg: var(--web-lightest-pink); --fg: var(--pink-2425); --pad: 56px; }
   .sheet .side { position: absolute; left: var(--pad); top: var(--pad); width: 400px; }
   .sheet .side h2 { font-family: var(--font-display); font-weight: 400; font-size: 58px; line-height: .92; letter-spacing: -.01em; }
   .sheet .side p { font-family: var(--font-body); font-size: 19px; line-height: 1.38; margin-top: 26px; }
@@ -23,8 +23,8 @@
   .tile { position: relative; overflow: hidden; }
   .tile .t-h { position: absolute; left: 14px; top: 10px; right: 10px; font-family: var(--font-display); font-weight: 800; line-height: .86; letter-spacing: -.01em; }
   .tile .t-m { position: absolute; left: 14px; bottom: 12px; font-family: var(--font-display); font-weight: 500; line-height: .95; }
-  .badge { position: absolute; right: 10px; bottom: 10px; font-family: var(--font-display); font-weight: 600; font-size: 15px; padding: 3px 8px; border-radius: 30px; background: #fff; color: #000; }
-  .badge.low { background: #000; color: #fff; }
+  .badge { position: absolute; right: 10px; bottom: 10px; font-family: var(--font-display); font-weight: 600; font-size: 15px; padding: 3px 8px; border-radius: 30px; background: var(--pink-182); color: var(--pink-2425); }
+  .badge.low { background: var(--pink-2425); color: var(--pink-182); }
   .rule { display: grid; grid-template-columns: 70px 1fr 300px; gap: 24px; align-items: center; padding: 18px 0; border-top: 1.5px solid var(--pink-2425); }
   .rule .n { font-family: var(--font-display); font-weight: 600; font-size: 54px; line-height: 1; color: var(--pink-2425); }
   .rule .tx { font-family: var(--font-display); font-weight: 500; font-size: 34px; line-height: 1; }
@@ -44,11 +44,8 @@
 
 <!-- 01 Portada -->
 <section class="page deck" style="--bg: var(--pink-2425); --pad: 72px">
-  <h1 class="h tl" style="color: var(--pink-182); font-size: 250px; right: 760px">Sistema<br>de marca<br>&amp; color</h1>
-  <mas-pattern style="left: 1140px; top: 0; width: 780px; height: 1080px" viewbox="0 0 780 1080"
-    layers='[{"v":20,"x":-40,"y":40,"s":3.1,"fill":"black","dotFill":"yellow-7548"},{"v":11,"x":150,"y":480,"s":2.9,"fill":"pink-238","dotFill":"sky-2717"},{"v":6,"x":-60,"y":690,"s":2.6,"fill":"black","dot":false}]'
-    overlaps='["green-568","pink-182","purple-2084"]'></mas-pattern>
-  <div class="bl cols-2 meta" style="color: var(--pink-238); font-size: 44px; right: 900px"><div>Miami Ad School<br>México</div><div>Guía de producción<br>con Claude · v1</div></div>
+  <h1 class="h tl w9" data-fit style="color: var(--pink-182)">Sistema de marca<br>&amp; color</h1>
+  <div class="bl cols-2 support sm" style="color: var(--pink-245); right: 900px"><div>Miami Ad School<br>México</div><div>Guía de producción<br>con Claude · v2</div></div>
 </section>
 
 <!-- 02 Paleta oficial -->
@@ -85,11 +82,11 @@
 <!-- 05 Duotonos de lectura -->
 <section class="page deck sheet">
   <div class="side"><h2>Pares de<br>lectura</h2>
-    <p>Para cuerpo de texto, bullets, CTAs, datos y pies de foto: <b>contraste ≥ 4.5:1</b>.</p>
+    <p>Texto de apoyo (cuerpo, bullets, CTA) en <b>Obviously Narrow Bold de 52–64 px</b> y siempre en un rosa: <b>contraste ≥ 3:1</b>.</p>
     <p>El sistema de los carruseles MAS Collins es justo esto: <b>Plum ↔ Blush</b> alternando slide a slide.</p>
-    <p><b>Negro</b> es válido como color de texto (el wordmark puede ser negro). <b>Blanco nunca</b> (manual p.33).</p>
+    <p><b>Nunca negro ni blanco</b> (indicación de Ricardo y manual p.33). El negro solo queda en el M del logo.</p>
   </div>
-  <div class="main grid" id="text" style="grid-template-columns: repeat(3, 1fr); align-content: start"></div>
+  <div class="main grid" id="text" style="grid-template-columns: repeat(6, 1fr); align-content: start"></div>
   <div class="foot"><span>Miami Ad School México · Sistema de marca</span><span>05</span></div>
 </section>
 
@@ -97,8 +94,8 @@
 <section class="page deck sheet">
   <div class="side"><h2>Matriz de<br>contraste</h2>
     <p>Fila = fondo. Columna = color del tipo. Cada celda muestra el par real y su contraste.</p>
-    <p><b>Atenuado</b>: menos de 2:1 → no usar con texto.<br><b>Subrayado</b>: ≥ 4.5:1 → apto para texto chico.</p>
-    <p>Regla rápida: <b>deep</b> va con <b>light/pale</b>; <b>strong</b> con <b>pale</b> o negro; <b>mid</b> con <b>deep</b> o negro; <b>light/pale</b> con <b>deep</b> o negro.</p>
+    <p><b>Atenuado</b>: menos de 2:1 → no usar con texto.<br><b>Subrayado</b>: ≥ 3:1 → apto para texto de apoyo (Narrow Bold grande).</p>
+    <p>Regla rápida: <b>deep</b> va con <b>light/pale</b>; <b>strong</b> con <b>pale</b>; <b>mid</b> con <b>deep</b>; <b>light/pale</b> con <b>deep</b>. El texto nunca es negro.</p>
   </div>
   <div class="main" id="matrix"></div>
   <div class="foot"><span>Miami Ad School México · Sistema de marca</span><span>06</span></div>
@@ -121,7 +118,7 @@
     <p>El color también es secuencia. Tres ritmos que funcionan en carruseles de 7–12 slides:</p>
     <p><b>A · Alternancia</b> (MAS Collins): Plum/Blush ↔ Blush/Plum. Máxima legibilidad.</p>
     <p><b>B · Escalera tonal</b>: de claro a profundo; el cierre cae en el más oscuro.</p>
-    <p><b>C · Golpe + M-dot</b>: portada tipográfica, slides con M-dot y un acento secundario por slide.</p>
+    <p><b>C · Golpe tipográfico</b>: statements en Super u Obviously ancha entre slides de texto. Sin M-dots; el logo solo en el cierre.</p>
   </div>
   <div class="main" id="rhythms"></div>
   <div class="foot"><span>Miami Ad School México · Sistema de marca</span><span>08</span></div>
@@ -188,7 +185,7 @@
     ['2', 'El M siempre negro', 'Sobre fondos rosas el M es negro. Excepciones: tratamiento fotográfico (M rosa sobre foto) y cierres MX (tonales).', `<div class="tile" style="width:300px;height:120px;background:${C['pink-238']}"><mas-mdot v="14" m="black" dot="yellow-7548" style="left:10px;top:8px;width:150px;height:104px"></mas-mdot></div>`],
     ['3', 'Secundarios solo en el dot', 'Naranja, amarillo, verdes, azules y morados son acento: el dot o los patrones. Nunca fondo, nunca texto.', `<div class="tile" style="width:300px;height:120px;background:${C['pink-220']}"><mas-mdot v="23" m="black" dot="green-2268" style="left:10px;top:8px;width:150px;height:104px"></mas-mdot></div>`],
     ['4', 'Tipo en uno o dos rosas', 'Headline en un rosa; la info secundaria puede ir en un tercer rosa (social, p.34). En web y documentos, un solo color de tipo por página.', mini('pink-204', 'pink-2425', 'Feb 16<sup>th</sup>', `<div class="t-m" style="color:${C['pink-182']};font-size:22px;left:190px;bottom:14px">Portfolio<br>Center</div>`)],
-    ['5', 'Contraste suficiente', 'Display ≥ 2:1 (tonal, tipo gigante). Texto chico ≥ 4.5:1 (Plum/Blush, negro sobre rosa claro). Bajo contraste = NO (p.33).', mini('pink-182', 'pink-2425', 'Legible')],
+    ['5', 'Contraste suficiente', 'Display ≥ 2:1 (tonal, tipo gigante). Texto de apoyo siempre en rosa, nunca negro: ≥ 3:1 en Narrow Bold grande. Bajo contraste = NO (p.33).', mini('pink-182', 'pink-2425', 'Legible')],
   ];
   $('grammar').innerHTML = rules.map(([n, t, s, ex]) => `<div class="rule"><div class="n">${n}</div><div class="tx">${t}<small>${s}</small></div><div>${ex}</div></div>`).join('');
 
@@ -200,22 +197,22 @@
 
   // 05 Lectura
   const sample = 'Define una persona y una situación concreta. “Jóvenes consumidores” es demasiado amplio.';
-  $('text').innerHTML = D.textPairs.map((p) => `<div><div class="tile" style="height:250px;background:${p.bgHex};color:${p.fgHex}">
-      <div class="t-h" style="font-size:44px">¿Quién<br>exactamente?</div>
-      <div style="position:absolute;left:14px;right:70px;bottom:14px;font-family:var(--font-body);font-size:17px;line-height:1.3">${sample}</div>
+  $('text').innerHTML = D.textPairs.map((p) => `<div><div class="tile" style="height:236px;background:${p.bgHex};color:${p.fgHex}">
+      <div class="t-h" style="font-size:34px">¿Quién<br>exactamente?</div>
+      <div style="position:absolute;left:12px;right:12px;bottom:42px;font-family:var(--font-display);font-weight:700;font-size:18px;line-height:1">${sample}</div>
       <span class="badge">${p.contrast.toFixed(1)}:1</span></div>
       <div class="lbl" style="margin-top:7px">${name(p.bg)} / ${name(p.fg)}</div></div>`).join('');
 
   // 06 Matriz
-  const keys = [...D.palette.pinks.map((p) => p.key), 'black'];
+  const keys = D.palette.pinks.map((p) => p.key);
   const hex = (k) => C[k];
   let t = '<table class="mx"><tr><th></th>' + keys.map((k) => `<th>${name(k)}</th>`).join('') + '</tr>';
-  for (const b of keys.slice(0, -1)) {
+  for (const b of keys) {
     t += `<tr><th style="text-align:right;padding-right:8px">${name(b)}</th>`;
     for (const f of keys) {
       if (b === f) { t += '<td></td>'; continue; }
       const r = cr(hex(b), hex(f));
-      t += `<td class="${r < 2 ? 'x' : ''}" style="background:${hex(b)};color:${hex(f)}"><b${r >= 4.5 ? ' style="text-decoration:underline;text-underline-offset:3px"' : ''}>Aa</b><i>${r.toFixed(1)}</i></td>`;
+      t += `<td class="${r < 2 ? 'x' : ''}" style="background:${hex(b)};color:${hex(f)}"><b${r >= 3 ? ' style="text-decoration:underline;text-underline-offset:3px"' : ''}>Aa</b><i>${r.toFixed(1)}</i></td>`;
     }
     t += '</tr>';
   }
@@ -246,12 +243,12 @@
   const rows = [
     ['A · Alternancia Plum ↔ Blush', [['pink-2425', 'pink-182', '7 preguntas<br>para un<br>insight'], ['pink-182', 'pink-2425', '¿Quién<br>exacta-<br>mente?'], ['pink-2425', 'pink-182', '¿Qué<br>hace?'], ['pink-182', 'pink-2425', '¿Cuándo<br>ocurre?'], ['pink-2425', 'pink-182', '¿Qué<br>quiere?'], ['pink-182', 'pink-2425', 'Compruébalo']]],
     ['B · Escalera tonal', [['pink-182', 'pink-2425', 'De<br>invisible'], ['pink-245', 'pink-2425', 'a<br>imparable'], ['pink-204', 'pink-2425', 'en<br>12 meses'], ['pink-226', 'pink-182', 'con<br>mentores'], ['pink-220', 'pink-245', 'y briefs<br>reales.'], ['pink-2425', 'pink-238', 'Aplica<br>hoy.']]],
-    ['C · Golpe + M-dot + acento', [['pink-2040', 'pink-176', 'Deja de<br>esperar.'], ['pink-238', 'pink-2425', '', md(14, 'yellow-7548', 30)], ['pink-182', 'pink-2425', 'Empieza a<br>construir.'], ['pink-2425', 'pink-212', '', md(23, 'sky-2717', 30)], ['pink-204', 'pink-2425', 'Link<br>en bio'], ['pink-176', 'pink-2040', '', `<mas-lockup m="pink-2040" dot="orange-1495" text="pink-2040" style="position:absolute;left:24px;top:86px;height:52px"></mas-lockup>`]]],
+    ['C · Golpe tipográfico (logo solo en el cierre)', [['pink-2425', 'pink-245', '8 ajustes<br>para<br>presentar'], ['pink-182', 'pink-2425', 'Empieza<br>con el<br>problema'], ['pink-220', 'pink-182', 'Explica<br>la idea'], ['pink-176', 'pink-2425', 'que puede<br>crecer'], ['pink-2425', 'pink-176', 'Termina<br>con una<br>decisión'], ['pink-230', 'pink-220', '', `<mas-lockup m="pink-220" dot="blue-2727" text="pink-220" style="position:absolute;left:24px;top:86px;height:52px"></mas-lockup>`]]],
   ];
   $('rhythms').innerHTML = rows.map(([t, s]) => `<div class="lbl" style="margin:0 0 8px">${t}</div><div style="display:flex;gap:12px;margin-bottom:22px">${s.map((x) => slide(...x)).join('')}</div>`).join('');
 
   // 09 Don'ts
-  const dn = (n, label, bg, inner) => `<div class="tile" style="background:${bg}">${inner}<div class="slash"></div><span class="lbl" style="position:absolute;left:12px;top:10px;color:#000;background:#fff;padding:2px 6px">${n}. ${label}</span><span class="no">NO</span></div>`;
+  const dn = (n, label, bg, inner) => `<div class="tile" style="background:${bg}">${inner}<div class="slash"></div><span class="lbl" style="position:absolute;left:12px;top:10px;color:var(--pink-2425);background:var(--pink-182);padding:2px 6px">${n}. ${label}</span><span class="no">NO</span></div>`;
   const lock = (m, dot, wm, v = 5) => `<div style="position:absolute;left:70px;top:70px;height:110px;display:flex;gap:16px"><mas-mdot v="${v}" m="${m}" dot="${dot}" style="position:relative;width:140px;height:110px"></mas-mdot><mas-wordmark color="${wm}" style="height:56px"></mas-wordmark></div>`;
   $('donts').innerHTML = [
     dn(1, 'Colores fuera de marca', '#3391F4', lock('#000', '#FFFF3E', '#000')),
@@ -273,20 +270,22 @@
   $('type').innerHTML = `
     <div style="display:grid;grid-template-columns: 1fr 1fr; gap: 40px">
       <div>${w.map(([n, l]) => `<div style="font-family:var(--font-display);font-weight:${n};font-size:58px;line-height:.95;letter-spacing:-.01em">${l} Aa Ñ 1234 →</div>`).join('')}
-        <div style="font-family:var(--font-body);font-size:22px;line-height:1.35;margin-top:22px;max-width:640px">Cuerpo de texto: Obviously Regular (respaldo: Archivo). Párrafos cortos, 1.3 de interlineado, nunca centrado.</div></div>
+        <div style="font-family:var(--font-display);font-weight:700;font-size:30px;line-height:1;margin-top:22px;max-width:640px">Texto de apoyo en slides: Obviously Narrow Bold, grande y en rosa. Párrafos largos de PDF: Obviously Regular.</div></div>
       <div class="lbl" style="font-size:20px;line-height:1.5">
         <b>Jerarquía en lienzo 1080 × 1350</b><br>
         Headline · Narrow Black 120–320 px · interlineado 0.86 · auto-fit al ancho<br>
         Golpe (≤ 3 palabras/línea) · Narrow Super ≥ 160 px · Headline largo · Narrow Bold<br>
         Subhead / lista · Narrow Medium 60–80 px · 0.95<br>
         Info (fecha, lugar, nombre) · Narrow Medium 50–60 px · 0.9 · dos columnas abajo<br>
-        Cuerpo · Obviously Regular 30–36 px · 1.22<br>
+        Texto de apoyo (slides) · Narrow Bold 52–64 px · 0.98<br>
+        Cuerpo largo (PDF, web) · Obviously Regular 30–36 px · 1.22<br>
         Ordinales en superíndice: 16<sup>th</sup>, 4<sup>o</sup><br><br>
         <b>Reglas</b><br>
         → Alinear a la izquierda. Nunca centrar ni a la derecha.<br>
         → Sentence case. Nunca headlines en MAYÚSCULAS.<br>
         → Tracking normal. Nunca abrir el espaciado.<br>
-        → Narrow solo para headlines; texto largo en Obviously.<br>
+        → Nunca texto negro: todo en rosas de la paleta.<br>
+        → Sin M-dots en los slides; el logo solo en el cierre.<br>
         → Wordmark máximo 3 líneas; la 4ª siempre vacía.<br>
         → Margen exterior ≈ 4% del ancho (44 px en 1080).<br><br>
         <b>Formatos</b><br>

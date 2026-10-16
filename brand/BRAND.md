@@ -11,6 +11,12 @@ Fuente de verdad para producir piezas de MAS México (Canva, carruseles, PDFs, m
 
 Cuando algo no esté aquí, manda el manual global. Cuando MAS México tenga una práctica local distinta, se marca como **Variante MX**.
 
+> **Indicaciones de Ricardo (oct 2026). Mandan sobre el manual y sobre todo lo que sigue:**
+> 1. **Headlines grandes y bold**: Obviously Narrow Black por defecto, Super para golpes cortos, Obviously ancha para golpes de 1–2 palabras, o cualquier fuente con licencia en `brand/fonts/` que se vea más cool.
+> 2. **Nunca letras negras** (ni blancas). Todo el texto va en un rosa de la paleta. El negro solo queda en el M del logo.
+> 3. **Sin M-dots dentro de los slides** (ni en posts, escenas de reel o páginas). El logo va **solo al final**, en el cierre.
+> 4. **Texto de apoyo grande y grueso**: Obviously Narrow Bold de 52–64 px en lienzo de 1080 (clase `.support`). Obviously Regular delgada no se usa en slides.
+
 ---
 
 ## 1. Esencia y voz
@@ -62,7 +68,7 @@ Cuando algo no esté aquí, manda el manual global. Cuando MAS México tenga una
 - El espacio entre M-dot y wordmark se ajusta ópticamente a la forma del M-dot.
 - El lockup horizontal es excepción (señalética lejana).
 - En aplicaciones básicas (tarjetas, firmas, señalética) usa solo el wordmark.
-- En aplicaciones expresivas, el M-dot **ocupa el espacio**: grande, protagonista. El dot se puede **separar del M** y reubicar para mejorar la composición. El wordmark va en cualquier esquina.
+- En aplicaciones expresivas, el manual pide que el M-dot ocupe el espacio. **MAS México no lo hace (indicación de Ricardo): no hay M-dots dentro de los slides y el logo va solo en el cierre.**
 
 ### No
 No cambies la composición del lockup · no pases de 3 líneas · no cambies la proporción M-dot/wordmark · no uses "M.AD" sin M-dot · no hagas lockup con solo "AD" · no cambies la fuente · no metas imágenes dentro del logo · no lo deformes · no lo contornees · **no inventes variantes del M-dot** · **sin efectos** (sombras, texturas, degradados) · **no lo rotes**.
@@ -92,17 +98,17 @@ No cambies la composición del lockup · no pases de 3 líneas · no cambies la 
 | Yellow `#FFCF00` 7548 | Leaf `#7DD682` 2268 | Blue `#3391F4` 2727 | Lavender `#A572FF` 2087 |
 | Lemon `#FFFF3E` 101 | Bright Green `#00D357` 2420 | Sky `#A7D0FF` 2717 | Lilac `#D8B8FF` 2635 |
 
-**Neutros**: negro `#000000` (el M, texto). Blanco solo en knockout del lockup.
+**Neutros**: negro `#000000` solo para el M del logo, nunca para texto (indicación de Ricardo). Blanco solo en knockout del lockup.
 **Solo web/documentos**: Lightest Pink `#FFF3F7` (fondo de blog y documentos largos) · Deep Purple `#700450` (solo el headline del home web).
 
 ### 3.2 Gramática: cinco reglas
 1. **Un fondo rosa + un rosa para el tipo**, uno oscuro y uno claro (manual p.32 + web: "one dark and one bright shade of pink").
 2. **El M siempre negro** sobre fondo rosa. Excepciones: tratamiento fotográfico (M rosa sobre foto) y la Variante MX de cierres.
 3. **Los secundarios solo van en el dot** (o en patrones de M-dot). Nunca son fondo ni texto. Un solo secundario por pieza.
-4. **Tipo en uno o dos rosas**: headline en un rosa; la info secundaria puede ir en un tercer rosa (social, manual p.34). En web y documentos, un solo color de tipo por página.
-5. **Contraste suficiente**: display tonal ≥ 2:1 y solo en tipo grande (≥ 90 px en lienzo de 1080). Texto chico ≥ 4.5:1.
+4. **Tipo en uno o dos rosas, nunca negro ni blanco**: headline en un rosa; el texto de apoyo en el mismo rosa o en otro que dé contraste (social, manual p.34). En web y documentos, un solo color de tipo por página.
+5. **Contraste suficiente**: display tonal ≥ 2:1 y solo en tipo grande (≥ 90 px en lienzo de 1080). Texto de apoyo ≥ 3:1 en Narrow Bold ≥ 52 px; si algo queda por debajo de 40 px, ≥ 4.5:1 (Plum/Blush).
 
-**Regla rápida por tono**: *deep* va con *light/pale* · *strong* con *pale* o negro · *mid* con *deep* o negro · *light/pale* con *deep* o negro. Dos *mid* juntos casi nunca pasan (contraste < 2:1).
+**Regla rápida por tono**: *deep* va con *light/pale* · *strong* con *pale* · *mid* con *deep* · *light/pale* con *deep*. Dos *mid* juntos casi nunca pasan (contraste < 2:1). Para slides con texto de apoyo, usa un fondo *deep* (Plum, Rubine) con texto *light/pale*, o al revés.
 
 ### 3.3 Duotonos aprobados
 
@@ -129,10 +135,10 @@ No cambies la composición del lockup · no pases de 3 líneas · no cambies la 
 | Raspberry | Salmon | 2.00 | manual p.34 |
 | Salmon | Raspberry | 2.00 | cierre MX |
 
-**Lectura** (≥ 4.5:1, para cuerpo, bullets, CTA y datos): Blush/Plum · Plum/Blush · Lightest Pink/Plum · Lightest Pink/Rubine · y **negro** sobre Blush, Light Orchid, Salmon, M.AD Pink o Magenta. **Blanco nunca.**
+**Lectura** (texto de apoyo en `.support`; rosa sobre rosa, en cualquier dirección): Blush/Plum 4.95 · Lilac Pink/Plum 4.46 · Light Orchid/Plum 3.95 · Blush/Rubine 3.81 · Lilac Pink/Rubine 3.44 · Salmon/Plum 3.37 · Orchid/Plum 3.19 · Light Orchid/Rubine 3.04. Documentos largos: Lightest Pink con Plum o Rubine. **Negro y blanco nunca.**
 
 ### 3.4 Lockup: combinaciones aprobadas (manual p.32)
-M negro siempre; wordmark negro o rosa; dot en otro rosa o secundario.
+M negro siempre; wordmark negro o rosa; dot en otro rosa o secundario. En MAS México el cierre usa de preferencia la Variante MX tonal (M y wordmark en un rosa), así no queda ninguna letra negra.
 - Lilac Pink + dot Rubine + wordmark negro
 - Orchid + dot Rhodamine + wordmark negro
 - Blush + dot Magenta + wordmark negro
@@ -150,8 +156,8 @@ El dot nunca es negro, nunca se encima con el M y nunca se recorta.
 ### 3.6 Ritmos de carrusel
 - **A · Alternancia** (estándar MAS Collins): Plum/Blush ↔ Blush/Plum, slide a slide. Máxima legibilidad; ideal para carruseles educativos con texto.
 - **B · Escalera tonal**: de claro a profundo (Blush → Light Orchid → Rose → Magenta → Rubine → Plum). Narrativa de progreso; el CTA o cierre cae en el más oscuro.
-- **C · Golpe + M-dot**: portada tipográfica fuerte, slides alternos con M-dot protagonista y **un** acento secundario distinto por slide.
-- Siempre: portada con wordmark abajo a la izquierda (template Tips) y cierre con lockup (Variante MX).
+- **C · Golpe tipográfico**: portada tipográfica fuerte; statements en Super o en Obviously ancha alternados con slides de texto; fondos que saltan entre claro y profundo.
+- Siempre: portada solo tipográfica (sin logo), ningún M-dot en los slides y cierre con lockup (Variante MX). Ejemplo completo: `templates/carousel.html`.
 
 ### 3.7 No (manual p.33)
 1. Colores fuera de marca. 2. Bajo contraste. 3. **Blanco sobre color**. 4. Degradados. 5. M de color (que no sea negro). 6. Negro como fondo con color. 7. Fondo que no sea rosa. 8. Color sobre gris. 9. **Color sobre fondo blanco**.
@@ -181,12 +187,13 @@ El dot nunca es negro, nunca se encima con el M y nunca se recorta.
 | Headline | Narrow Black (Bold si son 4+ líneas) | 120–320 px, auto-fit al ancho | 0.86 |
 | Subhead / lista | Narrow Medium | 60–80 px | 0.95 |
 | Info (fecha, lugar, nombre) | Narrow Medium | 50–60 px | 0.9 |
-| Cuerpo | Obviously Regular (Bold para énfasis) | 30–36 px | 1.22 |
+| Texto de apoyo (slides) | Narrow Bold (`.support`) | 52–64 px | 0.98 |
+| Cuerpo largo (PDF, web) | Obviously Regular (Bold para énfasis) | 30–36 px | 1.22 |
 | Etiquetas, folio | Narrow Medium | 24–30 px | 1 |
 
 Web (styleguide 4): H1 Narrow Medium 70/61 pt · H2 48/44 · H3 30/21 · body Obviously Regular 18/21 · secundario 14/17 · botones Regular 18 en versalitas · links 18 subrayado (offset 4).
 
-**Reglas**: alineado a la izquierda (nunca centrado ni a la derecha) · sentence case (nunca headlines en MAYÚSCULAS) · tracking normal (nunca abrirlo) · headlines grandes: pocas palabras por línea para que el tipo llene el ancho · contraste de peso (Super/Black para el headline, Medium para la info) · nunca Narrow para texto largo · ordinales en superíndice (16<sup>th</sup>, 4<sup>o</sup>) · flecha → como recurso tipográfico.
+**Reglas**: alineado a la izquierda (nunca centrado ni a la derecha) · sentence case (nunca headlines en MAYÚSCULAS) · tracking normal (nunca abrirlo) · headlines grandes: pocas palabras por línea para que el tipo llene el ancho · contraste de tamaño (headline gigante, apoyo en Narrow Bold de 52–64 px) · párrafos largos de PDF o web en Obviously Regular; en slides, máximo 2–3 frases de apoyo · ordinales en superíndice (16<sup>th</sup>, 4<sup>o</sup>) · flecha → como recurso tipográfico.
 
 ---
 
@@ -194,7 +201,7 @@ Web (styleguide 4): H1 Narrow Medium 70/61 pt · H2 48/44 · H3 30/21 · body Ob
 
 - **Headline arriba a la izquierda**, pegado al margen; **info abajo a la izquierda**, a menudo en **dos columnas** (p. ej. nombre | fecha + lugar).
 - Margen exterior ≈ 4% del ancho (44 px en 1080). El tipo vive cerca del borde, sin aire decorativo.
-- Templates Collins: grid de 6 columnas × 6 filas; imagen abajo a la derecha (½ del ancho), copy abajo a la izquierda; folio "01/10" opcional abajo a la derecha.
+- Templates Collins: grid de 6 columnas × 6 filas; imagen abajo a la derecha (½ del ancho), copy abajo a la izquierda. Sin folio ni números por slide.
 - Web: grid de 24 columnas, columna 36 px, gutter 12 px, márgenes 72 px.
 - Una pieza = un fondo sólido. Nada de cajas, sombras ni marcos decorativos.
 
@@ -203,6 +210,8 @@ Web (styleguide 4): H1 Narrow Medium 70/61 pt · H2 48/44 · H3 30/21 · body Ob
 ---
 
 ## 6. M-dot en composición
+
+> **MAS México (indicación de Ricardo): no se usan M-dots dentro de los slides, posts, escenas ni páginas.** El logo (lockup) aparece solo en el cierre. Lo que sigue es la regla del manual global y aplica solo si Ricardo pide explícitamente el M-dot como gráfico (merch, señalética, ambientación).
 
 - **Escala**: el M-dot llena el espacio disponible (≥ 60% del lienzo en piezas expresivas). Se puede recortar contra el borde **solo en patrones**; en piezas sueltas, completo.
 - **Dot**: en el espacio negativo. Se puede separar y mover; nunca encima del M ni recortado.
@@ -218,7 +227,7 @@ Web (styleguide 4): H1 Narrow Medium 70/61 pt · H2 48/44 · H3 30/21 · body Ob
 
 ## 8. Motion
 
-- El M-dot está vivo: entra con escala y rebote, pasa de una variante a otra con cortes (nunca morphing deforme), y el dot cae y rebota por separado **sin deformarse**.
+- Sin M-dots en las escenas. El logo entra solo en la escena final; ahí el dot cae y rebota por separado **sin deformarse**.
 - Nada de rotar, distorsionar, contornear ni poner efectos al logo.
 - El tipo entra por líneas (máscara de abajo hacia arriba), alineado a la izquierda.
 - Cortes secos o wipes verticales entre escenas, a ritmo de beat. Fondos sólidos que cambian de rosa por escena siguiendo la gramática de color.
@@ -227,6 +236,8 @@ Web (styleguide 4): H1 Narrow Medium 70/61 pt · H2 48/44 · H3 30/21 · body Ob
 ## 9. Master Templates (Collins 1080×1350)
 
 Los 12 masters existen como `.ai` (wireframes, Drive "Templates Collins 1080 x 1350") y como **Brand Templates en Canva** ("MAS · Collins 1080×1350 · …"; ninguno tiene campos de autofill).
+
+Al usar un master en MAS México: quita los M-dots de los slides interiores (el logo va solo en el cierre) y cambia a rosa cualquier texto negro.
 
 | Template | Estructura | Uso |
 |---|---|---|
@@ -243,11 +254,11 @@ Los 12 masters existen como `.ai` (wireframes, Drive "Templates Collins 1080 x 1
 ## 10. Checklist antes de entregar
 
 - [ ] Fondo = un rosa de la paleta (no blanco, crema, gris ni negro).
-- [ ] Tipo en rosa(s) de la paleta o negro; nunca blanco. Par de color de la lista aprobada.
-- [ ] Headline ≥ 2:1 y texto chico ≥ 4.5:1.
-- [ ] M negro (o rosa solo sobre foto / cierre MX); dot de color, separado, sin recortar.
-- [ ] Un solo secundario por pieza, y solo en el dot.
-- [ ] M-dot distinto al de la pieza anterior; sin rotar, deformar ni aplicar efectos.
+- [ ] **Nada de texto negro ni blanco**: todo el tipo en rosas de la paleta, en un par aprobado.
+- [ ] Headline ≥ 2:1; texto de apoyo ≥ 3:1 en Narrow Bold ≥ 52 px.
+- [ ] Texto de apoyo grande y grueso (`.support`), legible en el teléfono.
+- [ ] **Ningún M-dot dentro de los slides**; el logo solo en el cierre (lockup tonal o con M negro), sin rotar, deformar ni efectos.
+- [ ] Un solo secundario por pieza, y solo en el dot del lockup.
 - [ ] Todo alineado a la izquierda, sentence case, sin tracking abierto.
 - [ ] Headline en Black/Super, grande, llenando el ancho (pocas palabras por línea).
 - [ ] Todos los pesos de Obviously (Narrow y ancho normal) cargados (si el render avisa "Faltan pesos", no entregar).

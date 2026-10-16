@@ -5,72 +5,150 @@
 <title>MAS — Carrusel Instagram (plantilla)</title>
 <link rel="stylesheet" href="../web/mas.css">
 <style>
-  /* Layouts de carrusel 1080×1350. Duplicar este archivo para cada carrusel nuevo y cambiar copy/colores.
-     Reglas: tipo alineado a la izquierda, sentence case, dos tonos de rosa por slide, M negro, dot en color secundario. */
-  .cover .h      { top: 40px; }
-  .mdot-hero mas-mdot { left: 24px; right: 24px; top: 70px; height: 860px; }
-  .content .h    { height: 420px; }
-  .content .list { position: absolute; left: var(--pad); right: var(--pad); bottom: var(--pad); font-family: var(--font-display); font-weight: 500; font-size: 70px; line-height: 0.95; }
-  .content .list li + li { margin-top: 30px; }
-  .quote .h      { height: 1000px; }
-  .quote .meta   { font-weight: 500; }
-  .cta .h        { height: 760px; }
-  .cierre mas-lockup { position: absolute; left: 50%; top: 50%; width: 620px; height: 302px; transform: translate(-50%, -50%); }
-  .count { position: absolute; top: var(--pad); right: var(--pad); font-family: var(--font-display); font-weight: 500; font-size: 30px; }
+  /* Carrusel IG 1080×1350, 10 layouts distintos (ejemplo real: "8 ajustes para presentar mejor tus ideas").
+     Duplica este archivo en brand/work/ y cambia copy y colores. Indicaciones de Ricardo:
+     - Nunca texto negro ni blanco: todo el texto en un rosa (pares de tokens/colors.json → text_pairs).
+     - Sin M-dots dentro de los slides. El logo (lockup) va solo en el cierre.
+     - Texto de apoyo grande y grueso: .support (Obviously Narrow Bold 64 px; .sm = 52 px).
+     - Headlines en Black por defecto, Super (.w9) para golpes, Obviously ancha (.wide) una vez por pieza. */
+  .col { position: absolute; inset: var(--pad); display: flex; flex-direction: column; justify-content: space-between; }
+  .lbl { font-family: var(--font-display); font-weight: 600; font-size: 46px; line-height: 1; }
+  .ex { font-family: var(--font-display); font-weight: 800; font-size: 76px; line-height: 0.92; margin-top: 16px; }
+  .punch { font-family: var(--font-display); font-weight: 800; font-size: 84px; line-height: 0.9; margin-top: 40px; display: grid; grid-template-columns: 0.9em 1fr; }
+  .arrows { list-style: none; }
+  .arrows li { display: grid; grid-template-columns: 1.05em 1fr; }
+  .arrows li + li { margin-top: 0.5em; }
+  .arrows li::before { content: '→'; font-weight: 800; }
+  .q { font-family: var(--font-display); font-weight: 800; font-size: 104px; line-height: 0.9; }
+  .vs { display: grid; grid-template-columns: 1fr 1fr; column-gap: 36px; margin: 40px 0; }
+  .vs > p { border-top: 6px solid currentColor; padding-top: 20px; margin-top: 0 !important; }
 </style>
 </head>
 <body>
 
-<!-- 01 · Portada tipográfica (par tonal: fondo rosa medio + headline plum) -->
-<section class="page ig-post cover" style="--bg: var(--pink-204); --fg: var(--pink-2425)">
-  <h1 class="h tl w9" data-fit>La industria<br>no contrata<br>diplomas.</h1>
-  <div class="bl cols-2 meta" style="color: var(--pink-182)">
-    <div>Contrata<br>portafolios.</div>
-    <div>Desliza<br><span class="arrow"></span></div>
+<!-- 01 · Gancho · Plum + Light Orchid. Solo tipo: golpe ancho + Narrow Black llenando la slide. -->
+<section class="page ig-post" style="--bg: var(--pink-2425); --fg: var(--pink-245)">
+  <div class="col" style="gap: 24px">
+    <div class="h wide w9" data-fit>8 ajustes</div>
+    <div class="h" data-fit="both" style="flex: 1; min-height: 0">para<br>presentar<br>mejor tus<br>ideas<br>creativas</div>
+    <div class="support">Desliza <span class="arrow"></span></div>
   </div>
 </section>
 
-<!-- 02 · M-dot protagonista + headline corto (M negro, dot secundario separado del M) -->
-<section class="page ig-post mdot-hero" style="--bg: var(--pink-2040)">
-  <mas-mdot v="14" m="black" dot="yellow-7548"></mas-mdot>
-  <h2 class="h bl" style="color: var(--pink-176); font-size: 132px">Tu portafolio<br>habla antes que tú.</h2>
-</section>
-
-<!-- 03 · Contenido / lista (par legible: blush + plum) -->
-<section class="page ig-post content" style="--bg: var(--pink-182); --fg: var(--pink-2425)">
-  <h2 class="h tl w7" data-fit="both">Lo que un director<br>creativo ve en<br>30 segundos</h2>
-  <ul class="list">
-    <li>Una idea clara por proyecto.</li>
-    <li>El problema antes que la ejecución.</li>
-    <li>Craft: cada detalle cuenta.</li>
-    <li>Tu criterio, no solo tu técnica.</li>
-  </ul>
-</section>
-
-<!-- 04 · Cita (par tonal: orchid + plum) -->
-<section class="page ig-post quote" style="--bg: var(--pink-238); --fg: var(--pink-2425)">
-  <p class="h tl w7" data-fit="both">No necesitas<br>suerte. Necesitas<br>un portafolio<br>que hable<br>por ti.</p>
-  <div class="bl meta">(Miami Ad School México)</div>
-</section>
-
-<!-- 05 · Statement con M-dot recortado al borde (el M se puede sangrar; el dot nunca se recorta) -->
-<section class="page ig-post" style="--bg: var(--pink-2425)">
-  <h2 class="h tl w9" data-fit="both" style="color: var(--pink-212); height: 560px">Aprende<br>con los que<br>hacen.</h2>
-  <mas-mdot v="23" m="black" dot="sky-2717" align="xMaxYMax" style="left: 140px; right: var(--pad); bottom: var(--pad); height: 700px"></mas-mdot>
-</section>
-
-<!-- 06 · CTA (par tonal fuerte: magenta + light orchid) -->
-<section class="page ig-post cta" style="--bg: var(--pink-226); --fg: var(--pink-245)">
-  <h2 class="h tl" data-fit="both">Agenda tu<br>entrevista<br>y da el<br>primer paso.</h2>
-  <div class="bl cols-2 meta">
-    <div>Link<br>en bio</div>
-    <div>Portafolio<br>&amp; Bootcamps</div>
+<!-- 02 · Blush + Plum: headline gigante, instrucción y ejemplo como cita -->
+<section class="page ig-post" style="--bg: var(--pink-182); --fg: var(--pink-2425)">
+  <div class="col">
+    <div>
+      <div class="h" data-fit data-fit-max="232">Empieza<br>con el<br>problema</div>
+      <div class="support" style="margin-top: 44px"><p>Explica qué necesita resolver la marca en una sola oración.</p></div>
+    </div>
+    <div>
+      <div class="lbl">Ejemplo</div>
+      <p class="ex">“Necesitamos conseguir que más personas consideren nuestro producto cuando compran para su familia.”</p>
+    </div>
   </div>
 </section>
 
-<!-- 07 · Cierre (lockup tonal, como los cierres oficiales de MAS México) -->
-<section class="page ig-post cierre" style="--bg: var(--pink-176)">
-  <mas-lockup m="pink-2040" dot="orange-1495" text="pink-2040"></mas-lockup>
+<!-- 03 · Lilac Pink + Plum: headline, dos frases y remate con flecha -->
+<section class="page ig-post" style="--bg: var(--pink-230); --fg: var(--pink-2425)">
+  <div class="col">
+    <div class="h" data-fit>Elige la<br>información<br>importante</div>
+    <div>
+      <div class="support">
+        <p>No muestres toda tu investigación.</p>
+        <p>Selecciona los datos y observaciones que permiten entender por qué propones esa solución.</p>
+      </div>
+      <p class="punch"><span>→</span><span>Cada elemento debe ayudar a tomar una decisión.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 · Rubine + Blush: statement en Super que llena la slide, apoyo a dos columnas -->
+<section class="page ig-post" style="--bg: var(--pink-220); --fg: var(--pink-182)">
+  <div class="col" style="gap: 48px">
+    <div class="h w9" data-fit="both" style="flex: 1; min-height: 0">Explica<br>la idea<br>en una<br>frase</div>
+    <div class="support sm">
+      <p>Antes de presentar ejecuciones, escribe el concepto central. Debe permitir comprender qué estás proponiendo.</p>
+      <p>Si necesitas varios párrafos para explicarlo, revisa si estás mezclando diferentes ideas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 05 · Light Orchid + Plum: headline y lista con flechas -->
+<section class="page ig-post" style="--bg: var(--pink-245); --fg: var(--pink-2425)">
+  <div class="col">
+    <div class="h" data-fit>Muestra una<br>ejecución<br>convincente</div>
+    <ul class="arrows support">
+      <li>Selecciona una pieza que permita comprender rápidamente el concepto.</li>
+      <li>Cuida el texto, la dirección de arte y el contexto donde aparecerá.</li>
+      <li>Evita comenzar mostrando veinte aplicaciones similares.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 06 · Salmon + Plum: el headline crece línea a línea -->
+<section class="page ig-post" style="--bg: var(--pink-176); --fg: var(--pink-2425)">
+  <div class="col">
+    <div>
+      <div class="h" style="font-size: 150px">Demuestra</div>
+      <div class="h" style="font-size: 228px; margin-top: 6px; white-space: nowrap">que puede</div>
+      <div class="h wide w9" data-fit style="margin-top: 14px">crecer</div>
+    </div>
+    <div class="support">
+      <p>Presenta cómo funciona la misma idea en otros puntos de contacto.</p>
+      <p>No repitas el mismo anuncio con diferentes tamaños.</p>
+      <p>Explica qué aporta cada ejecución.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 07 · Orchid + Plum: la pregunta es la protagonista -->
+<section class="page ig-post" style="--bg: var(--pink-231); --fg: var(--pink-2425)">
+  <div class="col">
+    <div>
+      <div class="h" data-fit>Conecta con<br>la audiencia</div>
+      <div class="support" style="margin-top: 40px"><p>Explica por qué las personas deberían prestar atención.</p></div>
+    </div>
+    <p class="q">¿Qué comportamiento, interés o necesidad hace relevante la propuesta?</p>
+    <div class="support"><p>Utiliza evidencia disponible y distingue tus hipótesis de los hechos.</p></div>
+  </div>
+</section>
+
+<!-- 08 · Blush + Rubine: comparación a dos columnas -->
+<section class="page ig-post" style="--bg: var(--pink-182); --fg: var(--pink-220)">
+  <div class="col">
+    <div class="h" data-fit>Explica cómo<br>evaluarías<br>el resultado</div>
+    <div class="support">
+      <p>Relaciona la propuesta con su objetivo.</p>
+      <div class="vs support sm">
+        <p><span style="font-weight: 800">Si busca conocimiento de marca,</span> plantea indicadores de reconocimiento.</p>
+        <p><span style="font-weight: 800">Si busca ventas,</span> define qué conversiones observarías.</p>
+      </div>
+      <p>Evita prometer resultados que todavía no puedes demostrar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 09 · Plum + Salmon: golpe ancho en Obviously Super -->
+<section class="page ig-post" style="--bg: var(--pink-2425); --fg: var(--pink-176)">
+  <div class="col">
+    <div class="h wide w9" data-fit>Termina<br>con una<br>decisión</div>
+    <div class="support">
+      <p>No cierres preguntando solamente si les gustó.</p>
+      <p>Explica qué necesitas aprobar. Puede ser el concepto, una ruta creativa, un presupuesto o una prueba antes de producir.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · Cierre · Lilac Pink + Rubine. Único lugar con logo: lockup tonal (Variante MX), dot Blue. -->
+<section class="page ig-post" style="--bg: var(--pink-230); --fg: var(--pink-220)">
+  <div class="col">
+    <div>
+      <div class="h" data-fit>Una buena<br>presentación<br>ayuda a comprender<br>una idea y decidir<br>qué hacer con ella.</div>
+      <div class="support" style="margin-top: 44px">Utiliza estos ocho ajustes antes de tu próxima presentación.</div>
+    </div>
+    <mas-lockup m="pink-220" dot="blue-2727" text="pink-220" style="height: 250px"></mas-lockup>
+  </div>
 </section>
 
 <script src="../web/mas-data.js"></script>

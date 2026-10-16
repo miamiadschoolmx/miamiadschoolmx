@@ -6,11 +6,11 @@
 <link rel="stylesheet" href="../web/mas.css">
 <style>
   /* PDF tamaño carta (816×1056 px = 8.5×11 in). Render: node brand/scripts/render.mjs brand/templates/document.html --pdf
-     Portada con M-dot (estilo "Admissions Material Cover" del manual), interiores en lightest pink con
-     texto plum (par legible), contraportada con lockup. Cuerpo en Obviously/Archivo, headlines en Obviously Narrow. */
+     Portada tipográfica, interiores en lightest pink con texto plum (par legible), contraportada con lockup.
+     Indicación de Ricardo: sin M-dots dentro de las páginas, logo solo al final, texto nunca negro.
+     Cuerpo largo en Obviously Regular; headlines en Obviously Narrow. */
   .letter { --pad: 56px; }
-  .cover mas-mdot { left: 40px; right: 40px; top: 350px; bottom: 140px; }
-  .cover .h { font-size: 112px; }
+  .cover .h { position: absolute; left: var(--pad); right: var(--pad); top: var(--pad); height: 760px; }
   .inner { --bg: var(--web-lightest-pink); --fg: var(--pink-2425); }
   .inner .kicker { font-family: var(--font-display); font-weight: 500; font-size: 20px; }
   .inner .h2 { font-family: var(--font-display); font-weight: 800; font-size: 78px; line-height: .88; letter-spacing: -.01em; margin-top: 18px; }
@@ -20,7 +20,6 @@
   .inner p, .inner li { font-family: var(--font-body); font-size: 14.5px; line-height: 1.42; }
   .inner .band { position: absolute; left: 0; right: 0; bottom: 0; height: 250px; background: var(--pink-238); }
   .inner .band .h { position: absolute; left: var(--pad); bottom: 40px; font-size: 54px; color: var(--pink-2425); }
-  .inner .band mas-mdot { right: 40px; bottom: 34px; width: 210px; height: 180px; }
   .folio { position: absolute; bottom: 24px; right: var(--pad); font-family: var(--font-display); font-weight: 500; font-size: 14px; }
   .back mas-lockup { position: absolute; left: var(--pad); top: var(--pad); height: 150px; }
   .back .contact { font-family: var(--font-display); font-weight: 500; font-size: 30px; line-height: .98; }
@@ -30,10 +29,8 @@
 
 <!-- Portada -->
 <section class="page letter cover" style="--bg: var(--pink-2425)">
-  <h1 class="h tl" style="color: var(--pink-238)">Programa<br>de Portafolio</h1>
-  <mas-mdot v="1" m="black" dot="yellow-7548" align="xMidYMax"></mas-mdot>
-  <mas-wordmark class="wm-corner br" color="pink-238" style="height: 56px"></mas-wordmark>
-  <div class="bl meta" style="font-size: 30px; color: var(--pink-245)">Dirección de Arte<br>&amp; Redacción</div>
+  <h1 class="h w9" data-fit="both" style="color: var(--pink-238)">Programa<br>de<br>Portafolio</h1>
+  <div class="bl support" style="font-size: 40px; color: var(--pink-245)">Dirección de Arte<br>&amp; Redacción</div>
 </section>
 
 <!-- Interior -->
@@ -62,7 +59,6 @@
   </div>
   <div class="band">
     <div class="h">La industria no contrata<br>diplomas. Contrata<br>portafolios.</div>
-    <mas-mdot v="20" m="black" dot="green-568"></mas-mdot>
   </div>
   <div class="folio" style="color: var(--pink-2425)">02</div>
 </section>

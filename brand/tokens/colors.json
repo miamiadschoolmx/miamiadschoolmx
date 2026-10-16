@@ -298,7 +298,7 @@
     ]
   },
   "text_pairs": {
-    "_note": "Para copy chico (cuerpo, bullets, CTA, datos, pies de foto). Contraste >= 4.5:1. Negro es válido como color de texto (el wordmark puede ser negro); blanco NUNCA (manual p.33 #3).",
+    "_note": "Texto de apoyo (cuerpo, bullets, CTA, datos). Indicación de Ricardo (oct 2026): el texto NUNCA es negro ni blanco; todo va en un rosa. En slides el apoyo va en Obviously Narrow Bold de 52–64 px (clase .support), así que el mínimo es 3:1. Si algún texto queda por debajo de 40 px, usa solo pares de 4.5:1 o más (Plum/Blush).",
     "pairs": [
       {
         "bg": "pink-182",
@@ -311,39 +311,86 @@
         "contrast": 4.95
       },
       {
+        "bg": "pink-230",
+        "fg": "pink-2425",
+        "contrast": 4.46
+      },
+      {
+        "bg": "pink-2425",
+        "fg": "pink-230",
+        "contrast": 4.46
+      },
+      {
+        "bg": "pink-245",
+        "fg": "pink-2425",
+        "contrast": 3.95
+      },
+      {
+        "bg": "pink-2425",
+        "fg": "pink-245",
+        "contrast": 3.95
+      },
+      {
+        "bg": "pink-182",
+        "fg": "pink-220",
+        "contrast": 3.81
+      },
+      {
+        "bg": "pink-220",
+        "fg": "pink-182",
+        "contrast": 3.81
+      },
+      {
+        "bg": "pink-230",
+        "fg": "pink-220",
+        "contrast": 3.44
+      },
+      {
+        "bg": "pink-220",
+        "fg": "pink-230",
+        "contrast": 3.44
+      },
+      {
+        "bg": "pink-176",
+        "fg": "pink-2425",
+        "contrast": 3.37
+      },
+      {
+        "bg": "pink-2425",
+        "fg": "pink-176",
+        "contrast": 3.37
+      },
+      {
+        "bg": "pink-231",
+        "fg": "pink-2425",
+        "contrast": 3.19
+      },
+      {
+        "bg": "pink-2425",
+        "fg": "pink-231",
+        "contrast": 3.19
+      },
+      {
+        "bg": "pink-245",
+        "fg": "pink-220",
+        "contrast": 3.04
+      },
+      {
+        "bg": "pink-220",
+        "fg": "pink-245",
+        "contrast": 3.04
+      },
+      {
         "bg": "web-lightest-pink",
         "fg": "pink-2425",
-        "contrast": 6.35
+        "contrast": 6.35,
+        "uso": "solo documentos/blog"
       },
       {
         "bg": "web-lightest-pink",
         "fg": "pink-220",
-        "contrast": 4.89
-      },
-      {
-        "bg": "pink-182",
-        "fg": "black",
-        "contrast": 15.12
-      },
-      {
-        "bg": "pink-245",
-        "fg": "black",
-        "contrast": 12.08
-      },
-      {
-        "bg": "pink-176",
-        "fg": "black",
-        "contrast": 10.32
-      },
-      {
-        "bg": "pink-238",
-        "fg": "black",
-        "contrast": 7.66
-      },
-      {
-        "bg": "pink-226",
-        "fg": "black",
-        "contrast": 5.07
+        "contrast": 4.89,
+        "uso": "solo documentos/blog"
       }
     ]
   },
@@ -551,7 +598,7 @@
     "mx_tonal_variant": "Cierres oficiales de MAS México (M.ad-cierres.ai): M + wordmark en un rosa sobre otro rosa, dot secundario. Contradice 'M siempre negro' del manual global: usar SOLO en cierres de post/video."
   },
   "dot_rules": {
-    "_note": "Secundarios SOLO en el dot (o en patrones de M-dot). Ejemplos del manual (p.32, 35): ",
+    "_note": "Secundarios SOLO en el dot. En MAS México el dot solo aparece en el lockup del cierre (no hay M-dots dentro de los slides). Ejemplos del manual (p.32, 35): ",
     "manual_examples": [
       [
         "pink-220",

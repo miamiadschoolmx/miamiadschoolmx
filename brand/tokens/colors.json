@@ -1,0 +1,609 @@
+{
+  "_source": "Brand Guidelines M.AD School of Ideas v1.0 (85 pp., p.30-33) + PALETA DE COLORES.ai + M.AD Color Palette.ase. RGB = valores oficiales para digital (verificados contra el .ai).",
+  "primary": "pink-238",
+  "pinks": [
+    {
+      "key": "pink-2425",
+      "name": "Plum",
+      "tone": "deep",
+      "hex": "#AD007A",
+      "rgb": "173/0/122",
+      "cmyk": "36/100/0/23",
+      "pantone": "2425 C / 248 U"
+    },
+    {
+      "key": "pink-220",
+      "name": "Rubine",
+      "tone": "deep",
+      "hex": "#D30760",
+      "rgb": "211/7/96",
+      "cmyk": "0/100/13/26",
+      "pantone": "220 C / Rubine Red U"
+    },
+    {
+      "key": "pink-226",
+      "name": "Magenta",
+      "tone": "strong",
+      "hex": "#EC009F",
+      "rgb": "236/0/159",
+      "cmyk": "0/100/0/2",
+      "pantone": "226 C / 233 U"
+    },
+    {
+      "key": "pink-2040",
+      "name": "Raspberry",
+      "tone": "strong",
+      "hex": "#F60072",
+      "rgb": "246/0/114",
+      "cmyk": "0/100/37/0",
+      "pantone": "2040 C / 2040 U"
+    },
+    {
+      "key": "pink-rhodamine",
+      "name": "Rhodamine",
+      "tone": "strong",
+      "hex": "#FF009B",
+      "rgb": "255/0/155",
+      "cmyk": "5/92/0/0",
+      "pantone": "Rhodamine Red C / U"
+    },
+    {
+      "key": "pink-225",
+      "name": "Fuchsia",
+      "tone": "strong",
+      "hex": "#F233AF",
+      "rgb": "242/51/175",
+      "cmyk": "4/90/0/0",
+      "pantone": "225 C / 226 U"
+    },
+    {
+      "key": "pink-7424",
+      "name": "Watermelon",
+      "tone": "strong",
+      "hex": "#FF4684",
+      "rgb": "255/70/132",
+      "cmyk": "0/82/8/0",
+      "pantone": "7424 C / 219 U"
+    },
+    {
+      "key": "pink-238",
+      "name": "M.AD Pink",
+      "tone": "mid",
+      "hex": "#FF5CCD",
+      "rgb": "255/92/205",
+      "cmyk": "11/70/0/0",
+      "pantone": "238 C / 232 U"
+    },
+    {
+      "key": "pink-212",
+      "name": "Bubblegum",
+      "tone": "mid",
+      "hex": "#FF63BE",
+      "rgb": "255/99/190",
+      "cmyk": "0/78/2/0",
+      "pantone": "212 C / 212 U"
+    },
+    {
+      "key": "pink-218",
+      "name": "Hot Pink",
+      "tone": "mid",
+      "hex": "#FF5EA7",
+      "rgb": "255/94/167",
+      "cmyk": "2/66/0/0",
+      "pantone": "218 C / 218 U"
+    },
+    {
+      "key": "pink-204",
+      "name": "Rose",
+      "tone": "mid",
+      "hex": "#FB73A3",
+      "rgb": "251/115/163",
+      "cmyk": "0/58/1/0",
+      "pantone": "204 C / 204 U"
+    },
+    {
+      "key": "pink-1777",
+      "name": "Coral Pink",
+      "tone": "mid",
+      "hex": "#FF6B89",
+      "rgb": "255/107/137",
+      "cmyk": "0/72/30/0",
+      "pantone": "1777 C / 1787 U"
+    },
+    {
+      "key": "pink-231",
+      "name": "Orchid",
+      "tone": "mid",
+      "hex": "#FF81F8",
+      "rgb": "255/129/248",
+      "cmyk": "5/61/0/0",
+      "pantone": "231 C / 231 U"
+    },
+    {
+      "key": "pink-245",
+      "name": "Light Orchid",
+      "tone": "light",
+      "hex": "#FFA9E7",
+      "rgb": "255/169/231",
+      "cmyk": "14/56/0/0",
+      "pantone": "245 C / 245 U"
+    },
+    {
+      "key": "pink-176",
+      "name": "Salmon",
+      "tone": "light",
+      "hex": "#FF99A0",
+      "rgb": "255/153/160",
+      "cmyk": "0/34/9/0",
+      "pantone": "176 C / 176 U"
+    },
+    {
+      "key": "pink-230",
+      "name": "Lilac Pink",
+      "tone": "light",
+      "hex": "#FFB9FF",
+      "rgb": "255/185/255",
+      "cmyk": "3/39/0/0",
+      "pantone": "230 C / 230 U"
+    },
+    {
+      "key": "pink-182",
+      "name": "Blush",
+      "tone": "pale",
+      "hex": "#FFCEDD",
+      "rgb": "255/206/221",
+      "cmyk": "0/30/0/0",
+      "pantone": "182 C / 182 U"
+    }
+  ],
+  "secondary": [
+    {
+      "key": "orange-1495",
+      "name": "Orange",
+      "hex": "#FF9812",
+      "rgb": "255/152/18",
+      "cmyk": "0/49/96/0",
+      "pantone": "1495 C"
+    },
+    {
+      "key": "yellow-7548",
+      "name": "Yellow",
+      "hex": "#FFCF00",
+      "rgb": "255/207/0",
+      "cmyk": "0/11/100/0",
+      "pantone": "7548 C"
+    },
+    {
+      "key": "lemon-101",
+      "name": "Lemon",
+      "hex": "#FFFF3E",
+      "rgb": "255/255/62",
+      "cmyk": "0/0/78/0",
+      "pantone": "101 C"
+    },
+    {
+      "key": "green-568",
+      "name": "Deep Green",
+      "hex": "#006B57",
+      "rgb": "0/107/87",
+      "cmyk": "90/8/59/38",
+      "pantone": "568 C"
+    },
+    {
+      "key": "green-2420",
+      "name": "Bright Green",
+      "hex": "#00D357",
+      "rgb": "0/211/87",
+      "cmyk": "71/0/84/0",
+      "pantone": "2420 C"
+    },
+    {
+      "key": "green-2268",
+      "name": "Leaf",
+      "hex": "#7DD682",
+      "rgb": "125/214/130",
+      "cmyk": "49/0/65/0",
+      "pantone": "2268 C"
+    },
+    {
+      "key": "mint-337",
+      "name": "Mint",
+      "hex": "#82CFC2",
+      "rgb": "130/207/194",
+      "cmyk": "40/0/29/0",
+      "pantone": "337 C"
+    },
+    {
+      "key": "blue-2727",
+      "name": "Blue",
+      "hex": "#3391F4",
+      "rgb": "51/145/244",
+      "cmyk": "69/34/0/0",
+      "pantone": "2727 C"
+    },
+    {
+      "key": "sky-2717",
+      "name": "Sky",
+      "hex": "#A7D0FF",
+      "rgb": "167/208/255",
+      "cmyk": "32/13/0/0",
+      "pantone": "2717 C"
+    },
+    {
+      "key": "purple-2084",
+      "name": "Purple",
+      "hex": "#8B00BA",
+      "rgb": "139/0/186",
+      "cmyk": "65/91/0/0",
+      "pantone": "2084 C"
+    },
+    {
+      "key": "lavender-2087",
+      "name": "Lavender",
+      "hex": "#A572FF",
+      "rgb": "165/114/255",
+      "cmyk": "45/53/0/0",
+      "pantone": "2087 C"
+    },
+    {
+      "key": "lilac-2635",
+      "name": "Lilac",
+      "hex": "#D8B8FF",
+      "rgb": "216/184/255",
+      "cmyk": "21/27/0/0",
+      "pantone": "2635 C"
+    }
+  ],
+  "neutrals": [
+    {
+      "key": "black",
+      "name": "Black",
+      "hex": "#000000"
+    },
+    {
+      "key": "white",
+      "name": "White",
+      "hex": "#FFFFFF"
+    }
+  ],
+  "web_only": [
+    {
+      "key": "web-deep-purple",
+      "name": "Deep Purple (web: solo headline del home)",
+      "hex": "#700450",
+      "rgb": "112/4/80"
+    },
+    {
+      "key": "web-lightest-pink",
+      "name": "Lightest Pink (web: fondo de blog; manual: fondo de páginas)",
+      "hex": "#FFF3F7",
+      "rgb": "255/243/247"
+    }
+  ],
+  "mx_in_use": {
+    "_note": "Valores RGB que usan las piezas de cierre de MAS México (M.ad-cierres.ai). Variaciones locales; preferir la paleta oficial.",
+    "colors": [
+      "#FFB2B9",
+      "#E6005E",
+      "#FF9300",
+      "#870064",
+      "#F268BF",
+      "#69CFC0",
+      "#A1CEEE",
+      "#A0006A",
+      "#FF00B2",
+      "#FF98A0",
+      "#F60472",
+      "#A7D0FF"
+    ]
+  },
+  "text_pairs": {
+    "_note": "Para copy chico (cuerpo, bullets, CTA, datos, pies de foto). Contraste >= 4.5:1. Negro es válido como color de texto (el wordmark puede ser negro); blanco NUNCA (manual p.33 #3).",
+    "pairs": [
+      {
+        "bg": "pink-182",
+        "fg": "pink-2425",
+        "contrast": 4.95
+      },
+      {
+        "bg": "pink-2425",
+        "fg": "pink-182",
+        "contrast": 4.95
+      },
+      {
+        "bg": "web-lightest-pink",
+        "fg": "pink-2425",
+        "contrast": 6.35
+      },
+      {
+        "bg": "web-lightest-pink",
+        "fg": "pink-220",
+        "contrast": 4.89
+      },
+      {
+        "bg": "pink-182",
+        "fg": "black",
+        "contrast": 15.12
+      },
+      {
+        "bg": "pink-245",
+        "fg": "black",
+        "contrast": 12.08
+      },
+      {
+        "bg": "pink-176",
+        "fg": "black",
+        "contrast": 10.32
+      },
+      {
+        "bg": "pink-238",
+        "fg": "black",
+        "contrast": 7.66
+      },
+      {
+        "bg": "pink-226",
+        "fg": "black",
+        "contrast": 5.07
+      }
+    ]
+  },
+  "grid_order": {
+    "_note": "Orden oficial del artboard 'Color Palette' (p.31). Columnas de rosas 4x4; secundarios 3x4 por familia.",
+    "primary_pink": "pink-238",
+    "pinks": [
+      [
+        "pink-2425",
+        "pink-225",
+        "pink-212",
+        "pink-231"
+      ],
+      [
+        "pink-220",
+        "pink-1777",
+        "pink-176",
+        "pink-204"
+      ],
+      [
+        "pink-2040",
+        "pink-7424",
+        "pink-rhodamine",
+        "pink-218"
+      ],
+      [
+        "pink-226",
+        "pink-245",
+        "pink-182",
+        "pink-230"
+      ]
+    ],
+    "secondary": [
+      [
+        "orange-1495",
+        "yellow-7548",
+        "lemon-101"
+      ],
+      [
+        "green-568",
+        "green-2268",
+        "green-2420"
+      ],
+      [
+        "mint-337",
+        "blue-2727",
+        "sky-2717"
+      ],
+      [
+        "purple-2084",
+        "lavender-2087",
+        "lilac-2635"
+      ]
+    ]
+  },
+  "canva_in_use": {
+    "_note": "Colores medidos en carruseles MAS Collins hechos en Canva (oct 2026). NO están en el manual; probablemente vienen del brand kit de Canva. Usar solo para cierres que repliquen esas piezas.",
+    "colors": [
+      {
+        "hex": "#7B1561",
+        "use": "fondo de cierre (lockup tonal rosa + dot sky)"
+      },
+      {
+        "hex": "#831E67",
+        "use": "texto sobre fondo blanco en 'Tu portafolio en 18 meses' (fondo blanco = NO según manual p.33)"
+      }
+    ]
+  },
+  "display_pairs": {
+    "_note": "Duotonos para HEADLINES GRANDES (>= 90 px en lienzo de 1080). Fondo rosa + tipografía en otro rosa, uno oscuro y uno claro. Contraste mínimo 2:1 (el manual prohíbe 'low contrast').",
+    "pairs": [
+      {
+        "bg": "pink-2425",
+        "fg": "pink-182",
+        "src": "Carruseles MAS Collins (Canva) / manual p.34"
+      },
+      {
+        "bg": "pink-182",
+        "fg": "pink-2425",
+        "src": "Carruseles MAS Collins (Canva) / manual p.34"
+      },
+      {
+        "bg": "pink-2425",
+        "fg": "pink-245",
+        "src": "Carrusel '7 archivos visuales'"
+      },
+      {
+        "bg": "pink-2425",
+        "fg": "pink-231",
+        "src": "Carrusel '7 archivos visuales' (slide final)"
+      },
+      {
+        "bg": "pink-2425",
+        "fg": "pink-212",
+        "src": "manual p.34 'Graduation Mumbai'"
+      },
+      {
+        "bg": "pink-2425",
+        "fg": "pink-238",
+        "src": "cierre MX 03"
+      },
+      {
+        "bg": "pink-204",
+        "fg": "pink-2425",
+        "src": "manual p.34 'James Victore'"
+      },
+      {
+        "bg": "pink-238",
+        "fg": "pink-2425",
+        "src": "manual p.34 cita Einstein"
+      },
+      {
+        "bg": "pink-212",
+        "fg": "pink-2425",
+        "src": "cierre MX 02"
+      },
+      {
+        "bg": "pink-226",
+        "fg": "pink-245",
+        "src": "manual p.34 'Alyson Kuhn'"
+      },
+      {
+        "bg": "pink-226",
+        "fg": "pink-182",
+        "src": "derivado (strong + pale)"
+      },
+      {
+        "bg": "pink-220",
+        "fg": "pink-204",
+        "src": "manual p.34 'Student Award Winners'"
+      },
+      {
+        "bg": "pink-220",
+        "fg": "pink-245",
+        "src": "derivado (deep + light)"
+      },
+      {
+        "bg": "pink-2040",
+        "fg": "pink-176",
+        "src": "manual p.34 'São Paulo'"
+      },
+      {
+        "bg": "pink-176",
+        "fg": "pink-2040",
+        "src": "cierre MX 01"
+      },
+      {
+        "bg": "pink-7424",
+        "fg": "pink-2425",
+        "src": "manual p.32 (lockup M.AD)"
+      },
+      {
+        "bg": "pink-245",
+        "fg": "pink-2425",
+        "src": "derivado (light + deep)"
+      },
+      {
+        "bg": "pink-230",
+        "fg": "pink-2425",
+        "src": "derivado (light + deep)"
+      }
+    ]
+  },
+  "lockup_combos": {
+    "_note": "Combinaciones aprobadas del lockup (manual p.32): M SIEMPRE negro; wordmark negro o un rosa; dot = rosa distinto o color secundario.",
+    "combos": [
+      {
+        "bg": "pink-230",
+        "m": "black",
+        "dot": "pink-220",
+        "wordmark": "black"
+      },
+      {
+        "bg": "pink-231",
+        "m": "black",
+        "dot": "pink-rhodamine",
+        "wordmark": "black"
+      },
+      {
+        "bg": "pink-182",
+        "m": "black",
+        "dot": "pink-226",
+        "wordmark": "black"
+      },
+      {
+        "bg": "pink-238",
+        "m": "black",
+        "dot": "yellow-7548",
+        "wordmark": "pink-230"
+      },
+      {
+        "bg": "pink-2425",
+        "m": "black",
+        "dot": "pink-212",
+        "wordmark": "pink-245"
+      },
+      {
+        "bg": "pink-7424",
+        "m": "black",
+        "dot": "mint-337",
+        "wordmark": "pink-2425"
+      }
+    ],
+    "knockout": "Solo si se requiere (materiales de terceros, sellos, firmas): lockup todo blanco sobre negro, o todo negro sobre blanco/gris. Nunca color sobre blanco/gris/negro.",
+    "mx_tonal_variant": "Cierres oficiales de MAS México (M.ad-cierres.ai): M + wordmark en un rosa sobre otro rosa, dot secundario. Contradice 'M siempre negro' del manual global: usar SOLO en cierres de post/video."
+  },
+  "dot_rules": {
+    "_note": "Secundarios SOLO en el dot (o en patrones de M-dot). Ejemplos del manual (p.32, 35): ",
+    "manual_examples": [
+      [
+        "pink-220",
+        "green-2268"
+      ],
+      [
+        "pink-238",
+        "sky-2717"
+      ],
+      [
+        "pink-231",
+        "green-2420"
+      ],
+      [
+        "pink-2425",
+        "orange-1495"
+      ],
+      [
+        "pink-238",
+        "yellow-7548"
+      ],
+      [
+        "pink-2425",
+        "blue-2727"
+      ],
+      [
+        "pink-204",
+        "purple-2084"
+      ],
+      [
+        "pink-182",
+        "pink-226"
+      ],
+      [
+        "pink-230",
+        "pink-220"
+      ],
+      [
+        "pink-7424",
+        "mint-337"
+      ]
+    ]
+  },
+  "donts": [
+    "Colores fuera de marca (azul, amarillo, etc. como fondo)",
+    "Bajo contraste entre fondo y tipografía/wordmark",
+    "Blanco sobre colores (tipo, M o lockup en blanco sobre rosa)",
+    "Degradados",
+    "M en cualquier color que no sea negro (salvo tratamiento fotográfico y cierres MX)",
+    "Negro como fondo con elementos de color",
+    "Fondo que no sea un rosa de la paleta",
+    "Color sobre gris",
+    "Color sobre fondo blanco"
+  ]
+}

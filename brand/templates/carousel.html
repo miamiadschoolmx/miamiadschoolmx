@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>MAS — Carrusel Instagram (plantilla)</title>
+<link rel="stylesheet" href="../web/mas.css">
+<style>
+  /* Layouts de carrusel 1080×1350. Duplicar este archivo para cada carrusel nuevo y cambiar copy/colores.
+     Reglas: tipo alineado a la izquierda, sentence case, dos tonos de rosa por slide, M negro, dot en color secundario. */
+  .cover .h      { top: 40px; }
+  .mdot-hero mas-mdot { left: 24px; right: 24px; top: 70px; height: 860px; }
+  .content .h    { height: 420px; }
+  .content .list { position: absolute; left: var(--pad); right: var(--pad); bottom: var(--pad); font-family: var(--font-display); font-weight: 500; font-size: 70px; line-height: 0.95; }
+  .content .list li + li { margin-top: 30px; }
+  .quote .h      { height: 1000px; }
+  .quote .meta   { font-weight: 500; }
+  .cta .h        { height: 760px; }
+  .cierre mas-lockup { position: absolute; left: 50%; top: 50%; width: 620px; height: 302px; transform: translate(-50%, -50%); }
+  .count { position: absolute; top: var(--pad); right: var(--pad); font-family: var(--font-display); font-weight: 500; font-size: 30px; }
+</style>
+</head>
+<body>
+
+<!-- 01 · Portada tipográfica (par tonal: fondo rosa medio + headline plum) -->
+<section class="page ig-post cover" style="--bg: var(--pink-204); --fg: var(--pink-2425)">
+  <h1 class="h tl" data-fit>La industria<br>no contrata<br>diplomas.</h1>
+  <div class="bl cols-2 meta" style="color: var(--pink-182)">
+    <div>Contrata<br>portafolios.</div>
+    <div>Desliza<br><span class="arrow"></span></div>
+  </div>
+</section>
+
+<!-- 02 · M-dot protagonista + headline corto (M negro, dot secundario separado del M) -->
+<section class="page ig-post mdot-hero" style="--bg: var(--pink-2040)">
+  <mas-mdot v="14" m="black" dot="yellow-7548"></mas-mdot>
+  <h2 class="h bl" style="color: var(--pink-176); font-size: 132px">Tu portafolio<br>habla antes que tú.</h2>
+</section>
+
+<!-- 03 · Contenido / lista (par legible: blush + plum) -->
+<section class="page ig-post content" style="--bg: var(--pink-182); --fg: var(--pink-2425)">
+  <h2 class="h tl" data-fit="both">Lo que un director<br>creativo ve en<br>30 segundos</h2>
+  <ul class="list">
+    <li>Una idea clara por proyecto.</li>
+    <li>El problema antes que la ejecución.</li>
+    <li>Craft: cada detalle cuenta.</li>
+    <li>Tu criterio, no solo tu técnica.</li>
+  </ul>
+</section>
+
+<!-- 04 · Cita (par tonal: orchid + plum) -->
+<section class="page ig-post quote" style="--bg: var(--pink-238); --fg: var(--pink-2425)">
+  <p class="h tl w5" data-fit="both">No necesitas<br>suerte. Necesitas<br>un portafolio<br>que hable<br>por ti.</p>
+  <div class="bl meta">(Miami Ad School México)</div>
+</section>
+
+<!-- 05 · Statement con M-dot recortado al borde (el M se puede sangrar; el dot nunca se recorta) -->
+<section class="page ig-post" style="--bg: var(--pink-2425)">
+  <h2 class="h tl" style="color: var(--pink-212); font-size: 150px">Aprende<br>con los que<br>hacen.</h2>
+  <mas-mdot v="23" m="black" dot="sky-2717" align="xMaxYMax" style="left: 140px; right: var(--pad); bottom: var(--pad); height: 700px"></mas-mdot>
+</section>
+
+<!-- 06 · CTA (par tonal fuerte: magenta + light orchid) -->
+<section class="page ig-post cta" style="--bg: var(--pink-226); --fg: var(--pink-245)">
+  <h2 class="h tl" data-fit="both">Agenda tu<br>entrevista<br>y da el<br>primer paso.</h2>
+  <div class="bl cols-2 meta">
+    <div>Link<br>en bio</div>
+    <div>Portafolio<br>&amp; Bootcamps</div>
+  </div>
+</section>
+
+<!-- 07 · Cierre (lockup tonal, como los cierres oficiales de MAS México) -->
+<section class="page ig-post cierre" style="--bg: var(--pink-176)">
+  <mas-lockup m="pink-2040" dot="orange-1495" text="pink-2040"></mas-lockup>
+</section>
+
+<script src="../web/mas-data.js"></script>
+<script src="../web/mas.js"></script>
+</body>
+</html>

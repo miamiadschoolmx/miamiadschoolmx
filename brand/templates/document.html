@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>MAS — Documento PDF (plantilla carta)</title>
+<link rel="stylesheet" href="../web/mas.css">
+<style>
+  /* PDF tamaño carta (816×1056 px = 8.5×11 in). Render: node brand/scripts/render.mjs brand/templates/document.html --pdf
+     Portada con M-dot (estilo "Admissions Material Cover" del manual), interiores en lightest pink con
+     texto plum (par legible), contraportada con lockup. Cuerpo en Obviously/Archivo, headlines en Obviously Narrow. */
+  .letter { --pad: 56px; }
+  .cover mas-mdot { left: 40px; right: 40px; top: 350px; bottom: 140px; }
+  .cover .h { font-size: 112px; }
+  .inner { --bg: var(--web-lightest-pink); --fg: var(--pink-2425); }
+  .inner .kicker { font-family: var(--font-display); font-weight: 500; font-size: 20px; }
+  .inner .h2 { font-family: var(--font-display); font-weight: 600; font-size: 78px; line-height: .88; letter-spacing: -.01em; margin-top: 18px; }
+  .inner .grid { position: absolute; left: var(--pad); right: var(--pad); top: 330px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px 32px; }
+  .inner h3 { font-family: var(--font-display); font-weight: 600; font-size: 30px; line-height: .95; margin-bottom: 8px; }
+  .inner h3::before { content: '→ '; }
+  .inner p, .inner li { font-family: var(--font-body); font-size: 14.5px; line-height: 1.42; }
+  .inner .band { position: absolute; left: 0; right: 0; bottom: 0; height: 250px; background: var(--pink-238); }
+  .inner .band .h { position: absolute; left: var(--pad); bottom: 40px; font-size: 54px; color: var(--pink-2425); }
+  .inner .band mas-mdot { right: 40px; bottom: 34px; width: 210px; height: 180px; }
+  .folio { position: absolute; bottom: 24px; right: var(--pad); font-family: var(--font-display); font-weight: 500; font-size: 14px; }
+  .back mas-lockup { position: absolute; left: var(--pad); top: var(--pad); height: 150px; }
+  .back .contact { font-family: var(--font-display); font-weight: 500; font-size: 30px; line-height: .98; }
+</style>
+</head>
+<body>
+
+<!-- Portada -->
+<section class="page letter cover" style="--bg: var(--pink-2425)">
+  <h1 class="h tl" style="color: var(--pink-238)">Programa<br>de Portafolio</h1>
+  <mas-mdot v="1" m="black" dot="yellow-7548" align="xMidYMax"></mas-mdot>
+  <mas-wordmark class="wm-corner br" color="pink-238" style="height: 56px"></mas-wordmark>
+  <div class="bl meta" style="font-size: 30px; color: var(--pink-245)">Dirección de Arte<br>&amp; Redacción</div>
+</section>
+
+<!-- Interior -->
+<section class="page letter inner">
+  <div class="tl">
+    <div class="kicker">Miami Ad School México</div>
+    <div class="h2">Tu portafolio será<br>tu pasaporte.</div>
+  </div>
+  <div class="grid">
+    <div>
+      <h3>¿Para quién es?</h3>
+      <p>Para creativos que tienen talento pero todavía no tienen el portafolio que los haga destacar, y para profesionales que quieren dar el siguiente salto en su carrera.</p>
+    </div>
+    <div>
+      <h3>Cómo se aprende</h3>
+      <p>Haciendo. Briefs reales, deadlines reales y feedback directo de creativos en activo. Aquí no hay exámenes: hay campañas.</p>
+    </div>
+    <div>
+      <h3>Quién enseña</h3>
+      <p>Only taught by pros: directores creativos y estrategas que hoy trabajan en la industria. Aprendes con los que hacen, no con los que enseñan.</p>
+    </div>
+    <div>
+      <h3>Qué te llevas</h3>
+      <p>Un portafolio que abre puertas, una red global de exalumnos y mentores, y el criterio para defender tus ideas frente a cualquier director creativo.</p>
+    </div>
+  </div>
+  <div class="band">
+    <div class="h">La industria no contrata<br>diplomas. Contrata<br>portafolios.</div>
+    <mas-mdot v="20" m="black" dot="green-568"></mas-mdot>
+  </div>
+  <div class="folio" style="color: var(--pink-2425)">02</div>
+</section>
+
+<!-- Contraportada -->
+<section class="page letter back" style="--bg: var(--pink-176)">
+  <mas-lockup m="pink-2040" dot="sky-2717" text="pink-2040"></mas-lockup>
+  <div class="bl contact" style="color: var(--pink-2040)">Agenda tu entrevista<br>y da el primer paso<br><span class="arrow"></span></div>
+</section>
+
+<script src="../web/mas-data.js"></script>
+<script src="../web/mas.js"></script>
+</body>
+</html>

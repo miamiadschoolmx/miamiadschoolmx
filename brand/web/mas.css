@@ -7,14 +7,18 @@
 @font-face { font-family: 'Obviously Narrow'; font-weight: 500; src: url('../fonts/Obviously-Narrow_Medium.woff') format('woff'); }
 @font-face { font-family: 'Obviously Narrow'; font-weight: 600; src: url('../fonts/Obviously-Narrow_Semibold.woff') format('woff'); }
 @font-face { font-family: 'Obviously Narrow'; font-weight: 700; src: url('../fonts/Obviously-Narrow_Bold.woff') format('woff'); }
-/* Pesos pesados para headlines (Black / Super). OTF de OH no Type: licencia desktop, fuera de git. */
-@font-face { font-family: 'Obviously Narrow'; font-weight: 800; src: url('../fonts/Obviously-NarrowBlack.otf') format('opentype'); }
-@font-face { font-family: 'Obviously Narrow'; font-weight: 900; src: url('../fonts/Obviously-NarrowSuper.otf') format('opentype'); }
+/* Pesos pesados para headlines (Black / Super). Sirve el .woff de la carpeta Web o el .otf de Desktop. */
+@font-face { font-family: 'Obviously Narrow'; font-weight: 800; src: url('../fonts/Obviously-Narrow_Black.woff') format('woff'), url('../fonts/Obviously-NarrowBlack.otf') format('opentype'); }
+@font-face { font-family: 'Obviously Narrow'; font-weight: 900; src: url('../fonts/Obviously-Narrow_Super.woff') format('woff'), url('../fonts/Obviously-NarrowSuper.otf') format('opentype'); }
 
-/* Cuerpo de texto: el manual pide "Obviously" (ancho normal). Si se agrega a brand/fonts/ como
-   Obviously-Regular.woff se usa automáticamente; mientras tanto, Archivo (OFL) como sustituto. */
-/* Para activarla: copia Obviously-Regular.woff a brand/fonts/ y descomenta la línea siguiente.
-@font-face { font-family: 'Obviously'; font-weight: 400; src: url('../fonts/Obviously-Regular.woff') format('woff'); } */
+/* Obviously (ancho normal): Regular–Bold para cuerpo de texto (lo pide el manual) y Black/Super
+   para headlines anchos de pocas palabras (clase .wide). Archivo (OFL) queda como respaldo. */
+@font-face { font-family: 'Obviously'; font-weight: 400; src: url('../fonts/Obviously-Regular.woff') format('woff'); }
+@font-face { font-family: 'Obviously'; font-weight: 500; src: url('../fonts/Obviously-Medium.woff') format('woff'); }
+@font-face { font-family: 'Obviously'; font-weight: 600; src: url('../fonts/Obviously-Semibold.woff') format('woff'); }
+@font-face { font-family: 'Obviously'; font-weight: 700; src: url('../fonts/Obviously-Bold.woff') format('woff'); }
+@font-face { font-family: 'Obviously'; font-weight: 800; src: url('../fonts/Obviously-Black.woff') format('woff'); }
+@font-face { font-family: 'Obviously'; font-weight: 900; src: url('../fonts/Obviously-Super.woff') format('woff'); }
 @font-face { font-family: 'Archivo'; font-weight: 400; src: url('../fonts/archivo/archivo-latin-400-normal.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2190-2199, U+2212, U+2215; }
 @font-face { font-family: 'Archivo'; font-weight: 400; src: url('../fonts/archivo/archivo-latin-ext-400-normal.woff2') format('woff2'); unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF; }
 @font-face { font-family: 'Archivo'; font-weight: 500; src: url('../fonts/archivo/archivo-latin-500-normal.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2190-2199, U+2212, U+2215; }
@@ -65,6 +69,8 @@ body { display: flex; flex-direction: column; align-items: center; gap: 40px; pa
   font-kerning: normal;
 }
 .h.w4 { font-weight: 400; } .h.w5 { font-weight: 500; } .h.w6 { font-weight: 600; } .h.w7 { font-weight: 700; } .h.w8 { font-weight: 800; } .h.w9 { font-weight: 900; }
+/* Headline ancho (Obviously Black/Super): para 1–2 palabras por línea, como golpe. Solo pesos 800/900. */
+.h.wide { font-family: 'Obviously', var(--font-display); line-height: 0.9; }
 .meta {
   font-family: var(--font-display); font-weight: 500;
   font-size: 58px; line-height: 0.9; letter-spacing: -0.005em;

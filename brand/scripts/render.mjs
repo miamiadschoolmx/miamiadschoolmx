@@ -47,7 +47,7 @@ await page.goto(pathToFileURL(path.resolve(input)).href);
 await page.waitForSelector('html[data-mas-ready="1"]', { timeout: 30000 });
 const missingFonts = await page.evaluate(() => document.documentElement.dataset.masFontMissing);
 if (missingFonts) {
-  console.warn(`⚠ Faltan pesos de Obviously Narrow (${missingFonts}): el render usa una fuente simulada o de respaldo. Ver brand/fonts/README.md`);
+  console.warn(`⚠ Faltan pesos de Obviously (${missingFonts}): el render usa una fuente simulada o de respaldo. Ver brand/fonts/README.md`);
 }
 
 const pages = await page.$$('.page');

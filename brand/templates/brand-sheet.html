@@ -151,7 +151,7 @@
 <!-- 11 Tipografía y layout -->
 <section class="page deck sheet">
   <div class="side"><h2>Tipo &amp;<br>layout</h2>
-    <p><b>Obviously Narrow Black</b> para headlines (Super para golpes cortos, Bold para headlines largos); Regular/Medium para info. <b>Obviously</b> (ancho normal) para texto largo; mientras no esté instalada, Archivo.</p>
+    <p><b>Obviously Narrow Black</b> para headlines (Super para golpes cortos, Bold para headlines largos); Regular/Medium para info. <b>Obviously</b> (ancho normal) Regular para texto largo; su Black/Super, para golpes de 1–2 palabras.</p>
     <p>Todo alineado a la izquierda. Headline arriba, información abajo. Interlineado compacto, tracking normal, sentence case.</p>
   </div>
   <div class="main" id="type"></div>
@@ -273,14 +273,14 @@
   $('type').innerHTML = `
     <div style="display:grid;grid-template-columns: 1fr 1fr; gap: 40px">
       <div>${w.map(([n, l]) => `<div style="font-family:var(--font-display);font-weight:${n};font-size:58px;line-height:.95;letter-spacing:-.01em">${l} Aa Ñ 1234 →</div>`).join('')}
-        <div style="font-family:var(--font-body);font-size:22px;line-height:1.35;margin-top:22px;max-width:640px">Cuerpo de texto: Obviously Regular (sustituto actual: Archivo). Párrafos cortos, 1.3 de interlineado, nunca centrado.</div></div>
+        <div style="font-family:var(--font-body);font-size:22px;line-height:1.35;margin-top:22px;max-width:640px">Cuerpo de texto: Obviously Regular (respaldo: Archivo). Párrafos cortos, 1.3 de interlineado, nunca centrado.</div></div>
       <div class="lbl" style="font-size:20px;line-height:1.5">
         <b>Jerarquía en lienzo 1080 × 1350</b><br>
         Headline · Narrow Black 120–320 px · interlineado 0.86 · auto-fit al ancho<br>
         Golpe (≤ 3 palabras/línea) · Narrow Super ≥ 160 px · Headline largo · Narrow Bold<br>
         Subhead / lista · Narrow Medium 60–80 px · 0.95<br>
         Info (fecha, lugar, nombre) · Narrow Medium 50–60 px · 0.9 · dos columnas abajo<br>
-        Cuerpo · Obviously / Archivo 30–36 px · 1.22<br>
+        Cuerpo · Obviously Regular 30–36 px · 1.22<br>
         Ordinales en superíndice: 16<sup>th</sup>, 4<sup>o</sup><br><br>
         <b>Reglas</b><br>
         → Alinear a la izquierda. Nunca centrar ni a la derecha.<br>

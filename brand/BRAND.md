@@ -168,18 +168,20 @@ El dot nunca es negro, nunca se encima con el M y nunca se recorta.
 - **Obviously Narrow Super** (900): golpes de ≤ 3 palabras por línea a ≥ 160 px (portadas, números, reels). En tamaños chicos se cierran las contraformas: no usarla debajo de ~100 px.
 - **Obviously Narrow Bold** (700): headlines largos (4+ líneas), subtítulos, títulos de lista.
 - **Obviously Narrow** Regular / Medium: info corta (fecha, lugar, nombre), etiquetas. (Semibold queda como opción intermedia.)
-- **Obviously** (ancho normal) Regular: texto largo. No está en el Drive; mientras tanto se usa **Archivo** (OFL) como sustituto.
-- Archivos: `brand/fonts/` (ver `brand/fonts/README.md`; Obviously es licenciada y no se sube a git).
+- **Obviously** (ancho normal) **Black / Super** (800/900, clase `.h.wide`): alternativa de golpe para 1–2 palabras por línea (un número, una palabra, un nombre). Es muy ancha: úsala en una sola slide por pieza para que contraste con la Narrow, nunca para headlines largos.
+- **Obviously** (ancho normal) Regular / Bold: texto largo y énfasis dentro del texto. **Archivo** (OFL) queda solo como respaldo si falta el archivo.
+- Archivos: `brand/fonts/` (ver `brand/fonts/README.md`; Obviously es licenciada y no se sube a git). La familia completa (Thin a Super, con itálicas, Narrow y ancho normal) está en Drive → BRAND → Typeface(s).
 
 **Jerarquía en lienzo 1080 × 1350**
 
 | Nivel | Fuente | Tamaño | Interlineado |
 |---|---|---|---|
 | Golpe / portada | Narrow Super | 160–360 px, ≤ 3 palabras por línea | 0.86 |
+| Golpe ancho (opcional) | Obviously Black / Super (`.h.wide`) | 140–300 px, 1–2 palabras por línea | 0.9 |
 | Headline | Narrow Black (Bold si son 4+ líneas) | 120–320 px, auto-fit al ancho | 0.86 |
 | Subhead / lista | Narrow Medium | 60–80 px | 0.95 |
 | Info (fecha, lugar, nombre) | Narrow Medium | 50–60 px | 0.9 |
-| Cuerpo | Obviously / Archivo | 30–36 px | 1.22 |
+| Cuerpo | Obviously Regular (Bold para énfasis) | 30–36 px | 1.22 |
 | Etiquetas, folio | Narrow Medium | 24–30 px | 1 |
 
 Web (styleguide 4): H1 Narrow Medium 70/61 pt · H2 48/44 · H3 30/21 · body Obviously Regular 18/21 · secundario 14/17 · botones Regular 18 en versalitas · links 18 subrayado (offset 4).
@@ -248,6 +250,6 @@ Los 12 masters existen como `.ai` (wireframes, Drive "Templates Collins 1080 x 1
 - [ ] M-dot distinto al de la pieza anterior; sin rotar, deformar ni aplicar efectos.
 - [ ] Todo alineado a la izquierda, sentence case, sin tracking abierto.
 - [ ] Headline en Black/Super, grande, llenando el ancho (pocas palabras por línea).
-- [ ] Todos los pesos de Obviously Narrow cargados (si el render avisa "Faltan pesos", no entregar).
+- [ ] Todos los pesos de Obviously (Narrow y ancho normal) cargados (si el render avisa "Faltan pesos", no entregar).
 - [ ] Claims verificados (premios, %, cifras).
 - [ ] Safe zones respetadas en story/reel.

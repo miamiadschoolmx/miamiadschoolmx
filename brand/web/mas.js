@@ -135,12 +135,13 @@
     await document.fonts.ready;
     // Comprueba que cada peso usado exista de verdad (si falta, el navegador lo simula y se ve mal).
     const hasText = (n) => [...n.childNodes].some((c) => c.nodeType === 3 && c.textContent.trim());
-    const used = new Set([...document.querySelectorAll('.page, .page *')].filter((n) => hasText(n) && getComputedStyle(n).fontFamily.includes('Obviously Narrow'))
-      .map((n) => getComputedStyle(n).fontWeight));
-    const missing = [...used].filter((w) => ![...document.fonts].some((f) => f.family.replace(/"/g, '') === 'Obviously Narrow' && String(f.weight) === w && f.status === 'loaded'));
+    const family = (n) => getComputedStyle(n).fontFamily.split(',')[0].trim().replace(/["']/g, '');
+    const used = new Set([...document.querySelectorAll('.page, .page *')].filter((n) => hasText(n) && family(n).startsWith('Obviously'))
+      .map((n) => `${family(n)} ${getComputedStyle(n).fontWeight}`));
+    const missing = [...used].filter((k) => ![...document.fonts].some((f) => `${f.family.replace(/["']/g, '')} ${f.weight}` === k && f.status === 'loaded'));
     if (missing.length) {
-      document.documentElement.dataset.masFontMissing = missing.join(',');
-      console.warn(`[MAS] Faltan pesos de Obviously Narrow: ${missing.join(', ')}. Ver brand/fonts/README.md.`);
+      document.documentElement.dataset.masFontMissing = missing.join(', ');
+      console.warn(`[MAS] Faltan pesos de Obviously: ${missing.join(', ')}. Ver brand/fonts/README.md.`);
     }
     fit();
     if (typeof window.MAS_AFTER_FIT === 'function') await window.MAS_AFTER_FIT();

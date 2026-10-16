@@ -7,11 +7,11 @@ description: Sistema visual de Miami Ad School México (M.AD). Úsala SIEMPRE qu
 
 Todo vive en `brand/` (raíz del repo). Lee **`brand/BRAND.md`** completo antes de la primera pieza de la sesión: ahí están las reglas (voz, logo, color, tipo, layout, motion, templates y checklist). Esta skill es el **procedimiento**.
 
-**Indicación de Ricardo, tipografía**: headlines **grandes y bold**. Usa las tipografías y pesos que se vean más cool aunque no estén en el manual. Por defecto: Obviously Narrow **Black** para headlines y **Super** para golpes cortos (≤ 3 palabras por línea). También se vale cualquier otra fuente con licencia que esté en `brand/fonts/`, si le da más fuerza a la pieza. Pocas palabras por línea y `data-fit` para que el tipo llene el ancho. El logo, la paleta y la alineación a la izquierda no cambian.
+**Indicación de Ricardo, tipografía**: headlines **grandes y bold**. Usa las tipografías y pesos que se vean más cool aunque no estén en el manual. Por defecto: Obviously Narrow **Black** para headlines y **Super** para golpes cortos (≤ 3 palabras por línea). Para un golpe de 1–2 palabras por línea, una vez por pieza, está **Obviously Black/Super ancha** (`.h.wide`). También se vale cualquier otra fuente con licencia que esté en `brand/fonts/`, si le da más fuerza a la pieza. Pocas palabras por línea y `data-fit` para que el tipo llene el ancho. El logo, la paleta y la alineación a la izquierda no cambian.
 
 ## 0. Preparación (una vez por sesión)
 
-1. Fuentes: `ls brand/fonts/` debe listar Obviously Narrow Regular/Medium/Semibold/Bold (`.woff`) y Black/Super (`.otf`). Si faltan, sigue `brand/fonts/README.md` (descarga con Drive `download_file_content` y luego `python3 -I brand/scripts/drive-save.py brand/fonts ~/.claude/projects --only Obviously-Narrow`). El renderer avisa "Faltan pesos" si algún peso usado no cargó: no entregues así.
+1. Fuentes: `ls brand/fonts/` debe listar los 12 `.woff` de `brand/fonts/README.md`: Obviously Narrow y Obviously (ancho normal), cada una en Regular/Medium/Semibold/Bold/Black/Super. Si faltan, descárgalos en paralelo con Drive `download_file_content` (IDs en esa tabla) y luego corre `python3 -I brand/scripts/drive-save.py brand/fonts ~/.claude/projects --only Obviously-`. El renderer avisa "Faltan pesos" si algún peso usado no cargó: no entregues así.
 2. Si cambiaste `brand/tokens/colors.json` o assets: `node brand/scripts/build-data.mjs` (regenera `tokens/tokens.css` y `web/mas-data.js`, e imprime el contraste de cada par).
 3. La copy la escriben las skills de contenido de MAS (headline-master, carruseles-mas-instagram, content-viral-master, escritor, kallaway…). Esta skill se encarga de lo visual. Usa la voz de `BRAND.md §1` si no hay otra skill de por medio.
 
@@ -47,8 +47,8 @@ Si no está claro, pregunta una vez: "¿lo quieres editable en Canva o listo par
    - `<mas-mdot v="1-30" m="black" dot="yellow-7548" dot-dx dot-dy dot-scale align>`
    - `<mas-wordmark color>`, `<mas-lockup m dot text>`
    - `<mas-pattern layers='[…]' overlaps='[…]'>`
-   - En headlines, `data-fit` / `data-fit="both"` ajusta el tamaño a la caja. `.h` = Black por defecto; `.h.w9` = Super, `.h.w7` = Bold. Colores = keys de tokens (`pink-2425`) o hex. Variables CSS: `var(--pink-2425)`.
-3. Render: `node brand/scripts/render.mjs <archivo.html> --png` (y/o `--pdf`) `--out <dir>`. Si aparece "⚠ Obviously Narrow no cargó", detente y arregla las fuentes.
+   - En headlines, `data-fit` / `data-fit="both"` ajusta el tamaño a la caja. `.h` = Black por defecto; `.h.w9` = Super, `.h.w7` = Bold; `.h.wide` = Obviously ancha (Black; con `.w9`, Super). El cuerpo (`.body`) usa Obviously Regular. Colores = keys de tokens (`pink-2425`) o hex. Variables CSS: `var(--pink-2425)`.
+3. Render: `node brand/scripts/render.mjs <archivo.html> --png` (y/o `--pdf`) `--out <dir>`. Si aparece "⚠ Faltan pesos de Obviously", detente y arregla las fuentes.
 4. **QA visual obligatorio**: arma una hoja con `montage <dir>/*.png -tile 4x -geometry 432x540+8+8 -background '#333' sheet.png` y mírala con Read. Revisa la checklist de `BRAND.md §10`: dot encimado o recortado, overflow de texto, contraste, M-dot repetido, alineación. Itera hasta que pase.
 5. Entrega con SendUserFile (PNGs del carrusel y/o PDF). Para LinkedIn: `--pdf` de un HTML con páginas 1080×1350.
 
@@ -89,7 +89,8 @@ Flujos:
 
 ## Fuentes originales (Google Drive)
 
-- **Carpeta BRAND (privada, preferida)**: `176DZ0g0KZmKeiqxdg7z31zccdx419p9k` (Desktop = OTF, Web 2 = WOFF, LOGOS, 04 Paleta de color, templates Collins, Artes 2 = fotos con tratamiento M-dot)
+- **Carpeta BRAND (privada, preferida)**: `176DZ0g0KZmKeiqxdg7z31zccdx419p9k` (Typeface(s) = familia Obviously completa + licencias Desktop y Web, LOGOS, 04 Paleta de color, templates Collins, Artes 2 = fotos con tratamiento M-dot)
+- **Typeface(s)**: `1E8RXmt4XLlNV03uO_YEswaOBpYQqxpw0` (IDs de cada archivo en `brand/fonts/README.md`)
 - Carpeta BRANDING – MIAMI AD SCHOOL (pública por enlace; no subir ahí fuentes): `1mqQB7tKVkhZ1IGAfGBoLDFnu9sD66-X9`
 - Manual de identidad: `1L4-Bp2DnjfQk9EvcXYPqgXhAWI8Jvp-Z` (72 pp.). El brand book completo de 85 pp. lo compartió el usuario por chat: "brand book.pdf" (Drive `1QGMB-xU7OG5Qfj2SwfYYmr5f1kA1J-KA`).
 - Paleta `.ai`: `1HDKsckaI23GDOC75FTm8KermxIDHe0xP` · `.ase`: `1fxApl6reymGskW8IUYW0DhP4HE0Fa438`

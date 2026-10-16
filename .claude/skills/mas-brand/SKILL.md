@@ -13,6 +13,7 @@ Todo vive en `brand/` (raíz del repo). Lee **`brand/BRAND.md`** completo antes 
 2. **Nunca letras negras** (ni blancas). Todo el texto va en un rosa de la paleta, en un par de `text_pairs`. El negro solo existe en el M del logo.
 3. **Sin M-dots dentro de los slides** (ni en posts, escenas de reel o páginas). El **logo va solo al final**, en el cierre (lockup). Nada de wordmark en la portada.
 4. **Texto de apoyo grande y grueso**: todo lo que va abajo (cuerpo, bullets, CTA, "Desliza →") en **Obviously Narrow Bold** con la clase `.support` (64 px en 1080; `.support.sm` = 52 px para dos columnas o bloques largos). Nunca Obviously Regular delgada en slides: no se lee. Máximo 2–3 frases por slide.
+5. **Fotos tal como son**: con sus colores originales. Nunca filtros rosas ni de otro color, duotonos, tintes ni color grade.
 
 El logo, la paleta y la alineación a la izquierda no cambian.
 
@@ -40,7 +41,7 @@ Antes de diseñar, haz el plan slide por slide: qué layout Collins (`BRAND.md �
 - Alterna lectura y golpe visual. Nunca más de dos slides de texto seguidos.
 - Si la pieza tiene personas, premios, eventos o datos, usa su master (Hired, Award, Insighters, Facts, Poll). No lo resuelvas todo con Tips.
 - Sin foto disponible, no uses layouts de foto con huecos vacíos: pide las fotos o elige otro layout.
-- Fotos de fuentes mezcladas: duotono (`duo`) en los dos rosas del slide.
+- Fotos siempre con sus colores originales: nunca filtros, duotonos ni tintes.
 
 ## 2b. Decide el color ANTES de diseñar
 
@@ -64,7 +65,7 @@ Antes de diseñar, haz el plan slide por slide: qué layout Collins (`BRAND.md �
    - Formatos disponibles como clase de `.page`: `ig-post`, `ig-square`, `story`, `deck`, `yt-thumb`, `letter`, `a4`.
 2. Componentes (`web/mas.js`):
    - `<mas-lockup m dot text>`: el logo, **solo en el cierre**.
-   - `<mas-photo src duo="oscuro,claro" shape="circle" pos="50% 30%">`: foto recortada, con duotono opcional en dos rosas. Las fotos van en `brand/work/fotos/` (fuera de git).
+   - `<mas-photo src shape="circle" pos="50% 30%">`: foto recortada (rectángulo o círculo) con sus colores originales, sin filtros. Las fotos van en `brand/work/fotos/` (fuera de git).
    - `<mas-mdot>`, `<mas-wordmark>` y `<mas-pattern>` existen para la hoja de marca; no los pongas dentro de los slides.
    - En headlines, `data-fit` / `data-fit="both"` ajusta el tamaño a la caja. `.h` = Black por defecto; `.h.w9` = Super, `.h.w7` = Bold; `.h.wide` = Obviously ancha (Black; con `.w9`, Super). Texto de apoyo: `.support` (Narrow Bold 64 px) y `.support.sm` (52 px). `.body` (Obviously Regular) solo para párrafos largos de PDF. Colores = keys de tokens (`pink-2425`) o hex. Variables CSS: `var(--pink-2425)`.
 3. Render: `node brand/scripts/render.mjs <archivo.html> --png` (y/o `--pdf`) `--out <dir>`. Si aparece "⚠ Faltan pesos de Obviously", detente y arregla las fuentes.

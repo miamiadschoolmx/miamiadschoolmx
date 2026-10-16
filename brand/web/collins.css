@@ -12,7 +12,7 @@
 
    Indicaciones de Ricardo que aplican a todos: texto solo en rosas (nunca negro ni blanco), sin M-dots
    dentro de los slides (donde Collins ponía un M-dot, aquí va foto o nada), logo solo en el cierre,
-   texto de apoyo grande y grueso. Las fotos van con <mas-photo> (duo="oscuro,claro" para duotono). */
+   texto de apoyo grande y grueso. Las fotos van con <mas-photo>, siempre con sus colores originales (sin filtros). */
 
 .page[class*="c-"] {
   --col: calc((var(--w) - 2 * var(--pad)) / 6);

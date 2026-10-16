@@ -16,6 +16,7 @@ Cuando algo no esté aquí, manda el manual global. Cuando MAS México tenga una
 > 2. **Nunca letras negras** (ni blancas). Todo el texto va en un rosa de la paleta. El negro solo queda en el M del logo.
 > 3. **Sin M-dots dentro de los slides** (ni en posts, escenas de reel o páginas). El logo va **solo al final**, en el cierre.
 > 4. **Texto de apoyo grande y grueso**: Obviously Narrow Bold de 52–64 px en lienzo de 1080 (clase `.support`). Obviously Regular delgada no se usa en slides.
+> 5. **Fotos tal como son**: con sus colores originales, sin filtros rosas ni de ningún otro color, sin duotonos ni color grade.
 
 ---
 
@@ -224,7 +225,7 @@ Web (styleguide 4): H1 Narrow Medium 70/61 pt · H2 48/44 · H3 30/21 · body Ob
 
 - Tratamiento M.AD: el **M en un rosa** sobre la foto; dot rosa o secundario; el M-dot sobre zona libre de la imagen, nunca detrás del sujeto ni tapando lo importante; no se recorta el M; sin efectos.
 - Fotos auténticas, sin poses ni sonrisas forzadas, sin composiciones saturadas. Gente creando, presentando, fallando, ganando.
-- Web: fotos dentro de márgenes; color grade = brillo, Vibrance −20 de saturación, Color Lookup "Sienna-Blue" en modo Color al 50%.
+- Web (manual global): fotos dentro de márgenes con un color grade (Vibrance −20, Color Lookup "Sienna-Blue"). **MAS México no lo aplica: las fotos van con sus colores originales, sin filtros** (indicación de Ricardo).
 - En templates Collins: foto abajo a la derecha, con crédito o pie en Narrow chico debajo.
 
 ## 8. Motion
@@ -267,7 +268,7 @@ Los 12 masters existen como `.ai` (wireframes, Drive "Templates Collins 1080 x 1
 4. Cada slide en un par de color distinto, saltando entre fondos claros y profundos.
 5. Elige el layout por lo que tienes, no al revés: sin foto, no uses un layout de foto con el hueco vacío.
 
-**Fotos**: `<mas-photo src duo shape pos>` (`web/mas.js`). Usa `duo="oscuro,claro"` (duotono en dos rosas del slide) cuando las fotos vienen de fuentes distintas o sus colores pelean con el rosa. A color, solo fotos propias de MAS que no peleen con el fondo. Imágenes de terceros, siempre con crédito (estudio o agencia) en `.c-label`. Las fotos se guardan en `brand/work/fotos/` (fuera de git): nunca subas fotos de alumnos al repo.
+**Fotos**: `<mas-photo src shape pos>` (`web/mas.js`). **Siempre con sus colores originales: sin filtros, duotonos, tintes ni color grade** (indicación de Ricardo). Imágenes de terceros, siempre con crédito (estudio o agencia) en `.c-label`. Las fotos se guardan en `brand/work/fotos/` (fuera de git): nunca subas fotos de alumnos al repo.
 
 ## 10. Checklist antes de entregar
 

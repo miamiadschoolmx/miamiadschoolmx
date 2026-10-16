@@ -45,8 +45,9 @@ page.on('console', (m) => { if (['warning', 'error'].includes(m.type())) console
 page.on('pageerror', (e) => console.log(`[navegador] ${e.message}`));
 await page.goto(pathToFileURL(path.resolve(input)).href);
 await page.waitForSelector('html[data-mas-ready="1"]', { timeout: 30000 });
-if (await page.evaluate(() => document.documentElement.dataset.masFontMissing === '1')) {
-  console.warn('⚠ Obviously Narrow no cargó: el render usa una fuente de respaldo. Ver brand/fonts/README.md');
+const missingFonts = await page.evaluate(() => document.documentElement.dataset.masFontMissing);
+if (missingFonts) {
+  console.warn(`⚠ Faltan pesos de Obviously Narrow (${missingFonts}): el render usa una fuente simulada o de respaldo. Ver brand/fonts/README.md`);
 }
 
 const pages = await page.$$('.page');

@@ -133,10 +133,14 @@
 
   const ready = async () => {
     await document.fonts.ready;
-    const ok = document.fonts.check('600 80px "Obviously Narrow"');
-    if (!ok) {
-      document.documentElement.dataset.masFontMissing = '1';
-      console.warn('[MAS] Obviously Narrow no está cargada: revisa brand/fonts/ (ver brand/fonts/README.md).');
+    // Comprueba que cada peso usado exista de verdad (si falta, el navegador lo simula y se ve mal).
+    const hasText = (n) => [...n.childNodes].some((c) => c.nodeType === 3 && c.textContent.trim());
+    const used = new Set([...document.querySelectorAll('.page, .page *')].filter((n) => hasText(n) && getComputedStyle(n).fontFamily.includes('Obviously Narrow'))
+      .map((n) => getComputedStyle(n).fontWeight));
+    const missing = [...used].filter((w) => ![...document.fonts].some((f) => f.family.replace(/"/g, '') === 'Obviously Narrow' && String(f.weight) === w && f.status === 'loaded'));
+    if (missing.length) {
+      document.documentElement.dataset.masFontMissing = missing.join(',');
+      console.warn(`[MAS] Faltan pesos de Obviously Narrow: ${missing.join(', ')}. Ver brand/fonts/README.md.`);
     }
     fit();
     if (typeof window.MAS_AFTER_FIT === 'function') await window.MAS_AFTER_FIT();

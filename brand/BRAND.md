@@ -162,7 +162,12 @@ El dot nunca es negro, nunca se encima con el M y nunca se recorta.
 
 ## 4. Tipografía
 
-- **Obviously Narrow** (Regular, Medium, Semibold, Bold): headlines, info corta, wordmark.
+> **Decisión de Ricardo (oct 2026): los headlines van más grandes y más pesados, aunque no esté en el manual.** Usa los pesos y tipografías que se vean más cool e impactantes: Obviously Narrow **Black** y **Super** por defecto. Si Ricardo agrega otras fuentes a `brand/fonts/` (con licencia), también se pueden usar para headlines cuando le den más fuerza a la pieza. Lo que no cambia: el wordmark/logo (siempre el vectorial oficial), la paleta, la alineación a la izquierda y la legibilidad.
+
+- **Obviously Narrow Black** (800): **headline por defecto**.
+- **Obviously Narrow Super** (900): golpes de ≤ 3 palabras por línea a ≥ 160 px (portadas, números, reels). En tamaños chicos se cierran las contraformas: no usarla debajo de ~100 px.
+- **Obviously Narrow Bold** (700): headlines largos (4+ líneas), subtítulos, títulos de lista.
+- **Obviously Narrow** Regular / Medium: info corta (fecha, lugar, nombre), etiquetas. (Semibold queda como opción intermedia.)
 - **Obviously** (ancho normal) Regular: texto largo. No está en el Drive; mientras tanto se usa **Archivo** (OFL) como sustituto.
 - Archivos: `brand/fonts/` (ver `brand/fonts/README.md`; Obviously es licenciada y no se sube a git).
 
@@ -170,7 +175,8 @@ El dot nunca es negro, nunca se encima con el M y nunca se recorta.
 
 | Nivel | Fuente | Tamaño | Interlineado |
 |---|---|---|---|
-| Headline | Narrow Semibold (o Regular/Medium para contraste de peso) | 120–320 px, auto-fit al ancho | 0.86 |
+| Golpe / portada | Narrow Super | 160–360 px, ≤ 3 palabras por línea | 0.86 |
+| Headline | Narrow Black (Bold si son 4+ líneas) | 120–320 px, auto-fit al ancho | 0.86 |
 | Subhead / lista | Narrow Medium | 60–80 px | 0.95 |
 | Info (fecha, lugar, nombre) | Narrow Medium | 50–60 px | 0.9 |
 | Cuerpo | Obviously / Archivo | 30–36 px | 1.22 |
@@ -178,7 +184,7 @@ El dot nunca es negro, nunca se encima con el M y nunca se recorta.
 
 Web (styleguide 4): H1 Narrow Medium 70/61 pt · H2 48/44 · H3 30/21 · body Obviously Regular 18/21 · secundario 14/17 · botones Regular 18 en versalitas · links 18 subrayado (offset 4).
 
-**Reglas**: alineado a la izquierda (nunca centrado ni a la derecha) · sentence case (nunca headlines en MAYÚSCULAS) · tracking normal (nunca abrirlo) · nunca Obviously Regular para headlines · nunca Narrow para texto largo · ordinales en superíndice (16<sup>th</sup>, 4<sup>o</sup>) · flecha → como recurso tipográfico.
+**Reglas**: alineado a la izquierda (nunca centrado ni a la derecha) · sentence case (nunca headlines en MAYÚSCULAS) · tracking normal (nunca abrirlo) · headlines grandes: pocas palabras por línea para que el tipo llene el ancho · contraste de peso (Super/Black para el headline, Medium para la info) · nunca Narrow para texto largo · ordinales en superíndice (16<sup>th</sup>, 4<sup>o</sup>) · flecha → como recurso tipográfico.
 
 ---
 
@@ -241,6 +247,7 @@ Los 12 masters existen como `.ai` (wireframes, Drive "Templates Collins 1080 x 1
 - [ ] Un solo secundario por pieza, y solo en el dot.
 - [ ] M-dot distinto al de la pieza anterior; sin rotar, deformar ni aplicar efectos.
 - [ ] Todo alineado a la izquierda, sentence case, sin tracking abierto.
-- [ ] Obviously Narrow cargada (si el render avisa "fuente de respaldo", no entregar).
+- [ ] Headline en Black/Super, grande, llenando el ancho (pocas palabras por línea).
+- [ ] Todos los pesos de Obviously Narrow cargados (si el render avisa "Faltan pesos", no entregar).
 - [ ] Claims verificados (premios, %, cifras).
 - [ ] Safe zones respetadas en story/reel.

@@ -7,9 +7,11 @@ description: Sistema visual de Miami Ad School México (M.AD). Úsala SIEMPRE qu
 
 Todo vive en `brand/` (raíz del repo). Lee **`brand/BRAND.md`** completo antes de la primera pieza de la sesión: ahí están las reglas (voz, logo, color, tipo, layout, motion, templates y checklist). Esta skill es el **procedimiento**.
 
+**Indicación de Ricardo, tipografía**: headlines **grandes y bold**. Usa las tipografías y pesos que se vean más cool aunque no estén en el manual. Por defecto: Obviously Narrow **Black** para headlines y **Super** para golpes cortos (≤ 3 palabras por línea). También se vale cualquier otra fuente con licencia que esté en `brand/fonts/`, si le da más fuerza a la pieza. Pocas palabras por línea y `data-fit` para que el tipo llene el ancho. El logo, la paleta y la alineación a la izquierda no cambian.
+
 ## 0. Preparación (una vez por sesión)
 
-1. Fuentes: `ls brand/fonts/*.woff` debe listar 4 archivos de Obviously Narrow. Si faltan, sigue `brand/fonts/README.md` (descarga con Drive `download_file_content` y luego `python3 -I brand/scripts/drive-save.py brand/fonts ~/.claude/projects --only Obviously-Narrow`). Sin estas fuentes no se entrega nada renderizado.
+1. Fuentes: `ls brand/fonts/` debe listar Obviously Narrow Regular/Medium/Semibold/Bold (`.woff`) y Black/Super (`.otf`). Si faltan, sigue `brand/fonts/README.md` (descarga con Drive `download_file_content` y luego `python3 -I brand/scripts/drive-save.py brand/fonts ~/.claude/projects --only Obviously-Narrow`). El renderer avisa "Faltan pesos" si algún peso usado no cargó: no entregues así.
 2. Si cambiaste `brand/tokens/colors.json` o assets: `node brand/scripts/build-data.mjs` (regenera `tokens/tokens.css` y `web/mas-data.js`, e imprime el contraste de cada par).
 3. La copy la escriben las skills de contenido de MAS (headline-master, carruseles-mas-instagram, content-viral-master, escritor, kallaway…). Esta skill se encarga de lo visual. Usa la voz de `BRAND.md §1` si no hay otra skill de por medio.
 
@@ -45,7 +47,7 @@ Si no está claro, pregunta una vez: "¿lo quieres editable en Canva o listo par
    - `<mas-mdot v="1-30" m="black" dot="yellow-7548" dot-dx dot-dy dot-scale align>`
    - `<mas-wordmark color>`, `<mas-lockup m dot text>`
    - `<mas-pattern layers='[…]' overlaps='[…]'>`
-   - En headlines, `data-fit` / `data-fit="both"` ajusta el tamaño a la caja. Colores = keys de tokens (`pink-2425`) o hex. Variables CSS: `var(--pink-2425)`.
+   - En headlines, `data-fit` / `data-fit="both"` ajusta el tamaño a la caja. `.h` = Black por defecto; `.h.w9` = Super, `.h.w7` = Bold. Colores = keys de tokens (`pink-2425`) o hex. Variables CSS: `var(--pink-2425)`.
 3. Render: `node brand/scripts/render.mjs <archivo.html> --png` (y/o `--pdf`) `--out <dir>`. Si aparece "⚠ Obviously Narrow no cargó", detente y arregla las fuentes.
 4. **QA visual obligatorio**: arma una hoja con `montage <dir>/*.png -tile 4x -geometry 432x540+8+8 -background '#333' sheet.png` y mírala con Read. Revisa la checklist de `BRAND.md §10`: dot encimado o recortado, overflow de texto, contraste, M-dot repetido, alineación. Itera hasta que pase.
 5. Entrega con SendUserFile (PNGs del carrusel y/o PDF). Para LinkedIn: `--pdf` de un HTML con páginas 1080×1350.

@@ -7,6 +7,9 @@
 @font-face { font-family: 'Obviously Narrow'; font-weight: 500; src: url('../fonts/Obviously-Narrow_Medium.woff') format('woff'); }
 @font-face { font-family: 'Obviously Narrow'; font-weight: 600; src: url('../fonts/Obviously-Narrow_Semibold.woff') format('woff'); }
 @font-face { font-family: 'Obviously Narrow'; font-weight: 700; src: url('../fonts/Obviously-Narrow_Bold.woff') format('woff'); }
+/* Pesos pesados para headlines (Black / Super). OTF de OH no Type: licencia desktop, fuera de git. */
+@font-face { font-family: 'Obviously Narrow'; font-weight: 800; src: url('../fonts/Obviously-NarrowBlack.otf') format('opentype'); }
+@font-face { font-family: 'Obviously Narrow'; font-weight: 900; src: url('../fonts/Obviously-NarrowSuper.otf') format('opentype'); }
 
 /* Cuerpo de texto: el manual pide "Obviously" (ancho normal). Si se agrega a brand/fonts/ como
    Obviously-Regular.woff se usa automáticamente; mientras tanto, Archivo (OFL) como sustituto. */
@@ -54,12 +57,14 @@ body { display: flex; flex-direction: column; align-items: center; gap: 40px; pa
 
 /* ---------- Tipografía ---------- */
 .h, .display {
-  font-family: var(--font-display); font-weight: 600;
+  /* Headline por defecto: Black (800). Super (900) solo para golpes de ≤ 3 palabras por línea y ≥ 160 px;
+     Bold (700) para headlines largos (4+ líneas). Decisión MAS México, oct 2026. */
+  font-family: var(--font-display); font-weight: 800;
   line-height: var(--lead-display); letter-spacing: var(--track-display);
   text-align: left; text-transform: none;   /* sentence/title case, nunca ALL CAPS en headlines */
   font-kerning: normal;
 }
-.h.w4 { font-weight: 400; } .h.w5 { font-weight: 500; } .h.w7 { font-weight: 700; }
+.h.w4 { font-weight: 400; } .h.w5 { font-weight: 500; } .h.w6 { font-weight: 600; } .h.w7 { font-weight: 700; } .h.w8 { font-weight: 800; } .h.w9 { font-weight: 900; }
 .meta {
   font-family: var(--font-display); font-weight: 500;
   font-size: 58px; line-height: 0.9; letter-spacing: -0.005em;

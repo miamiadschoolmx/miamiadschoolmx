@@ -128,7 +128,10 @@
 
   // Ajusta headlines a su caja. Búsqueda binaria sobre font-size.
   function fit(root = document) {
-    for (const n of root.querySelectorAll('[data-fit]')) {
+    // Primero los de solo ancho y después los "both": así el alto que reparte un flex ya incluye
+    // el tamaño final de sus hermanos con data-fit (si no, el "both" se queda grande y se encima).
+    const nodes = [...root.querySelectorAll('[data-fit]')];
+    for (const n of [...nodes.filter((n) => n.dataset.fit !== 'both'), ...nodes.filter((n) => n.dataset.fit === 'both')]) {
       const both = n.dataset.fit === 'both';
       const max = Number(n.dataset.fitMax || 1200), min = Number(n.dataset.fitMin || 12);
       const fits = () => n.scrollWidth <= n.clientWidth + 0.5 && (!both || n.scrollHeight <= n.clientHeight + 0.5);

@@ -32,6 +32,9 @@
 .c-slot { background: color-mix(in srgb, var(--fg) 22%, var(--bg)); display: grid; place-items: center; }
 .c-slot::after { content: 'Foto'; font-family: var(--font-display); font-weight: 600; font-size: 36px; color: var(--fg); opacity: .7; }
 
+/* Crédito de foto ("Foto: Nombre / Unsplash"): chico, en el color del texto, nunca encima de la foto. */
+.c-credit { position: absolute; font-family: var(--font-display); font-weight: 600; font-size: 28px; line-height: 1; }
+
 /* ---------- Tips ---------- */
 .c-tips-cover .c-top .h { height: calc(var(--row) * 4.6); }
 .c-tips .c-top .h { max-height: calc(var(--row) * 3); }
@@ -39,6 +42,7 @@
 /* Tips with Images: título + subtítulo arriba, texto abajo a la izquierda, imagen abajo a la derecha (3 cols × 3.5 filas) */
 .c-tips-img .c-bot { right: auto; width: calc(var(--col) * 3 - 28px); }
 .c-tips-img .c-img { right: var(--pad); bottom: var(--pad); width: calc(var(--col) * 3); height: calc(var(--row) * 3.5); }
+.c-tips-img .c-credit { left: calc(var(--w) - var(--pad) - var(--col) * 3); bottom: calc(var(--pad) + var(--row) * 3.5 + 14px); }
 
 /* ---------- Facts ---------- */
 .c-fact .c-top .h { max-height: calc(var(--row) * 4); }

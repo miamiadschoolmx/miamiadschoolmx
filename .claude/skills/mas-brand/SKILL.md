@@ -74,9 +74,18 @@ Antes de diseñar, haz el plan slide por slide: qué layout Collins (`BRAND.md �
 
 ## Fotos de Unsplash
 
-Requisitos del entorno: variable `UNSPLASH_ACCESS_KEY` (Access Key de la app de Unsplash) y los dominios `api.unsplash.com` e `images.unsplash.com` permitidos en el acceso a red. Si falta algo, el script lo dice; pásale a Ricardo el paso que falta y no inventes fotos.
+Hay dos rutas. Usa la que esté disponible en la sesión; las dos guardan todo en `brand/work/fotos/unsplash/` (fuera de git).
 
-Comandos (todo se guarda en `brand/work/fotos/unsplash/`, fuera de git):
+**Ruta 1 · Conector de Unsplash (preferida; no necesita llave).** Si existen las herramientas `mcp__Unsplash__*`:
+1. `search_photos` con `query` corta en inglés (un concepto por búsqueda), `orientation` según el hueco del layout, `per_page` 6–12 y `content_filter: high`.
+2. Baja las miniaturas (`urls.small`) con `curl` a `busqueda-<slug>/NN.jpg` y arma la hoja con `montage -label '%t' … -tile 4x -geometry '360x360>+10+10'`. Mírala con Read para elegir.
+3. Para cada foto elegida llama `download_asset` con su `id` (registra la descarga, como pide Unsplash) y baja la URL que devuelve con `curl` agregando `&w=2160` a `<id>.jpg`.
+4. Anota el crédito en `creditos.md`: `Foto: <user.name> / Unsplash` con los enlaces `user.links.html` y `links.html` más `?utm_source=mas_mexico_brand&utm_medium=referral`.
+Necesita `images.unsplash.com` permitido en el acceso a red.
+
+**Ruta 2 · Script con llave propia.** Requiere la variable `UNSPLASH_ACCESS_KEY` y los dominios `api.unsplash.com` e `images.unsplash.com` permitidos. Si falta algo, el script lo dice; pásale a Ricardo el paso que falta y no inventes fotos.
+
+Comandos:
 - `python3 -I brand/scripts/unsplash.py buscar "consulta" [--orientacion portrait|landscape|squarish] [--n 12]`: guarda `busqueda-<slug>.json`, arma la hoja de contacto numerada `busqueda-<slug>.jpg` e imprime número, id, tamaño, autor y descripción.
 - `python3 -I brand/scripts/unsplash.py bajar <id> [<id> ...] [--ancho 2160]`: descarga `<id>.jpg`, avisa la descarga a Unsplash (lo pide su guía) y suma el crédito a `creditos.json` y `creditos.md`.
 - Pruebas sin red: `python3 -I -m unittest discover -s brand/scripts -p "test_*.py"`.
@@ -90,7 +99,7 @@ Flujo (Ricardo quiere que Claude elija las fotos y las ponga directo en la pieza
    - Sus colores conviven con el rosa del slide sin filtros: tonos cálidos, neutros, rojos o rosas antes que verdes o azules saturados.
    - Auténtica (gente creando o presentando, sin pose), sin logos ni texto que distraiga y con resolución suficiente para el hueco.
    - Variedad en la pieza: no repitas el mismo tipo de toma o color dominante en slides seguidos.
-4. Baja solo las elegidas (los ids salen en la tabla y en el JSON) y úsalas con `<mas-photo src="../work/fotos/unsplash/<id>.jpg">`. Pon el crédito en el `.c-label` o en el caption.
+4. Baja solo las elegidas y úsalas con `<mas-photo src="../work/fotos/unsplash/<id>.jpg">`. Pon el crédito con `<div class="c-credit">Foto: Nombre / Unsplash</div>` (chico, fuera de la foto; en `c-tips-img` ya va justo arriba de la imagen) o en el caption.
 5. Renderiza, haz el QA y entrega. En el mensaje di qué foto va en cada slide y por qué en una línea, y ofrece cambiar cualquiera (la hoja de contacto queda guardada para eso).
 6. Cupo: el modo demo da 50 llamadas por hora (cada búsqueda cuenta 1 y cada foto bajada 2). Un carrusel típico usa de 10 a 20.
 

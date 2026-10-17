@@ -17,6 +17,43 @@ Todo vive en `brand/` (raíz del repo). Lee **`brand/BRAND.md`** completo antes 
 
 El logo, la paleta y la alineación a la izquierda no cambian.
 
+## Cómo trabaja Ricardo (aprendido en producción)
+
+**Su copy**
+- Ricardo manda la copy slide por slide: úsala tal cual.
+- Solo cambia títulos en MAYÚSCULAS a sentence case y quita la numeración de los títulos ("1.", "2.").
+- Nunca agregues números de slide, folios ni contadores ("01/10").
+- Si cambias algo más, dilo en la entrega.
+
+**Diseño que le funcionó**
+- Referencias aprobadas: `templates/carousel.html` ("8 ajustes", le dijo "wow, me gusta") y `templates/carousel-recursos.html` ("7 herramientas").
+- Lo que le gusta:
+  - tipo rosa enorme;
+  - un color y un layout distinto en cada slide;
+  - portada solo tipográfica;
+  - cierre con frase y lockup tonal.
+- Lo que rechazó:
+  - texto negro;
+  - M-dots dentro de los slides;
+  - letra de apoyo delgada o chica;
+  - descendentes que chocan con la línea de abajo;
+  - fotos con filtro rosa.
+
+**Entrega**
+- Manda una vista previa (`montage` de los 10 slides) y **un ZIP** con los PNG numerados (`<pieza>-01.png`…). Los PNG sueltos no: descargarlos uno por uno es incómodo.
+- Al final ofrece en una línea: caption (skill `carruseles-mas-instagram`, sin hashtags salvo que los pida), PDF para LinkedIn o un reel.
+- Si pregunta cómo subirlo:
+  - selecciona en orden del 01 al 10;
+  - recorte 4:5 (vertical completo), no cuadrado;
+  - sin filtros de Instagram.
+
+**QA que no se salta**
+1. Revisa los slides a tamaño real, no solo la hoja: busca descendentes que tocan la línea, el filete o el link de abajo, desbordes y textos pegados.
+2. Revisa que no haya texto negro con:
+   `for f in <dir>/*.png; do convert "$f" -fuzz 12% -fill white +opaque black -fill black -opaque black -format '%[fx:(1-mean)*100]\n' info:; done`
+   Todo tiene que dar 0 (si el cierre usa el lockup con M negro, solo ese slide puede dar más que 0).
+3. Si Ricardo encuentra un error, revisa si el mismo error está en los demás slides y en las plantillas, y arréglalo en el sistema, no solo en la pieza.
+
 ## 0. Preparación (una vez por sesión)
 
 1. Fuentes: `ls brand/fonts/` debe listar los 12 `.woff` de `brand/fonts/README.md`: Obviously Narrow y Obviously (ancho normal), cada una en Regular/Medium/Semibold/Bold/Black/Super. Si faltan, descárgalos en paralelo con Drive `download_file_content` (IDs en esa tabla) y luego corre `python3 -I brand/scripts/drive-save.py brand/fonts ~/.claude/projects --only Obviously-`. El renderer avisa "Faltan pesos" si algún peso usado no cargó: no entregues así.
@@ -59,6 +96,7 @@ Antes de diseñar, haz el plan slide por slide: qué layout Collins (`BRAND.md �
 
 1. Copia la plantilla más cercana a una carpeta de trabajo fuera de git, p. ej. `brand/work/<slug>.html` (crea la carpeta; `**/out/` ya está ignorado; agrega `brand/work/` a `.gitignore` si no está). Ajusta las rutas relativas (`../web/…`) a la ubicación nueva.
    - **`templates/collins.html` + `web/collins.css`: los 12 Master Templates de Collins como 20 layouts** (clases `c-…`). Es la base para cualquier carrusel o post: elige el layout de cada slide con la tabla de `BRAND.md §9` (Tips, Tips with Images, Facts, Quotes, Poll, Single Photo, Insighters, Hired, 2BeHired, Award Winner, Multiple Photo, cierre).
+   - `templates/carousel-recursos.html`: carrusel de recursos (7 herramientas): un layout distinto por recurso, con nombre, frases de apoyo y enlace.
    - `templates/carousel.html`: carrusel tipográfico de ejemplo con 10 layouts propios, sin M-dots: portada tipográfica (golpe ancho + Narrow Black), headline + ejemplo como cita, headline + frases + remate con flecha, statement en Super, lista con flechas, headline que crece línea a línea, pregunta protagonista, comparación a dos columnas, golpe ancho, cierre con frase + lockup.
    - `templates/document.html`: PDF carta (portada tipográfica, interior legible, contraportada con lockup).
    - `templates/brand-sheet.html`: referencia del sistema (deck 1920×1080).
@@ -70,7 +108,7 @@ Antes de diseñar, haz el plan slide por slide: qué layout Collins (`BRAND.md �
    - En headlines, `data-fit` / `data-fit="both"` ajusta el tamaño a la caja. `.h` = Black por defecto; `.h.w9` = Super, `.h.w7` = Bold; `.h.wide` = Obviously ancha (Black; con `.w9`, Super). Texto de apoyo: `.support` (Narrow Bold 64 px) y `.support.sm` (52 px). `.body` (Obviously Regular) solo para párrafos largos de PDF. Colores = keys de tokens (`pink-2425`) o hex. Variables CSS: `var(--pink-2425)`.
 3. Render: `node brand/scripts/render.mjs <archivo.html> --png` (y/o `--pdf`) `--out <dir>`. Si aparece "⚠ Faltan pesos de Obviously", detente y arregla las fuentes.
 4. **QA visual obligatorio**: arma una hoja con `montage <dir>/*.png -tile 4x -geometry 432x540+8+8 -background '#333' sheet.png` y mírala con Read. Revisa la checklist de `BRAND.md §10`: descendentes (g, j, p, y) que toquen la línea de abajo o un filete, nada de texto negro, ningún M-dot fuera del cierre, texto de apoyo legible a tamaño de teléfono (Narrow Bold ≥ 52 px), overflow, contraste, alineación. Itera hasta que pase.
-5. Entrega con SendUserFile (PNGs del carrusel y/o PDF). Para LinkedIn: `--pdf` de un HTML con páginas 1080×1350.
+5. Entrega con SendUserFile: vista previa + ZIP con los PNG numerados (ver "Cómo trabaja Ricardo"). Para LinkedIn: `--pdf` de un HTML con páginas 1080×1350.
 
 ## Fotos de Unsplash
 

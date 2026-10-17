@@ -110,6 +110,39 @@ Antes de diseñar, haz el plan slide por slide: qué layout Collins (`BRAND.md �
 4. **QA visual obligatorio**: arma una hoja con `montage <dir>/*.png -tile 4x -geometry 432x540+8+8 -background '#333' sheet.png` y mírala con Read. Revisa la checklist de `BRAND.md §10`: descendentes (g, j, p, y) que toquen la línea de abajo o un filete, nada de texto negro, ningún M-dot fuera del cierre, texto de apoyo legible a tamaño de teléfono (Narrow Bold ≥ 52 px), overflow, contraste, alineación. Itera hasta que pase.
 5. Entrega con SendUserFile: vista previa + ZIP con los PNG numerados (ver "Cómo trabaja Ricardo"). Para LinkedIn: `--pdf` de un HTML con páginas 1080×1350.
 
+## Biblioteca de MAS en Drive (privada)
+
+Carpeta **BIBLIOTECA** dentro de BRAND: `18n0WHBOuaIIMH24L9b5nQ4IX0XQ8h4AR`. Reglas de uso para el equipo en el doc "00 LÉEME" (`1LPo4XmvBCW9nwU73E4WHQXnNjaOIxWbiGp44i6rfcxo`).
+
+| Carpeta | ID | Para qué |
+|---|---|---|
+| 01 FOTOS MAS | `1U5ARvJvLUSlUw6ygyeAodMZtVQhI-2UI` | fotos reales. Subcarpetas: Alumnos en clase `1lgN0oA5txL-lxcyT_jKP3DXlc3BcP2hM` · Presentaciones y críticas `1Zp1UGFRcMSpJ6TwNPk12XplobQtSMqfX` · Eventos y speakers `1_WHrdhtXPy26HvY9t0g6cwE4my_XTDra` · Egresados contratados `1V75obl96Z642qxrTdURtmXU6kEn1MSTY` · Premios `1y08KTG1jm2-uaX2qHVqCmQQY5Zxa6N74` · Campus y comunidad `1ywOsbMHTdK8iVxU_NwBKkJSFH5hcB9_j` · Equipo MAS `1KySQ0YI70uo4_tVAbPKhiotBgrGZ246P` · Detrás de cámaras `14qmm_LH4Fb3i0Y8P-o5uox8KDZBXzsKI` |
+| 02 TRABAJOS DE ALUMNOS | `1z1yNA9O99c5B76SUt3anyakFJqwCxEWN` | piezas de alumnos con créditos |
+| 03 LOGOS | `1488TFdIESBMkVaobxPW9QnCeJkMZDvCy` | Premios `1WCbLHGBZ2N3zd0q224Qazqw2FADK5HUR` · Agencias `1ZWOhUzm4XJrYs8Ivf5tI0h_zeh1PRUpi` · Aliados y empresas `1ApChN19970XL9i4yEa5xs4pRIHnUPnDz` |
+| 04 DATOS OFICIALES | `1-2IRTRgVXL3gWeL3z4B97yxySYLLQoyH` | doc "Datos oficiales MAS" `1imI8T9oq4ODko1UEyrRfsf4MlHxG3uyfAoTf-beqRL8` |
+| 05 TESTIMONIOS | `1PGsXLU6dw2_WPLkZYONXAcT6MrtNdw5e` | frases, audios y videos con permiso |
+| 06 PROFESORES Y MENTORES | `1Jojb9ondBCiiVx45ifAMr5cx7yAEsIlK` | foto, puesto, agencia y bio |
+| 07 PROGRAMAS Y BOOTCAMPS | `1coStAMcvmuW4lSzP9YM9F5W5yw671rP0` | temarios, fechas y material de venta |
+| 08 VIDEO | `1H92TSZkp2pAK0-dPoWo1xu9YfDaaMcSq` | Clases `1i-IJGDELsfVHy3Xq2f8ztncdo2iUQt19` · Eventos `1UEItD-WqiWnEm1AjiI08hiki03bOs9aL` · Testimonios `1LuCToNQGSnYV_BRjI92pQHChZ84kBW3a` · B-roll `1SJtGw6OMrJYR9yWicMGrHhBNTpsgWLZe` |
+| 09 CAPTURAS | `1SKYWcQYtr68_Ceq8Q3aHo7wtluJynApx` | pantallas de herramientas para carruseles de recursos |
+| 10 REFERENCIAS | `1m3OWTYqhm4UFQk3wynmsWADwZWlMj1MO` | piezas que le gustan a Ricardo (el porqué va en el nombre) |
+| 11 IDEAS Y TEMAS | `1GsujKx5DM3Oj3GjECDEYKfEpA5ibu54u` | hoja "Banco de temas" `1gUeofibBMooUA7fENEr0A4CpiI4LVXNStF2259V0U_A` |
+| 12 PIEZAS PUBLICADAS | `1ot8KE1whDRZrKT-mOLfu2ULNRG-Ge2V8` | ZIP o PDF final de lo publicado |
+| 13 MÉTRICAS | `1L-P6Crn4hgfB4FaeaBSPco_TEhkfbMEo` | exports de Instagram |
+| 14 PRENSA Y MENCIONES | `1KxgxqhVL1tzlYYo4zRUzugNdZuLW0iX5` | notas y entrevistas |
+| 15 ALIANZAS Y EMPRESAS | `1055uaW4wPj5NpnxCtAOusp4Zhla6doDb` | empresas que contratan, convenios |
+| 16 CALENDARIO | `1XKpiHYIobtp9u42ACRYaavVgRzKzrPjO` | hoja "Fechas clave" `1g9BhF5civaNrKtIDbl1nkRGg4hChZFWAALrUcaXSntI` |
+| 17 MÚSICA CON LICENCIA | `10GZeD9mTNwUYHYpZenjc01oDLNuM6W3C` | pistas para reels con su licencia |
+| 18 PLANTILLAS EDITABLES | `1L4OniZR1igeOOhvgxH97_RLIg6xJjwSI` | editables del equipo (Canva y otros) |
+
+Cómo usarla en cada pieza:
+1. Antes de proponer o producir, lee el "Banco de temas" y lista "12 PIEZAS PUBLICADAS" para no repetir temas.
+2. Cifras, precios, fechas y premios: solo del doc "Datos oficiales MAS". Si dice "Pendiente" o no está, no lo pongas en la pieza.
+3. Fotos: busca primero en "01 FOTOS MAS" (`search_files` con `parentId`), bájalas con `download_file_content` y guárdalas con `python3 -I brand/scripts/drive-save.py brand/work/fotos/drive ~/.claude/projects`. Nunca uses archivos con `_interno` en el nombre. Si no hay foto que sirva, usa Unsplash.
+4. Logos de premios y agencias: "03 LOGOS". Capturas para carruseles de recursos: "09 CAPTURAS".
+5. Si la carpeta que necesitas está vacía, dile a Ricardo qué subir y dónde, en una línea.
+6. En esta sesión solo hay conector de Drive: puedes crear y leer archivos, pero no editar un Sheet o Doc existente. Para agregar una fila al Banco de temas, pídeselo a Ricardo o pide que active los conectores de Google Sheets y Docs.
+
 ## Fotos de Unsplash
 
 Hay dos rutas. Usa la que esté disponible en la sesión; las dos guardan todo en `brand/work/fotos/unsplash/` (fuera de git).
@@ -129,7 +162,7 @@ Comandos:
 - Pruebas sin red: `python3 -I -m unittest discover -s brand/scripts -p "test_*.py"`.
 
 Flujo (Ricardo quiere que Claude elija las fotos y las ponga directo en la pieza):
-1. Planea qué slides llevan foto y qué layout Collins le toca a cada uno.
+1. Planea qué slides llevan foto y qué layout Collins le toca a cada uno. Si es de MAS (alumnos, eventos, premios, egresados), la foto sale de la BIBLIOTECA, no de Unsplash.
 2. Busca con consultas en inglés y concretas ("art director reviewing layouts", "creative team workshop"). Usa `--orientacion` según el hueco del layout: `portrait` para Tips with Images, `squarish` para círculos, `landscape` para fotos horizontales. Si los resultados no sirven, reformula la búsqueda (máximo 3 intentos por slide).
 3. Mira la hoja de contacto con Read y elige tú con estos criterios, en orden:
    - Dice lo mismo que el slide, literal o como metáfora clara. Nada de clichés de banco (apretón de manos, foco, gente sonriendo a cámara).

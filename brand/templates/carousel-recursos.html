@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>MAS — Carrusel de recursos (plantilla)</title>
+<link rel="stylesheet" href="../web/mas.css">
+<style>
+  /* Carrusel de recursos IG 1080×1350 (ejemplo aprobado: "7 herramientas para investigar antes de crear una campaña").
+     Un layout distinto por recurso: nombre como headline, 2–3 frases de apoyo y el enlace con flecha (.url).
+     Duplica este archivo en brand/work/ y cambia copy y colores. Reglas de Ricardo: texto solo en rosas,
+     sin M-dots en los slides, logo solo en el cierre, apoyo en Obviously Narrow Bold grande (.support). */
+  .col { position: absolute; inset: var(--pad); display: flex; flex-direction: column; justify-content: space-between; }
+  .url { font-family: var(--font-display); font-weight: 600; font-size: 46px; line-height: 1; display: grid; grid-template-columns: 1.1em 1fr; }
+  .url::before { content: '→'; font-weight: 800; }
+  .stmt { font-family: var(--font-display); font-weight: 800; font-size: 88px; line-height: 0.98; }
+  .punch { font-family: var(--font-display); font-weight: 800; font-size: 70px; line-height: 0.98; display: grid; grid-template-columns: 0.9em 1fr; }
+  .arrows { list-style: none; }
+  .arrows li { display: grid; grid-template-columns: 1.05em 1fr; }
+  .arrows li + li { margin-top: 0.5em; }
+  .arrows li::before { content: '→'; font-weight: 800; }
+  .ruled > p { border-top: 6px solid currentColor; padding: 22px 0 26px; margin: 0 !important; }
+  .ruled > p:last-child { padding-bottom: 0; }
+  .groups > div { font-family: var(--font-display); font-weight: 800; font-size: 78px; line-height: 0.98; border-top: 6px solid currentColor; padding: 18px 0 22px; }
+  .gap-l > * + * { margin-top: 44px; }
+</style>
+</head>
+<body>
+
+<!-- 01 · Gancho · Rubine + Blush. Solo tipo. -->
+<section class="page ig-post" style="--bg: var(--pink-220); --fg: var(--pink-182)">
+  <div class="col" style="gap: 24px">
+    <div class="h w9" data-fit>7 herramientas</div>
+    <div class="h" data-fit="both" style="flex: 1; min-height: 0">para<br>investigar<br>antes de<br>crear una<br>campaña</div>
+    <div class="support">Desliza <span class="arrow"></span></div>
+  </div>
+</section>
+
+<!-- 02 · Google Trends · Light Orchid + Plum: nombre, dos frases y la advertencia como remate -->
+<section class="page ig-post" style="--bg: var(--pink-245); --fg: var(--pink-2425)">
+  <div class="col">
+    <div class="h" data-fit data-fit-max="250">Google<br>Trends</div>
+    <div class="gap-l">
+      <div class="support">
+        <p>Descubre cómo cambia el interés de búsqueda por un tema.</p>
+        <p>Compara términos, países y periodos para identificar oportunidades.</p>
+      </div>
+      <p class="punch"><span>→</span><span>Úsalo para formular hipótesis, no para afirmar cuántas personas compran un producto.</span></p>
+      <div class="url">trends.google.com</div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 · Meta Ad Library · Plum + Lilac Pink: nombre en Super llenando la mitad, lista con flechas -->
+<section class="page ig-post" style="--bg: var(--pink-2425); --fg: var(--pink-230)">
+  <div class="col" style="gap: 40px">
+    <div class="h w9" data-fit="both" style="flex: 1; min-height: 0">Meta<br>Ad Library</div>
+    <ul class="arrows support sm">
+      <li>Consulta anuncios publicados en las plataformas de Meta.</li>
+      <li>Busca marcas de tu categoría y analiza cómo presentan sus productos, beneficios y ofertas.</li>
+      <li>Identifica patrones creativos y oportunidades de diferenciación.</li>
+    </ul>
+    <div class="url">facebook.com/ads/library</div>
+  </div>
+</section>
+
+<!-- 04 · TikTok Creative Center · Salmon + Plum: la primera frase como statement -->
+<section class="page ig-post" style="--bg: var(--pink-176); --fg: var(--pink-2425)">
+  <div class="col">
+    <div>
+      <div class="h" data-fit>TikTok<br>Creative Center</div>
+      <p class="stmt" style="margin-top: 48px">Investiga anuncios destacados y tendencias disponibles en TikTok.</p>
+    </div>
+    <div class="gap-l">
+      <div class="support">
+        <p>Utiliza los filtros de industria y región para encontrar referencias.</p>
+        <p>Observa cómo construyen sus aperturas y presentan sus productos.</p>
+      </div>
+      <div class="url">ads.tiktok.com/business/creativecenter</div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 · Google Ads Transparency Center · Blush + Rubine: lista con filetes -->
+<section class="page ig-post" style="--bg: var(--pink-182); --fg: var(--pink-220)">
+  <div class="col">
+    <div class="h" data-fit>Google Ads<br>Transparency<br>Center</div>
+    <div>
+      <div class="ruled support sm">
+        <p>Explora anuncios de anunciantes verificados.</p>
+        <p>Compara mensajes, formatos y ejecuciones utilizados por marcas de una misma categoría.</p>
+        <p>Busca diferencias entre sus anuncios de imagen, texto y video.</p>
+      </div>
+      <div class="url" style="margin-top: 36px">adstransparency.google.com</div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 · DataReportal · Plum + Light Orchid: invertido, texto arriba y nombre gigante abajo -->
+<section class="page ig-post" style="--bg: var(--pink-2425); --fg: var(--pink-245)">
+  <div class="col">
+    <div class="support">
+      <p>Encuentra reportes sobre uso de internet, redes sociales y plataformas digitales.</p>
+      <p>Consulta los informes por país.</p>
+      <p>Revisa las fechas y definiciones de cada dato antes de incorporarlo a tu estrategia.</p>
+    </div>
+    <div>
+      <div class="h w9" data-fit>DataReportal</div>
+      <div class="url" style="margin-top: 56px">datareportal.com</div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 · INEGI · Lilac Pink + Plum: golpe ancho en Obviously Super -->
+<section class="page ig-post" style="--bg: var(--pink-230); --fg: var(--pink-2425)">
+  <div class="col">
+    <div class="h wide w9" data-fit>INEGI</div>
+    <div class="gap-l">
+      <div class="support">
+        <p>Investiga información demográfica, económica y social de México.</p>
+        <p>Consulta encuestas y estadísticas oficiales.</p>
+        <p>Utiliza esos datos para comprender mejor el contexto donde vive tu audiencia.</p>
+      </div>
+      <div class="url">inegi.org.mx</div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 · AnswerThePublic · Orchid + Plum: nombre y texto a dos columnas -->
+<section class="page ig-post" style="--bg: var(--pink-231); --fg: var(--pink-2425)">
+  <div class="col">
+    <div class="h" data-fit>AnswerThe<br>Public</div>
+    <div class="gap-l">
+      <div class="cols-2 support" style="align-items: start; column-gap: 40px; font-size: 58px">
+        <div><p>Descubre preguntas y búsquedas relacionadas con un tema.</p><p>Investiga qué dudas aparecen alrededor de una categoría o necesidad.</p></div>
+        <div><p>Utiliza esas preguntas para desarrollar contenido educativo y nuevas hipótesis de investigación.</p></div>
+      </div>
+      <div class="url">answerthepublic.com</div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 · Blush + Plum: los tres grupos como protagonistas -->
+<section class="page ig-post" style="--bg: var(--pink-182); --fg: var(--pink-2425)">
+  <div class="col">
+    <div>
+      <div class="h" data-fit data-fit-max="150">Convierte la<br>investigación<br>en decisiones</div>
+      <div class="support" style="margin-top: 32px">Organiza tus hallazgos en tres grupos:</div>
+    </div>
+    <div class="groups">
+      <div>Comportamientos de la audiencia.</div>
+      <div>Mensajes de la competencia.</div>
+      <div>Oportunidades poco exploradas.</div>
+    </div>
+    <div class="support">Después identifica qué información necesita validación adicional.</div>
+  </div>
+</section>
+
+<!-- 10 · Cierre · Rubine + Blush. Único lugar con logo: lockup tonal, dot Leaf (Rubine → Leaf, manual). -->
+<section class="page ig-post" style="--bg: var(--pink-220); --fg: var(--pink-182)">
+  <div class="col">
+    <div>
+      <div class="h" data-fit>Investigar mejor<br>te ayuda a tomar<br>decisiones creativas<br>con mayor fundamento.</div>
+      <div class="support" style="margin-top: 44px">Guarda estas siete herramientas para tu próximo brief.</div>
+    </div>
+    <mas-lockup m="pink-182" dot="green-2268" text="pink-182" style="height: 250px"></mas-lockup>
+  </div>
+</section>
+
+<script src="../web/mas-data.js"></script>
+<script src="../web/mas.js"></script>
+</body>
+</html>

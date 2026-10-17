@@ -1,0 +1,124 @@
+/* Miami Ad School México — sistema visual para piezas HTML (carruseles, stories, PDFs, motion).
+   Reglas completas en brand/BRAND.md. Usar junto con mas-data.js y mas.js. */
+@import url('../tokens/tokens.css');
+
+/* Tipografía primaria: Obviously Narrow (licenciada; los .woff viven en brand/fonts/, fuera de git). */
+@font-face { font-family: 'Obviously Narrow'; font-weight: 400; src: url('../fonts/Obviously-Narrow.woff') format('woff'); }
+@font-face { font-family: 'Obviously Narrow'; font-weight: 500; src: url('../fonts/Obviously-Narrow_Medium.woff') format('woff'); }
+@font-face { font-family: 'Obviously Narrow'; font-weight: 600; src: url('../fonts/Obviously-Narrow_Semibold.woff') format('woff'); }
+@font-face { font-family: 'Obviously Narrow'; font-weight: 700; src: url('../fonts/Obviously-Narrow_Bold.woff') format('woff'); }
+/* Pesos pesados para headlines (Black / Super). Sirve el .woff de la carpeta Web o el .otf de Desktop. */
+@font-face { font-family: 'Obviously Narrow'; font-weight: 800; src: url('../fonts/Obviously-Narrow_Black.woff') format('woff'), url('../fonts/Obviously-NarrowBlack.otf') format('opentype'); }
+@font-face { font-family: 'Obviously Narrow'; font-weight: 900; src: url('../fonts/Obviously-Narrow_Super.woff') format('woff'), url('../fonts/Obviously-NarrowSuper.otf') format('opentype'); }
+
+/* Obviously (ancho normal): Regular–Bold para cuerpo de texto (lo pide el manual) y Black/Super
+   para headlines anchos de pocas palabras (clase .wide). Archivo (OFL) queda como respaldo. */
+@font-face { font-family: 'Obviously'; font-weight: 400; src: url('../fonts/Obviously-Regular.woff') format('woff'); }
+@font-face { font-family: 'Obviously'; font-weight: 500; src: url('../fonts/Obviously-Medium.woff') format('woff'); }
+@font-face { font-family: 'Obviously'; font-weight: 600; src: url('../fonts/Obviously-Semibold.woff') format('woff'); }
+@font-face { font-family: 'Obviously'; font-weight: 700; src: url('../fonts/Obviously-Bold.woff') format('woff'); }
+@font-face { font-family: 'Obviously'; font-weight: 800; src: url('../fonts/Obviously-Black.woff') format('woff'); }
+@font-face { font-family: 'Obviously'; font-weight: 900; src: url('../fonts/Obviously-Super.woff') format('woff'); }
+@font-face { font-family: 'Archivo'; font-weight: 400; src: url('../fonts/archivo/archivo-latin-400-normal.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2190-2199, U+2212, U+2215; }
+@font-face { font-family: 'Archivo'; font-weight: 400; src: url('../fonts/archivo/archivo-latin-ext-400-normal.woff2') format('woff2'); unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Archivo'; font-weight: 500; src: url('../fonts/archivo/archivo-latin-500-normal.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2190-2199, U+2212, U+2215; }
+@font-face { font-family: 'Archivo'; font-weight: 500; src: url('../fonts/archivo/archivo-latin-ext-500-normal.woff2') format('woff2'); unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Archivo'; font-weight: 600; src: url('../fonts/archivo/archivo-latin-600-normal.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2190-2199, U+2212, U+2215; }
+@font-face { font-family: 'Archivo'; font-weight: 600; src: url('../fonts/archivo/archivo-latin-ext-600-normal.woff2') format('woff2'); unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF; }
+
+:root {
+  --font-display: 'Obviously Narrow', 'Arial Narrow', sans-serif;
+  --font-body: 'Obviously', 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  /* Interlineado y tracking de headline: compacto, NUNCA tracking abierto. 0.96 es el mínimo para que los
+     descendentes (g, j, p, q, y) no choquen con los acentos y ascendentes de la línea siguiente. */
+  --lead-display: 0.96;
+  --track-display: -0.01em;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #1b1b1b; }
+body { display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px 0; }
+
+/* ---------- Página / formato ---------- */
+.page {
+  position: relative; overflow: hidden; flex: none;
+  width: var(--w); height: var(--h);
+  background: var(--bg, var(--pink-238)); color: var(--fg, var(--pink-2425)); /* el texto nunca es negro */
+  --pad: 44px;                         /* margen exterior: el sistema pega el tipo cerca del borde */
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision;
+}
+.ig-post   { --w: 1080px; --h: 1350px; }   /* Instagram feed / carrusel 4:5 */
+.ig-square { --w: 1080px; --h: 1080px; }
+.story     { --w: 1080px; --h: 1920px; --pad: 64px; } /* Story / Reel / TikTok — respetar safe zones */
+.deck      { --w: 1920px; --h: 1080px; --pad: 72px; } /* Presentación 16:9 */
+.yt-thumb  { --w: 1280px; --h: 720px;  --pad: 40px; }
+.letter    { --w: 816px;  --h: 1056px; --pad: 56px; } /* PDF carta (96 dpi) */
+.a4        { --w: 794px;  --h: 1123px; --pad: 56px; }
+
+/* Safe zones de story/reel (UI de Instagram/TikTok tapa arriba y abajo). */
+.story .safe-top { top: 250px !important; }
+.story .safe-bottom { bottom: 340px !important; }
+
+/* ---------- Tipografía ---------- */
+.h, .display {
+  /* Headline por defecto: Black (800). Super (900) solo para golpes de ≤ 3 palabras por línea y ≥ 160 px;
+     Bold (700) para headlines largos (4+ líneas). Decisión MAS México, oct 2026. */
+  font-family: var(--font-display); font-weight: 800;
+  line-height: var(--lead-display); letter-spacing: var(--track-display);
+  text-align: left; text-transform: none;   /* sentence/title case, nunca ALL CAPS en headlines */
+  font-kerning: normal;
+}
+.h.w4 { font-weight: 400; } .h.w5 { font-weight: 500; } .h.w6 { font-weight: 600; } .h.w7 { font-weight: 700; } .h.w8 { font-weight: 800; } .h.w9 { font-weight: 900; }
+/* Headline ancho (Obviously Black/Super): para 1–2 palabras por línea, como golpe. Solo pesos 800/900. */
+.h.wide { font-family: 'Obviously', var(--font-display); line-height: 0.98; }
+.meta {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: 58px; line-height: 0.9; letter-spacing: -0.005em;
+}
+.body {
+  font-family: var(--font-body); font-weight: 400;
+  font-size: 34px; line-height: 1.22; letter-spacing: 0;
+}
+.body.small { font-size: 26px; }
+/* Texto de apoyo en slides (todo lo que va abajo: cuerpo, bullets, CTA). Indicación de Ricardo:
+   grande y grueso, en un rosa (nunca negro). .sm para dos columnas o bloques largos. */
+.support { font-family: var(--font-display); font-weight: 700; font-size: 64px; line-height: 0.98; letter-spacing: 0; }
+.support p + p { margin-top: 0.5em; }
+.support.sm { font-size: 52px; }
+.label { font-family: var(--font-display); font-weight: 500; font-size: 30px; line-height: 1; }
+sup, .sup { font-size: 0.5em; line-height: 0; vertical-align: 0.72em; letter-spacing: 0; }
+.arrow::before { content: '→'; }
+
+/* ---------- Layout ---------- */
+.tl { position: absolute; top: var(--pad); left: var(--pad); right: var(--pad); }
+.bl { position: absolute; bottom: var(--pad); left: var(--pad); right: var(--pad); }
+.fill { position: absolute; inset: var(--pad); }
+.cols-2 { display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; align-items: end; }
+.stack > * + * { margin-top: 0.6em; }
+.list { list-style: none; }
+.list li { display: grid; grid-template-columns: 1.4em 1fr; }
+.list li::before { content: '→'; font-family: var(--font-display); }
+.wm-corner { position: absolute; height: 64px; }
+.wm-corner.tr { top: var(--pad); right: var(--pad); }
+.wm-corner.br { bottom: var(--pad); right: var(--pad); }
+.wm-corner.tl { top: var(--pad); left: var(--pad); right: auto; }
+.wm-corner.bl { bottom: var(--pad); left: var(--pad); right: auto; }
+
+/* ---------- Componentes ---------- */
+mas-mdot, mas-pattern, mas-photo { display: block; position: absolute; }
+mas-photo { overflow: hidden; }
+mas-photo[shape="circle"] { border-radius: 50%; aspect-ratio: 1; }
+mas-mdot svg, mas-pattern svg { display: block; width: 100%; height: 100%; overflow: visible; }
+mas-wordmark, mas-lockup { display: block; }
+mas-wordmark svg, mas-lockup svg { display: block; height: 100%; width: auto; overflow: visible; }
+.photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+[data-fit] { white-space: nowrap; }
+
+/* ---------- Impresión / PDF ---------- */
+@media print {
+  html, body { background: none; }
+  body { display: block; padding: 0; gap: 0; }
+  .page { break-after: page; page-break-after: always; }
+  .page:last-child { break-after: auto; page-break-after: auto; }
+}

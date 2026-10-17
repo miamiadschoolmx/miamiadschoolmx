@@ -1,0 +1,37 @@
+/* GENERADO por scripts/build-data.mjs — no editar a mano. Fuente: tokens/colors.json */
+:root {
+  --pink-2425: #AD007A;
+  --pink-220: #D30760;
+  --pink-226: #EC009F;
+  --pink-2040: #F60072;
+  --pink-rhodamine: #FF009B;
+  --pink-225: #F233AF;
+  --pink-7424: #FF4684;
+  --pink-238: #FF5CCD;
+  --pink-212: #FF63BE;
+  --pink-218: #FF5EA7;
+  --pink-204: #FB73A3;
+  --pink-1777: #FF6B89;
+  --pink-231: #FF81F8;
+  --pink-245: #FFA9E7;
+  --pink-176: #FF99A0;
+  --pink-230: #FFB9FF;
+  --pink-182: #FFCEDD;
+  --orange-1495: #FF9812;
+  --yellow-7548: #FFCF00;
+  --lemon-101: #FFFF3E;
+  --green-568: #006B57;
+  --green-2420: #00D357;
+  --green-2268: #7DD682;
+  --mint-337: #82CFC2;
+  --blue-2727: #3391F4;
+  --sky-2717: #A7D0FF;
+  --purple-2084: #8B00BA;
+  --lavender-2087: #A572FF;
+  --lilac-2635: #D8B8FF;
+  --black: #000000;
+  --white: #FFFFFF;
+  --web-deep-purple: #700450;
+  --web-lightest-pink: #FFF3F7;
+  --mad-pink: var(--pink-238);
+}

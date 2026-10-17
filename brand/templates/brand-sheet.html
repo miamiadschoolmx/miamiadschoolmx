@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>MAS — Sistema de marca y color (referencia)</title>
+<link rel="stylesheet" href="../web/mas.css">
+<style>
+  /* Hoja de referencia 1920×1080. Render: node brand/scripts/render.mjs brand/templates/brand-sheet.html --pdf --png
+     Todo se genera desde MAS_DATA (tokens/colors.json + assets): si cambian los tokens, la hoja se actualiza sola. */
+  .sheet { --bg: var(--web-lightest-pink); --fg: var(--pink-2425); --pad: 56px; }
+  .sheet .side { position: absolute; left: var(--pad); top: var(--pad); width: 400px; }
+  .sheet .side h2 { font-family: var(--font-display); font-weight: 400; font-size: 58px; line-height: .92; letter-spacing: -.01em; }
+  .sheet .side p { font-family: var(--font-body); font-size: 19px; line-height: 1.38; margin-top: 26px; }
+  .sheet .side p b { font-weight: 600; }
+  .sheet .main { position: absolute; left: 520px; right: var(--pad); top: var(--pad); bottom: 90px; }
+  .sheet .foot { position: absolute; left: var(--pad); right: var(--pad); bottom: 30px; display: flex; justify-content: space-between;
+                 font-family: var(--font-display); font-weight: 500; font-size: 15px; color: var(--pink-2425); }
+  .lbl { font-family: var(--font-display); font-weight: 500; font-size: 15px; line-height: 1.08; }
+  .lbl.dim { opacity: .62; }
+  .grid { display: grid; gap: 18px; }
+  .sw { display: flex; flex-direction: column; gap: 8px; }
+  .sw .chip { width: 100%; aspect-ratio: 1; border-radius: 50%; }
+  .tile { position: relative; overflow: hidden; }
+  .tile .t-h { position: absolute; left: 14px; top: 10px; right: 10px; font-family: var(--font-display); font-weight: 800; line-height: .86; letter-spacing: -.01em; }
+  .tile .t-m { position: absolute; left: 14px; bottom: 12px; font-family: var(--font-display); font-weight: 500; line-height: .95; }
+  .badge { position: absolute; right: 10px; bottom: 10px; font-family: var(--font-display); font-weight: 600; font-size: 15px; padding: 3px 8px; border-radius: 30px; background: var(--pink-182); color: var(--pink-2425); }
+  .badge.low { background: var(--pink-2425); color: var(--pink-182); }
+  .rule { display: grid; grid-template-columns: 70px 1fr 300px; gap: 24px; align-items: center; padding: 18px 0; border-top: 1.5px solid var(--pink-2425); }
+  .rule .n { font-family: var(--font-display); font-weight: 600; font-size: 54px; line-height: 1; color: var(--pink-2425); }
+  .rule .tx { font-family: var(--font-display); font-weight: 500; font-size: 34px; line-height: 1; }
+  .rule .tx small { display: block; font-family: var(--font-body); font-weight: 400; font-size: 17px; line-height: 1.35; margin-top: 8px; }
+  .no { position: absolute; right: 10px; bottom: 8px; font-family: var(--font-display); font-weight: 700; font-size: 20px; color: var(--pink-226); }
+  .slash { position: absolute; inset: 0; background: linear-gradient(to top right, transparent calc(50% - 1px), var(--pink-226) 50%, transparent calc(50% + 1px)); }
+  table.mx { border-collapse: collapse; }
+  table.mx td, table.mx th { width: 62px; height: 46px; text-align: center; font-family: var(--font-display); }
+  table.mx th { font-weight: 500; font-size: 11px; line-height: 1; padding: 2px; }
+  table.mx td b { display: block; font-weight: 600; font-size: 19px; line-height: 1; }
+  table.mx td i { display: block; font-style: normal; font-weight: 500; font-size: 11px; margin-top: 2px; }
+  table.mx td.x b, table.mx td.x i { opacity: .22; }
+  table.mx td.x b { text-decoration: line-through; }
+</style>
+</head>
+<body>
+
+<!-- 01 Portada -->
+<section class="page deck" style="--bg: var(--pink-2425); --pad: 72px">
+  <h1 class="h tl w9" data-fit style="color: var(--pink-182)">Sistema de marca<br>&amp; color</h1>
+  <div class="bl cols-2 support sm" style="color: var(--pink-245); right: 900px"><div>Miami Ad School<br>México</div><div>Guía de producción<br>con Claude · v2</div></div>
+</section>
+
+<!-- 02 Paleta oficial -->
+<section class="page deck sheet" id="p-palette">
+  <div class="side"><h2>Paleta<br>oficial</h2>
+    <p>Un rosa primario (<b>M.AD Pink, PMS 238</b>), 16 rosas de la paleta primaria y 12 secundarios. Orden del artboard oficial (manual p.31).</p>
+    <p><b>Rosas</b>: fondos y tipografía.<br><b>Secundarios</b>: solo el dot del M-dot y patrones. Nunca fondos ni texto.</p>
+    <p>Usa siempre los valores RGB en digital. Tono: <b>deep · strong · mid · light · pale</b> (sirve para elegir pares).</p>
+  </div>
+  <div class="main" id="palette"></div>
+  <div class="foot"><span>Miami Ad School México · Sistema de marca</span><span>02</span></div>
+</section>
+
+<!-- 03 Gramática -->
+<section class="page deck sheet">
+  <div class="side"><h2>Cómo se<br>combina</h2>
+    <p>Cinco reglas que salen del manual (p.32–34, 41, 49) y de las piezas oficiales de MAS México. Si una pieza las cumple, está en marca.</p>
+  </div>
+  <div class="main" id="grammar"></div>
+  <div class="foot"><span>Miami Ad School México · Sistema de marca</span><span>03</span></div>
+</section>
+
+<!-- 04 Duotonos display -->
+<section class="page deck sheet">
+  <div class="side"><h2>Duotonos<br>para display</h2>
+    <p>Fondo rosa + headline en otro rosa: <b>uno oscuro y uno claro</b>. Son tonales a propósito; por eso solo funcionan en tipo grande (≥ 90 px en 1080).</p>
+    <p>El número es el contraste WCAG. <b>Mínimo 2:1</b>; con ≥ 3:1 también sirve para subtítulos.</p>
+    <p>Fuente de cada par: manual p.34, cierres MX y carruseles MAS Collins en Canva.</p>
+  </div>
+  <div class="main grid" id="display" style="grid-template-columns: repeat(6, 1fr); align-content: start"></div>
+  <div class="foot"><span>Miami Ad School México · Sistema de marca</span><span>04</span></div>
+</section>
+
+<!-- 05 Duotonos de lectura -->
+<section class="page deck sheet">
+  <div class="side"><h2>Pares de<br>lectura</h2>
+    <p>Texto de apoyo (cuerpo, bullets, CTA) en <b>Obviously Narrow Bold de 52–64 px</b> y siempre en un rosa: <b>contraste ≥ 3:1</b>.</p>
+    <p>El sistema de los carruseles MAS Collins es justo esto: <b>Plum ↔ Blush</b> alternando slide a slide.</p>
+    <p><b>Nunca negro ni blanco</b> (indicación de Ricardo y manual p.33). El negro solo queda en el M del logo.</p>
+  </div>
+  <div class="main grid" id="text" style="grid-template-columns: repeat(6, 1fr); align-content: start"></div>
+  <div class="foot"><span>Miami Ad School México · Sistema de marca</span><span>05</span></div>
+</section>
+
+<!-- 06 Matriz -->
+<section class="page deck sheet">
+  <div class="side"><h2>Matriz de<br>contraste</h2>
+    <p>Fila = fondo. Columna = color del tipo. Cada celda muestra el par real y su contraste.</p>
+    <p><b>Atenuado</b>: menos de 2:1 → no usar con texto.<br><b>Subrayado</b>: ≥ 3:1 → apto para texto de apoyo (Narrow Bold grande).</p>
+    <p>Regla rápida: <b>deep</b> va con <b>light/pale</b>; <b>strong</b> con <b>pale</b>; <b>mid</b> con <b>deep</b>; <b>light/pale</b> con <b>deep</b>. El texto nunca es negro.</p>
+  </div>
+  <div class="main" id="matrix"></div>
+  <div class="foot"><span>Miami Ad School México · Sistema de marca</span><span>06</span></div>
+</section>
+
+<!-- 07 Lockups y dots -->
+<section class="page deck sheet">
+  <div class="side"><h2>Lockups<br>&amp; dots</h2>
+    <p><b>Arriba</b>: combinaciones aprobadas del lockup (manual p.32). M negro; wordmark negro o rosa; dot en otro rosa o secundario.</p>
+    <p><b>Abajo</b>: dots del manual. El secundario es el único acento de color de la pieza.</p>
+    <p><b>Variante MX</b> (cierres oficiales): M y wordmark en un rosa sobre otro rosa. Solo para cierres de post/video.</p>
+  </div>
+  <div class="main" id="lockups"></div>
+  <div class="foot"><span>Miami Ad School México · Sistema de marca</span><span>07</span></div>
+</section>
+
+<!-- 08 Ritmos de carrusel -->
+<section class="page deck sheet">
+  <div class="side"><h2>Ritmos de<br>carrusel</h2>
+    <p>El color también es secuencia. Tres ritmos que funcionan en carruseles de 7–12 slides:</p>
+    <p><b>A · Alternancia</b> (MAS Collins): Plum/Blush ↔ Blush/Plum. Máxima legibilidad.</p>
+    <p><b>B · Escalera tonal</b>: de claro a profundo; el cierre cae en el más oscuro.</p>
+    <p><b>C · Golpe tipográfico</b>: statements en Super u Obviously ancha entre slides de texto. Sin M-dots; el logo solo en el cierre.</p>
+  </div>
+  <div class="main" id="rhythms"></div>
+  <div class="foot"><span>Miami Ad School México · Sistema de marca</span><span>08</span></div>
+</section>
+
+<!-- 09 No -->
+<section class="page deck sheet">
+  <div class="side"><h2>Color:<br>lo que no</h2>
+    <p>Los nueve "no" del manual (p.33), recreados.</p>
+    <p>Ojo con dos prácticas recientes en Canva: <b>fondo blanco con tipo de color</b> ("Tu portafolio en 18 meses") y <b>fondo crema con tipo blanco</b> ("Más allá del algoritmo"). Las dos rompen estas reglas.</p>
+  </div>
+  <div class="main grid" id="donts" style="grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr)"></div>
+  <div class="foot"><span>Miami Ad School México · Sistema de marca</span><span>09</span></div>
+</section>
+
+<!-- 10 M-dots -->
+<section class="page deck sheet">
+  <div class="side"><h2>Librería<br>M-dot</h2>
+    <p>Las 30 variantes oficiales. <b>El M-dot siempre cambia</b>: usa una distinta en cada comunicación y nunca te quedes con una sola.</p>
+    <p>Nunca la rotes, deformes, contornees ni le pongas efectos. No inventes variantes. El dot se puede separar del M para mejorar la composición, pero nunca se encima ni se recorta.</p>
+    <p><b>25 = duplicado de 24.</b></p>
+  </div>
+  <div class="main grid" id="mdots" style="grid-template-columns: repeat(6, 1fr); gap: 10px 14px; align-content: start"></div>
+  <div class="foot"><span>Miami Ad School México · Sistema de marca</span><span>10</span></div>
+</section>
+
+<!-- 11 Tipografía y layout -->
+<section class="page deck sheet">
+  <div class="side"><h2>Tipo &amp;<br>layout</h2>
+    <p><b>Obviously Narrow Black</b> para headlines (Super para golpes cortos, Bold para headlines largos); Regular/Medium para info. <b>Obviously</b> (ancho normal) Regular para texto largo; su Black/Super, para golpes de 1–2 palabras.</p>
+    <p>Todo alineado a la izquierda. Headline arriba, información abajo. Interlineado compacto, tracking normal, sentence case.</p>
+  </div>
+  <div class="main" id="type"></div>
+  <div class="foot"><span>Miami Ad School México · Sistema de marca</span><span>11</span></div>
+</section>
+
+<script src="../web/mas-data.js"></script>
+<script>
+(() => {
+  const D = window.MAS_DATA, C = D.colors;
+  const pinks = Object.fromEntries(D.palette.pinks.map((p) => [p.key, p]));
+  const sec = Object.fromEntries(D.palette.secondary.map((p) => [p.key, p]));
+  const all = { ...pinks, ...sec };
+  const $ = (id) => document.getElementById(id);
+  const lum = (hex) => { const v = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255).map((x) => (x <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4)); return 0.2126 * v[0] + 0.7152 * v[1] + 0.0722 * v[2]; };
+  const cr = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((m, n) => n - m); return (x + 0.05) / (y + 0.05); };
+  const name = (k) => (all[k] ? all[k].name : k === 'black' ? 'Black' : k === 'web-lightest-pink' ? 'Lightest Pink' : k);
+  const pms = (k) => (all[k] ? all[k].pantone.split('/')[0].trim() : '');
+
+  // 02 Paleta
+  const sw = (k, big) => { const c = all[k]; return `<div class="sw"><div class="chip" style="background:${c.hex}"></div><div class="lbl">${c.name}<br><span class="dim">${c.hex} · PMS ${pms(k)}${c.tone ? ' · ' + c.tone : ''}</span></div></div>`; };
+  const G = D.palette.grid;
+  $('palette').innerHTML = `
+    <div style="display:grid; grid-template-columns: 170px 1fr 1fr; gap: 50px">
+      <div><div class="lbl" style="margin-bottom:14px">Primary Pink</div>${sw(G.primary_pink)}</div>
+      <div><div class="lbl" style="margin-bottom:14px">Primary Color Palette</div><div class="grid" style="grid-template-columns: repeat(4, 1fr); gap: 16px 18px">${G.pinks.flat().map((k) => sw(k)).join('')}</div></div>
+      <div><div class="lbl" style="margin-bottom:14px">Secondary Color Palette</div><div class="grid" style="grid-template-columns: repeat(3, 1fr); gap: 16px 18px">${G.secondary.flat().map((k) => sw(k)).join('')}</div></div>
+    </div>`;
+
+  // 03 Gramática
+  const mini = (bg, fg, txt, extra = '') => `<div class="tile" style="width:300px;height:120px;background:${C[bg] || bg}">${extra}<div class="t-h" style="color:${C[fg] || fg};font-size:52px">${txt}</div></div>`;
+  const rules = [
+    ['1', 'Un fondo rosa + un rosa para el tipo', 'Siempre dos tonos distintos de la familia rosa: uno oscuro y uno claro (manual p.32 · web styleguide).', mini('pink-2425', 'pink-182', 'Plum + Blush')],
+    ['2', 'El M siempre negro', 'Sobre fondos rosas el M es negro. Excepciones: tratamiento fotográfico (M rosa sobre foto) y cierres MX (tonales).', `<div class="tile" style="width:300px;height:120px;background:${C['pink-238']}"><mas-mdot v="14" m="black" dot="yellow-7548" style="left:10px;top:8px;width:150px;height:104px"></mas-mdot></div>`],
+    ['3', 'Secundarios solo en el dot', 'Naranja, amarillo, verdes, azules y morados son acento: el dot o los patrones. Nunca fondo, nunca texto.', `<div class="tile" style="width:300px;height:120px;background:${C['pink-220']}"><mas-mdot v="23" m="black" dot="green-2268" style="left:10px;top:8px;width:150px;height:104px"></mas-mdot></div>`],
+    ['4', 'Tipo en uno o dos rosas', 'Headline en un rosa; la info secundaria puede ir en un tercer rosa (social, p.34). En web y documentos, un solo color de tipo por página.', mini('pink-204', 'pink-2425', 'Feb 16<sup>th</sup>', `<div class="t-m" style="color:${C['pink-182']};font-size:22px;left:190px;bottom:14px">Portfolio<br>Center</div>`)],
+    ['5', 'Contraste suficiente', 'Display ≥ 2:1 (tonal, tipo gigante). Texto de apoyo siempre en rosa, nunca negro: ≥ 3:1 en Narrow Bold grande. Bajo contraste = NO (p.33).', mini('pink-182', 'pink-2425', 'Legible')],
+  ];
+  $('grammar').innerHTML = rules.map(([n, t, s, ex]) => `<div class="rule"><div class="n">${n}</div><div class="tx">${t}<small>${s}</small></div><div>${ex}</div></div>`).join('');
+
+  // 04 Display
+  $('display').innerHTML = D.pairs.map((p) => `<div><div class="tile" style="height:268px;background:${p.bgHex}">
+      <div class="t-h" style="color:${p.fgHex};font-size:47px">Tu<br>portafolio<br>habla.</div>
+      <span class="badge${p.contrast < 2.5 ? ' low' : ''}">${p.contrast.toFixed(1)}:1</span></div>
+      <div class="lbl" style="margin-top:7px">${name(p.bg)} / ${name(p.fg)}<br><span class="dim">${p.src.length > 34 ? p.src.slice(0, 34) + '…' : p.src}</span></div></div>`).join('');
+
+  // 05 Lectura
+  const sample = 'Define una persona y una situación concreta. “Jóvenes consumidores” es demasiado amplio.';
+  $('text').innerHTML = D.textPairs.map((p) => `<div><div class="tile" style="height:236px;background:${p.bgHex};color:${p.fgHex}">
+      <div class="t-h" style="font-size:34px">¿Quién<br>exactamente?</div>
+      <div style="position:absolute;left:12px;right:12px;bottom:42px;font-family:var(--font-display);font-weight:700;font-size:18px;line-height:1">${sample}</div>
+      <span class="badge">${p.contrast.toFixed(1)}:1</span></div>
+      <div class="lbl" style="margin-top:7px">${name(p.bg)} / ${name(p.fg)}</div></div>`).join('');
+
+  // 06 Matriz
+  const keys = D.palette.pinks.map((p) => p.key);
+  const hex = (k) => C[k];
+  let t = '<table class="mx"><tr><th></th>' + keys.map((k) => `<th>${name(k)}</th>`).join('') + '</tr>';
+  for (const b of keys) {
+    t += `<tr><th style="text-align:right;padding-right:8px">${name(b)}</th>`;
+    for (const f of keys) {
+      if (b === f) { t += '<td></td>'; continue; }
+      const r = cr(hex(b), hex(f));
+      t += `<td class="${r < 2 ? 'x' : ''}" style="background:${hex(b)};color:${hex(f)}"><b${r >= 3 ? ' style="text-decoration:underline;text-underline-offset:3px"' : ''}>Aa</b><i>${r.toFixed(1)}</i></td>`;
+    }
+    t += '</tr>';
+  }
+  $('matrix').innerHTML = t + '</table>';
+
+  // 07 Lockups & dots
+  const lk = (c, w = 290, h = 175) => `<div class="tile" style="width:${w}px;height:${h}px;background:${C[c.bg]}">
+      <div style="position:absolute;left:34px;top:40px;height:95px;display:flex;gap:14px;align-items:flex-start">
+        <mas-mdot v="${c.v || 5}" m="${c.m}" dot="${c.dot}" style="position:relative;width:118px;height:95px"></mas-mdot>
+        <mas-wordmark color="${c.wordmark}" style="height:48px"></mas-wordmark></div></div>`;
+  const vs = [5, 17, 1, 14, 21, 7];
+  const L = D.lockups.map((c, i) => ({ ...c, v: vs[i] }));
+  const mx = [{ bg: 'pink-176', m: 'pink-2040', dot: 'orange-1495' }, { bg: 'pink-212', m: 'pink-2425', dot: 'mint-337' }, { bg: 'pink-2425', m: 'pink-238', dot: 'sky-2717' }];
+  $('lockups').innerHTML = `
+    <div class="lbl" style="margin-bottom:10px">Lockups aprobados (manual p.32)</div>
+    <div class="grid" style="grid-template-columns: repeat(4, 290px); gap: 16px">${L.map((c) => lk(c)).join('')}
+      <div class="tile" style="width:290px;height:175px;background:#000"><div style="position:absolute;left:34px;top:40px;height:95px;display:flex;gap:14px"><mas-mdot v="13" m="#fff" dot="#fff" style="position:relative;width:118px;height:95px"></mas-mdot><mas-wordmark color="#fff" style="height:48px"></mas-wordmark></div><span class="lbl" style="position:absolute;left:12px;bottom:8px;color:#fff">Knockout · solo si se requiere</span></div>
+      <div class="tile" style="width:290px;height:175px;background:#fff;outline:1px solid #eee"><div style="position:absolute;left:34px;top:40px;height:95px;display:flex;gap:14px"><mas-mdot v="13" m="#000" dot="#000" style="position:relative;width:118px;height:95px"></mas-mdot><mas-wordmark color="#000" style="height:48px"></mas-wordmark></div><span class="lbl" style="position:absolute;left:12px;bottom:8px">Knockout · solo si se requiere</span></div>
+    </div>
+    <div class="lbl" style="margin:22px 0 10px">Variante MX · cierres de post/video</div>
+    <div class="grid" style="grid-template-columns: repeat(3, 290px); gap: 16px">${mx.map((c) => `<div class="tile" style="width:290px;height:150px;background:${C[c.bg]}"><mas-lockup m="${c.m}" dot="${c.dot}" text="${c.m}" style="position:absolute;left:50px;top:42px;height:66px"></mas-lockup></div>`).join('')}</div>
+    <div class="lbl" style="margin:22px 0 10px">Dots del manual (fondo · dot)</div>
+    <div style="display:flex;gap:12px">${D.dots.map(([b, d], i) => `<div class="tile" style="width:108px;height:96px;background:${C[b]}"><mas-mdot v="${[3, 8, 12, 16, 20, 22, 26, 28, 2, 9][i]}" m="black" dot="${d}" style="left:8px;top:8px;width:92px;height:80px"></mas-mdot></div>`).join('')}</div>`;
+
+  // 08 Ritmos
+  const slide = (bg, fg, txt, md) => `<div class="tile" style="width:178px;height:222px;background:${C[bg]}">${md || ''}<div class="t-h" style="color:${C[fg]};font-size:31px">${txt}</div></div>`;
+  const md = (v, dot, top = 70) => `<mas-mdot v="${v}" m="black" dot="${dot}" style="left:8px;right:8px;top:${top}px;height:140px"></mas-mdot>`;
+  const rows = [
+    ['A · Alternancia Plum ↔ Blush', [['pink-2425', 'pink-182', '7 preguntas<br>para un<br>insight'], ['pink-182', 'pink-2425', '¿Quién<br>exacta-<br>mente?'], ['pink-2425', 'pink-182', '¿Qué<br>hace?'], ['pink-182', 'pink-2425', '¿Cuándo<br>ocurre?'], ['pink-2425', 'pink-182', '¿Qué<br>quiere?'], ['pink-182', 'pink-2425', 'Compruébalo']]],
+    ['B · Escalera tonal', [['pink-182', 'pink-2425', 'De<br>invisible'], ['pink-245', 'pink-2425', 'a<br>imparable'], ['pink-204', 'pink-2425', 'en<br>12 meses'], ['pink-226', 'pink-182', 'con<br>mentores'], ['pink-220', 'pink-245', 'y briefs<br>reales.'], ['pink-2425', 'pink-238', 'Aplica<br>hoy.']]],
+    ['C · Golpe tipográfico (logo solo en el cierre)', [['pink-2425', 'pink-245', '8 ajustes<br>para<br>presentar'], ['pink-182', 'pink-2425', 'Empieza<br>con el<br>problema'], ['pink-220', 'pink-182', 'Explica<br>la idea'], ['pink-176', 'pink-2425', 'que puede<br>crecer'], ['pink-2425', 'pink-176', 'Termina<br>con una<br>decisión'], ['pink-230', 'pink-220', '', `<mas-lockup m="pink-220" dot="blue-2727" text="pink-220" style="position:absolute;left:24px;top:86px;height:52px"></mas-lockup>`]]],
+  ];
+  $('rhythms').innerHTML = rows.map(([t, s]) => `<div class="lbl" style="margin:0 0 8px">${t}</div><div style="display:flex;gap:12px;margin-bottom:22px">${s.map((x) => slide(...x)).join('')}</div>`).join('');
+
+  // 09 Don'ts
+  const dn = (n, label, bg, inner) => `<div class="tile" style="background:${bg}">${inner}<div class="slash"></div><span class="lbl" style="position:absolute;left:12px;top:10px;color:var(--pink-2425);background:var(--pink-182);padding:2px 6px">${n}. ${label}</span><span class="no">NO</span></div>`;
+  const lock = (m, dot, wm, v = 5) => `<div style="position:absolute;left:70px;top:70px;height:110px;display:flex;gap:16px"><mas-mdot v="${v}" m="${m}" dot="${dot}" style="position:relative;width:140px;height:110px"></mas-mdot><mas-wordmark color="${wm}" style="height:56px"></mas-wordmark></div>`;
+  $('donts').innerHTML = [
+    dn(1, 'Colores fuera de marca', '#3391F4', lock('#000', '#FFFF3E', '#000')),
+    dn(2, 'Bajo contraste', C['pink-230'], lock('#000', C['pink-182'], C['pink-182'])),
+    dn(3, 'Blanco sobre color', C['pink-245'], lock('#fff', '#fff', '#fff')),
+    dn(4, 'Degradados', `linear-gradient(90deg, ${C['pink-230']}, ${C['pink-2040']})`, lock('#000', C['yellow-7548'], C['pink-230'])),
+    dn(5, 'M que no sea negro', C['pink-2425'], lock(C['orange-1495'], C['pink-238'], C['pink-245'])),
+    dn(6, 'Fondo negro con color', '#000', lock(C['pink-7424'], C['mint-337'], C['pink-226'])),
+    dn(7, 'Fondo que no es rosa', C['lemon-101'], lock('#000', C['pink-226'], C['pink-238'])),
+    dn(8, 'Color sobre gris', '#E4E4E4', lock('#000', C['pink-2425'], C['pink-238'])),
+    dn(9, 'Color sobre blanco', '#FFFFFF', lock('#000', C['pink-7424'], C['pink-226'])),
+  ].join('');
+
+  // 10 M-dots
+  $('mdots').innerHTML = D.mdots.map((m) => `<div><div class="tile" style="height:118px;background:${C['pink-182']}"><mas-mdot v="${m.id}" m="black" dot="pink-2425" style="left:10px;right:10px;top:8px;bottom:8px"></mas-mdot></div><div class="lbl" style="margin-top:4px">${String(m.id).padStart(2, '0')} <span class="dim">${m.kind === 'wide' ? 'horizontal' : 'cuadrada'}</span></div></div>`).join('');
+
+  // 11 Tipo
+  const w = [[400, 'Regular'], [500, 'Medium'], [700, 'Bold'], [800, 'Black'], [900, 'Super']];
+  $('type').innerHTML = `
+    <div style="display:grid;grid-template-columns: 1fr 1fr; gap: 40px">
+      <div>${w.map(([n, l]) => `<div style="font-family:var(--font-display);font-weight:${n};font-size:58px;line-height:.95;letter-spacing:-.01em">${l} Aa Ñ 1234 →</div>`).join('')}
+        <div style="font-family:var(--font-display);font-weight:700;font-size:30px;line-height:1;margin-top:22px;max-width:640px">Texto de apoyo en slides: Obviously Narrow Bold, grande y en rosa. Párrafos largos de PDF: Obviously Regular.</div></div>
+      <div class="lbl" style="font-size:20px;line-height:1.5">
+        <b>Jerarquía en lienzo 1080 × 1350</b><br>
+        Headline · Narrow Black 120–320 px · interlineado 0.96 · auto-fit al ancho<br>
+        Golpe (≤ 3 palabras/línea) · Narrow Super ≥ 160 px · Headline largo · Narrow Bold<br>
+        Subhead / lista · Narrow Medium 60–80 px · 0.95<br>
+        Info (fecha, lugar, nombre) · Narrow Medium 50–60 px · 0.9 · dos columnas abajo<br>
+        Texto de apoyo (slides) · Narrow Bold 52–64 px · 0.98<br>
+        Cuerpo largo (PDF, web) · Obviously Regular 30–36 px · 1.22<br>
+        Ordinales en superíndice: 16<sup>th</sup>, 4<sup>o</sup><br><br>
+        <b>Reglas</b><br>
+        → Alinear a la izquierda. Nunca centrar ni a la derecha.<br>
+        → Sentence case. Nunca headlines en MAYÚSCULAS.<br>
+        → Tracking normal. Nunca abrir el espaciado.<br>
+        → Nunca texto negro: todo en rosas de la paleta.<br>
+        → Sin M-dots en los slides; el logo solo en el cierre.<br>
+        → Wordmark máximo 3 líneas; la 4ª siempre vacía.<br>
+        → Margen exterior ≈ 4% del ancho (44 px en 1080).<br><br>
+        <b>Formatos</b><br>
+        IG feed/carrusel 1080×1350 · Story/Reel 1080×1920 (safe 250 arriba / 340 abajo)<br>
+        Cuadrado 1080×1080 · Deck 1920×1080 · YouTube 1280×720 · PDF carta 8.5×11 in</div>
+    </div>
+    <div style="display:flex;gap:18px;margin-top:34px">${[
+      ['Sí', 'left', 'none', '-0.01em', ''],
+      ['Centrado', 'center', 'none', '-0.01em', 'NO'],
+      ['Mayúsculas', 'left', 'uppercase', '-0.01em', 'NO'],
+      ['Tracking abierto', 'left', 'none', '0.12em', 'NO'],
+      ['Narrow en texto largo', 'left', 'none', '-0.01em', 'NO'],
+    ].map(([l, al, tt, ls, no], i) => `<div><div class="tile" style="width:236px;height:236px;background:${C['pink-204']}">${i === 4
+      ? `<div style="position:absolute;left:14px;right:14px;top:14px;font-family:var(--font-display);font-size:19px;line-height:1.05;color:${C['pink-2425']}">Tu portafolio será tu pasaporte. Briefs reales, deadlines reales y feedback directo de creativos en activo. Aquí no hay exámenes: hay campañas que cambian tu vida y tu carrera.</div>`
+      : `<div class="t-h" style="font-size:46px;color:${C['pink-2425']};text-align:${al};text-transform:${tt};letter-spacing:${ls}">James<br>Victore</div>`}
+      <div class="t-m" style="font-size:22px;color:${C['pink-182']};${al === 'center' ? 'left:0;right:0;text-align:center' : ''}">Jan 30<sup>th</sup><br>CDMX</div>${no ? '<div class="slash"></div><span class="no">NO</span>' : ''}</div>
+      <div class="lbl" style="margin-top:6px">${l}</div></div>`).join('')}</div>`;
+})();
+</script>
+<script src="../web/mas.js"></script>
+</body>
+</html>

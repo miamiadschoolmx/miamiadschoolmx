@@ -1,0 +1,69 @@
+{
+  "_nota": "Respuesta de ejemplo con la forma de GET /search/photos de la API de Unsplash. Ids, nombres y enlaces son inventados; solo sirve para las pruebas sin red.",
+  "total": 2,
+  "total_pages": 1,
+  "results": [
+    {
+      "id": "Ej3mpl0aaa1",
+      "width": 4000,
+      "height": 5000,
+      "color": "#d9c8b0",
+      "description": "Equipo creativo   revisando bocetos en la pared",
+      "alt_description": "personas frente a una pared con bocetos",
+      "urls": {
+        "raw": "https://images.unsplash.com/photo-0000000000001-ejemplo?ixid=EJEMPLO1&ixlib=rb-4.0.3",
+        "full": "https://images.unsplash.com/photo-0000000000001-ejemplo?ixid=EJEMPLO1&q=85&fm=jpg",
+        "regular": "https://images.unsplash.com/photo-0000000000001-ejemplo?ixid=EJEMPLO1&w=1080",
+        "small": "https://images.unsplash.com/photo-0000000000001-ejemplo?ixid=EJEMPLO1&w=400",
+        "thumb": "https://images.unsplash.com/photo-0000000000001-ejemplo?ixid=EJEMPLO1&w=200"
+      },
+      "links": {
+        "self": "https://api.unsplash.com/photos/Ej3mpl0aaa1",
+        "html": "https://unsplash.com/photos/equipo-creativo-Ej3mpl0aaa1",
+        "download": "https://unsplash.com/photos/Ej3mpl0aaa1/download?ixid=EJEMPLO1",
+        "download_location": "https://api.unsplash.com/photos/Ej3mpl0aaa1/download?ixid=EJEMPLO1"
+      },
+      "user": {
+        "id": "usr000001",
+        "username": "ana_ejemplo",
+        "name": "Ana Ejemplo",
+        "links": {
+          "self": "https://api.unsplash.com/users/ana_ejemplo",
+          "html": "https://unsplash.com/@ana_ejemplo",
+          "photos": "https://api.unsplash.com/users/ana_ejemplo/photos"
+        }
+      }
+    },
+    {
+      "id": "Ej3mpl0bbb2",
+      "width": 6000,
+      "height": 4000,
+      "color": "#262626",
+      "description": null,
+      "alt_description": "escritorio con laptop, libretas y post-its",
+      "urls": {
+        "raw": "https://images.unsplash.com/photo-0000000000002-ejemplo?ixid=EJEMPLO2&ixlib=rb-4.0.3",
+        "full": "https://images.unsplash.com/photo-0000000000002-ejemplo?ixid=EJEMPLO2&q=85&fm=jpg",
+        "regular": "https://images.unsplash.com/photo-0000000000002-ejemplo?ixid=EJEMPLO2&w=1080",
+        "small": "https://images.unsplash.com/photo-0000000000002-ejemplo?ixid=EJEMPLO2&w=400",
+        "thumb": "https://images.unsplash.com/photo-0000000000002-ejemplo?ixid=EJEMPLO2&w=200"
+      },
+      "links": {
+        "self": "https://api.unsplash.com/photos/Ej3mpl0bbb2",
+        "html": "https://unsplash.com/photos/escritorio-Ej3mpl0bbb2",
+        "download": "https://unsplash.com/photos/Ej3mpl0bbb2/download?ixid=EJEMPLO2",
+        "download_location": "https://api.unsplash.com/photos/Ej3mpl0bbb2/download?ixid=EJEMPLO2"
+      },
+      "user": {
+        "id": "usr000002",
+        "username": "beto_muestra",
+        "name": "Beto Muestra",
+        "links": {
+          "self": "https://api.unsplash.com/users/beto_muestra",
+          "html": "https://unsplash.com/@beto_muestra",
+          "photos": "https://api.unsplash.com/users/beto_muestra/photos"
+        }
+      }
+    }
+  ]
+}

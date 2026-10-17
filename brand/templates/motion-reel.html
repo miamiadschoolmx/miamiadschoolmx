@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>MAS — Reel / Story animado (plantilla)</title>
+<link rel="stylesheet" href="../web/mas.css">
+<style>
+  /* Motion 1080×1920 · 7.5 s. Render: node brand/scripts/render.mjs brand/templates/motion-reel.html --mp4
+     Todas las animaciones son CSS @keyframes con animation-delay ABSOLUTO (segundos desde el inicio):
+     el renderer congela la línea de tiempo y avanza cuadro por cuadro. fill-mode: both siempre.
+     Indicación de Ricardo: sin M-dots en las escenas; el logo solo aparece en la escena final (lockup).
+     Todo el texto en rosas, nunca negro. El tipo sube por líneas; cortes secos / wipes entre escenas.
+     En el cierre el dot cae y rebota sin deformarse; el lockup nunca se rota, deforma ni lleva efectos. */
+  .scene { position: absolute; inset: 0; background: var(--bg); }
+  .s2 { animation: wipe .45s cubic-bezier(.7,0,.2,1) 2.7s both; }
+  .s3 { animation: wipe .45s cubic-bezier(.7,0,.2,1) 5.2s both; }
+  @keyframes wipe { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0 0 0 0); } }
+
+  .story .head { position: absolute; left: var(--pad); right: var(--pad); top: 250px; }
+  .story .sub { position: absolute; left: var(--pad); right: var(--pad); bottom: 340px; }
+  .ln { display: block; width: max-content; overflow: hidden; padding: .06em 0 .2em; margin: -.06em 0 -.2em; }
+  .ln > span { display: block; animation: rise .7s cubic-bezier(.2,.9,.2,1) both; animation-delay: var(--d); }
+  @keyframes rise { from { transform: translateY(160%); } to { transform: none; } }
+
+
+  .sub .ln > span { animation-duration: .6s; }
+  /* El dot del lockup rebota por separado (path.dot dentro del SVG). */
+  mas-lockup .dot { transform-box: fill-box; transform-origin: 50% 50%; }
+  .s3 mas-lockup .dot { animation: drop 1s linear 5.85s both; }
+  @keyframes drop {
+    0%   { transform: translateY(-1400%); animation-timing-function: cubic-bezier(.5,0,1,.6); }
+    45%  { transform: translateY(0); animation-timing-function: cubic-bezier(0,.4,.5,1); }
+    62%  { transform: translateY(-70%); animation-timing-function: cubic-bezier(.5,0,1,.6); }
+    78%  { transform: translateY(0); animation-timing-function: cubic-bezier(0,.4,.5,1); }
+    88%  { transform: translateY(-15%); }
+    100% { transform: none; }
+  }
+
+  .s3 mas-lockup { position: absolute; left: 50%; top: 50%; width: 760px; height: 370px; translate: -50% -50%;
+                   animation: settle .7s cubic-bezier(.3,1.4,.5,1) 5.45s both; }
+  @keyframes settle { from { transform: scale(.82); opacity: 0; } to { transform: none; opacity: 1; } }
+</style>
+</head>
+<body>
+
+<section class="page story" data-duration="7.5" style="--bg: var(--pink-2040)">
+  <div class="scene s1" style="--bg: var(--pink-2040)">
+    <h1 class="h head w9" data-fit style="color: var(--pink-176)">
+      <span class="ln"><span style="--d: .15s">Deja</span></span>
+      <span class="ln"><span style="--d: .27s">de esperar</span></span>
+      <span class="ln"><span style="--d: .39s">tu</span></span>
+      <span class="ln"><span style="--d: .51s">oportunidad.</span></span>
+    </h1>
+  </div>
+
+  <div class="scene s2" style="--bg: var(--pink-2425)">
+    <div class="head" style="color: var(--pink-238)">
+      <h1 class="h wide w9" data-fit><span class="ln"><span style="--d: 2.95s">Empieza</span></span></h1>
+      <h1 class="h w9" data-fit style="margin-top: 24px"><span class="ln"><span style="--d: 3.07s">a construirla.</span></span></h1>
+    </div>
+    <div class="support sub" style="color: var(--pink-182)">
+      <span class="ln"><span style="--d: 3.7s">Aplica hoy.</span></span>
+      <span class="ln"><span style="--d: 3.82s">Las mejores ideas no esperan.</span></span>
+    </div>
+  </div>
+
+  <div class="scene s3" style="--bg: var(--pink-176)">
+    <mas-lockup m="pink-2040" dot="orange-1495" text="pink-2040"></mas-lockup>
+  </div>
+</section>
+
+<script src="../web/mas-data.js"></script>
+<script src="../web/mas.js"></script>
+</body>
+</html>

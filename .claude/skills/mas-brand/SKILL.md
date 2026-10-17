@@ -112,7 +112,7 @@ Antes de diseñar, haz el plan slide por slide: qué layout Collins (`BRAND.md �
 
 ## Biblioteca de MAS en Drive (privada)
 
-Carpeta **BIBLIOTECA** dentro de BRAND: `18n0WHBOuaIIMH24L9b5nQ4IX0XQ8h4AR`. Reglas de uso para el equipo en el doc "00 LÉEME" (`1LPo4XmvBCW9nwU73E4WHQXnNjaOIxWbiGp44i6rfcxo`).
+Carpeta **BIBLIOTECA** dentro de BRAND: `18n0WHBOuaIIMH24L9b5nQ4IX0XQ8h4AR`. Reglas de uso para el equipo en el doc "00 LÉEME" (`1LPo4XmvBCW9nwU73E4WHQXnNjaOIxWbiGp44i6rfcxo`) y, para fotos y videos, en "00 Instructivo · Cómo guardar fotos y videos" (`1iLfS1_Q35ro6aiYPHsuMQ6e2NuO86CC-zawditB138U`).
 
 | Carpeta | ID | Para qué |
 |---|---|---|
@@ -138,7 +138,13 @@ Carpeta **BIBLIOTECA** dentro de BRAND: `18n0WHBOuaIIMH24L9b5nQ4IX0XQ8h4AR`. Reg
 Cómo usarla en cada pieza:
 1. Antes de proponer o producir, lee el "Banco de temas" y lista "12 PIEZAS PUBLICADAS" para no repetir temas.
 2. Cifras, precios, fechas y premios: solo del doc "Datos oficiales MAS". Si dice "Pendiente" o no está, no lo pongas en la pieza.
-3. Fotos: busca primero en "01 FOTOS MAS" (`search_files` con `parentId`), bájalas con `download_file_content` y guárdalas con `python3 -I brand/scripts/drive-save.py brand/work/fotos/drive ~/.claude/projects`. Nunca uses archivos con `_interno` en el nombre. Si no hay foto que sirva, usa Unsplash.
+3. Fotos: busca primero en "01 FOTOS MAS" (`search_files` con `parentId`), bájalas con `download_file_content` y guárdalas con `python3 -I brand/scripts/drive-save.py brand/work/fotos/drive ~/.claude/projects`. Si no hay foto que sirva, usa Unsplash. Cómo las guarda el equipo (según el instructivo):
+   - Cada evento es una subcarpeta `año-mes_evento_que-pasa` dentro de la subcarpeta temática; adentro las fotos pueden tener el nombre del celular (`IMG_4521.jpg`).
+   - `_top` en el nombre marca las 3–5 mejores del evento: pruébalas primero.
+   - `_interno` en el nombre: nunca la uses en una pieza.
+   - Retratos `nombre-apellido_puesto_agencia.jpg`: de ahí salen nombre, puesto y agencia para c-hired, c-speaker y c-photos-2. Escríbelos con mayúsculas y acentos correctos (el archivo va sin acentos); si dudas de uno, pregúntale a Ricardo.
+   - HEIC del iPhone: Chromium no lo muestra; conviértelo antes con `convert foto.heic -quality 92 foto.jpg`.
+   - Revisa el tamaño con `identify`: a pantalla completa (c-photo-full) pide al menos 1080 px de ancho; una foto más chica o comprimida por WhatsApp úsala solo en huecos chicos (círculos, c-news).
 4. Logos de premios y agencias: "03 LOGOS". Capturas para carruseles de recursos: "09 CAPTURAS".
 5. Si la carpeta que necesitas está vacía, dile a Ricardo qué subir y dónde, en una línea.
 6. En esta sesión solo hay conector de Drive: puedes crear y leer archivos, pero no editar un Sheet o Doc existente. Para agregar una fila al Banco de temas, pídeselo a Ricardo o pide que active los conectores de Google Sheets y Docs.

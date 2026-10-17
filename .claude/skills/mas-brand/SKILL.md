@@ -72,6 +72,27 @@ Antes de diseñar, haz el plan slide por slide: qué layout Collins (`BRAND.md �
 4. **QA visual obligatorio**: arma una hoja con `montage <dir>/*.png -tile 4x -geometry 432x540+8+8 -background '#333' sheet.png` y mírala con Read. Revisa la checklist de `BRAND.md §10`: descendentes (g, j, p, y) que toquen la línea de abajo o un filete, nada de texto negro, ningún M-dot fuera del cierre, texto de apoyo legible a tamaño de teléfono (Narrow Bold ≥ 52 px), overflow, contraste, alineación. Itera hasta que pase.
 5. Entrega con SendUserFile (PNGs del carrusel y/o PDF). Para LinkedIn: `--pdf` de un HTML con páginas 1080×1350.
 
+## Fotos de Unsplash
+
+Requisitos del entorno: variable `UNSPLASH_ACCESS_KEY` (Access Key de la app de Unsplash) y los dominios `api.unsplash.com` e `images.unsplash.com` permitidos en el acceso a red. Si falta algo, el script lo dice; pásale a Ricardo el paso que falta y no inventes fotos.
+
+Comandos (todo se guarda en `brand/work/fotos/unsplash/`, fuera de git):
+- `python3 -I brand/scripts/unsplash.py buscar "consulta" [--orientacion portrait|landscape|squarish] [--n 12]`: guarda `busqueda-<slug>.json`, arma la hoja de contacto numerada `busqueda-<slug>.jpg` e imprime número, id, tamaño, autor y descripción.
+- `python3 -I brand/scripts/unsplash.py bajar <id> [<id> ...] [--ancho 2160]`: descarga `<id>.jpg`, avisa la descarga a Unsplash (lo pide su guía) y suma el crédito a `creditos.json` y `creditos.md`.
+- Pruebas sin red: `python3 -I -m unittest discover -s brand/scripts -p "test_*.py"`.
+
+Flujo:
+1. Busca con consultas en inglés y concretas ("art director reviewing layouts", "creative team workshop"). Usa `--orientacion` según el hueco del layout: `portrait` para Tips with Images, `squarish` para círculos, `landscape` para fotos horizontales.
+2. Muéstrale a Ricardo la hoja de contacto (SendUserFile) y espera a que elija los números.
+3. Baja solo las elegidas (los ids salen en la tabla y en el JSON de la búsqueda).
+4. Úsalas con `<mas-photo src="../work/fotos/unsplash/<id>.jpg">` en el layout Collins que toque.
+
+Reglas:
+- Fotos con sus colores originales, sin filtros.
+- Crédito `Foto: Nombre / Unsplash` (campo `etiqueta` de `creditos.json`) en el `.c-label` del slide o en el caption.
+- Evita personas identificables en anuncios pagados: Unsplash no da permisos de modelo.
+- Nunca subas fotos al repo (`brand/work/` está en `.gitignore`).
+
 ## B. Canva
 
 IDs (cuenta del usuario):

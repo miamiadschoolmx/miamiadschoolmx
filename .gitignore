@@ -9,3 +9,4 @@ node_modules/
 .DS_Store
 # Piezas de trabajo (se generan por pedido; no se versionan)
 brand/work/
+__pycache__/

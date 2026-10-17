@@ -81,11 +81,18 @@ Comandos (todo se guarda en `brand/work/fotos/unsplash/`, fuera de git):
 - `python3 -I brand/scripts/unsplash.py bajar <id> [<id> ...] [--ancho 2160]`: descarga `<id>.jpg`, avisa la descarga a Unsplash (lo pide su guía) y suma el crédito a `creditos.json` y `creditos.md`.
 - Pruebas sin red: `python3 -I -m unittest discover -s brand/scripts -p "test_*.py"`.
 
-Flujo:
-1. Busca con consultas en inglés y concretas ("art director reviewing layouts", "creative team workshop"). Usa `--orientacion` según el hueco del layout: `portrait` para Tips with Images, `squarish` para círculos, `landscape` para fotos horizontales.
-2. Muéstrale a Ricardo la hoja de contacto (SendUserFile) y espera a que elija los números.
-3. Baja solo las elegidas (los ids salen en la tabla y en el JSON de la búsqueda).
-4. Úsalas con `<mas-photo src="../work/fotos/unsplash/<id>.jpg">` en el layout Collins que toque.
+Flujo (Ricardo quiere que Claude elija las fotos y las ponga directo en la pieza):
+1. Planea qué slides llevan foto y qué layout Collins le toca a cada uno.
+2. Busca con consultas en inglés y concretas ("art director reviewing layouts", "creative team workshop"). Usa `--orientacion` según el hueco del layout: `portrait` para Tips with Images, `squarish` para círculos, `landscape` para fotos horizontales. Si los resultados no sirven, reformula la búsqueda (máximo 3 intentos por slide).
+3. Mira la hoja de contacto con Read y elige tú con estos criterios, en orden:
+   - Dice lo mismo que el slide, literal o como metáfora clara. Nada de clichés de banco (apretón de manos, foco, gente sonriendo a cámara).
+   - Funciona en el recorte del layout: sujeto centrado para círculos; aire donde corta el rectángulo.
+   - Sus colores conviven con el rosa del slide sin filtros: tonos cálidos, neutros, rojos o rosas antes que verdes o azules saturados.
+   - Auténtica (gente creando o presentando, sin pose), sin logos ni texto que distraiga y con resolución suficiente para el hueco.
+   - Variedad en la pieza: no repitas el mismo tipo de toma o color dominante en slides seguidos.
+4. Baja solo las elegidas (los ids salen en la tabla y en el JSON) y úsalas con `<mas-photo src="../work/fotos/unsplash/<id>.jpg">`. Pon el crédito en el `.c-label` o en el caption.
+5. Renderiza, haz el QA y entrega. En el mensaje di qué foto va en cada slide y por qué en una línea, y ofrece cambiar cualquiera (la hoja de contacto queda guardada para eso).
+6. Cupo: el modo demo da 50 llamadas por hora (cada búsqueda cuenta 1 y cada foto bajada 2). Un carrusel típico usa de 10 a 20.
 
 Reglas:
 - Fotos con sus colores originales, sin filtros.

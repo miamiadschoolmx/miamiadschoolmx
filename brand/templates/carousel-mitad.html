@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>MAS — Carrusel con imágenes mitad y mitad</title>
+<link rel="stylesheet" href="../web/mas.css">
+<link rel="stylesheet" href="../web/collins.css">
+<style>
+  /* Carrusel con imágenes "mitad y mitad", como los carruseles de referencia de MAS (Drive → 10 REFERENCIAS):
+     texto arriba sobre rosa sólido y foto a sangre abajo, partidos exactamente a la mitad (1080 × 675) en TODOS
+     los slides, portada incluida, para que las fotos midan lo mismo. Nombre en Obviously Narrow Super en un rosa
+     fuerte; frases en Narrow Regular delgada, una por línea, con la frase clave en Black. Fotos con sus colores
+     originales; sin flechas, sin números, sin texto sobre la foto. */
+  .hm { --split: 675px; --px: 64px; }
+  .hm-top { position: absolute; left: 0; right: 0; top: 0; height: var(--split); padding: 60px var(--px) 0; }
+  .hm-img { position: absolute; left: 0; right: 0; bottom: 0; height: calc(100% - var(--split)); }
+  .im-h { font-family: var(--font-display); font-weight: 900; line-height: 1.04; letter-spacing: -0.01em; color: var(--hl); }
+  .hm-text { margin-top: 26px; font-family: var(--font-display); font-weight: 400; font-size: 44px; line-height: 1.06; color: var(--fg); }
+  .hm-text p + p { margin-top: 0.32em; }
+  .hm-text b { font-weight: 800; }
+  .hm-text p { text-wrap: pretty; }
+  .pill { display: inline-block; margin-top: 30px; padding: 14px 30px 16px; border: 3px solid currentColor; border-radius: 999px; font-family: var(--font-display); font-weight: 600; font-size: 40px; line-height: 1; }
+  /* Cierre (Collins c-tips, igual que en carousel-imagenes.html) */
+  .im-lead { font-family: var(--font-display); font-weight: 400; font-size: 48px; line-height: 1.06; color: var(--fg); text-wrap: balance; }
+  .im-lead b { font-weight: 800; }
+</style>
+</head>
+<body>
+
+<!-- 01 · Portada · Plum, headline Light Orchid, texto Lilac Pink. Foto: rodaje (equipo con cámara). -->
+<section class="page ig-post hm" style="--bg: var(--pink-2425); --hl: var(--pink-245); --fg: var(--pink-230)">
+  <div class="hm-top">
+    <div class="im-h" data-fit="both" style="height: 420px">8 decisiones para<br>crear un case<br>film convincente</div>
+    <div class="hm-text"><p>Del contexto <b>a&nbsp;los resultados</b>.</p></div>
+    <span class="pill" style="color: var(--pink-182)">Desliza</span>
+  </div>
+  <mas-photo class="hm-img" src="../work/fotos/unsplash/t5xk1J6zaH8.jpg" pos="50% 55%"></mas-photo>
+</section>
+
+<!-- 02 · Abre con el contexto · Blush, Magenta + Plum. Foto: periódicos. -->
+<section class="page ig-post hm" style="--bg: var(--pink-182); --hl: var(--pink-226); --fg: var(--pink-2425)">
+  <div class="hm-top">
+    <div class="im-h" data-fit data-fit-max="150">Abre con<br>el contexto</div>
+    <div class="hm-text">
+      <p>Explica qué estaba ocurriendo antes de la campaña.</p>
+      <p>Presenta el problema de manera concreta.</p>
+      <p>El espectador debe comprender <b>por qué era necesario desarrollar una solución</b>.</p>
+    </div>
+  </div>
+  <mas-photo class="hm-img" src="../work/fotos/unsplash/Mwuod2cm8g4.jpg" pos="50% 45%"></mas-photo>
+</section>
+
+<!-- 03 · Define el objetivo · Orchid, Plum. Foto: estrategia de marca en la pared. -->
+<section class="page ig-post hm" style="--bg: var(--pink-231); --hl: var(--pink-2425); --fg: var(--pink-2425)">
+  <div class="hm-top">
+    <div class="im-h" data-fit data-fit-max="150">Define<br>el objetivo</div>
+    <div class="hm-text">
+      <p>Explica qué necesitaba conseguir la marca.</p>
+      <p>Puede ser aumentar conocimiento, cambiar una percepción o impulsar una acción.</p>
+      <p>No confundas <b>el problema comercial con la ejecución creativa</b>.</p>
+    </div>
+  </div>
+  <mas-photo class="hm-img" src="../work/fotos/unsplash/DJb2MdMuzbU.jpg" pos="50% 40%"></mas-photo>
+</section>
+
+<!-- 04 · Muestra el hallazgo · Blush, Magenta + Plum. Foto: gente en el metro con su teléfono (comportamiento observado). -->
+<section class="page ig-post hm" style="--bg: var(--pink-182); --hl: var(--pink-226); --fg: var(--pink-2425)">
+  <div class="hm-top">
+    <div class="im-h" data-fit data-fit-max="150">Muestra<br>el hallazgo</div>
+    <div class="hm-text">
+      <p>Identifica la observación que permitió desarrollar la idea.</p>
+      <p>Explica qué comportamiento, tensión o necesidad resultó relevante.</p>
+      <p>Evita presentar <b>afirmaciones sobre consumidores que no puedas respaldar</b>.</p>
+    </div>
+  </div>
+  <mas-photo class="hm-img" src="../work/fotos/unsplash/oqY09oVTa3k.jpg" pos="50% 30%"></mas-photo>
+</section>
+
+<!-- 05 · Presenta la idea con claridad · Plum, Light Orchid + Lilac Pink. Foto: boceto en libreta. -->
+<section class="page ig-post hm" style="--bg: var(--pink-2425); --hl: var(--pink-245); --fg: var(--pink-230)">
+  <div class="hm-top">
+    <div class="im-h" data-fit data-fit-max="150">Presenta la idea<br>con claridad</div>
+    <div class="hm-text">
+      <p>Explica el concepto central <b>en una oración</b>.</p>
+      <p>Después muestra cómo se transforma en una campaña.</p>
+      <p>No dependas de <b>una narración complicada</b> para que el espectador entienda la propuesta.</p>
+    </div>
+  </div>
+  <mas-photo class="hm-img" src="../work/fotos/unsplash/gx3CR7UabgM.jpg" pos="50% 55%"></mas-photo>
+</section>
+
+<!-- 06 · Enseña la ejecución real · Blush, Magenta + Plum. Foto: parabús con anuncio real y alguien esperando. -->
+<section class="page ig-post hm" style="--bg: var(--pink-182); --hl: var(--pink-226); --fg: var(--pink-2425)">
+  <div class="hm-top">
+    <div class="im-h" data-fit data-fit-max="150">Enseña la<br>ejecución real</div>
+    <div class="hm-text">
+      <p>Utiliza las piezas que efectivamente se produjeron.</p>
+      <p>Muestra cómo apareció la campaña ante la audiencia.</p>
+      <p>Evita utilizar <b>mockups para representar resultados que nunca ocurrieron</b>.</p>
+    </div>
+  </div>
+  <mas-photo class="hm-img" src="../work/fotos/unsplash/A1Hr1_RbtzM.jpg" pos="50% 62%"></mas-photo>
+</section>
+
+<!-- 07 · Explica cómo funcionó · Salmon, Plum. Foto: público grabando con sus teléfonos (la audiencia participa). -->
+<section class="page ig-post hm" style="--bg: var(--pink-176); --hl: var(--pink-2425); --fg: var(--pink-2425)">
+  <div class="hm-top">
+    <div class="im-h" data-fit data-fit-max="150">Explica cómo<br>funcionó</div>
+    <div class="hm-text">
+      <p>Describe los principales puntos de contacto.</p>
+      <p><b>¿Qué hizo cada medio?</b></p>
+      <p><b>¿Cómo participó la audiencia?</b></p>
+      <p><b>¿Qué relación existía entre las diferentes ejecuciones?</b></p>
+    </div>
+  </div>
+  <mas-photo class="hm-img" src="../work/fotos/unsplash/NDdtRRUGfNA.jpg" pos="50% 40%"></mas-photo>
+</section>
+
+<!-- 08 · Presenta resultados verificables · Blush, Magenta + Plum. Foto: gráfica de resultados en la laptop. -->
+<section class="page ig-post hm" style="--bg: var(--pink-182); --hl: var(--pink-226); --fg: var(--pink-2425)">
+  <div class="hm-top">
+    <div class="im-h" data-fit data-fit-max="150">Presenta resultados<br>verificables</div>
+    <div class="hm-text">
+      <p>Utiliza indicadores relacionados con el objetivo.</p>
+      <p>Distingue alcance, interacciones, percepción y resultados comerciales.</p>
+      <p>Identifica <b>la fuente de cada cifra</b> y evita atribuir a la campaña efectos que no puedas demostrar.</p>
+    </div>
+  </div>
+  <mas-photo class="hm-img" src="../work/fotos/unsplash/J3AV8F-B42M.jpg" pos="50% 68%"></mas-photo>
+</section>
+
+<!-- 09 · Edita lo que no aporta · Light Orchid, Plum. Foto: editor frente a la línea de tiempo. -->
+<section class="page ig-post hm" style="--bg: var(--pink-245); --hl: var(--pink-2425); --fg: var(--pink-2425)">
+  <div class="hm-top">
+    <div class="im-h" data-fit data-fit-max="150">Edita lo que<br>no aporta</div>
+    <div class="hm-text">
+      <p>Revisa cada escena y pregúntate qué información entrega.</p>
+      <p>Elimina explicaciones repetidas, introducciones largas y recursos visuales innecesarios.</p>
+      <p>Cada secuencia debe ayudar a comprender <b>el problema, la idea o el resultado</b>.</p>
+    </div>
+  </div>
+  <mas-photo class="hm-img" src="../work/fotos/unsplash/flEEKHvygT4.jpg" pos="50% 55%"></mas-photo>
+</section>
+
+<!-- 10 · Cierre · Plum, Light Orchid + Lilac Pink. Lockup tonal Light Orchid + dot Orange (Plum → Orange, manual). -->
+<section class="page ig-post c-tips" style="--bg: var(--pink-2425); --hl: var(--pink-245); --fg: var(--pink-230)">
+  <div class="c-top">
+    <div class="im-h" data-fit data-fit-max="180">Un buen case film<br>permite comprender<br>qué hiciste, por qué<br>y qué ocurrió después.</div>
+    <p class="im-lead" style="margin-top: 40px">Guarda estas ocho decisiones <b>antes de editar tu próximo caso</b>.</p>
+  </div>
+  <mas-lockup class="c-bot" m="pink-245" dot="orange-1495" text="pink-245" style="height: 230px"></mas-lockup>
+</section>
+
+<script src="../web/mas-data.js"></script>
+<script>
+  // Mitad y mitad: si el texto no cabe en la mitad de arriba, baja primero el headline (hasta 104 px) y luego
+  // las frases (hasta 38 px), para que nunca se meta bajo la foto. Deja 48 px de aire antes de la foto.
+  window.MAS_AFTER_FIT = () => {
+    for (const top of document.querySelectorAll('.hm-top')) {
+      const h = top.querySelector('.im-h'), t = top.querySelector('.hm-text');
+      const bottom = () => { const l = top.lastElementChild; return l.offsetTop + l.offsetHeight; };
+      for (let i = 0; i < 80 && bottom() > top.clientHeight - 48; i++) {
+        const hs = parseFloat(getComputedStyle(h).fontSize), ts = parseFloat(getComputedStyle(t).fontSize);
+        if (hs > 104 && !h.matches('[data-fit="both"]')) h.style.fontSize = (hs - 2) + 'px';
+        else if (ts > 38) t.style.fontSize = (ts - 1) + 'px';
+        else break;
+      }
+    }
+  };
+</script>
+<script src="../web/mas.js"></script>
+</body>
+</html>

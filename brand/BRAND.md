@@ -250,7 +250,8 @@ Los 12 masters existen como `.ai` (wireframes, Drive "Templates Collins 1080 x 1
 |---|---|---|
 | Portada de carrusel educativo | Tips (portada) | `c-tips-cover` |
 | Consejo o paso con 1–3 frases | Tips (interior) | `c-tips` |
-| Recurso, libro, película, podcast o herramienta con imagen | Tips with Images | `c-tips-img` (carrusel completo: `templates/carousel-imagenes.html`; la foto mide lo mismo en todos los slides) |
+| Recurso, libro, película, podcast, herramienta, paso o decisión con imagen | Tips with Images | `c-tips-img` (carrusel completo: `templates/carousel-imagenes.html`; la foto mide lo mismo en todos los slides) |
+| Consejo corto con foto protagonista (título + 1–2 frases) | Mitad y mitad (referencias MAS) | carrusel completo: `templates/carousel-mitad.html` (texto arriba, foto a sangre abajo, 1080 × 675 en todos los slides) |
 | Dato o insight en una frase | Facts | `c-fact` |
 | Hallazgo de un estudio con fuente | Facts (estudio) | `c-fact-study` |
 | Cita de una persona | Quotes | `c-quote` |

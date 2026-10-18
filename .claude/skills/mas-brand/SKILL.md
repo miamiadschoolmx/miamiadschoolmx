@@ -28,7 +28,7 @@ El logo, la paleta y la alineación a la izquierda no cambian.
 - Si cambias algo más, dilo en la entrega.
 
 **Diseño que le funcionó**
-- Referencias aprobadas: `templates/carousel.html` ("8 ajustes", le dijo "wow, me gusta"), `templates/carousel-recursos.html` ("7 herramientas"), `templates/carousel-podcasts.html` ("7 podcasts" tipográfico; le gustó cómo se innovó en Design Matters, el nombre vertical) y `templates/carousel-imagenes.html` ("7 podcasts" con fotos: "WOW, ahora sí").
+- Referencias aprobadas: `templates/carousel.html` ("8 ajustes", le dijo "wow, me gusta"), `templates/carousel-recursos.html` ("7 herramientas"), `templates/carousel-podcasts.html` ("7 podcasts" tipográfico; le gustó cómo se innovó en Design Matters, el nombre vertical) y `templates/carousel-imagenes.html` ("7 podcasts" con fotos: "WOW, ahora sí"; "8 decisiones para un case film": "wow, quedó muy bien").
 - Sus carruseles de referencia están en Drive → BIBLIOTECA → **10 REFERENCIAS**. Antes de un estilo nuevo, míralos.
 - Lo que le gusta:
   - tipo rosa enorme;
@@ -108,7 +108,8 @@ Antes de diseñar, haz el plan slide por slide: qué layout Collins (`BRAND.md �
    - **`templates/collins.html` + `web/collins.css`: los 12 Master Templates de Collins como 20 layouts** (clases `c-…`). Es la base para cualquier carrusel o post: elige el layout de cada slide con la tabla de `BRAND.md §9` (Tips, Tips with Images, Facts, Quotes, Poll, Single Photo, Insighters, Hired, 2BeHired, Award Winner, Multiple Photo, cierre).
    - `templates/carousel-recursos.html`: carrusel de recursos (7 herramientas): un layout distinto por recurso, con nombre, frases de apoyo y enlace.
    - `templates/carousel-podcasts.html`: carrusel de referentes (7 podcasts): portada con número monumental en Narrow Bold, nombre vertical como lomo de libro (`.spine`), nombre partido en Super a todo el ancho, "marketers" diminuto junto a "Everyone hates" gigante, "pasivamente" en Regular delgada contra Super, anfitrión en Black dentro del apoyo y remate en Black; cierra con preguntas en filetes y lockup.
-   - `templates/carousel-imagenes.html`: **carrusel con imágenes** (aprobado). Es la plantilla de libros/películas de Collins (Tips with Images, `c-tips-img`) con la tipografía de los carruseles de referencia de MAS: nombre en Narrow Super en un rosa fuerte (Magenta sobre Blush, Light Orchid sobre Plum), primera frase debajo en Narrow Regular de 48 px, el resto abajo a la izquierda en Regular de 46 px con la frase clave en Black, y la foto abajo a la derecha siempre del mismo tamaño (3 columnas × 3.5 filas), portada incluida. Úsala para libros, películas, podcasts, herramientas o cualquier serie con una imagen por elemento.
+   - `templates/carousel-imagenes.html`: **carrusel con imágenes** (aprobado). Es la plantilla de libros/películas de Collins (Tips with Images, `c-tips-img`) con la tipografía de los carruseles de referencia de MAS: nombre en Narrow Super en un rosa fuerte (Magenta sobre Blush, Light Orchid sobre Plum), primera frase debajo en Narrow Regular de 48 px, el resto abajo a la izquierda en Regular de 46 px con la frase clave en Black, y la foto abajo a la derecha siempre del mismo tamaño (3 columnas × 3.5 filas), portada incluida. Úsala para libros, películas, podcasts, herramientas, pasos o decisiones: cualquier serie con una imagen por elemento. Aguanta copy larga (título + 3 frases).
+   - `templates/carousel-mitad.html`: **carrusel con imágenes mitad y mitad** (propuesta, por aprobar), como los carruseles de referencia de MAS: texto arriba sobre rosa y foto a sangre abajo, partidos exactamente a la mitad (1080 × 675) en todos los slides, portada incluida. Las frases van una por línea en Narrow Regular con la frase clave en Black. Si el texto no cabe en la mitad de arriba, un script baja el headline y luego las frases. Luce mejor con copy corta (título + 1–2 frases) y fotos horizontales; con copy larga, usa `carousel-imagenes.html`.
    - `templates/carousel.html`: carrusel tipográfico de ejemplo con 10 layouts propios, sin M-dots: portada tipográfica (golpe ancho + Narrow Black), headline + ejemplo como cita, headline + frases + remate con flecha, statement en Super, lista con flechas, headline que crece línea a línea, pregunta protagonista, comparación a dos columnas, golpe ancho, cierre con frase + lockup.
    - `templates/document.html`: PDF carta (portada tipográfica, interior legible, contraportada con lockup).
    - `templates/brand-sheet.html`: referencia del sistema (deck 1920×1080).
@@ -145,7 +146,7 @@ Carpeta **BIBLIOTECA** dentro de BRAND: `18n0WHBOuaIIMH24L9b5nQ4IX0XQ8h4AR`. Reg
 | 15 ALIANZAS Y EMPRESAS | `1055uaW4wPj5NpnxCtAOusp4Zhla6doDb` | empresas que contratan, convenios |
 | 16 CALENDARIO | `1XKpiHYIobtp9u42ACRYaavVgRzKzrPjO` | hoja "Fechas clave" `1g9BhF5civaNrKtIDbl1nkRGg4hChZFWAALrUcaXSntI` |
 | 17 MÚSICA CON LICENCIA | `10GZeD9mTNwUYHYpZenjc01oDLNuM6W3C` | pistas para reels con su licencia |
-| 18 PLANTILLAS EDITABLES | `1L4OniZR1igeOOhvgxH97_RLIg6xJjwSI` | editables del equipo (Canva y otros) |
+| 18 PLANTILLAS EDITABLES | `1L4OniZR1igeOOhvgxH97_RLIg6xJjwSI` | editables del equipo (Canva y otros). Subcarpeta CATÁLOGO DE PLANTILLAS `1ac0qNO88lHJhXYdcoTKOZfAHcNRbdNuM`: capturas etiquetadas con su uso |
 
 Cómo usarla en cada pieza:
 1. Antes de proponer o producir, lee el "Banco de temas" y lista "12 PIEZAS PUBLICADAS" para no repetir temas.
@@ -160,6 +161,12 @@ Cómo usarla en cada pieza:
 4. Logos de premios y agencias: "03 LOGOS". Capturas para carruseles de recursos: "09 CAPTURAS".
 5. Si la carpeta que necesitas está vacía, dile a Ricardo qué subir y dónde, en una línea.
 6. En esta sesión solo hay conector de Drive: puedes crear y leer archivos, pero no editar un Sheet o Doc existente. Para agregar una fila al Banco de temas, pídeselo a Ricardo o pide que active los conectores de Google Sheets y Docs.
+
+## Catálogo de plantillas de MAS
+
+Ricardo sube capturas de las plantillas que ya usa MAS, con su etiqueta, a Drive → BIBLIOTECA → 18 PLANTILLAS EDITABLES → **CATÁLOGO DE PLANTILLAS** (`1ac0qNO88lHJhXYdcoTKOZfAHcNRbdNuM`). El nombre del archivo dice para qué sirve: `<nombre>__<para-qué-sirve>.png`, p. ej. `tips-con-imagen__libros-peliculas-herramientas.png`. También puede mandarlas en el chat.
+1. Antes de elegir layout para una pieza nueva, lista esa carpeta y busca la plantilla cuya etiqueta corresponda al contenido.
+2. Si la plantilla todavía no existe en HTML, replícala en `brand/templates/` con el sistema (paleta, fuentes, sin flechas ni M-dots en slides) y agrégala a la lista de arriba y a la tabla de `BRAND.md §9` con su uso.
 
 ## Fotos que elige Ricardo
 

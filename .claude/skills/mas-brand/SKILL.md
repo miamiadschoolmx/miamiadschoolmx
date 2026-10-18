@@ -131,7 +131,7 @@ Carpeta **BIBLIOTECA** dentro de BRAND: `18n0WHBOuaIIMH24L9b5nQ4IX0XQ8h4AR`. Reg
 |---|---|---|
 | 01 FOTOS MAS | `1U5ARvJvLUSlUw6ygyeAodMZtVQhI-2UI` | fotos reales. Subcarpetas: Alumnos en clase `1lgN0oA5txL-lxcyT_jKP3DXlc3BcP2hM` · Presentaciones y críticas `1Zp1UGFRcMSpJ6TwNPk12XplobQtSMqfX` · Eventos y speakers `1_WHrdhtXPy26HvY9t0g6cwE4my_XTDra` · Egresados contratados `1V75obl96Z642qxrTdURtmXU6kEn1MSTY` · Premios `1y08KTG1jm2-uaX2qHVqCmQQY5Zxa6N74` · Campus y comunidad `1ywOsbMHTdK8iVxU_NwBKkJSFH5hcB9_j` · Equipo MAS `1KySQ0YI70uo4_tVAbPKhiotBgrGZ246P` · Detrás de cámaras `14qmm_LH4Fb3i0Y8P-o5uox8KDZBXzsKI` |
 | 02 TRABAJOS DE ALUMNOS | `1z1yNA9O99c5B76SUt3anyakFJqwCxEWN` | piezas de alumnos con créditos |
-| 03 LOGOS | `1488TFdIESBMkVaobxPW9QnCeJkMZDvCy` | Premios `1WCbLHGBZ2N3zd0q224Qazqw2FADK5HUR` · Agencias `1ZWOhUzm4XJrYs8Ivf5tI0h_zeh1PRUpi` · Aliados y empresas `1ApChN19970XL9i4yEa5xs4pRIHnUPnDz` |
+| 03 LOGOS | `1488TFdIESBMkVaobxPW9QnCeJkMZDvCy` | Premios `1WCbLHGBZ2N3zd0q224Qazqw2FADK5HUR` · Agencias `1ZWOhUzm4XJrYs8Ivf5tI0h_zeh1PRUpi` · Aliados y empresas `1ApChN19970XL9i4yEa5xs4pRIHnUPnDz` · Sitios y medios `1BBfoGnotGskfcbuOq2wPAJT-Ezmwf9Am` (sitios, revistas y herramientas que se recomiendan en carruseles) |
 | 04 DATOS OFICIALES | `1-2IRTRgVXL3gWeL3z4B97yxySYLLQoyH` | doc "Datos oficiales MAS" `1imI8T9oq4ODko1UEyrRfsf4MlHxG3uyfAoTf-beqRL8` |
 | 05 TESTIMONIOS | `1PGsXLU6dw2_WPLkZYONXAcT6MrtNdw5e` | frases, audios y videos con permiso |
 | 06 PROFESORES Y MENTORES | `1Jojb9ondBCiiVx45ifAMr5cx7yAEsIlK` | foto, puesto, agencia y bio |
@@ -176,6 +176,15 @@ Si Ricardo quiere fotos exactas, mandan sobre cualquier búsqueda. Puede darlas 
 3. **De Unsplash**: el enlace de la foto (`unsplash.com/photos/<slug>-<id>`). El id son los últimos 11 caracteres; bájala con `download_asset` y anota el crédito.
 4. **De otra web** (portadas de libros, pósters, capturas): mejor la imagen o una captura que el enlace. Instagram no se puede abrir.
 Revisa el tamaño con `identify`: para la caja de Tips with Images (496 × 736 px) basta una foto de ~1000 px en su lado corto. Si una no da, dile cuál y por qué en una línea.
+
+## Logos de terceros (sitios, premios, agencias)
+
+**Cómo los da Ricardo**: en el chat (arrastrados) o en Drive → BIBLIOTECA → 03 LOGOS → la subcarpeta que toque (Sitios y medios, Premios, Agencias, Aliados y empresas), con el nombre del sitio o la marca como nombre del archivo (`dieline.png`). Mejor SVG o PNG con fondo transparente y de al menos 1000 px de ancho; si uno llega chico (menos de ~600 px), úsalo y pídele uno más grande en una línea. Si falta un logo, no lo dibujes ni lo escribas con nuestra tipografía como si fuera el logo: deja el enlace y pídeselo.
+
+**Cómo van en la pieza** (aprobado en "7 sitios para estudiar packaging creativo"):
+- Monocromo en el rosa del texto del slide (`--fg`), nunca negro. Se hace con una máscara: convierte el logo a alfa (`convert logo.png -background white -alpha remove -alpha off -colorspace gray -negate -level 5%,35% -bordercolor black -border 4 -trim +repage \( +clone \) -alpha off -compose copy_opacity -composite -fill black -colorize 100% PNG32:mask.png`; el borde antes de `-trim` evita que se coma una letra que toca la orilla) y pinta un `<span class="logo">` con `background: var(--fg)` y `mask: var(--logo) no-repeat left center / contain`.
+- La máscara va como data URI (`url(data:image/png;base64,…)`): Chromium bloquea máscaras cargadas desde archivos locales y el logo sale vacío.
+- En `carousel-imagenes.html` va abajo a la izquierda como firma, con el enlace (`.url`, Narrow Semibold 38 px) debajo. Ancho de 330–440 px según la proporción; un isotipo cuadrado, ~120 px.
 
 ## Fotos de Unsplash
 

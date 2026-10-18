@@ -12,7 +12,7 @@ Todo vive en `brand/` (raíz del repo). Lee **`brand/BRAND.md`** completo antes 
 1. **Headlines grandes y bold.** Usa las tipografías y pesos que se vean más cool aunque no estén en el manual. Por defecto: Obviously Narrow **Black**, y **Super** para golpes cortos (≤ 3 palabras por línea). Para un golpe de 1–2 palabras por línea, una vez por pieza, está **Obviously Black/Super ancha** (`.h.wide`). También se vale cualquier otra fuente con licencia que esté en `brand/fonts/`. Pocas palabras por línea y `data-fit` para que el tipo llene el ancho.
 2. **Nunca letras negras** (ni blancas). Todo el texto va en un rosa de la paleta, en un par de `text_pairs`. El negro solo existe en el M del logo.
 3. **Sin M-dots dentro de los slides** (ni en posts, escenas de reel o páginas). El **logo va solo al final**, en el cierre (lockup). Nada de wordmark en la portada.
-4. **Texto de apoyo grande y grueso**: todo lo que va abajo (cuerpo, listas, CTA, "Desliza") en **Obviously Narrow Bold** con la clase `.support` (64 px en 1080; `.support.sm` = 52 px para dos columnas o bloques largos). Nunca Obviously Regular delgada en slides: no se lee. Máximo 2–3 frases por slide.
+4. **Texto de apoyo grande y grueso**: todo lo que va abajo (cuerpo, listas, CTA, "Desliza") en **Obviously Narrow Bold** con la clase `.support` (64 px en 1080; `.support.sm` = 52 px para dos columnas o bloques largos). Máximo 2–3 frases por slide. **Excepción aprobada**: en el estilo con imágenes (`templates/carousel-imagenes.html`, tomado de los carruseles de referencia de MAS) el texto va en Narrow Regular delgada de 46–48 px con la frase clave en Black. Fuera de ese estilo, nunca Regular delgada.
 5. **Fotos tal como son**: con sus colores originales. Nunca filtros rosas ni de otro color, duotonos, tintes ni color grade.
 6. **Sin flechas** (→): ni en remates, listas, enlaces, "Desliza" ni como gráfico. El remate va en Narrow Black (`.punch`) y las listas se separan con aire o filetes.
 7. **Rompe reglas de layout como director de arte.** Ricardo quiere que cada pieza sorprenda: nombre vertical como lomo de libro, una palabra gigante junto a otra diminuta, un peso delgado enorme contra uno Super. Cada ruptura sale del contenido (qué significa la palabra), una por slide y no en todos. Lo que no se rompe: reglas 2 a 6, el logo, la paleta, la alineación a la izquierda y que el tipo se lea en el teléfono.
@@ -28,7 +28,8 @@ El logo, la paleta y la alineación a la izquierda no cambian.
 - Si cambias algo más, dilo en la entrega.
 
 **Diseño que le funcionó**
-- Referencias aprobadas: `templates/carousel.html` ("8 ajustes", le dijo "wow, me gusta"), `templates/carousel-recursos.html` ("7 herramientas") y `templates/carousel-podcasts.html` ("7 podcasts"; le gustó cómo se innovó en Design Matters, el nombre vertical).
+- Referencias aprobadas: `templates/carousel.html` ("8 ajustes", le dijo "wow, me gusta"), `templates/carousel-recursos.html` ("7 herramientas"), `templates/carousel-podcasts.html` ("7 podcasts" tipográfico; le gustó cómo se innovó en Design Matters, el nombre vertical) y `templates/carousel-imagenes.html` ("7 podcasts" con fotos: "WOW, ahora sí").
+- Sus carruseles de referencia están en Drive → BIBLIOTECA → **10 REFERENCIAS**. Antes de un estilo nuevo, míralos.
 - Lo que le gusta:
   - tipo rosa enorme;
   - un color y un layout distinto en cada slide;
@@ -43,7 +44,9 @@ El logo, la paleta y la alineación a la izquierda no cambian.
   - fotos con filtro rosa;
   - flechas (→) en cualquier parte;
   - el 7 de portada en Obviously Super ancha ("muy gordo"): en Black/Super los números se vuelven un bloque. Números monumentales en **Obviously Narrow Bold**, la tipografía oficial de headline;
-  - un gag que necesita negro para leerse (la barra de censura en rosa parecía subrayado): si el chiste no funciona con la paleta, no lo uses.
+  - un gag que necesita negro para leerse (la barra de censura en rosa parecía subrayado): si el chiste no funciona con la paleta, no lo uses;
+  - fotos de distinto tamaño en cada slide: en un carrusel con imágenes, todas miden lo mismo, portada incluida;
+  - una portada donde el headline y la foto se encimen o se corten.
 
 **Entrega**
 - Manda una vista previa (`montage` de los 10 slides) y **un ZIP** con los PNG numerados (`<pieza>-01.png`…). Los PNG sueltos no: descargarlos uno por uno es incómodo.
@@ -104,6 +107,7 @@ Antes de diseñar, haz el plan slide por slide: qué layout Collins (`BRAND.md �
    - **`templates/collins.html` + `web/collins.css`: los 12 Master Templates de Collins como 20 layouts** (clases `c-…`). Es la base para cualquier carrusel o post: elige el layout de cada slide con la tabla de `BRAND.md §9` (Tips, Tips with Images, Facts, Quotes, Poll, Single Photo, Insighters, Hired, 2BeHired, Award Winner, Multiple Photo, cierre).
    - `templates/carousel-recursos.html`: carrusel de recursos (7 herramientas): un layout distinto por recurso, con nombre, frases de apoyo y enlace.
    - `templates/carousel-podcasts.html`: carrusel de referentes (7 podcasts): portada con número monumental en Narrow Bold, nombre vertical como lomo de libro (`.spine`), nombre partido en Super a todo el ancho, "marketers" diminuto junto a "Everyone hates" gigante, "pasivamente" en Regular delgada contra Super, anfitrión en Black dentro del apoyo y remate en Black; cierra con preguntas en filetes y lockup.
+   - `templates/carousel-imagenes.html`: **carrusel con imágenes** (aprobado). Es la plantilla de libros/películas de Collins (Tips with Images, `c-tips-img`) con la tipografía de los carruseles de referencia de MAS: nombre en Narrow Super en un rosa fuerte (Magenta sobre Blush, Light Orchid sobre Plum), primera frase debajo en Narrow Regular de 48 px, el resto abajo a la izquierda en Regular de 46 px con la frase clave en Black, y la foto abajo a la derecha siempre del mismo tamaño (3 columnas × 3.5 filas), portada incluida. Úsala para libros, películas, podcasts, herramientas o cualquier serie con una imagen por elemento.
    - `templates/carousel.html`: carrusel tipográfico de ejemplo con 10 layouts propios, sin M-dots: portada tipográfica (golpe ancho + Narrow Black), headline + ejemplo como cita, headline + frases + remate con flecha, statement en Super, lista con flechas, headline que crece línea a línea, pregunta protagonista, comparación a dos columnas, golpe ancho, cierre con frase + lockup.
    - `templates/document.html`: PDF carta (portada tipográfica, interior legible, contraportada con lockup).
    - `templates/brand-sheet.html`: referencia del sistema (deck 1920×1080).
@@ -155,6 +159,15 @@ Cómo usarla en cada pieza:
 4. Logos de premios y agencias: "03 LOGOS". Capturas para carruseles de recursos: "09 CAPTURAS".
 5. Si la carpeta que necesitas está vacía, dile a Ricardo qué subir y dónde, en una línea.
 6. En esta sesión solo hay conector de Drive: puedes crear y leer archivos, pero no editar un Sheet o Doc existente. Para agregar una fila al Banco de temas, pídeselo a Ricardo o pide que active los conectores de Google Sheets y Docs.
+
+## Fotos que elige Ricardo
+
+Si Ricardo quiere fotos exactas, mandan sobre cualquier búsqueda. Puede darlas de cuatro formas; con cualquiera, el nombre del archivo indica el slide (`03.jpg` o `03_sweathead.jpg`):
+1. **En el chat**: arrastra las imágenes a la conversación. Guárdalas en `brand/work/fotos/ricardo/<pieza>/` (fuera de git).
+2. **En Drive**: una subcarpeta por pieza dentro de BIBLIOTECA (fotos de MAS en "01 FOTOS MAS"; capturas en "09 CAPTURAS"). Te pasa el enlace de la carpeta; bájalas con `download_file_content` y `drive-save.py`.
+3. **De Unsplash**: el enlace de la foto (`unsplash.com/photos/<slug>-<id>`). El id son los últimos 11 caracteres; bájala con `download_asset` y anota el crédito.
+4. **De otra web** (portadas de libros, pósters, capturas): mejor la imagen o una captura que el enlace. Instagram no se puede abrir.
+Revisa el tamaño con `identify`: para la caja de Tips with Images (496 × 736 px) basta una foto de ~1000 px en su lado corto. Si una no da, dile cuál y por qué en una línea.
 
 ## Fotos de Unsplash
 

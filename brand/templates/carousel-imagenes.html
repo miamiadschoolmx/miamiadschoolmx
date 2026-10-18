@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>MAS — Carrusel con imágenes (plantilla)</title>
+<link rel="stylesheet" href="../web/mas.css">
+<link rel="stylesheet" href="../web/collins.css">
+<style>
+  /* Carrusel con imágenes (aprobado por Ricardo: "WOW, ahora sí"; ejemplo: "7 podcasts para pensar mejor como creativo").
+     Plantilla de libros/películas (Collins "Tips with Images", c-tips-img) con la tipografía de los carruseles de
+     referencia de MAS (Drive → BIBLIOTECA → 10 REFERENCIAS):
+     - Nombre en Obviously Narrow Super en un rosa fuerte (Magenta sobre Blush; Light Orchid sobre Plum).
+     - Primera frase debajo en Narrow Regular delgada de 48 px; el resto abajo a la izquierda en Regular de 46 px.
+       La frase clave (anfitrión, para quién es) va en Black dentro del texto.
+     - Foto abajo a la derecha, SIEMPRE del mismo tamaño en todos los slides, portada incluida
+       (3 columnas × 3.5 filas del grid de Collins). Colores originales; sin texto encima.
+     - Sin flechas ni números. Créditos de las fotos en el caption.
+     Las fotos viven fuera de git (brand/work/fotos/unsplash/). Para volver a bajarlas:
+     python3 -I brand/scripts/unsplash.py bajar oD_jqGa_ogY Ax8IA8GAjVg dtTu8Ec_uAU H9dBFfQ1tik ZT5v0puBjZI
+       RgPQNvoIcdg Hg3BHX6U5jg 5GBvm1lhrFM 5OGIZjTZx58 (o con el conector de Unsplash, download_asset).
+     Duplica este archivo en brand/work/ y cambia las rutas a fotos/unsplash/. */
+  .im-h { font-family: var(--font-display); font-weight: 900; line-height: 1.04; letter-spacing: -0.01em; color: var(--hl); }
+  .im-lead { font-family: var(--font-display); font-weight: 400; font-size: 48px; line-height: 1.06; color: var(--fg); }
+  .im-lead b, .im-text b { font-weight: 800; }
+  .c-top .im-lead { margin-top: 26px; }
+  .im-text { font-family: var(--font-display); font-weight: 400; font-size: 46px; line-height: 1.06; color: var(--fg); }
+  .im-text p + p { margin-top: 0.5em; }
+  .im-text .punch { font-weight: 800; }
+  .c-tips-img .c-bot { width: calc(var(--col) * 3 - 32px); }
+  .pill { display: inline-block; margin-top: 36px; padding: 14px 30px 16px; border: 3px solid currentColor; border-radius: 999px; font-family: var(--font-display); font-weight: 600; font-size: 40px; line-height: 1; }
+  .qs p { font-family: var(--font-display); font-weight: 800; font-size: 46px; line-height: 1.06; color: var(--fg); }
+  .qs p + p { margin-top: 0.6em; }
+</style>
+</head>
+<body>
+
+<!-- 01 · Portada · Plum, headline Light Orchid, texto Lilac Pink. Misma caja de foto que los interiores. -->
+<section class="page ig-post c-tips-img" style="--bg: var(--pink-2425); --hl: var(--pink-245); --fg: var(--pink-230)">
+  <div class="c-top"><div class="im-h" data-fit="both" style="height: calc(var(--row) * 2.35)">7 podcasts para<br>pensar mejor<br>como creativo</div></div>
+  <div class="c-bot">
+    <p class="im-lead">Ideas sobre <b>estrategia, diseño y negocio</b>.</p>
+    <span class="pill" style="color: var(--pink-182)">Desliza</span>
+  </div>
+  <mas-photo class="c-img" src="../work/fotos/unsplash/oD_jqGa_ogY.jpg" pos="45% 40%"></mas-photo>
+</section>
+
+<!-- 02 · On Strategy Showcase · Blush, Magenta + Plum. Foto: planeación con post-its. -->
+<section class="page ig-post c-tips-img" style="--bg: var(--pink-182); --hl: var(--pink-226); --fg: var(--pink-2425)">
+  <div class="c-top">
+    <div class="im-h" data-fit data-fit-max="180">On Strategy<br>Showcase</div>
+    <p class="im-lead">Conversaciones sobre las decisiones estratégicas detrás de campañas reales.</p>
+  </div>
+  <div class="c-bot im-text">
+    <p>Escucha cómo se identificaron problemas, se encontraron oportunidades y se desarrollaron ideas.</p>
+    <p>Ideal para <b>planners, copies y directores creativos</b>.</p>
+  </div>
+  <mas-photo class="c-img" src="../work/fotos/unsplash/Ax8IA8GAjVg.jpg" pos="40% 50%"></mas-photo>
+</section>
+
+<!-- 03 · Sweathead · Orchid, Plum. Foto: notas a mano. -->
+<section class="page ig-post c-tips-img" style="--bg: var(--pink-231); --hl: var(--pink-2425); --fg: var(--pink-2425)">
+  <div class="c-top">
+    <div class="im-h" data-fit data-fit-max="180">Sweathead</div>
+    <p class="im-lead"><b>Mark Pollard</b> conversa sobre estrategia publicitaria, marcas y pensamiento creativo.</p>
+  </div>
+  <div class="c-bot im-text">
+    <p>Escucha cómo diferentes profesionales investigan comportamientos, formulan problemas y construyen argumentos.</p>
+    <p>Úsalo para <b>mejorar tu manera de pensar y presentar estrategias</b>.</p>
+  </div>
+  <mas-photo class="c-img" src="../work/fotos/unsplash/dtTu8Ec_uAU.jpg" pos="62% 50%"></mas-photo>
+</section>
+
+<!-- 04 · Design Matters · Blush, Magenta + Plum. Foto: póster en la pared. -->
+<section class="page ig-post c-tips-img" style="--bg: var(--pink-182); --hl: var(--pink-226); --fg: var(--pink-2425)">
+  <div class="c-top">
+    <div class="im-h" data-fit data-fit-max="180">Design<br>Matters</div>
+    <p class="im-lead"><b>Debbie Millman</b> entrevista a diseñadores, artistas y profesionales creativos.</p>
+  </div>
+  <div class="c-bot im-text">
+    <p>Las conversaciones exploran sus decisiones, trayectorias y procesos.</p>
+    <p>Escúchalo para entender cómo se desarrolla <b>una voz propia y una carrera creativa</b>.</p>
+  </div>
+  <mas-photo class="c-img" src="../work/fotos/unsplash/H9dBFfQ1tik.jpg" pos="56% 50%"></mas-photo>
+</section>
+
+<!-- 05 · Uncensored CMO · Plum, Light Orchid + Lilac Pink. Foto: junta de líderes. -->
+<section class="page ig-post c-tips-img" style="--bg: var(--pink-2425); --hl: var(--pink-245); --fg: var(--pink-230)">
+  <div class="c-top">
+    <div class="im-h" data-fit data-fit-max="180">Uncensored<br>CMO</div>
+    <p class="im-lead"><b>Jon Evans</b> entrevista a líderes de marketing y especialistas.</p>
+  </div>
+  <div class="c-bot im-text">
+    <p>Encontrarás conversaciones sobre efectividad, construcción de marca y decisiones comerciales.</p>
+    <p>Útil para comprender cómo evalúan la publicidad <b>quienes administran presupuestos</b>.</p>
+  </div>
+  <mas-photo class="c-img" src="../work/fotos/unsplash/ZT5v0puBjZI.jpg" pos="62% 50%"></mas-photo>
+</section>
+
+<!-- 06 · The Futur with Chris Do · Blush, Magenta + Plum. Foto: freelance trabajando en casa. -->
+<section class="page ig-post c-tips-img" style="--bg: var(--pink-182); --hl: var(--pink-226); --fg: var(--pink-2425)">
+  <div class="c-top">
+    <div class="im-h" data-fit data-fit-max="180">The Futur<br>with Chris Do</div>
+    <p class="im-lead">Un podcast sobre diseño, creatividad, marketing y negocios.</p>
+  </div>
+  <div class="c-bot im-text">
+    <p>Explora cómo comunicar tu valor profesional, relacionarte con clientes y desarrollar una carrera independiente.</p>
+    <p>Especialmente útil para <b>diseñadores y creativos freelance</b>.</p>
+  </div>
+  <mas-photo class="c-img" src="../work/fotos/unsplash/RgPQNvoIcdg.jpg" pos="42% 50%"></mas-photo>
+</section>
+
+<!-- 07 · The CMO Podcast · Salmon, Plum. Foto: grabación de un podcast. -->
+<section class="page ig-post c-tips-img" style="--bg: var(--pink-176); --hl: var(--pink-2425); --fg: var(--pink-2425)">
+  <div class="c-top">
+    <div class="im-h" data-fit data-fit-max="180">The CMO<br>Podcast</div>
+    <p class="im-lead"><b>Jim Stengel</b> conversa con responsables de marketing de diferentes empresas.</p>
+  </div>
+  <div class="c-bot im-text">
+    <p>Escúchalo para comprender cómo las marcas definen prioridades, trabajan con agencias y toman decisiones estratégicas.</p>
+    <p>Una perspectiva útil sobre <b>el negocio publicitario</b>.</p>
+  </div>
+  <mas-photo class="c-img" src="../work/fotos/unsplash/Hg3BHX6U5jg.jpg" pos="62% 50%"></mas-photo>
+</section>
+
+<!-- 08 · Everyone Hates Marketers · Blush, Magenta + Plum. Foto: espectaculares en Piccadilly. -->
+<section class="page ig-post c-tips-img" style="--bg: var(--pink-182); --hl: var(--pink-226); --fg: var(--pink-2425)">
+  <div class="c-top">
+    <div class="im-h" data-fit data-fit-max="180">Everyone Hates<br>Marketers</div>
+    <p class="im-lead"><b>Louis Grenier</b> aborda posicionamiento, investigación de clientes, comunicación y estrategia.</p>
+  </div>
+  <div class="c-bot im-text">
+    <p>Busca sus conversaciones sobre diferenciación de marcas.</p>
+    <p>Aprenderás a cuestionar propuestas demasiado genéricas y <b>desarrollar argumentos más específicos</b>.</p>
+  </div>
+  <mas-photo class="c-img" src="../work/fotos/unsplash/5GBvm1lhrFM.jpg" pos="58% 60%"></mas-photo>
+</section>
+
+<!-- 09 · No los escuches pasivamente · Light Orchid, Plum. Foto: estatua con audífonos (el que escucha sin moverse). -->
+<section class="page ig-post c-tips-img" style="--bg: var(--pink-245); --hl: var(--pink-2425); --fg: var(--pink-2425)">
+  <div class="c-top">
+    <div class="im-h" data-fit data-fit-max="180">No los escuches<br>pasivamente.</div>
+    <p class="im-lead">Después de cada episodio, escribe tres cosas:</p>
+  </div>
+  <div class="c-bot qs">
+    <p>¿Qué problema se estaba resolviendo?</p>
+    <p>¿Qué decisión cambió el resultado?</p>
+    <p>¿Qué principio podrías aplicar en tu próximo proyecto?</p>
+  </div>
+  <mas-photo class="c-img" src="../work/fotos/unsplash/5OGIZjTZx58.jpg" pos="50% 30%"></mas-photo>
+</section>
+
+<!-- 10 · Cierre · Plum, Light Orchid + Lilac Pink. Lockup tonal Light Orchid + dot Orange (Plum → Orange, manual). -->
+<section class="page ig-post c-tips" style="--bg: var(--pink-2425); --hl: var(--pink-245); --fg: var(--pink-230)">
+  <div class="c-top">
+    <div class="im-h" data-fit data-fit-max="180">Los buenos referentes<br>pueden mejorar tu<br>manera de trabajar.</div>
+    <p class="im-lead" style="margin-top: 40px">Guarda estos siete podcasts para tu <b>próxima sesión de aprendizaje</b>.</p>
+  </div>
+  <mas-lockup class="c-bot" m="pink-245" dot="orange-1495" text="pink-245" style="height: 230px"></mas-lockup>
+</section>
+
+<script src="../web/mas-data.js"></script>
+<script src="../web/mas.js"></script>
+</body>
+</html>

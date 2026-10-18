@@ -15,7 +15,7 @@ Cuando algo no esté aquí, manda el manual global. Cuando MAS México tenga una
 > 1. **Headlines grandes y bold**: Obviously Narrow Black por defecto, Super para golpes cortos, Obviously ancha para golpes de 1–2 palabras, o cualquier fuente con licencia en `brand/fonts/` que se vea más cool.
 > 2. **Nunca letras negras** (ni blancas). Todo el texto va en un rosa de la paleta. El negro solo queda en el M del logo.
 > 3. **Sin M-dots dentro de los slides** (ni en posts, escenas de reel o páginas). El logo va **solo al final**, en el cierre.
-> 4. **Texto de apoyo grande y grueso**: Obviously Narrow Bold de 52–64 px en lienzo de 1080 (clase `.support`). Obviously Regular delgada no se usa en slides.
+> 4. **Texto de apoyo grande y grueso**: Obviously Narrow Bold de 52–64 px en lienzo de 1080 (clase `.support`). Obviously Regular delgada no se usa en slides, salvo en el estilo con imágenes (`templates/carousel-imagenes.html`): ahí el texto va en Narrow Regular de 46–48 px con la frase clave en Black, como en los carruseles de referencia de MAS.
 > 5. **Fotos tal como son**: con sus colores originales, sin filtros rosas ni de ningún otro color, sin duotonos ni color grade.
 > 6. **Sin flechas** (→) en ninguna parte: remates, listas, enlaces ni "Desliza".
 > 7. **Rompe reglas de layout como director de arte**, con una idea que salga del contenido (p. ej. el nombre vertical de "Design Matters"). No se rompen las reglas 2 a 6, el logo ni la paleta. Los números monumentales van en Obviously Narrow Bold: en Black/Super o en la ancha se vuelven un bloque.
@@ -250,7 +250,7 @@ Los 12 masters existen como `.ai` (wireframes, Drive "Templates Collins 1080 x 1
 |---|---|---|
 | Portada de carrusel educativo | Tips (portada) | `c-tips-cover` |
 | Consejo o paso con 1–3 frases | Tips (interior) | `c-tips` |
-| Recurso, libro, herramienta o campaña con imagen | Tips with Images | `c-tips-img` |
+| Recurso, libro, película, podcast o herramienta con imagen | Tips with Images | `c-tips-img` (carrusel completo: `templates/carousel-imagenes.html`; la foto mide lo mismo en todos los slides) |
 | Dato o insight en una frase | Facts | `c-fact` |
 | Hallazgo de un estudio con fuente | Facts (estudio) | `c-fact-study` |
 | Cita de una persona | Quotes | `c-quote` |

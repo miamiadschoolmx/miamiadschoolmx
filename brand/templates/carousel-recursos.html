@@ -6,18 +6,15 @@
 <link rel="stylesheet" href="../web/mas.css">
 <style>
   /* Carrusel de recursos IG 1080×1350 (ejemplo aprobado: "7 herramientas para investigar antes de crear una campaña").
-     Un layout distinto por recurso: nombre como headline, 2–3 frases de apoyo y el enlace con flecha (.url).
+     Un layout distinto por recurso: nombre como headline, 2–3 frases de apoyo y el enlace (.url).
      Duplica este archivo en brand/work/ y cambia copy y colores. Reglas de Ricardo: texto solo en rosas,
      sin M-dots en los slides, logo solo en el cierre, apoyo en Obviously Narrow Bold grande (.support). */
   .col { position: absolute; inset: var(--pad); display: flex; flex-direction: column; justify-content: space-between; }
-  .url { font-family: var(--font-display); font-weight: 600; font-size: 46px; line-height: 1; display: grid; grid-template-columns: 1.1em 1fr; }
-  .url::before { content: '→'; font-weight: 800; }
+  .url { font-family: var(--font-display); font-weight: 600; font-size: 46px; line-height: 1; }
   .stmt { font-family: var(--font-display); font-weight: 800; font-size: 88px; line-height: 0.98; }
-  .punch { font-family: var(--font-display); font-weight: 800; font-size: 70px; line-height: 0.98; display: grid; grid-template-columns: 0.9em 1fr; }
-  .arrows { list-style: none; }
-  .arrows li { display: grid; grid-template-columns: 1.05em 1fr; }
-  .arrows li + li { margin-top: 0.5em; }
-  .arrows li::before { content: '→'; font-weight: 800; }
+  .punch { font-family: var(--font-display); font-weight: 800; font-size: 70px; line-height: 0.98; }
+  .items { list-style: none; }
+  .items li + li { margin-top: 0.5em; }
   .ruled > p { border-top: 6px solid currentColor; padding: 22px 0 26px; margin: 0 !important; }
   .ruled > p:last-child { padding-bottom: 0; }
   .groups > div { font-family: var(--font-display); font-weight: 800; font-size: 78px; line-height: 0.98; border-top: 6px solid currentColor; padding: 18px 0 22px; }
@@ -31,7 +28,7 @@
   <div class="col" style="gap: 24px">
     <div class="h w9" data-fit>7 herramientas</div>
     <div class="h" data-fit="both" style="flex: 1; min-height: 0">para<br>investigar<br>antes de<br>crear una<br>campaña</div>
-    <div class="support">Desliza <span class="arrow"></span></div>
+    <div class="support">Desliza</div>
   </div>
 </section>
 
@@ -44,17 +41,17 @@
         <p>Descubre cómo cambia el interés de búsqueda por un tema.</p>
         <p>Compara términos, países y periodos para identificar oportunidades.</p>
       </div>
-      <p class="punch"><span>→</span><span>Úsalo para formular hipótesis, no para afirmar cuántas personas compran un producto.</span></p>
+      <p class="punch">Úsalo para formular hipótesis, no para afirmar cuántas personas compran un producto.</p>
       <div class="url">trends.google.com</div>
     </div>
   </div>
 </section>
 
-<!-- 03 · Meta Ad Library · Plum + Lilac Pink: nombre en Super llenando la mitad, lista con flechas -->
+<!-- 03 · Meta Ad Library · Plum + Lilac Pink: nombre en Super llenando la mitad, lista separada por aire -->
 <section class="page ig-post" style="--bg: var(--pink-2425); --fg: var(--pink-230)">
   <div class="col" style="gap: 40px">
     <div class="h w9" data-fit="both" style="flex: 1; min-height: 0">Meta<br>Ad Library</div>
-    <ul class="arrows support sm">
+    <ul class="items support sm">
       <li>Consulta anuncios publicados en las plataformas de Meta.</li>
       <li>Busca marcas de tu categoría y analiza cómo presentan sus productos, beneficios y ofertas.</li>
       <li>Identifica patrones creativos y oportunidades de diferenciación.</li>

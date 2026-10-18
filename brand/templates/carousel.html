@@ -14,11 +14,9 @@
   .col { position: absolute; inset: var(--pad); display: flex; flex-direction: column; justify-content: space-between; }
   .lbl { font-family: var(--font-display); font-weight: 600; font-size: 46px; line-height: 1; }
   .ex { font-family: var(--font-display); font-weight: 800; font-size: 76px; line-height: 0.98; margin-top: 16px; }
-  .punch { font-family: var(--font-display); font-weight: 800; font-size: 84px; line-height: 0.98; margin-top: 40px; display: grid; grid-template-columns: 0.9em 1fr; }
-  .arrows { list-style: none; }
-  .arrows li { display: grid; grid-template-columns: 1.05em 1fr; }
-  .arrows li + li { margin-top: 0.5em; }
-  .arrows li::before { content: '→'; font-weight: 800; }
+  .punch { font-family: var(--font-display); font-weight: 800; font-size: 84px; line-height: 0.98; margin-top: 40px; }
+  .items { list-style: none; }
+  .items li + li { margin-top: 0.5em; }
   .q { font-family: var(--font-display); font-weight: 800; font-size: 104px; line-height: 0.98; }
   .vs { display: grid; grid-template-columns: 1fr 1fr; column-gap: 36px; margin: 40px 0; }
   .vs > p { border-top: 6px solid currentColor; padding-top: 20px; margin-top: 0 !important; }
@@ -31,7 +29,7 @@
   <div class="col" style="gap: 24px">
     <div class="h wide w9" data-fit>8 ajustes</div>
     <div class="h" data-fit="both" style="flex: 1; min-height: 0">para<br>presentar<br>mejor tus<br>ideas<br>creativas</div>
-    <div class="support">Desliza <span class="arrow"></span></div>
+    <div class="support">Desliza</div>
   </div>
 </section>
 
@@ -49,7 +47,7 @@
   </div>
 </section>
 
-<!-- 03 · Lilac Pink + Plum: headline, dos frases y remate con flecha -->
+<!-- 03 · Lilac Pink + Plum: headline, dos frases y remate en Black -->
 <section class="page ig-post" style="--bg: var(--pink-230); --fg: var(--pink-2425)">
   <div class="col">
     <div class="h" data-fit>Elige la<br>información<br>importante</div>
@@ -58,7 +56,7 @@
         <p>No muestres toda tu investigación.</p>
         <p>Selecciona los datos y observaciones que permiten entender por qué propones esa solución.</p>
       </div>
-      <p class="punch"><span>→</span><span>Cada elemento debe ayudar a tomar una decisión.</span></p>
+      <p class="punch">Cada elemento debe ayudar a tomar una decisión.</p>
     </div>
   </div>
 </section>
@@ -74,11 +72,11 @@
   </div>
 </section>
 
-<!-- 05 · Light Orchid + Plum: headline y lista con flechas -->
+<!-- 05 · Light Orchid + Plum: headline y lista separada por aire -->
 <section class="page ig-post" style="--bg: var(--pink-245); --fg: var(--pink-2425)">
   <div class="col">
     <div class="h" data-fit>Muestra una<br>ejecución<br>convincente</div>
-    <ul class="arrows support">
+    <ul class="items support">
       <li>Selecciona una pieza que permita comprender rápidamente el concepto.</li>
       <li>Cuida el texto, la dirección de arte y el contexto donde aparecerá.</li>
       <li>Evita comenzar mostrando veinte aplicaciones similares.</li>

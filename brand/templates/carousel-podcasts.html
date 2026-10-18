@@ -5,15 +5,17 @@
 <title>MAS — Carrusel de podcasts (plantilla)</title>
 <link rel="stylesheet" href="../web/mas.css">
 <style>
-  /* Carrusel de referentes IG 1080×1350 (ejemplo: "7 podcasts para pensar mejor como creativo").
+  /* Carrusel de referentes IG 1080×1350 (ejemplo aprobado: "7 podcasts para pensar mejor como creativo").
      Cada referente: el nombre es el golpe tipográfico, el anfitrión o autor va en Black dentro del apoyo
-     y la razón para escucharlo cierra como remate con flecha. Un layout y un par de color por slide.
-     Layouts nuevos: portada con número monumental (.seven, el golpe ancho de la pieza) y nombre vertical
-     como lomo de libro (.spine, se ajusta solo al alto). Duplica este archivo en brand/work/. */
+     y la razón para escucharlo cierra como remate en Black (sin flechas: indicación de Ricardo).
+     Un layout y un par de color por slide, con una ruptura de dirección de arte que sale del contenido:
+     número monumental en Narrow Bold (.seven), nombre vertical como lomo de libro (.spine, se ajusta solo
+     al alto), "marketers" diminuto (.tiny), "pasivamente" en Regular contra Super.
+     Duplica este archivo en brand/work/ y cambia copy y colores. */
   .col { position: absolute; inset: var(--pad); display: flex; flex-direction: column; justify-content: space-between; }
   .support b, .stmt b { font-weight: 800; }
   .stmt { font-family: var(--font-display); font-weight: 800; font-size: 84px; line-height: 0.98; }
-  .punch { font-family: var(--font-display); font-weight: 800; font-size: 72px; line-height: 0.98; display: grid; grid-template-columns: 0.9em 1fr; }
+  .punch { font-family: var(--font-display); font-weight: 800; font-size: 72px; line-height: 0.98; }
   .ruled > p { border-top: 6px solid currentColor; padding: 22px 0 26px; margin: 0 !important; }
   .ruled > p:last-child { padding-bottom: 0; }
   .gap-l > * + * { margin-top: 44px; }
@@ -23,17 +25,20 @@
 
   /* Portada: el 7 monumental a la izquierda y el título apilado a su lado */
   .cover-top { flex: 1; min-height: 0; display: flex; align-items: flex-end; gap: 40px; margin-bottom: 40px; }
-  .seven { font-family: 'Obviously', var(--font-display); font-weight: 900; font-size: 900px; line-height: 0.86; flex: none; margin-top: -0.12em; }
+  .seven { font-family: var(--font-display); font-weight: 700; font-size: 980px; line-height: 0.8; flex: none; margin-left: -0.03em; }
   .cover-top .support { padding-bottom: 6px; }
 
   /* Design Matters: el nombre corre vertical como lomo de libro */
   .spine { display: grid; grid-template-columns: auto 1fr; column-gap: 60px; height: 100%; }
   .spine .name { writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; line-height: 1.04; margin-left: -0.08em; }
+
+  /* Everyone hates marketers: "marketers" chiquito al lado del golpe */
+  .tiny { font-size: 0.2em; font-weight: 800; letter-spacing: 0; margin-left: 0.25em; }
 </style>
 </head>
 <body>
 
-<!-- 01 · Portada · Plum + Orchid. Solo tipo: el 7 en Obviously Super ancha (único golpe ancho de la pieza). -->
+<!-- 01 · Portada · Plum + Orchid. Solo tipo: el 7 en Obviously Narrow Bold (en Black/Super el 7 se vuelve un bloque y no se lee). -->
 <section class="page ig-post" style="--bg: var(--pink-2425); --fg: var(--pink-231)">
   <div class="col">
     <div class="cover-top">
@@ -68,7 +73,7 @@
         <p><b>Mark Pollard</b> conversa sobre estrategia publicitaria, marcas y pensamiento creativo.</p>
         <p>Escucha cómo diferentes profesionales investigan comportamientos, formulan problemas y construyen argumentos.</p>
       </div>
-      <p class="punch"><span>→</span><span>Úsalo para mejorar tu manera de pensar y presentar estrategias.</span></p>
+      <p class="punch">Úsalo para mejorar tu manera de pensar y presentar estrategias.</p>
     </div>
   </div>
 </section>
@@ -82,7 +87,7 @@
         <p class="stmt" style="font-size: 76px"><b>Debbie Millman</b> entrevista a diseñadores, artistas y profesionales creativos.</p>
         <div class="gap-l">
           <div class="support sm"><p>Las conversaciones exploran sus decisiones, trayectorias y procesos.</p></div>
-          <p class="punch" style="font-size: 64px"><span>→</span><span>Escúchalo para entender cómo se desarrolla una voz propia y una carrera creativa.</span></p>
+          <p class="punch" style="font-size: 64px">Escúchalo para entender cómo se desarrolla una voz propia y una carrera creativa.</p>
         </div>
       </div>
     </div>
@@ -100,21 +105,21 @@
       <p><b>Jon Evans</b> entrevista a líderes de marketing y especialistas.</p>
       <p>Encontrarás conversaciones sobre efectividad, construcción de marca y decisiones comerciales.</p>
     </div>
-    <p class="punch"><span>→</span><span>Útil para comprender cómo evalúan la publicidad quienes administran presupuestos.</span></p>
+    <p class="punch">Útil para comprender cómo evalúan la publicidad quienes administran presupuestos.</p>
   </div>
 </section>
 
-<!-- 06 · The Futur with Chris Do · Lilac Pink + Rubine: texto con filetes arriba, nombre abajo -->
+<!-- 06 · The Futur with Chris Do · Lilac Pink + Rubine: nombre arriba, texto con filetes -->
 <section class="page ig-post" style="--bg: var(--pink-230); --fg: var(--pink-220)">
   <div class="col">
+    <div>
+      <div class="h w9" data-fit style="width: 620px">The<br>Futur</div>
+      <div class="h" data-fit style="width: 620px; margin-top: 10px">with Chris Do</div>
+    </div>
     <div class="ruled support sm">
       <p>Un podcast sobre diseño, creatividad, marketing y negocios.</p>
       <p>Explora cómo comunicar tu valor profesional, relacionarte con clientes y desarrollar una carrera independiente.</p>
       <p style="font-weight: 800">Especialmente útil para diseñadores y creativos freelance.</p>
-    </div>
-    <div style="flex: 1; min-height: 0; display: flex; flex-direction: column; margin-top: 48px">
-      <div class="h w9" data-fit="both" style="flex: 1; min-height: 0">The<br>Futur</div>
-      <div class="h" data-fit style="margin-top: 12px">with Chris Do</div>
     </div>
   </div>
 </section>
@@ -126,29 +131,29 @@
     <div class="gap-l">
       <p class="stmt" style="font-size: 78px"><b>Jim Stengel</b> conversa con responsables de marketing de diferentes empresas.</p>
       <div class="support sm"><p>Escúchalo para comprender cómo las marcas definen prioridades, trabajan con agencias y toman decisiones estratégicas.</p></div>
-      <p class="punch" style="font-size: 64px"><span>→</span><span>Una perspectiva útil sobre el negocio publicitario.</span></p>
+      <p class="punch" style="font-size: 64px">Una perspectiva útil sobre el negocio publicitario.</p>
     </div>
   </div>
 </section>
 
-<!-- 08 · Everyone Hates Marketers · Orchid + Plum: el nombre apilado llena la slide -->
+<!-- 08 · Everyone Hates Marketers · Orchid + Plum: "Everyone hates" gigante y "marketers" chiquito -->
 <section class="page ig-post" style="--bg: var(--pink-231); --fg: var(--pink-2425)">
   <div class="col" style="gap: 40px">
-    <div class="h w9" data-fit="both" style="flex: 1; min-height: 0; line-height: 1.02">Everyone<br>hates<br>marketers</div>
+    <div class="h w9" data-fit="both" style="flex: 1; min-height: 0; line-height: 1.02">Everyone<br>hates<span class="tiny">marketers</span></div>
     <div class="support sm">
       <p><b>Louis Grenier</b> aborda posicionamiento, investigación de clientes, comunicación y estrategia.</p>
       <p>Busca sus conversaciones sobre diferenciación de marcas.</p>
     </div>
-    <p class="punch" style="font-size: 64px"><span>→</span><span>Aprenderás a cuestionar propuestas demasiado genéricas y desarrollar argumentos más específicos.</span></p>
+    <p class="punch" style="font-size: 64px">Aprenderás a cuestionar propuestas demasiado genéricas y desarrollar argumentos más específicos.</p>
   </div>
 </section>
 
-<!-- 09 · No los escuches pasivamente · Plum + Blush: las tres preguntas como hoja de notas -->
+<!-- 09 · No los escuches pasivamente · Plum + Blush: "No los escuches" grita en Super, "pasivamente" en Regular delgada; preguntas como hoja de notas -->
 <section class="page ig-post" style="--bg: var(--pink-2425); --fg: var(--pink-182)">
   <div class="col">
     <div>
-      <div class="h" data-fit>No los escuches</div>
-      <div class="h w9" data-fit style="margin-top: 4px">pasivamente</div>
+      <div class="h w9" data-fit>No los escuches</div>
+      <div class="h w4" data-fit style="margin-top: 4px">pasivamente</div>
       <div class="support" style="margin-top: 56px">Después de cada episodio, escribe tres cosas:</div>
     </div>
     <div class="qs">

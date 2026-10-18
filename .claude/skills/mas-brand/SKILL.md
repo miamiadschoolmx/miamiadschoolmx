@@ -12,8 +12,10 @@ Todo vive en `brand/` (raíz del repo). Lee **`brand/BRAND.md`** completo antes 
 1. **Headlines grandes y bold.** Usa las tipografías y pesos que se vean más cool aunque no estén en el manual. Por defecto: Obviously Narrow **Black**, y **Super** para golpes cortos (≤ 3 palabras por línea). Para un golpe de 1–2 palabras por línea, una vez por pieza, está **Obviously Black/Super ancha** (`.h.wide`). También se vale cualquier otra fuente con licencia que esté en `brand/fonts/`. Pocas palabras por línea y `data-fit` para que el tipo llene el ancho.
 2. **Nunca letras negras** (ni blancas). Todo el texto va en un rosa de la paleta, en un par de `text_pairs`. El negro solo existe en el M del logo.
 3. **Sin M-dots dentro de los slides** (ni en posts, escenas de reel o páginas). El **logo va solo al final**, en el cierre (lockup). Nada de wordmark en la portada.
-4. **Texto de apoyo grande y grueso**: todo lo que va abajo (cuerpo, bullets, CTA, "Desliza →") en **Obviously Narrow Bold** con la clase `.support` (64 px en 1080; `.support.sm` = 52 px para dos columnas o bloques largos). Nunca Obviously Regular delgada en slides: no se lee. Máximo 2–3 frases por slide.
+4. **Texto de apoyo grande y grueso**: todo lo que va abajo (cuerpo, listas, CTA, "Desliza") en **Obviously Narrow Bold** con la clase `.support` (64 px en 1080; `.support.sm` = 52 px para dos columnas o bloques largos). Nunca Obviously Regular delgada en slides: no se lee. Máximo 2–3 frases por slide.
 5. **Fotos tal como son**: con sus colores originales. Nunca filtros rosas ni de otro color, duotonos, tintes ni color grade.
+6. **Sin flechas** (→): ni en remates, listas, enlaces, "Desliza" ni como gráfico. El remate va en Narrow Black (`.punch`) y las listas se separan con aire o filetes.
+7. **Rompe reglas de layout como director de arte.** Ricardo quiere que cada pieza sorprenda: nombre vertical como lomo de libro, una palabra gigante junto a otra diminuta, un peso delgado enorme contra uno Super. Cada ruptura sale del contenido (qué significa la palabra), una por slide y no en todos. Lo que no se rompe: reglas 2 a 6, el logo, la paleta, la alineación a la izquierda y que el tipo se lea en el teléfono.
 
 El logo, la paleta y la alineación a la izquierda no cambian.
 
@@ -26,18 +28,22 @@ El logo, la paleta y la alineación a la izquierda no cambian.
 - Si cambias algo más, dilo en la entrega.
 
 **Diseño que le funcionó**
-- Referencias aprobadas: `templates/carousel.html` ("8 ajustes", le dijo "wow, me gusta") y `templates/carousel-recursos.html` ("7 herramientas").
+- Referencias aprobadas: `templates/carousel.html` ("8 ajustes", le dijo "wow, me gusta"), `templates/carousel-recursos.html` ("7 herramientas") y `templates/carousel-podcasts.html` ("7 podcasts"; le gustó cómo se innovó en Design Matters, el nombre vertical).
 - Lo que le gusta:
   - tipo rosa enorme;
   - un color y un layout distinto en cada slide;
   - portada solo tipográfica;
-  - cierre con frase y lockup tonal.
+  - cierre con frase y lockup tonal;
+  - que rompas reglas de layout con intención (ver regla 7).
 - Lo que rechazó:
   - texto negro;
   - M-dots dentro de los slides;
   - letra de apoyo delgada o chica;
   - descendentes que chocan con la línea de abajo;
-  - fotos con filtro rosa.
+  - fotos con filtro rosa;
+  - flechas (→) en cualquier parte;
+  - el 7 de portada en Obviously Super ancha ("muy gordo"): en Black/Super los números se vuelven un bloque. Números monumentales en **Obviously Narrow Bold**, la tipografía oficial de headline;
+  - un gag que necesita negro para leerse (la barra de censura en rosa parecía subrayado): si el chiste no funciona con la paleta, no lo uses.
 
 **Entrega**
 - Manda una vista previa (`montage` de los 10 slides) y **un ZIP** con los PNG numerados (`<pieza>-01.png`…). Los PNG sueltos no: descargarlos uno por uno es incómodo.
@@ -97,7 +103,7 @@ Antes de diseñar, haz el plan slide por slide: qué layout Collins (`BRAND.md �
 1. Copia la plantilla más cercana a una carpeta de trabajo fuera de git, p. ej. `brand/work/<slug>.html` (crea la carpeta; `**/out/` ya está ignorado; agrega `brand/work/` a `.gitignore` si no está). Ajusta las rutas relativas (`../web/…`) a la ubicación nueva.
    - **`templates/collins.html` + `web/collins.css`: los 12 Master Templates de Collins como 20 layouts** (clases `c-…`). Es la base para cualquier carrusel o post: elige el layout de cada slide con la tabla de `BRAND.md §9` (Tips, Tips with Images, Facts, Quotes, Poll, Single Photo, Insighters, Hired, 2BeHired, Award Winner, Multiple Photo, cierre).
    - `templates/carousel-recursos.html`: carrusel de recursos (7 herramientas): un layout distinto por recurso, con nombre, frases de apoyo y enlace.
-   - `templates/carousel-podcasts.html`: carrusel de referentes (7 podcasts): portada con número monumental en Obviously Super ancha, nombre vertical como lomo de libro (`.spine`), nombre partido en Super a todo el ancho, anfitrión en Black dentro del apoyo y remate con flecha; cierra con preguntas en filetes y lockup.
+   - `templates/carousel-podcasts.html`: carrusel de referentes (7 podcasts): portada con número monumental en Narrow Bold, nombre vertical como lomo de libro (`.spine`), nombre partido en Super a todo el ancho, "marketers" diminuto junto a "Everyone hates" gigante, "pasivamente" en Regular delgada contra Super, anfitrión en Black dentro del apoyo y remate en Black; cierra con preguntas en filetes y lockup.
    - `templates/carousel.html`: carrusel tipográfico de ejemplo con 10 layouts propios, sin M-dots: portada tipográfica (golpe ancho + Narrow Black), headline + ejemplo como cita, headline + frases + remate con flecha, statement en Super, lista con flechas, headline que crece línea a línea, pregunta protagonista, comparación a dos columnas, golpe ancho, cierre con frase + lockup.
    - `templates/document.html`: PDF carta (portada tipográfica, interior legible, contraportada con lockup).
    - `templates/brand-sheet.html`: referencia del sistema (deck 1920×1080).

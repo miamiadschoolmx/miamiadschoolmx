@@ -17,6 +17,8 @@ Cuando algo no esté aquí, manda el manual global. Cuando MAS México tenga una
 > 3. **Sin M-dots dentro de los slides** (ni en posts, escenas de reel o páginas). El logo va **solo al final**, en el cierre.
 > 4. **Texto de apoyo grande y grueso**: Obviously Narrow Bold de 52–64 px en lienzo de 1080 (clase `.support`). Obviously Regular delgada no se usa en slides.
 > 5. **Fotos tal como son**: con sus colores originales, sin filtros rosas ni de ningún otro color, sin duotonos ni color grade.
+> 6. **Sin flechas** (→) en ninguna parte: remates, listas, enlaces ni "Desliza".
+> 7. **Rompe reglas de layout como director de arte**, con una idea que salga del contenido (p. ej. el nombre vertical de "Design Matters"). No se rompen las reglas 2 a 6, el logo ni la paleta. Los números monumentales van en Obviously Narrow Bold: en Black/Super o en la ancha se vuelven un bloque.
 
 ---
 
@@ -196,7 +198,7 @@ Web (styleguide 4): H1 Narrow Medium 70/61 pt · H2 48/44 · H3 30/21 · body Ob
 
 **Interlineado mínimo 0.96 en headlines**: a 0.86 los descendentes (g, j, p, q, y) chocan con los acentos y ascendentes de la línea siguiente.
 
-**Reglas**: alineado a la izquierda (nunca centrado ni a la derecha) · sentence case (nunca headlines en MAYÚSCULAS) · tracking normal (nunca abrirlo) · headlines grandes: pocas palabras por línea para que el tipo llene el ancho · contraste de tamaño (headline gigante, apoyo en Narrow Bold de 52–64 px) · párrafos largos de PDF o web en Obviously Regular; en slides, máximo 2–3 frases de apoyo · ordinales en superíndice (16<sup>th</sup>, 4<sup>o</sup>) · flecha → como recurso tipográfico.
+**Reglas**: alineado a la izquierda (nunca centrado ni a la derecha) · sentence case (nunca headlines en MAYÚSCULAS) · tracking normal (nunca abrirlo) · headlines grandes: pocas palabras por línea para que el tipo llene el ancho · contraste de tamaño (headline gigante, apoyo en Narrow Bold de 52–64 px) · párrafos largos de PDF o web en Obviously Regular; en slides, máximo 2–3 frases de apoyo · ordinales en superíndice (16<sup>th</sup>, 4<sup>o</sup>) · sin flechas (indicación de Ricardo): el remate va en Black y las listas se separan con aire o filetes.
 
 ---
 

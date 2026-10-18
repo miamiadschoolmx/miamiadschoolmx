@@ -88,7 +88,6 @@ body { display: flex; flex-direction: column; align-items: center; gap: 40px; pa
 .support.sm { font-size: 52px; }
 .label { font-family: var(--font-display); font-weight: 500; font-size: 30px; line-height: 1; }
 sup, .sup { font-size: 0.5em; line-height: 0; vertical-align: 0.72em; letter-spacing: 0; }
-.arrow::before { content: '→'; }
 
 /* ---------- Layout ---------- */
 .tl { position: absolute; top: var(--pad); left: var(--pad); right: var(--pad); }
@@ -96,9 +95,8 @@ sup, .sup { font-size: 0.5em; line-height: 0; vertical-align: 0.72em; letter-spa
 .fill { position: absolute; inset: var(--pad); }
 .cols-2 { display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; align-items: end; }
 .stack > * + * { margin-top: 0.6em; }
-.list { list-style: none; }
-.list li { display: grid; grid-template-columns: 1.4em 1fr; }
-.list li::before { content: '→'; font-family: var(--font-display); }
+.list { list-style: none; }   /* sin flechas ni viñetas (indicación de Ricardo): cada punto separado por aire */
+.list li + li { margin-top: 0.5em; }
 .wm-corner { position: absolute; height: 64px; }
 .wm-corner.tr { top: var(--pad); right: var(--pad); }
 .wm-corner.br { bottom: var(--pad); right: var(--pad); }

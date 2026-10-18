@@ -18,7 +18,7 @@ Cuando algo no esté aquí, manda el manual global. Cuando MAS México tenga una
 > 4. **Texto de apoyo sin regla fija**: peso y tamaño los decide la dirección de arte según lo que se vea mejor, siempre legible en el teléfono. Ya funcionaron Narrow Bold de 52–64 px (`.support`) en carruseles tipográficos y Narrow Regular de 46–48 px con la frase clave en Black en el carrusel con imágenes.
 > 5. **Fotos tal como son**: con sus colores originales, sin filtros rosas ni de ningún otro color, sin duotonos ni color grade.
 > 6. **Sin flechas** (→) en ninguna parte: remates, listas, enlaces ni "Desliza".
-> 7. **Rompe las reglas sin miedo, como director de arte** (Ricardo dice si le gusta), con una idea que salga del contenido (p. ej. el nombre vertical de "Design Matters"). No se rompen las reglas 2, 3, 5 y 6, el logo ni la paleta. Los números monumentales van en Obviously Narrow Bold: en Black/Super o en la ancha se vuelven un bloque.
+> 7. **Rompe las reglas sin miedo, como director de arte** (Ricardo dice si le gusta), con una idea que salga del contenido (p. ej. el nombre vertical de "Design Matters"). No se rompen las reglas 2, 3, 5 y 6, el logo ni la paleta. La ruptura se queda dentro del look MAS: recursos ajenos a la marca (barras de cine, resaltador, tipo cortado) se rechazaron por salirse de ella. Los números monumentales van en Obviously Narrow Bold: en Black/Super o en la ancha se vuelven un bloque.
 
 ---
 

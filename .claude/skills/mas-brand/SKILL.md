@@ -15,7 +15,7 @@ Todo vive en `brand/` (raíz del repo). Lee **`brand/BRAND.md`** completo antes 
 4. **Texto de apoyo: sin regla fija, decide como director de arte.** Ricardo no quiere una regla de peso ni de tamaño: elige lo que se vea mejor en cada pieza. Puntos de partida que ya funcionaron: Narrow Bold grande (`.support`, 52–64 px) en los carruseles tipográficos, y Narrow Regular delgada de 46–48 px con la frase clave en Black en el carrusel con imágenes. Lo único fijo es que se lea en el teléfono.
 5. **Fotos tal como son**: con sus colores originales. Nunca filtros rosas ni de otro color, duotonos, tintes ni color grade.
 6. **Sin flechas** (→): ni en remates, listas, enlaces, "Desliza" ni como gráfico. El remate va en Narrow Black (`.punch`) y las listas se separan con aire o filetes.
-7. **Rompe las reglas sin miedo, como director de arte.** Ricardo prefiere que pruebes y él te dice si le gusta; no conviertas cada decisión en regla. Que cada pieza sorprenda: nombre vertical como lomo de libro, una palabra gigante junto a otra diminuta, un peso delgado enorme contra uno Super. Cada ruptura sale del contenido (qué significa la palabra), una por slide y no en todos. Lo que no se rompe: reglas 2, 3, 5 y 6, el logo, la paleta, la alineación a la izquierda y que el tipo se lea en el teléfono.
+7. **Rompe las reglas sin miedo, como director de arte.** Ricardo prefiere que pruebes y él te dice si le gusta; no conviertas cada decisión en regla. Que cada pieza sorprenda: nombre vertical como lomo de libro, una palabra gigante junto a otra diminuta, un peso delgado enorme contra uno Super. Cada ruptura sale del contenido (qué significa la palabra), una por slide y no en todos. Lo que no se rompe: reglas 2, 3, 5 y 6, el logo, la paleta, la alineación a la izquierda y que el tipo se lea en el teléfono. La ruptura es de tipo y layout dentro del look MAS; si mete un recurso ajeno a la marca (marco de cine, resaltador, tipo cortado), ya no es MAS.
 
 El logo, la paleta y la alineación a la izquierda no cambian.
 
@@ -47,6 +47,7 @@ El logo, la paleta y la alineación a la izquierda no cambian.
   - un gag que necesita negro para leerse (la barra de censura en rosa parecía subrayado): si el chiste no funciona con la paleta, no lo uses;
   - fotos de distinto tamaño en cada slide: en un carrusel con imágenes, todas miden lo mismo, portada incluida;
   - una portada donde el headline y la foto se encimen o se corten.
+  - el case film con barras de cine, resaltador, jerarquía invertida, palabra monumental y título cortado: "te saliste mucho de la marca". Lo rehicimos en `carousel-imagenes.html` con fotos de Unsplash. Para un carrusel de lista (pasos, decisiones, consejos), parte de esa plantilla.
 
 **Entrega**
 - Manda una vista previa (`montage` de los 10 slides) y **un ZIP** con los PNG numerados (`<pieza>-01.png`…). Los PNG sueltos no: descargarlos uno por uno es incómodo.

@@ -16,6 +16,10 @@
 (() => {
   const D = window.MAS_DATA;
   if (!D) throw new Error('Carga brand/web/mas-data.js antes de mas.js');
+  // En una composición de HyperFrames su runtime empieza a capturar en cuanto la página carga, sin esperar
+  // a data-fit. Con su gancho de timelines asíncronos (probado en hyperframes 0.8.171) lo hacemos esperar.
+  const hyperframes = !!document.querySelector('[data-composition-id]');
+  if (hyperframes) window.__hfTimelinesBuilding = true;
   const NS = 'http://www.w3.org/2000/svg';
   const color = (v, fallback) => (!v ? fallback : v.startsWith('#') || v.startsWith('rgb') || v === 'none' || v === 'currentColor' ? v : D.colors[v] || v);
   const mdot = (v) => D.mdots.find((m) => m.id === Number(v)) || D.mdots[0];
@@ -161,6 +165,10 @@
     fit();
     if (typeof window.MAS_AFTER_FIT === 'function') await window.MAS_AFTER_FIT();
     document.documentElement.dataset.masReady = '1';
+    if (hyperframes) {
+      window.__hfTimelinesBuilding = false;
+      window.dispatchEvent(new Event('hf-timelines-built'));
+    }
   };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ready); else ready();
 })();

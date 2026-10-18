@@ -13,8 +13,9 @@ brand/
   assets/logo/          wordmark.svg y lockup.svg (vectoriales, de los cierres oficiales)
   fonts/                Obviously Narrow y Obviously (no versionadas; ver README) + Archivo
   web/                  mas.css, collins.css (layouts Collins), mas.js (componentes) y mas-data.js (generado)
-  templates/            collins (12 masters Collins como layouts) · carousel · carousel-recursos · document (PDF) · motion-reel (MP4) · brand-sheet
-  scripts/              build-data.mjs · render.mjs · drive-save.py · unsplash.py (fotos de Unsplash)
+  templates/            collins (12 masters Collins como layouts) · carousel · carousel-recursos · document (PDF) · motion-reel (MP4 de respaldo) · brand-sheet
+  motion/reel/          Proyecto de HyperFrames del reel animado (MP4 con audio); mas/ enlaza web, tokens y fonts
+  scripts/              build-data.mjs · render.mjs · hf.sh (HyperFrames) · drive-save.py · unsplash.py (fotos de Unsplash)
 ```
 
 ## Uso rápido
@@ -23,7 +24,9 @@ brand/
 node brand/scripts/build-data.mjs                                   # tras editar tokens o assets
 node brand/scripts/render.mjs brand/templates/carousel.html --png   # un PNG por slide
 node brand/scripts/render.mjs brand/templates/document.html --pdf   # PDF tamaño carta
-node brand/scripts/render.mjs brand/templates/motion-reel.html --mp4  # video 1080×1920
+cp -a brand/motion/reel brand/work/mi-reel                          # video 1080×1920 con HyperFrames
+brand/scripts/hf.sh check brand/work/mi-reel
+brand/scripts/hf.sh render brand/work/mi-reel -o brand/work/mi-reel/out/mi-reel.mp4
 ```
 
-Requiere Node 18+, Playwright (Chromium) y ffmpeg para MP4. Las salidas van a `out/` junto al HTML (ignorado por git).
+Requiere Node 18+, Playwright (Chromium) y ffmpeg; HyperFrames pide Node 22+. Las salidas van a `out/` junto al HTML (ignorado por git). `hf.sh` bloquea `publish` y los renders en la nube de HeyGen, porque subirían las fuentes Obviously.

@@ -66,7 +66,7 @@ El logo, la paleta y la alineación a la izquierda no cambian.
 |---|---|
 | Algo que el equipo va a editar en Canva, o "hazlo en Canva" | **B · Canva** |
 | PNG/PDF final con control fino, carrusel listo para subir, PDF de programa, LinkedIn carrusel | **A · Render HTML** |
-| Video, reel animado, cortinilla, intro/outro | **C · Motion** (render HTML a MP4) |
+| Video, reel animado, cortinilla, intro/outro | **C · Motion** (HyperFrames → MP4 con audio) |
 
 Si no está claro, pregunta una vez: "¿lo quieres editable en Canva o listo para publicar?"
 
@@ -213,13 +213,46 @@ Flujos:
 4. **Generación rápida** (ideas, no final): `generate-design` con `brand_kit_id: kAG8MAKnMso` y un query que incluya las reglas (fondo rosa sólido, par de color exacto en hex, tipo alineado a la izquierda, sentence case, sin blanco ni degradados). Siempre haz QA contra la checklist antes de proponerlo.
 5. **Llevar un PNG/PDF renderizado a Canva**: las herramientas de import solo aceptan URLs públicas existentes. Nunca subas archivos a un hosting público para conseguir una URL. Entrega el archivo y pide que lo arrastren a Canva.
 
-## C. Motion → MP4
+## C. Motion → MP4 (HyperFrames)
 
-1. Parte de `templates/motion-reel.html` (1080×1920, 7.5 s: tipo por líneas, wipe entre escenas, cierre con lockup y dot que cae y rebota). Sin M-dots en las escenas.
-2. Animaciones **solo CSS @keyframes o Web Animations** con `animation-delay` absoluto y `fill-mode: both`; JS propio vía `window.MAS_SEEK(ms)`. `data-duration="segundos"` en `.page`.
-3. Reglas: el logo solo entra en la escena final; sin rotar, deformar ni aplicar efectos al lockup ni al dot; fondo sólido por escena con par aprobado; texto en rosas (nunca negro) y dentro de safe zones (250 px arriba / 340 px abajo).
-4. Render: `node brand/scripts/render.mjs <archivo.html> --mp4 --fps 30 --out <dir>`. QA: extrae cuadros con `ffmpeg -ss <t> -i out.mp4 -frames:v 1 f.png`, haz `montage` y revisa: descendentes recortados, elementos que aparecen antes de tiempo, overflow.
-5. Entrega el MP4 (H.264, yuv420p, listo para IG/TikTok). Si el usuario usa Claude Motion, Canva puede importar ese video con `import-claude-motion-from-url`.
+El motor es **HyperFrames** (HeyGen, HTML → video, github.com/heygen-com/hyperframes). Córrelo siempre con `brand/scripts/hf.sh`, que:
+- fija la versión (0.8.171);
+- apaga la telemetría;
+- usa el Chromium del contenedor en sesiones en la nube;
+- bloquea `publish`, `cloud`, `lambda` y `cloudrun`, porque suben el proyecto con las fuentes Obviously.
+
+Requiere Node 22+ y ffmpeg. En una compu nueva, la primera vez: `brand/scripts/hf.sh browser ensure`.
+
+1. **Copia la plantilla**: `cp -a brand/motion/reel brand/work/<slug>` y edita `brand/work/<slug>/index.html`.
+   - El reel es de 1080×1920 y 7.5 s: tipo por líneas, wipe entre escenas y cierre con lockup y dot que cae y rebota.
+   - El `-a` conserva los enlaces `mas/` → `brand/web`, `brand/tokens` y `brand/fonts`. HyperFrames no acepta rutas `../` fuera del proyecto.
+2. **Cómo se arma la composición**:
+   - Raíz: `<div id="root" class="page story" data-composition-id="…" data-no-timeline data-start="0" data-duration="7.5" data-width="1080" data-height="1920">`. Ajusta `data-duration` a la pieza.
+   - Animaciones solo con CSS @keyframes, `animation-delay` **absoluto** (segundos desde el inicio del video) y `fill-mode: both`, igual que con `render.mjs`.
+   - Las escenas son `div.scene` **sin `data-start`**. Dentro de un clip, HyperFrames cuenta los delays de HTML desde el clip y los de SVG (el dot del lockup) desde el video, y se desfasan.
+   - Oculta cada escena cuando el wipe siguiente ya la tapó (animación `gone` de la plantilla). Si no, `check` marca texto tapado.
+   - `mas.js` hace que HyperFrames espere a `data-fit` antes de capturar (gancho probado en 0.8.171). Si subes de versión, vuelve a probarlo: un headline que no llena el ancho es la señal.
+   - **Música**: la pista sale de Drive "17 MÚSICA CON LICENCIA" y va en `brand/work/<slug>/audio/`. Ponla al final del `<body>`, antes de los scripts: `<audio src="audio/pista.mp3" data-start="0" data-duration="7.5" data-volume="0.8" data-fade-out="0.6"></audio>`.
+3. **Reglas de marca**:
+   - El logo solo entra en la escena final. No se rota, deforma ni lleva efectos, ni el lockup ni el dot.
+   - Fondo sólido por escena con un par aprobado.
+   - Texto en rosas (nunca negro) y dentro de las safe zones (250 px arriba / 340 px abajo).
+   - Sin M-dots en las escenas.
+4. **Check**: `brand/scripts/hf.sh check brand/work/<slug>` revisa lint, runtime, layout, motion y contraste.
+   - Lint, Runtime, Layout y Motion tienen que dar 0 errores.
+   - Un 404 en `mas/fonts/…` significa que faltan fuentes: no entregues así.
+   - El contraste lo mide con WCAG (3:1). Los headlines en `display_pairs` (≥ 2:1) salen como error y están aprobados por la marca. Un error en texto de apoyo sí es real: cambia el par.
+5. **Render**: `brand/scripts/hf.sh render brand/work/<slug> -o brand/work/<slug>/out/<slug>.mp4`.
+   - Usa `--quality draft` para probar y `--quality delivery` para entregar.
+   - QA: extrae cuadros con `ffmpeg -ss <t> -i out.mp4 -frames:v 1 f.png`, arma un `montage` y revísalo. Busca descendentes recortados, elementos que aparecen antes de tiempo, overflow y el dot cayendo en el cierre.
+6. **Entrega** el MP4 (H.264, yuv420p, con audio si lleva música; listo para IG/TikTok). Si el usuario usa Claude Motion, Canva puede importar ese video con `import-claude-motion-from-url`.
+
+Notas:
+- **Vista previa**: en su compu, Ricardo puede abrir el Studio con `npm run dev` dentro de la carpeta del proyecto. En la nube no hay vista previa: la revisión es por cuadros.
+- **Skills de HyperFrames** (`/hyperframes`, `/hyperframes-core`…): si están en la sesión, úsalas para técnica (transiciones, audio, subtítulos). Aquí mandan las reglas de MAS.
+  - Prefiere CSS a GSAP: en la nube el CDN de GSAP está bloqueado.
+  - No abras estos proyectos en la app de escritorio ni en la nube de HeyGen mientras no se confirme que no suben las fuentes.
+- **Respaldo sin HyperFrames** (sin audio): `node brand/scripts/render.mjs brand/templates/motion-reel.html --mp4 --fps 30 --out <dir>`. Ahí las animaciones también pueden ser Web Animations, y el JS propio va por `window.MAS_SEEK(ms)`.
 
 ## Fuentes originales (Google Drive)
 

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080, height=1920">
+<title>MAS — Reel / Story animado (HyperFrames)</title>
+<link rel="stylesheet" href="mas/web/mas.css">
+<style>
+  /* Composición de HyperFrames 1080×1920 · 7.5 s. Misma pieza que templates/motion-reel.html.
+     Render: brand/scripts/hf.sh render brand/work/<slug> -o brand/work/<slug>/out/<slug>.mp4
+     Solo CSS @keyframes con animation-delay ABSOLUTO (segundos desde el inicio del video) y
+     fill-mode: both, igual que con render.mjs. Las escenas NO llevan data-start: dentro de un clip
+     HyperFrames cuenta los delays de HTML desde el inicio del clip pero los de SVG (el dot) desde el
+     inicio del video, y se desfasan.
+     mas/ son enlaces a brand/web, brand/tokens y brand/fonts: HyperFrames no deja usar rutas con ../
+     fuera del proyecto. Indicaciones de Ricardo: sin M-dots en las escenas, el logo solo en el cierre,
+     todo el texto en rosas. El tipo sube por líneas; wipes entre escenas. En el cierre el dot cae y
+     rebota sin deformarse; el lockup nunca se rota, deforma ni lleva efectos. */
+  html, body { width: 1080px; height: 1920px; overflow: hidden; }
+  body { display: block; padding: 0; background: var(--pink-2040); }
+
+  .scene { position: absolute; inset: 0; background: var(--bg); }
+  /* Cada escena se oculta cuando el wipe de la siguiente ya la tapó (gone), así no queda texto escondido. */
+  .s1 { animation: gone 1ms 3.15s both; }
+  .s2 { animation: wipe .45s cubic-bezier(.7,0,.2,1) 2.7s both, gone 1ms 5.65s both; }
+  .s3 { animation: wipe .45s cubic-bezier(.7,0,.2,1) 5.2s both; }
+  @keyframes wipe { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0 0 0 0); } }
+  @keyframes gone { to { visibility: hidden; } }
+
+  .story .head { position: absolute; left: var(--pad); right: var(--pad); top: 250px; }
+  .story .sub { position: absolute; left: var(--pad); right: var(--pad); bottom: 340px; }
+  .ln { display: block; width: max-content; overflow: hidden; padding: .06em 0 .2em; margin: -.06em 0 -.2em; }
+  .ln > span { display: block; animation: rise .7s cubic-bezier(.2,.9,.2,1) both; animation-delay: var(--d); }
+  @keyframes rise { from { transform: translateY(160%); } to { transform: none; } }
+  .sub .ln > span { animation-duration: .6s; }
+
+  /* El dot del lockup rebota por separado (path.dot dentro del SVG). */
+  mas-lockup .dot { transform-box: fill-box; transform-origin: 50% 50%; }
+  .s3 mas-lockup .dot { animation: drop 1s linear 5.85s both; }
+  @keyframes drop {
+    0%   { transform: translateY(-1400%); animation-timing-function: cubic-bezier(.5,0,1,.6); }
+    45%  { transform: translateY(0); animation-timing-function: cubic-bezier(0,.4,.5,1); }
+    62%  { transform: translateY(-70%); animation-timing-function: cubic-bezier(.5,0,1,.6); }
+    78%  { transform: translateY(0); animation-timing-function: cubic-bezier(0,.4,.5,1); }
+    88%  { transform: translateY(-15%); }
+    100% { transform: none; }
+  }
+  .s3 mas-lockup { position: absolute; left: 50%; top: 50%; width: 760px; height: 370px; translate: -50% -50%;
+                   animation: settle .7s cubic-bezier(.3,1.4,.5,1) 5.45s both; }
+  @keyframes settle { from { transform: scale(.82); opacity: 0; } to { transform: none; opacity: 1; } }
+</style>
+</head>
+<body>
+
+<div id="root" class="page story" data-composition-id="mas-reel" data-no-timeline
+     data-start="0" data-duration="7.5" data-width="1080" data-height="1920" style="--bg: var(--pink-2040)">
+
+  <!-- Escena 1 · 0 s -->
+  <div class="scene s1" style="--bg: var(--pink-2040)">
+    <h1 class="h head w9" data-fit style="color: var(--pink-176)">
+      <span class="ln"><span style="--d: .15s">Deja</span></span>
+      <span class="ln"><span style="--d: .27s">de esperar</span></span>
+      <span class="ln"><span style="--d: .39s">tu</span></span>
+      <span class="ln"><span style="--d: .51s">oportunidad.</span></span>
+    </h1>
+  </div>
+
+  <!-- Escena 2 · entra con wipe a los 2.7 s -->
+  <div class="scene s2" style="--bg: var(--pink-2425)">
+    <div class="head" style="color: var(--pink-238)">
+      <h1 class="h wide w9" data-fit><span class="ln"><span style="--d: 2.95s">Empieza</span></span></h1>
+      <h1 class="h w9" data-fit style="margin-top: 24px"><span class="ln"><span style="--d: 3.07s">a construirla.</span></span></h1>
+    </div>
+    <div class="support sub" style="color: var(--pink-182)">
+      <span class="ln"><span style="--d: 3.7s">Aplica hoy.</span></span>
+      <span class="ln"><span style="--d: 3.82s">Las mejores ideas no esperan.</span></span>
+    </div>
+  </div>
+
+  <!-- Cierre · entra con wipe a los 5.2 s: el único lugar con logo -->
+  <div class="scene s3" style="--bg: var(--pink-176)">
+    <mas-lockup m="pink-2040" dot="orange-1495" text="pink-2040"></mas-lockup>
+  </div>
+</div>
+
+<script src="mas/web/mas-data.js"></script>
+<script src="mas/web/mas.js"></script>
+</body>
+</html>

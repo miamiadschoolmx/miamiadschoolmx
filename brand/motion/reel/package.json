@@ -1,0 +1,10 @@
+{
+  "name": "mas-reel",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "../../scripts/hf.sh preview .",
+    "check": "../../scripts/hf.sh check .",
+    "render": "../../scripts/hf.sh render . -o out/reel.mp4"
+  }
+}

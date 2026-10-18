@@ -5,6 +5,9 @@ brand/fonts/*.otf
 brand/fonts/*.ttf
 # Renders
 **/out/
+# HyperFrames: reportes de check y renders sin -o
+.hyperframes/
+renders/
 node_modules/
 .DS_Store
 # Piezas de trabajo (se generan por pedido; no se versionan)

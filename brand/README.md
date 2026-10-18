@@ -2,7 +2,7 @@
 
 Kit para producir piezas en marca con Claude: carruseles, posts, stories, PDFs y video, con las fuentes, colores y M-dots oficiales.
 
-Reglas de Ricardo que mandan sobre el manual: headlines grandes y bold, **nunca texto negro** (todo en rosas), **sin M-dots dentro de los slides** (el logo solo en el cierre) y texto de apoyo grande y grueso (Obviously Narrow Bold, `.support`). Detalle en `BRAND.md`.
+Reglas de Ricardo que mandan sobre el manual: headlines grandes y bold, **nunca texto negro** (todo en rosas), **sin M-dots dentro de los slides** (el logo solo en el cierre) sin flechas, fotos con sus colores originales, y libertad de dirección de arte para romper el resto. Detalle en `BRAND.md`.
 
 ```
 brand/

@@ -12,10 +12,10 @@ Todo vive en `brand/` (raíz del repo). Lee **`brand/BRAND.md`** completo antes 
 1. **Headlines grandes y bold.** Usa las tipografías y pesos que se vean más cool aunque no estén en el manual. Por defecto: Obviously Narrow **Black**, y **Super** para golpes cortos (≤ 3 palabras por línea). Para un golpe de 1–2 palabras por línea, una vez por pieza, está **Obviously Black/Super ancha** (`.h.wide`). También se vale cualquier otra fuente con licencia que esté en `brand/fonts/`. Pocas palabras por línea y `data-fit` para que el tipo llene el ancho.
 2. **Nunca letras negras** (ni blancas). Todo el texto va en un rosa de la paleta, en un par de `text_pairs`. El negro solo existe en el M del logo.
 3. **Sin M-dots dentro de los slides** (ni en posts, escenas de reel o páginas). El **logo va solo al final**, en el cierre (lockup). Nada de wordmark en la portada.
-4. **Texto de apoyo grande y grueso**: todo lo que va abajo (cuerpo, listas, CTA, "Desliza") en **Obviously Narrow Bold** con la clase `.support` (64 px en 1080; `.support.sm` = 52 px para dos columnas o bloques largos). Máximo 2–3 frases por slide. **Excepción aprobada**: en el estilo con imágenes (`templates/carousel-imagenes.html`, tomado de los carruseles de referencia de MAS) el texto va en Narrow Regular delgada de 46–48 px con la frase clave en Black. Fuera de ese estilo, nunca Regular delgada.
+4. **Texto de apoyo: sin regla fija, decide como director de arte.** Ricardo no quiere una regla de peso ni de tamaño: elige lo que se vea mejor en cada pieza. Puntos de partida que ya funcionaron: Narrow Bold grande (`.support`, 52–64 px) en los carruseles tipográficos, y Narrow Regular delgada de 46–48 px con la frase clave en Black en el carrusel con imágenes. Lo único fijo es que se lea en el teléfono.
 5. **Fotos tal como son**: con sus colores originales. Nunca filtros rosas ni de otro color, duotonos, tintes ni color grade.
 6. **Sin flechas** (→): ni en remates, listas, enlaces, "Desliza" ni como gráfico. El remate va en Narrow Black (`.punch`) y las listas se separan con aire o filetes.
-7. **Rompe reglas de layout como director de arte.** Ricardo quiere que cada pieza sorprenda: nombre vertical como lomo de libro, una palabra gigante junto a otra diminuta, un peso delgado enorme contra uno Super. Cada ruptura sale del contenido (qué significa la palabra), una por slide y no en todos. Lo que no se rompe: reglas 2 a 6, el logo, la paleta, la alineación a la izquierda y que el tipo se lea en el teléfono.
+7. **Rompe las reglas sin miedo, como director de arte.** Ricardo prefiere que pruebes y él te dice si le gusta; no conviertas cada decisión en regla. Que cada pieza sorprenda: nombre vertical como lomo de libro, una palabra gigante junto a otra diminuta, un peso delgado enorme contra uno Super. Cada ruptura sale del contenido (qué significa la palabra), una por slide y no en todos. Lo que no se rompe: reglas 2, 3, 5 y 6, el logo, la paleta, la alineación a la izquierda y que el tipo se lea en el teléfono.
 
 El logo, la paleta y la alineación a la izquierda no cambian.
 
@@ -39,7 +39,7 @@ El logo, la paleta y la alineación a la izquierda no cambian.
 - Lo que rechazó:
   - texto negro;
   - M-dots dentro de los slides;
-  - letra de apoyo delgada o chica;
+  - letra de apoyo chica que no se lee en el teléfono (delgada sí funcionó en el carrusel con imágenes);
   - descendentes que chocan con la línea de abajo;
   - fotos con filtro rosa;
   - flechas (→) en cualquier parte;
@@ -94,7 +94,7 @@ Antes de diseñar, haz el plan slide por slide: qué layout Collins (`BRAND.md �
 1. Elige el **ritmo** (BRAND.md §3.6): A Alternancia Plum↔Blush (educativo, mucho texto) · B Escalera tonal (narrativa de progreso) · C Golpe + M-dot (impacto, poco texto).
 2. Toma los pares de `tokens/colors.json`:
    - headline grande → `display_pairs` (≥ 2:1)
-   - texto de apoyo (cuerpo, bullets, CTA) → `text_pairs`: rosa sobre rosa, ≥ 3:1 con `.support` (Narrow Bold ≥ 52 px). Nunca negro.
+   - texto de apoyo (cuerpo, bullets, CTA) → `text_pairs`: rosa sobre rosa, ≥ 3:1 (si el texto es delgado o chico, prefiere los pares más altos: Plum/Blush, Plum/Lilac Pink). Nunca negro.
    - logo (solo en el cierre) → Variante MX tonal (M y wordmark en un rosa sobre otro) o `lockup_combos`
 3. Elige **un** secundario para el dot del lockup del cierre (`dot_rules`). Es el único lugar donde aparece. Nunca como fondo ni texto.
 4. Si combinas algo fuera de las listas, mide el contraste (fórmula en `scripts/build-data.mjs`; la matriz completa está en la hoja 06 de `templates/brand-sheet.html`). Mismo tono (dos *mid*) = casi siempre < 2:1 = NO.
@@ -118,7 +118,7 @@ Antes de diseñar, haz el plan slide por slide: qué layout Collins (`BRAND.md �
    - `<mas-mdot>`, `<mas-wordmark>` y `<mas-pattern>` existen para la hoja de marca; no los pongas dentro de los slides.
    - En headlines, `data-fit` / `data-fit="both"` ajusta el tamaño a la caja. `.h` = Black por defecto; `.h.w9` = Super, `.h.w7` = Bold; `.h.wide` = Obviously ancha (Black; con `.w9`, Super). Texto de apoyo: `.support` (Narrow Bold 64 px) y `.support.sm` (52 px). `.body` (Obviously Regular) solo para párrafos largos de PDF. Colores = keys de tokens (`pink-2425`) o hex. Variables CSS: `var(--pink-2425)`.
 3. Render: `node brand/scripts/render.mjs <archivo.html> --png` (y/o `--pdf`) `--out <dir>`. Si aparece "⚠ Faltan pesos de Obviously", detente y arregla las fuentes.
-4. **QA visual obligatorio**: arma una hoja con `montage <dir>/*.png -tile 4x -geometry 432x540+8+8 -background '#333' sheet.png` y mírala con Read. Revisa la checklist de `BRAND.md §10`: descendentes (g, j, p, y) que toquen la línea de abajo o un filete, nada de texto negro, ningún M-dot fuera del cierre, texto de apoyo legible a tamaño de teléfono (Narrow Bold ≥ 52 px), overflow, contraste, alineación. Itera hasta que pase.
+4. **QA visual obligatorio**: arma una hoja con `montage <dir>/*.png -tile 4x -geometry 432x540+8+8 -background '#333' sheet.png` y mírala con Read. Revisa la checklist de `BRAND.md §10`: descendentes (g, j, p, y) que toquen la línea de abajo o un filete, nada de texto negro, ningún M-dot fuera del cierre, texto de apoyo legible a tamaño de teléfono, overflow, contraste, alineación. Itera hasta que pase.
 5. Entrega con SendUserFile: vista previa + ZIP con los PNG numerados (ver "Cómo trabaja Ricardo"). Para LinkedIn: `--pdf` de un HTML con páginas 1080×1350.
 
 ## Biblioteca de MAS en Drive (privada)

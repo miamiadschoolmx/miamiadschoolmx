@@ -15,10 +15,10 @@ Cuando algo no esté aquí, manda el manual global. Cuando MAS México tenga una
 > 1. **Headlines grandes y bold**: Obviously Narrow Black por defecto, Super para golpes cortos, Obviously ancha para golpes de 1–2 palabras, o cualquier fuente con licencia en `brand/fonts/` que se vea más cool.
 > 2. **Nunca letras negras** (ni blancas). Todo el texto va en un rosa de la paleta. El negro solo queda en el M del logo.
 > 3. **Sin M-dots dentro de los slides** (ni en posts, escenas de reel o páginas). El logo va **solo al final**, en el cierre.
-> 4. **Texto de apoyo grande y grueso**: Obviously Narrow Bold de 52–64 px en lienzo de 1080 (clase `.support`). Obviously Regular delgada no se usa en slides, salvo en el estilo con imágenes (`templates/carousel-imagenes.html`): ahí el texto va en Narrow Regular de 46–48 px con la frase clave en Black, como en los carruseles de referencia de MAS.
+> 4. **Texto de apoyo sin regla fija**: peso y tamaño los decide la dirección de arte según lo que se vea mejor, siempre legible en el teléfono. Ya funcionaron Narrow Bold de 52–64 px (`.support`) en carruseles tipográficos y Narrow Regular de 46–48 px con la frase clave en Black en el carrusel con imágenes.
 > 5. **Fotos tal como son**: con sus colores originales, sin filtros rosas ni de ningún otro color, sin duotonos ni color grade.
 > 6. **Sin flechas** (→) en ninguna parte: remates, listas, enlaces ni "Desliza".
-> 7. **Rompe reglas de layout como director de arte**, con una idea que salga del contenido (p. ej. el nombre vertical de "Design Matters"). No se rompen las reglas 2 a 6, el logo ni la paleta. Los números monumentales van en Obviously Narrow Bold: en Black/Super o en la ancha se vuelven un bloque.
+> 7. **Rompe las reglas sin miedo, como director de arte** (Ricardo dice si le gusta), con una idea que salga del contenido (p. ej. el nombre vertical de "Design Matters"). No se rompen las reglas 2, 3, 5 y 6, el logo ni la paleta. Los números monumentales van en Obviously Narrow Bold: en Black/Super o en la ancha se vuelven un bloque.
 
 ---
 
@@ -190,7 +190,7 @@ El dot nunca es negro, nunca se encima con el M y nunca se recorta.
 | Headline | Narrow Black (Bold si son 4+ líneas) | 120–320 px, auto-fit al ancho | 0.96 |
 | Subhead / lista | Narrow Medium | 60–80 px | 0.95 |
 | Info (fecha, lugar, nombre) | Narrow Medium | 50–60 px | 0.9 |
-| Texto de apoyo (slides) | Narrow Bold (`.support`) | 52–64 px | 0.98 |
+| Texto de apoyo (slides) | Narrow Bold (`.support`) o Regular con frase clave en Black: lo decide la dirección de arte | 46–64 px | 0.98–1.06 |
 | Cuerpo largo (PDF, web) | Obviously Regular (Bold para énfasis) | 30–36 px | 1.22 |
 | Etiquetas, folio | Narrow Medium | 24–30 px | 1 |
 
@@ -276,8 +276,8 @@ Los 12 masters existen como `.ai` (wireframes, Drive "Templates Collins 1080 x 1
 
 - [ ] Fondo = un rosa de la paleta (no blanco, crema, gris ni negro).
 - [ ] **Nada de texto negro ni blanco**: todo el tipo en rosas de la paleta, en un par aprobado.
-- [ ] Headline ≥ 2:1; texto de apoyo ≥ 3:1 en Narrow Bold ≥ 52 px.
-- [ ] Texto de apoyo grande y grueso (`.support`), legible en el teléfono.
+- [ ] Headline ≥ 2:1; texto de apoyo ≥ 3:1 (pares más altos si es delgado).
+- [ ] Texto de apoyo legible en el teléfono (peso y tamaño a criterio de la dirección de arte).
 - [ ] **Ningún M-dot dentro de los slides**; el logo solo en el cierre (lockup tonal o con M negro), sin rotar, deformar ni efectos.
 - [ ] Un solo secundario por pieza, y solo en el dot del lockup.
 - [ ] Todo alineado a la izquierda, sentence case, sin tracking abierto.

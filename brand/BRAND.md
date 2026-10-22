@@ -238,27 +238,28 @@ Web (styleguide 4): H1 Narrow Medium 70/61 pt · H2 48/44 · H3 30/21 · body Ob
 
 ## 9. Master Templates (Collins 1080×1350) y dirección de arte
 
-Los 12 masters existen como `.ai` (wireframes, Drive "Templates Collins 1080 x 1350", `1L-x3QP79ntpc7aYAxCs7H8inV0riUZnS`) y como **Brand Templates en Canva** ("MAS · Collins 1080×1350 · …"; ninguno tiene campos de autofill). En HTML están todos como layouts en `web/collins.css`, con un ejemplo de cada uno en `templates/collins.html`.
+Los 12 masters existen como `.ai` (wireframes, Drive: BRAND/templates Collins 1080x1350, `1UA6OykaKv-clBWVUmbQzNvbyWMydQEG7`, renombrados el 2026-10-22 con el formato `MAS · Formato · Para qué sirve · Detalle (Collins)`; el índice es `MAS · README · Índice de templates (Collins).md` en la misma carpeta) y como **Brand Templates en Canva** (IDs en la skill `mas-brand`; ninguno tiene campos de autofill). Los `.ai` vienen en blanco, con paleta #FFCEDD #FF5CCD #EC009F #AD007A #FFFFFF y Obviously; en MAS México se adaptan a fondo rosa (ver abajo). Los templates nuevos que crea Claude no llevan "(Collins)": terminan en "(Claude)". En HTML están todos como layouts en `web/collins.css`, con un ejemplo de cada uno en `templates/collins.html`.
 
 **Gramática Collins**: grid de 6 columnas × 6 filas dentro del margen · headline arriba a la izquierda, información abajo a la izquierda (a veces en 2 columnas) · imágenes abajo a la derecha (½ del ancho) o en círculos cuando son personas · info (nombres, fechas, lugares) grande, casi del tamaño de un subtítulo · nunca texto sobre foto.
 
-**Adaptación MAS México** (indicaciones de Ricardo): fondos rosas y texto en rosas (los masters vienen en blanco y negro) · donde Collins ponía un M-dot (Quotes, Poll, Insighters, Hired, 2BeHired) va una foto o nada · sin wordmark en la portada, el logo solo en el cierre · headlines en Black o Super, más pesados que los de Collins.
+**Adaptación MAS México** (indicaciones de Ricardo): fondos rosas y texto en rosas (los masters vienen en blanco y negro) · donde Collins ponía un M-dot (Frase célebre, Resultados de encuesta, Anunciar charla invitado, Egresados contratados, Talento por contratar) va una foto o nada · sin wordmark en la portada, el logo solo en el cierre · headlines en Black o Super, más pesados que los de Collins.
 
-| Contenido | Master | Clase HTML |
+| Contenido | Template (nombre nuevo, sin `.ai`) | Clase HTML |
 |---|---|---|
-| Portada de carrusel educativo | Tips (portada) | `c-tips-cover` |
-| Consejo o paso con 1–3 frases | Tips (interior) | `c-tips` |
-| Recurso, libro, herramienta o campaña con imagen | Tips with Images | `c-tips-img` |
-| Dato o insight en una frase | Facts | `c-fact` |
-| Hallazgo de un estudio con fuente | Facts (estudio) | `c-fact-study` |
-| Cita de una persona | Quotes | `c-quote` |
-| Encuesta, ranking, porcentajes | Poll Results | `c-poll` |
-| Noticia de un egresado o del campus | Single Photo | `c-news` (foto circular) · `c-news-2` (foto horizontal) |
-| Speaker, masterclass, evento | Insighters | `c-speaker` (nombre, fecha, foto) + `c-talk` (título y hora) |
-| Colocación laboral | Hired | `c-hired` |
-| Alumno buscando trabajo | 2BeHired | `c-2behired` |
-| Premio | Award Winner · Award Winner Carousel | `c-award` (imagen del trabajo) · `c-award-cover` + `c-photo-full` |
-| Generación, bootcamp, grupo | Multiple Photo | `c-photos-12` · `c-photos-4` · `c-photos-2` |
+| Portada de carrusel educativo | MAS · Carrusel 4:5 · Tips educativos · Tipográfico (Collins) | `c-tips-cover` |
+| Consejo o paso con 1–3 frases | MAS · Carrusel 4:5 · Tips educativos · Tipográfico (Collins) | `c-tips` |
+| Recurso, libro, herramienta o campaña con imagen | MAS · Carrusel 4:5 · Lista de recomendaciones · Con foto (Collins) | `c-tips-img` |
+| Dato o insight en una frase | MAS · Carrusel 4:5 · Dato curioso · 2 slides (Collins) | `c-fact` |
+| Hallazgo de un estudio con fuente | MAS · Carrusel 4:5 · Dato curioso · 2 slides (Collins) | `c-fact-study` |
+| Cita de una persona | MAS · Post 4:5 · Frase célebre · Tipográfico (Collins) | `c-quote` |
+| Encuesta, ranking, porcentajes | MAS · Post 4:5 · Resultados de encuesta · Tipográfico (Collins) | `c-poll` |
+| Noticia de un egresado o del campus | MAS · Post 4:5 · Noticia de egresado · 2 versiones (Collins) | `c-news` (foto circular) · `c-news-2` (foto horizontal) |
+| Speaker, masterclass, evento | MAS · Carrusel 4:5 · Anunciar charla invitado · 3 slides (Collins) | `c-speaker` (nombre, fecha, foto) + `c-talk` (título y hora) |
+| Colocación laboral | MAS · Carrusel 4:5 · Egresados contratados · 3 slides (Collins) | `c-hired` |
+| Alumno buscando trabajo | MAS · Carrusel 4:5 · Talento por contratar · 2 slides (Collins) | `c-2behired` |
+| Premio con imagen del trabajo | MAS · Post 4:5 · Premio ganado · 3 versiones con foto (Collins) | `c-award` (imagen del trabajo) |
+| Premio de un alumno (portada + foto) | MAS · Carrusel 4:5 · Premio de alumno · 2 slides (Collins) | `c-award-cover` + `c-photo-full` |
+| Bootcamp o evento con varios ponentes | MAS · Post 4:5 · Evento con ponentes · 3 versiones con fotos (Collins) | `c-photos-12` · `c-photos-4` · `c-photos-2` |
 | Cierre (único con logo) | — | `c-cierre` |
 
 **Cómo combinarlos en un carrusel** (dirección de arte):

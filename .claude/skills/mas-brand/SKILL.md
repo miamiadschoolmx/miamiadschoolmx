@@ -73,10 +73,10 @@ Si no está claro, pregunta una vez: "¿lo quieres editable en Canva o listo par
 ## 2. Dirección de arte: elige los layouts Collins
 
 Antes de diseñar, haz el plan slide por slide: qué layout Collins (`BRAND.md §9`) le toca a cada slide según su contenido, y qué par de color. Reglas:
-- 3 a 5 layouts por carrusel: portada, 1–2 de contenido, un respiro (Facts, Quote o foto a sangre) y cierre.
+- 3 a 5 layouts por carrusel: portada, 1–2 de contenido, un respiro (Dato curioso, Frase célebre o foto a sangre) y cierre.
 - Los elementos paralelos van en el mismo layout. Rompe la serie a la mitad con un respiro.
 - Alterna lectura y golpe visual. Nunca más de dos slides de texto seguidos.
-- Si la pieza tiene personas, premios, eventos o datos, usa su master (Hired, Award, Insighters, Facts, Poll). No lo resuelvas todo con Tips.
+- Si la pieza tiene personas, premios, eventos o datos, usa su template de la tabla de `BRAND.md §9` (Egresados contratados, Premio ganado o Premio de alumno, Anunciar charla invitado, Dato curioso, Resultados de encuesta). No lo resuelvas todo con Tips educativos.
 - Sin foto disponible, no uses layouts de foto con huecos vacíos: pide las fotos o elige otro layout.
 - Fotos siempre con sus colores originales: nunca filtros, duotonos ni tintes.
 
@@ -95,7 +95,7 @@ Antes de diseñar, haz el plan slide por slide: qué layout Collins (`BRAND.md �
 ## A. Render HTML → PNG / PDF
 
 1. Copia la plantilla más cercana a una carpeta de trabajo fuera de git, p. ej. `brand/work/<slug>.html` (crea la carpeta; `**/out/` ya está ignorado; agrega `brand/work/` a `.gitignore` si no está). Ajusta las rutas relativas (`../web/…`) a la ubicación nueva.
-   - **`templates/collins.html` + `web/collins.css`: los 12 Master Templates de Collins como 20 layouts** (clases `c-…`). Es la base para cualquier carrusel o post: elige el layout de cada slide con la tabla de `BRAND.md §9` (Tips, Tips with Images, Facts, Quotes, Poll, Single Photo, Insighters, Hired, 2BeHired, Award Winner, Multiple Photo, cierre).
+   - **`templates/collins.html` + `web/collins.css`: los 12 Master Templates de Collins como 20 layouts** (clases `c-…`). Es la base para cualquier carrusel o post: elige el layout de cada slide con la tabla de `BRAND.md §9`, que lista los 12 templates con su nombre nuevo (`MAS · Formato · Para qué sirve · Detalle (Collins)`) más el cierre. El índice oficial vive en Drive: `MAS · README · Índice de templates (Collins).md`, dentro de BRAND/templates Collins 1080x1350.
    - `templates/carousel-recursos.html`: carrusel de recursos (7 herramientas): un layout distinto por recurso, con nombre, frases de apoyo y enlace.
    - `templates/carousel.html`: carrusel tipográfico de ejemplo con 10 layouts propios, sin M-dots: portada tipográfica (golpe ancho + Narrow Black), headline + ejemplo como cita, headline + frases + remate con flecha, statement en Super, lista con flechas, headline que crece línea a línea, pregunta protagonista, comparación a dos columnas, golpe ancho, cierre con frase + lockup.
    - `templates/document.html`: PDF carta (portada tipográfica, interior legible, contraportada con lockup).
@@ -169,7 +169,7 @@ Comandos:
 
 Flujo (Ricardo quiere que Claude elija las fotos y las ponga directo en la pieza):
 1. Planea qué slides llevan foto y qué layout Collins le toca a cada uno. Si es de MAS (alumnos, eventos, premios, egresados), la foto sale de la BIBLIOTECA, no de Unsplash.
-2. Busca con consultas en inglés y concretas ("art director reviewing layouts", "creative team workshop"). Usa `--orientacion` según el hueco del layout: `portrait` para Tips with Images, `squarish` para círculos, `landscape` para fotos horizontales. Si los resultados no sirven, reformula la búsqueda (máximo 3 intentos por slide).
+2. Busca con consultas en inglés y concretas ("art director reviewing layouts", "creative team workshop"). Usa `--orientacion` según el hueco del layout: `portrait` para Lista de recomendaciones · Con foto, `squarish` para círculos, `landscape` para fotos horizontales. Si los resultados no sirven, reformula la búsqueda (máximo 3 intentos por slide).
 3. Mira la hoja de contacto con Read y elige tú con estos criterios, en orden:
    - Dice lo mismo que el slide, literal o como metáfora clara. Nada de clichés de banco (apretón de manos, foco, gente sonriendo a cámara).
    - Funciona en el recorte del layout: sujeto centrado para círculos; aire donde corta el rectángulo.
@@ -190,26 +190,32 @@ Reglas:
 
 IDs (cuenta del usuario):
 - **Brand kit**: `kAG8MAKnMso` ("Miami Ad School · Collins").
-- **Brand Templates Collins 1080×1350** (sin autofill):
+- **Brand Templates Collins 1080×1350** (sin autofill). Los nombres son los del índice de Drive; el título dentro de Canva puede seguir con el nombre viejo (`MAS · Collins 1080×1350 · …`), así que busca por ID:
 
-  | Template | ID | Template | ID |
-  |---|---|---|---|
-  | Tips | `EAHYALEcmI0` | Insighters | `EAHYADk_ltg` |
-  | Tips with Images | `EAHYAKNzwNk` | Hired | `EAHX_-jlYyM` |
-  | Facts | `EAHYAKoW7FE` | 2BeHired | `EAHX_yF0EDM` |
-  | Quotes | `EAHX_-GHkI0` | Award Winner | `EAHX_3YMIX0` |
-  | Poll Results | `EAHYAB5q12M` | Award Winner Carousel | `EAHX_xE1--c` |
-  | Single Photo | `EAHYAFICEro` | Multiple Photo | `EAHYAO-xSMQ` |
+  | Template (nombre nuevo, sin `.ai`) | ID Canva |
+  |---|---|
+  | MAS · Carrusel 4:5 · Tips educativos · Tipográfico (Collins) | `EAHYALEcmI0` |
+  | MAS · Carrusel 4:5 · Lista de recomendaciones · Con foto (Collins) | `EAHYAKNzwNk` |
+  | MAS · Carrusel 4:5 · Dato curioso · 2 slides (Collins) | `EAHYAKoW7FE` |
+  | MAS · Post 4:5 · Frase célebre · Tipográfico (Collins) | `EAHX_-GHkI0` |
+  | MAS · Post 4:5 · Resultados de encuesta · Tipográfico (Collins) | `EAHYAB5q12M` |
+  | MAS · Post 4:5 · Noticia de egresado · 2 versiones (Collins) | `EAHYAFICEro` |
+  | MAS · Carrusel 4:5 · Anunciar charla invitado · 3 slides (Collins) | `EAHYADk_ltg` |
+  | MAS · Carrusel 4:5 · Egresados contratados · 3 slides (Collins) | `EAHX_-jlYyM` |
+  | MAS · Carrusel 4:5 · Talento por contratar · 2 slides (Collins) | `EAHX_yF0EDM` |
+  | MAS · Post 4:5 · Premio ganado · 3 versiones con foto (Collins) | `EAHX_3YMIX0` |
+  | MAS · Carrusel 4:5 · Premio de alumno · 2 slides (Collins) | `EAHX_xE1--c` |
+  | MAS · Post 4:5 · Evento con ponentes · 3 versiones con fotos (Collins) | `EAHYAO-xSMQ` |
 
 - **Diseños de referencia en marca**:
   - `DAHYGkPCaUk` ("7 preguntas…", alternancia Plum/Blush + cierre). Ojo: sus headlines van en MAYÚSCULAS; en piezas nuevas usa sentence case.
-  - `DAHYGQWC7L0` ("7 archivos visuales", Tips with Images en color).
+  - `DAHYGQWC7L0` ("7 archivos visuales", Lista de recomendaciones · Con foto, en color).
 - **No usar como referencia**: `DAHYFk508X8` (fondo blanco) y `DAHYGSQxc60` (fondo crema, tipo blanco, otras fuentes).
 
 Flujos:
 1. **Partir de una pieza buena** (preferido para carruseles): `copy-design` del diseño de referencia → `read-design` con `open_transaction: true` (obtén los locator IDs) → `edit-design` con `replace_text` / `find_and_replace_text`, `format_text` (color hex de tokens), `recolor_element`, `add_page` (`background_color` = hex de fondo) → muestra la vista previa → **pide aprobación** → `commit`.
 2. **Desde Brand Template**: elige el master por contenido con la tabla de `BRAND.md §9` (puedes combinar varios masters en un carrusel: crea uno por tipo de slide y júntalos con `merge-designs`) → `create-design-from-brand-template` con el ID → editar igual que arriba → pintar los fondos y el tipo con un par aprobado (los masters vienen en blanco y negro) y borrar los M-dots de los slides interiores.
-3. **Logo en Canva (solo en el cierre)**: los Collins traen M-dots en slides interiores (Quotes, Poll Results, Insighters, Hired): bórralos. Si el cierre necesita el logo, usa el lockup del brand kit o `insert_shape` con el `d` del M (`brand/assets/mdots/mdots.json` o `assets/logo/lockup.svg`) en un rosa tonal, más el dot como círculo `M cx-r,cy A r,r 0 1 0 cx+r,cy A r,r 0 1 0 cx-r,cy Z` en el secundario. Todo el texto en rosas: cambia a rosa cualquier texto negro de los masters.
+3. **Logo en Canva (solo en el cierre)**: los Collins traen M-dots en slides interiores (Frase célebre, Resultados de encuesta, Anunciar charla invitado, Egresados contratados): bórralos. Si el cierre necesita el logo, usa el lockup del brand kit o `insert_shape` con el `d` del M (`brand/assets/mdots/mdots.json` o `assets/logo/lockup.svg`) en un rosa tonal, más el dot como círculo `M cx-r,cy A r,r 0 1 0 cx+r,cy A r,r 0 1 0 cx-r,cy Z` en el secundario. Todo el texto en rosas: cambia a rosa cualquier texto negro de los masters.
 4. **Generación rápida** (ideas, no final): `generate-design` con `brand_kit_id: kAG8MAKnMso` y un query que incluya las reglas (fondo rosa sólido, par de color exacto en hex, tipo alineado a la izquierda, sentence case, sin blanco ni degradados). Siempre haz QA contra la checklist antes de proponerlo.
 5. **Llevar un PNG/PDF renderizado a Canva**: las herramientas de import solo aceptan URLs públicas existentes. Nunca subas archivos a un hosting público para conseguir una URL. Entrega el archivo y pide que lo arrastren a Canva.
 
@@ -229,5 +235,5 @@ Flujos:
 - Manual de identidad: `1L4-Bp2DnjfQk9EvcXYPqgXhAWI8Jvp-Z` (72 pp.). El brand book completo de 85 pp. lo compartió el usuario por chat: "brand book.pdf" (Drive `1QGMB-xU7OG5Qfj2SwfYYmr5f1kA1J-KA`).
 - Paleta `.ai`: `1HDKsckaI23GDOC75FTm8KermxIDHe0xP` · `.ase`: `1fxApl6reymGskW8IUYW0DhP4HE0Fa438`
 - M-dots SVG (carpeta): `19kvGKrZJsVVbGcydKlyZDNgQ3FqsKI70` · Cierres `.ai`: `1tFJY5FrkQ7zMyZNElh7UCu6vTLVUjPB9`
-- Templates Collins `.ai` (carpeta): `1L-x3QP79ntpc7aYAxCs7H8inV0riUZnS`
+- Templates Collins `.ai` con nombres nuevos + índice (carpeta, privada): `1UA6OykaKv-clBWVUmbQzNvbyWMydQEG7` (BRAND/templates Collins 1080x1350; índice `1xpEJ51ezQKpNrOKwDSDz291TvNddK8jv`)
 - Brand Canvas (voz): `1clqvmrSjekcGoTJJp1iqvunmtYY7pNXc2lRJ4w_6x6g`

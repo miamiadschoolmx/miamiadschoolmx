@@ -1,6 +1,6 @@
-<!-- Generado por tools/ghl-kit.py desde landing.*. No lo edites a mano: cambia el original y vuelve a correr el script.
-     Si usas el formulario o el calendario de GHL incrustados, pega ANTES de este script
-     la línea <script src="…/form_embed.js"></script> que viene en su código de inserción. -->
+<!-- Generado por tools/ghl-kit.py desde landing.*. No lo edites a mano: cambia el original y vuelve a correr el script. Versión 168b55fa.
+     Reemplaza TODO el Footer de la página con este bloque: ya trae el formulario, el folleto,
+     el video y los textos legales. No dejes scripts de versiones anteriores. -->
 <script>
 /* ==========================================================================
    Miami Ad School México · Landing VSL
@@ -12,27 +12,29 @@
   /* --- Configuración ------------------------------------------------------
      Ajusta estos valores al conectar GoHighLevel (ver README-GHL.md). */
   var CONFIG = {
-    // VSL: la ÚNICA variable que hay que llenar para el video. Acepta un enlace de YouTube,
-    // de Vimeo o la URL directa de un .mp4. Vacía = se queda el póster con «Ver video».
-    vslUrl: '',
-    // Opcional: duración que se muestra sobre el póster, por ejemplo '12 min'.
-    vslDuration: '',
-    // Query key del campo "Me interesa" en el formulario de GHL, para prellenarlo.
-    prefillParam: 'me_interesa',
+    // Video de la sección «Prueba». Acepta Tella, YouTube, Vimeo o la URL directa de un .mp4.
+    // Tella se muestra con su propio póster al acercarse; los demás cargan al hacer clic.
+    vslUrl: 'https://www.tella.tv/video/vid_cmm716re6001a04ld880m76nh',
+    // Campo «Me interesa» del formulario de GHL: su query key y los valores exactos de sus opciones.
+    prefillParam: 'interes_programa',
     programLabels: {
       'art-direction': 'Art Direction',
       'copywriting': 'Copywriting',
       'no-se': 'Aún no sé'
     },
+    // Calendario de Ricardo para «¿Ya tienes el folleto? Agenda tu llamada». Vacío = el link no se muestra.
+    // [VERIFICAR] Pon aquí la URL cuando esté confirmada (spec v2, sección 5).
+    calendarUrl: '',
+    // PDF del folleto: el botón de descarga aparece solo después de enviar el formulario (?paso=agenda).
+    // Vacío = solo se dice que llega al correo.
+    brochureUrl: 'https://assets.cdn.filesafe.space/XpyeC21v7pmmK0tDJtpr/media/6aca981fc478ac553591bdd7.pdf',
+    // Video que se muestra después de agendar (?paso=confirmado). Vacío = no se muestra.
+    thanksVideoUrl: 'https://www.tella.tv/video/vid_cmm7163r3000o04l2bbaqai3k',
     // Valores del parámetro ?paso= que GHL agrega al redirigir (ver README-GHL.md · paso 8).
-    stageParam: 'paso',
-    // Fechas reales de inicio (mes 0 = enero). La cuenta regresiva apunta a la siguiente.
-    intakes: [{ month: 0, day: 10 }, { month: 3, day: 10 }, { month: 6, day: 10 }, { month: 9, day: 10 }],
-    // Días antes del inicio en que el contador ya muestra el siguiente (cierre de admisión).
-    intakeCutoffDays: 7,
-    // Hora de inicio en Ciudad de México (UTC-6, sin horario de verano).
-    intakeUtcOffsetHours: -6
+    stageParam: 'paso'
   };
+  // Versión del kit: tools/ghl-kit.py pone la misma en los 3 bloques. Si no coinciden, ?revisar=1 lo avisa.
+  var KIT = '168b55fa';
 
   /* --- Arranque ------------------------------------------------------------
      En GHL, el HTML del elemento Custom Code y este script llegan en momentos
@@ -74,7 +76,6 @@
     stopPrevious = function () {
       if (life) life.abort();
       timers.forEach(clearInterval);
-      if (tickTimer) clearInterval(tickTimer);
     };
     function on(target, type, fn, opts) {
       var o = opts && typeof opts === 'object' ? opts : { capture: !!opts };
@@ -156,7 +157,9 @@
       var target = id && document.getElementById(id);
       if (!target) return;
       e.preventDefault();
+      if (target.tagName === 'DETAILS') target.open = true;
       target.scrollIntoView({ behavior: mqReduce.matches ? 'auto' : 'smooth', block: 'start' });
+      if (target.tagName === 'DETAILS') return;
       if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
       target.focus({ preventScroll: true });
       try { if (window.history && history.replaceState) history.replaceState(null, '', '#' + id); } catch (err) { /* marco aislado: se ignora */ }
@@ -178,22 +181,22 @@
       if (name === 'social_click' && el.getAttribute('aria-disabled') !== 'true') {
         track(name, { network: el.getAttribute('data-social') });
       }
+      if (name === 'calendar_click' || name === 'brochure_download') track(name);
+    });
+    root.addEventListener('click', function (e) {
+      var cta = e.target.closest ? e.target.closest('[data-cta]') : null;
+      if (cta && root.contains(cta)) track('cta_click', { cta: cta.getAttribute('data-cta') });
     });
 
     /* --- Programa elegido ---------------------------------------------------- */
-    var chips = root.querySelectorAll('.mas-chip[data-program]');
-
     function setProgram(program, source) {
       if (!Object.prototype.hasOwnProperty.call(CONFIG.programLabels, program)) return;
       root.setAttribute('data-program', program);
       var section = document.getElementById('aplicar');
       if (section) section.setAttribute('data-program', program);
-      for (var i = 0; i < chips.length; i++) {
-        chips[i].setAttribute('aria-pressed', chips[i].getAttribute('data-program') === program ? 'true' : 'false');
-      }
       try { sessionStorage.setItem('mas-program', program); } catch (e) { /* sin almacenamiento */ }
       prefillForm(program);
-      if (source) track('program_select', { program: program, from: source.classList.contains('mas-chip') ? 'chip' : 'panel' });
+      if (source) track('program_select', { program: program });
     }
 
     // Prellena "Me interesa" en el iframe del formulario de GHL, si ya está insertado
@@ -212,18 +215,22 @@
       var saved = sessionStorage.getItem('mas-program');
       if (saved) setProgram(saved, null);
     } catch (e) { /* sin almacenamiento */ }
+    // ?interes_programa=Copywriting en la URL de la página (por ejemplo, desde un anuncio) también prellena
+    (function () {
+      var fromUrl;
+      try { fromUrl = new URLSearchParams(location.search).get(CONFIG.prefillParam); } catch (e) { fromUrl = null; }
+      if (!fromUrl) return;
+      for (var key in CONFIG.programLabels) {
+        if (Object.prototype.hasOwnProperty.call(CONFIG.programLabels, key) && CONFIG.programLabels[key] === fromUrl) setProgram(key, null);
+      }
+    })();
 
     /* --- Reproductor VSL ------------------------------------------------------ */
     var player = root.querySelector('.mas-player');
     var poster = player && player.querySelector('.mas-player__poster');
     if (player && poster) {
       var notice = player.querySelector('.mas-player__notice');
-      var duration = player.querySelector('[data-vsl-duration]');
       var vslSrc = String(CONFIG.vslUrl || '').trim();
-      if (duration && CONFIG.vslDuration) {
-        duration.textContent = 'Duración: ' + CONFIG.vslDuration;
-        duration.hidden = false;
-      }
 
       // Carga diferida: el iframe o el <video> se crean solo al hacer clic, así que antes
       // no se descarga nada de YouTube, Vimeo ni del .mp4.
@@ -234,12 +241,12 @@
         // Se llena un instante después de mostrarse para que el lector de pantalla lo anuncie.
         setTimeout(function () { notice.textContent = msg; }, 60);
       };
-      poster.addEventListener('click', function () {
+      var mount = function () {
         var src = vslSrc;
         var isFile = /\.(mp4|webm|m4v|mov)(\?|#|$)/i.test(src);
         var embed = src && !isFile ? toEmbed(src) : null;
         if (!src || (!isFile && !embed)) {
-          if (src && window.console) console.warn('[landing] CONFIG.vslUrl no es un enlace de YouTube, Vimeo ni un video .mp4:', src);
+          if (src && window.console) console.warn('[landing] CONFIG.vslUrl no es un enlace de Tella, YouTube, Vimeo ni un video .mp4:', src);
           say('El video estará disponible muy pronto.');
           return;
         }
@@ -261,9 +268,9 @@
         } else {
           media = document.createElement('iframe');
           media.src = embed;
+          if (isTella) media.loading = 'lazy';
           media.title = title;
           media.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media';
-          media.setAttribute('allowfullscreen', '');
           media.referrerPolicy = 'strict-origin-when-cross-origin';
           // vsl_50_percent y vsl_complete en YouTube/Vimeo requieren su API de reproductor
           // (YouTube IFrame API / Vimeo Player SDK). Ver README-GHL.md · paso 10.
@@ -272,19 +279,27 @@
         player.appendChild(media);
         poster.hidden = true;
         if (notice) notice.hidden = true;
+        if (isTella) return; // Tella pone su póster y su botón: vsl_play se registra cuando la persona entra al video
         trackOnce('vsl_play', { src: src });
         if (media.tagName === 'VIDEO') {
           var p = media.play();
           if (p && p.catch) p.catch(function () { /* el navegador pidió interacción: quedan los controles */ });
         }
         media.focus();
-      });
+      };
+      var isTella = /tella\.tv\//.test(vslSrc);
+      if (isTella) whenNear(player, mount);
+      else poster.addEventListener('click', mount);
     }
 
     // Convierte enlaces de YouTube y Vimeo a su URL de inserción con autoplay; si no reconoce
     // el enlace, devuelve null. El autoplay solo ocurre después del clic de la persona.
     function toEmbed(src) {
       var m, start = startSeconds(src);
+      if ((m = src.match(/tella\.tv\/video\/([\w-]+)/))) {
+        // Mismos parámetros que el video que ya estaba en GHL, sin el título del archivo encima (title=0)
+        return 'https://www.tella.tv/video/' + m[1] + '/embed?b=1&title=0&a=1&loop=0&t=0&muted=0&wt=1&o=1';
+      }
       var list = (src.match(/[?&]list=([\w-]+)/) || [])[1];
       if (/youtube\.com\/embed\/videoseries/.test(src) && list) {
         return 'https://www.youtube-nocookie.com/embed/videoseries?list=' + list + '&autoplay=1&rel=0&playsinline=1';
@@ -377,10 +392,47 @@
       if (value === 'agenda' && !reviewing) {
         onceStorage('lead_submit');
       }
+      if (value === 'agenda') showBrochure();
       if (value === 'confirmado') {
         if (!reviewing) onceStorage('appointment_booked');
+        showThanksVideo();
         var done = root.querySelector('[data-stage-panel="confirmado"]');
         if (done) setTimeout(function () { done.focus({ preventScroll: true }); }, 0);
+      }
+    }
+
+    // El PDF no está en el HTML: el botón se crea solo después de enviar el formulario (spec v2, técnico 8).
+    function showBrochure() {
+      var box = root.querySelector('[data-brochure]');
+      if (!box || !CONFIG.brochureUrl || box.firstChild) return;
+      var a = document.createElement('a');
+      a.className = 'mas-btn mas-btn--ink';
+      a.href = CONFIG.brochureUrl;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.setAttribute('data-event', 'brochure_download');
+      a.textContent = 'Descargar folleto';
+      box.appendChild(a);
+    }
+    function showThanksVideo() {
+      var box = root.querySelector('[data-thanks-video]');
+      var src = CONFIG.thanksVideoUrl && toEmbed(String(CONFIG.thanksVideoUrl));
+      if (!box || !src || box.firstChild) return;
+      var f = document.createElement('iframe');
+      f.src = src;
+      f.title = 'Video de Miami Ad School México';
+      f.loading = 'lazy';
+      f.allow = 'autoplay; fullscreen; picture-in-picture';
+      box.appendChild(f);
+    }
+
+    // «¿Ya tienes el folleto? Agenda tu llamada»: solo con la URL confirmada del calendario.
+    var calendarLinks = root.querySelectorAll('[data-calendar-link]');
+    if (CONFIG.calendarUrl) {
+      for (var cl = 0; cl < calendarLinks.length; cl++) {
+        var link = calendarLinks[cl].querySelector('a');
+        if (link) link.href = CONFIG.calendarUrl;
+        calendarLinks[cl].hidden = false;
       }
     }
 
@@ -398,17 +450,44 @@
     on(window, 'blur', function () {
       setTimeout(function () {
         var active = document.activeElement;
+        if (!active || active.tagName !== 'IFRAME' || !root.contains(active)) return;
         var slot = document.getElementById('ghl-form-slot');
-        if (active && active.tagName === 'IFRAME' && slot && slot.contains(active)) trackOnce('form_start');
+        if (slot && slot.contains(active)) trackOnce('form_start');
+        if (player && player.contains(active)) trackOnce('vsl_play', { src: CONFIG.vslUrl });
       }, 0);
     });
 
-    /* --- Enlaces legales pendientes ------------------------------------------- */
+    /* --- Enlaces pendientes --------------------------------------------------
+       Redes del footer sin URL: no se muestran (si no queda ninguna, se oculta «Síguenos»).
+       Cualquier otro enlace con REEMPLAZAR se desactiva y se marca como pendiente. */
+    var social = root.querySelector('.mas-footer__social');
+    if (social) {
+      var socialLinks = social.querySelectorAll('a');
+      var shown = 0;
+      for (var sl = 0; sl < socialLinks.length; sl++) {
+        if (/^REEMPLAZAR/.test(socialLinks[sl].getAttribute('href') || '')) socialLinks[sl].parentNode.hidden = true;
+        else shown++;
+      }
+      if (!shown) social.hidden = true;
+    }
     var pending = root.querySelectorAll('a[href^="REEMPLAZAR"]');
     for (var k = 0; k < pending.length; k++) {
+      if (social && social.contains(pending[k])) continue;
       pending[k].setAttribute('aria-disabled', 'true');
       pending[k].addEventListener('click', function (e) { e.preventDefault(); });
     }
+
+    // Textos legales: si la página abre con #aviso-privacidad o #terminos, se despliegan
+    function openLegalFromHash() {
+      var id = location.hash.slice(1);
+      var d = id && document.getElementById(id);
+      if (d && d.tagName === 'DETAILS' && root.contains(d)) {
+        d.open = true;
+        requestAnimationFrame(function () { d.scrollIntoView({ block: 'start' }); });
+      }
+    }
+    openLegalFromHash();
+    on(window, 'hashchange', openLegalFromHash);
 
     /* --- Vistas de sección (view_vsl, view_books, calendar_view) -------------- */
     var viewTargets = root.querySelectorAll('[data-event-view]');
@@ -551,15 +630,13 @@
       });
     }
 
-    /* --- Motor de scroll: progreso, cinta y líneas que se encienden ----------- */
+    /* --- Motor de scroll: progreso, logos y líneas que se encienden ----------- */
     var progress = root.querySelector('.mas-progress');
-    var tickerRow = root.querySelector('[data-ticker]');
     var glowBox = root.querySelector('[data-glow]');
     var glowItems = root.querySelectorAll('[data-glow] > *');
     var motionOK = !mqReduce.matches;
     var ticking = false;
-    var tickerOn = false, glowOn = false, tickerLen = 0;
-    watchVisible(tickerRow, function (v) { tickerOn = v; });
+    var glowOn = false;
     watchVisible(glowBox, function (v) { glowOn = v; if (v) requestAnimationFrame(onScroll); });
 
     function onScroll() {
@@ -570,16 +647,6 @@
         var total = rect.height - vh;
         var p = total > 0 ? Math.min(1, Math.max(0, -rect.top / total)) : 0;
         progress.style.setProperty('--p', p.toFixed(4));
-      }
-      if (tickerRow && tickerOn && motionOK) {
-        // La cinta avanza con el scroll (no se mueve sola), así que no necesita botón de pausa.
-        if (!tickerLen) {
-          var kids = tickerRow.children, third = kids[kids.length / 3];
-          tickerLen = third && kids.length % 3 === 0 ? third.offsetLeft - kids[0].offsetLeft : tickerRow.scrollWidth / 3;
-        }
-        var copy = tickerLen;
-        var x = copy ? (window.pageYOffset * 0.45) % copy : 0;
-        tickerRow.style.setProperty('--x', x.toFixed(1));
       }
       if (logosOn && logoRows.length) placeLogos();
       if (glowOn && glowItems.length && root.classList.contains('has-motion')) {
@@ -592,7 +659,7 @@
     on(window, 'scroll', function () {
       if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
     }, { passive: true });
-    on(window, 'resize', throttle(function () { tickerLen = 0; onScroll(); }), { passive: true });
+    on(window, 'resize', throttle(onScroll), { passive: true });
 
     /* --- Cursor-punto (solo mouse, solo si se permite movimiento) -------------
        Es un acompañante del cursor nativo, nunca lo reemplaza. */
@@ -657,77 +724,16 @@
       dragEl.addEventListener('click', function (e) { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
     }
 
-    /* --- Próximo inicio y cuenta regresiva -----------------------------------
-       Real: cuenta hacia la siguiente fecha de CONFIG.intakes. No se reinicia por
-       visitante y salta sola al siguiente inicio cuando cierra el actual. */
-    var MONTHS = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
-    var DAY = 86400000;
-    var intakeList = CONFIG.intakes.slice().sort(function (p, q) { return p.month - q.month || p.day - q.day; });
-    function nextIntake(now) {
-      var y = new Date(now).getUTCFullYear();
-      for (var yy = y; yy <= y + 1; yy++) {
-        for (var n = 0; n < intakeList.length; n++) {
-          var it = intakeList[n];
-          var t = Date.UTC(yy, it.month, it.day, -CONFIG.intakeUtcOffsetHours, 0, 0);
-          if (t - CONFIG.intakeCutoffDays * DAY > now) return { t: t, year: yy, index: CONFIG.intakes.indexOf(it), month: it.month, day: it.day };
-        }
-      }
-      return null;
-    }
-    function pad(v) { return v < 10 ? '0' + v : String(v); }
-    function setText(sel, txt) {
-      var els = root.querySelectorAll(sel);
-      for (var e = 0; e < els.length; e++) els[e].textContent = txt;
-    }
-    var cdBox = root.querySelector('[data-countdown]');
-    var pill = root.querySelector('[data-intake-pill]');
-    var titleEl = root.querySelector('[data-intake-title]');
-    var current = null;
-    function renderIntake() {
-      var now = Date.now();
-      var nx = nextIntake(now);
-      if (!nx) return;
-      var thisYear = new Date(now).getUTCFullYear();
-      var short = nx.day + '\u00a0de ' + MONTHS[nx.month];
-      var label = short + (nx.year !== thisYear ? ' de ' + nx.year : '');
-      var left = Math.max(0, nx.t - now);
-      var d = Math.floor(left / DAY);
-      var h = Math.floor(left % DAY / 3600000);
-      var m = Math.floor(left % 3600000 / 60000);
-      var sec = Math.floor(left % 60000 / 1000);
-      if (!current || current.t !== nx.t) {
-        current = nx;
-        setText('[data-intake-date]', label);
-        setText('[data-intake-date-short]', short);
-        if (titleEl) titleEl.textContent = 'Próximo inicio: ' + label + '.';
-        var items = root.querySelectorAll('[data-intake]');
-        for (var i = 0; i < items.length; i++) {
-          items[i].classList.toggle('is-next', Number(items[i].getAttribute('data-intake')) === nx.index);
-        }
-      }
-      setText('[data-intake-days]', String(d));
-      setText('[data-intake-days-label]', d === 1 ? 'día' : 'días');
-      setText('[data-cd-d]', pad(d));
-      setText('[data-cd-h]', pad(h));
-      setText('[data-cd-m]', pad(m));
-      setText('[data-cd-s]', pad(sec));
-      var sr = root.querySelector('[data-countdown-sr]');
-      if (sr) sr.textContent = 'Faltan ' + d + (d === 1 ? ' día' : ' días') + ' para el inicio del ' + label + '.';
-    }
-    renderIntake();
-    if (pill) pill.hidden = false;
-    if (cdBox) cdBox.hidden = false;
-    // Los segundos solo corren mientras la cuenta regresiva está en pantalla.
-    var tickTimer = null;
-    watchVisible(cdBox, function (v) {
-      if (v && !tickTimer) tickTimer = setInterval(renderIntake, 1000);
-      if (!v && tickTimer) { clearInterval(tickTimer); tickTimer = null; }
-    });
-    timers.push(setInterval(function () { if (!tickTimer) renderIntake(); }, 60000));
-
     /* --- Revisión antes de publicar (?revisar=1) -------------------------------
        Solo aparece si la URL lleva ?revisar=1 (por ejemplo, tufuturocreativo.com/entrevista?revisar=1).
        Revisa en la página real de GHL lo que suele fallar al montarla. No envía nada a ningún lado. */
+    (function () {
+      var kitHtml = root.getAttribute('data-kit') || '';
+      var kitCss = getComputedStyle(root).getPropertyValue('--kit').trim().replace(/["']/g, '');
+      if ((kitHtml && kitHtml !== KIT) || (kitCss && kitCss !== KIT)) {
+        if (window.console) console.warn('[landing] Los bloques de GHL son de versiones distintas: HTML ' + kitHtml + ', CSS ' + kitCss + ', JS ' + KIT + '. Vuelve a pegar los 3 de ghl/.');
+      }
+    })();
     if (params && params.has('revisar')) {
       if (document.readyState === 'complete') setTimeout(runReview, 400);
       else on(window, 'load', function () { setTimeout(runReview, 400); });
@@ -754,28 +760,29 @@
         : Promise.resolve();
       Promise.all(waits.concat([fontsReady])).then(function () {
 
+        // 0. Los 3 bloques (HTML, CSS y JS) tienen que ser del mismo kit
+        var kitHtml = root.getAttribute('data-kit') || '';
+        var kitCss = getComputedStyle(root).getPropertyValue('--kit').trim().replace(/["']/g, '');
+        if (kitHtml === KIT && kitCss === KIT) add('ok', 'Versión del kit', 'HTML, CSS y JS son de la misma versión (' + KIT + ').');
+        else add('falta', 'Versión del kit', 'Los bloques no son de la misma versión: HTML ' + (kitHtml || '?') + ', CSS ' + (kitCss || '?') + ', JS ' + KIT + '. Vuelve a pegar los 3 de ghl/ (paso 3 a 5).');
+
         // 1. Video
         var v = String(CONFIG.vslUrl || '').trim();
-        if (!v) add('falta', 'Video (VSL)', 'Falta la URL. Pégala en CONFIG.vslUrl, al inicio del JS (paso 7).');
-        else if (/\.(mp4|webm|m4v|mov)(\?|#|$)/i.test(v)) add('ok', 'Video (VSL)', 'Archivo de video propio.');
-        else if (/youtube-nocookie/.test(toEmbed(v) || '')) add('ok', 'Video (VSL)', 'YouTube.');
-        else if (/player\.vimeo/.test(toEmbed(v) || '')) add('ok', 'Video (VSL)', 'Vimeo.');
-        else add('falta', 'Video (VSL)', 'No reconozco la URL. Usa un enlace de YouTube, de Vimeo o un .mp4 (paso 7).');
+        if (!v) add('falta', 'Video', 'Falta la URL. Pégala en CONFIG.vslUrl, al inicio del JS (paso 7).');
+        else if (/\.(mp4|webm|m4v|mov)(\?|#|$)/i.test(v)) add('ok', 'Video', 'Archivo de video propio.');
+        else if (/tella\.tv/.test(toEmbed(v) || '')) add('ok', 'Video', 'Tella.');
+        else if (/youtube-nocookie/.test(toEmbed(v) || '')) add('ok', 'Video', 'YouTube.');
+        else if (/player\.vimeo/.test(toEmbed(v) || '')) add('ok', 'Video', 'Vimeo.');
+        else add('falta', 'Video', 'No reconozco la URL. Usa un enlace de Tella, YouTube, Vimeo o un .mp4 (paso 7).');
 
-        // 2. Formulario y calendario de GHL
-        var slotState = function (id, name, step) {
-          var slot = document.getElementById(id);
-          if (!slot) { add('falta', name, 'No encuentro el espacio #' + id + '. No cambies ese id.'); return false; }
-          if (slot.querySelector('iframe, form')) { add('ok', name, 'Insertado.'); return true; }
-          add('falta', name, 'El espacio sigue con el aviso «REEMPLAZAR». Pega el código de inserción (' + step + ').');
-          return false;
-        };
-        var hasForm = slotState('ghl-form-slot', 'Formulario', 'paso 8');
-        var hasCal = slotState('ghl-calendar-slot', 'Calendario', 'paso 9');
-        if (hasForm || hasCal) {
-          if (document.querySelector('script[src*="form_embed"]')) add('ok', 'Script de formularios de GHL', 'form_embed.js está en la página.');
-          else add('aviso', 'Script de formularios de GHL', 'No encuentro form_embed.js. Pégalo una vez en Tracking Code → Footer, antes del script de la landing, nunca dentro del bloque .mas-vsl (paso 8).');
-        }
+        // 2. Formulario, folleto y calendario
+        var formFrame = root.querySelector('#ghl-form-slot iframe');
+        if (formFrame && /leadconnectorhq|msgsndr|\/widget\/form\//.test(formFrame.src)) add('ok', 'Formulario', 'Formulario de GoHighLevel conectado.');
+        else add('falta', 'Formulario', 'No encuentro el formulario de GoHighLevel dentro de #ghl-form-slot (paso 8).');
+        if (CONFIG.brochureUrl) add('ok', 'Folleto (PDF)', 'El botón de descarga aparece después de enviar el formulario.');
+        else add('aviso', 'Folleto (PDF)', 'Sin CONFIG.brochureUrl: después de enviar solo se dice que el folleto llega al correo.');
+        if (CONFIG.calendarUrl) add('ok', 'Calendario', 'El link «Agenda tu llamada» está activo.');
+        else add('aviso', 'Calendario', 'El link «¿Ya tienes el folleto? Agenda tu llamada» está oculto hasta confirmar la URL (CONFIG.calendarUrl).');
 
         // 3. Imágenes
         var broken = [], localPaths = 0;
@@ -810,10 +817,7 @@
         else add('falta', 'Fuente de texto (Archivo)', 'No carga: el texto usa la fuente del sistema. Revisa su URL en el CSS (paso 4).');
 
         // 5. Contenido pendiente que se vería en la página
-        var labels = {
-          'P-01': 'Logo oficial (hoy hay uno provisional)', 'P-06': 'Portada de los books', 'P-07': 'Testimonio',
-          'P-08': 'Foto de Ricardo', 'P-17': 'Puesto actual de los graduados'
-        };
+        var labels = { 'P-01': 'Logo oficial (hoy hay uno provisional)' };
         var counts = {};
         Array.prototype.forEach.call(root.querySelectorAll('[data-placeholder]'), function (el) {
           var code = el.getAttribute('data-placeholder');
@@ -831,8 +835,13 @@
         if (legal) add('falta', 'Aviso de privacidad y términos', legal + ' enlaces siguen con REEMPLAZAR (P-12).');
         else add('ok', 'Aviso de privacidad y términos', 'Con URL real.');
         var social = root.querySelectorAll('.mas-footer__social a[href^="REEMPLAZAR"]').length;
-        if (social) add('falta', 'Redes sociales del footer', social + ' enlaces siguen con REEMPLAZAR (P-18).');
+        if (social) add('aviso', 'Redes sociales del footer', social + ' sin URL: no se muestran hasta poner su URL (P-18).');
         else add('ok', 'Redes sociales del footer', 'Con URL real.');
+        // Ningún texto visible puede llevar corchetes de pendientes ni raya (em dash)
+        var visible = root.innerText || '';
+        if (/\[(VERIFICAR|DECIDIR)/.test(visible)) add('falta', 'Textos', 'Hay un [VERIFICAR] o [DECIDIR] visible.');
+        else if (visible.indexOf('\u2014') > -1) add('falta', 'Textos', 'Hay una raya (em dash) en un texto visible.');
+        else add('ok', 'Textos', 'Sin [VERIFICAR], [DECIDIR] ni rayas.');
 
         // 6. Cómo quedó montada la sección en GHL
         var vw = document.documentElement.clientWidth, rw = root.getBoundingClientRect().width;
@@ -852,9 +861,8 @@
 
         // 7. Datos para confirmar
         add(TRACKING_ENABLED ? 'aviso' : 'ok', 'Medición', TRACKING_ENABLED ? 'Encendida: confirma en Meta y GA4 que los eventos no se dupliquen (paso 10).' : 'Apagada, como debe estar hasta conectar el píxel nuevo (paso 10).');
-        var next = nextIntake(Date.now());
-        if (next) add('info', 'Próximo inicio que muestra la página', next.day + ' de ' + MONTHS[next.month] + ' de ' + next.year + '. El contador cambia al siguiente ' + CONFIG.intakeCutoffDays + ' días antes (cierre de admisión).');
-        if (!document.title) add('aviso', 'Título SEO', 'La página no tiene título (paso 1).');
+        if (document.title !== 'Carrera Creativa | Miami Ad School México') add('aviso', 'Título SEO', 'El título de la página es «' + document.title + '». Debe ser «Carrera Creativa | Miami Ad School México» (paso 1).');
+        else add('ok', 'Título SEO', 'Carrera Creativa | Miami Ad School México');
         if (!document.querySelector('meta[property="og:image"]')) add('aviso', 'Imagen para compartir', 'No encuentro og:image. Súbela en Settings de la página (paso 1).');
 
         showReview(rows);

@@ -2,92 +2,91 @@
 
 Todo lo que la landing necesita para salir. Cada código `P-xx` aparece en `landing.html` como `data-placeholder="P-xx"` o en un comentario `REEMPLAZAR`, para encontrarlo rápido con buscar.
 
-**Regla:** nada de esta lista se rellena con datos supuestos. Si un dato no está validado, se queda como pendiente.
+**Regla:** nada de esta lista se rellena con datos supuestos. Si un dato no está validado, se queda con su texto de respaldo o el bloque no se muestra. Nunca se publica «[VERIFICAR]», «[DECIDIR]» ni corchetes visibles.
 
-## 1. VSL
+## 1. V2: datos pendientes y respaldo en uso
+
+Viene de la sección 5 de la spec «Landing Carrera Creativa v2». Cuando Ricardo confirme un dato, se cambia el respaldo por el dato confirmado.
+
+| Dato | Dónde se usa | Estado en la V2 | Cómo cambiarlo |
+|---|---|---|---|
+| Horario de clases | Hero, FAQ 5 | **Confirmado:** «Lunes a jueves, 7 a 10 pm» (Ricardo, 2026-10-21) | — |
+| Zona horaria del horario | Hero, FAQ 5 | Respaldo: «7 a 10 pm» sin zona horaria | Agregar la zona en el hero y en la FAQ 5 |
+| [DECIDIR] ¿Se queda el video en «Prueba»? | Sección 2 | Respaldo: video embebido, sin texto ni botón propios | Si sale, borrar `#vsl` dentro de `.mas-proof` |
+| Frase incompleta de la tarjeta Art Direction («… a probar rápido.») | Carreras creativas | Respaldo: la frase no está; el texto termina en «El criterio lo pones tú.» | Pedir la frase completa a Ricardo |
+| ¿El PDF trae costos y opciones de pago? | FAQ 7 | Respaldo: «El folleto trae el plan de estudios. La inversión y las opciones de pago las revisamos contigo en una llamada de 30 minutos.» | Si el PDF sí trae costos, cambiar la FAQ 7 |
+| Precio a publicar | FAQ 7 | Respaldo: no se publica precio (la referencia interna de $12,760 MXN/mes no está reconfirmada) | — |
+| Maestros: nombre, rol, agencia, foto, permiso | Sección 6 «Quién te da feedback» | Respaldo: la sección no se creó | Con datos y permisos, se arma la sección |
+| Books: relación con MAS, sede, año, agencia actual, permiso | Sección 7 «Books» | Respaldo: sección oculta (ninguna tarjeta tiene relación y permiso confirmados). El HTML anterior está guardado en `reserva/books.html` | Ver la tabla del punto 2 |
+| Fecha exacta del ingreso de enero 2027 | Aplicar | Respaldo: «Próximo ingreso: enero.» y sin contador | Cambiar el texto de `.mas-apply__date` |
+| Cupo por grupo | Aplicar | Respaldo: no se menciona cupo | — |
+| URL del calendario de Ricardo | Aplicar | Respaldo: el link «¿Ya tienes el folleto? Agenda tu llamada →» no se muestra | Poner la URL en `CONFIG.calendarUrl` de `landing.js`. En GHL estaba `…/widget/booking/FR0Ug1vwpcicPsQ6erYP`: confirmar que es esa |
+| Validez oficial | FAQ opcional | Respaldo: la pregunta no se agregó | — |
+| Estudiar desde otro país | FAQ opcional | Respaldo: la pregunta no se agregó | — |
+
+## 2. Books (sección oculta)
+
+Solo se muestran las tarjetas con relación con MAS y permiso confirmados (claim C-009). Hoy no hay ninguna.
+
+| Nombre | Track | Relación con MAS | Hoy en | ¿Permiso? |
+|---|---|---|---|---|
+| Emmanuel Rocha | Copywriting | Maestro en MAS México | | |
+| Antonio Fragoso | Copywriting | Maestro en MAS México | | |
+| Fernando Carrión | Copywriting | | | |
+| Jacky Salomé | Copywriting | | | |
+| Sarah Cardona | Art Direction | | | |
+| Xavi Ocaña | Art Direction | | | |
+| Catarina Barcala | Art Direction | | | |
+| Hanna Choi | Art Direction | | | |
+
+Para mostrar la sección: copiar de `reserva/books.html` las tarjetas confirmadas y pegarlas en `landing.html` entre «Prácticas» y «Carreras creativas». También hacen falta la portada de cada book (P-06, 4:5 · 1000 × 1250 px) y su puesto actual (P-17).
+
+## 3. Visuales oficiales
 
 | Código | Qué falta | Dónde | Formato |
 |---|---|---|---|
-| P-03 | **URL final de la VSL** | `CONFIG.vslUrl` en `landing.js` (una sola variable) | YouTube, Vimeo o `.mp4` propio |
-| P-03 | Duración real (opcional) | `CONFIG.vslDuration` en `landing.js` | Ej. `'12 min'` |
-| P-04 | Póster del video (opcional) | Comentario dentro de `.mas-player__poster` | Frame de 1920 × 1080, WebP o JPG |
-
-## 2. Visuales oficiales
-
-| Código | Qué falta | Dónde | Formato |
-|---|---|---|---|
-| P-01 | Logo oficial Miami Ad School México, versión para fondo negro. **Hoy hay uno provisional** (`img/logo-mas-300.png`), recortado de la imagen que mandó Ricardo: sirve para la prueba, pero en pantallas grandes se puede ver suave. | `.mas-brand__logo` | SVG |
-| P-02 | ~~Imagen del hero~~ **Resuelto** con foto de marca (grafitero). Opcional más adelante: una pieza real del book de un graduado, con autorización. | `.mas-plate--image` | Cuadrada · 1080 × 1080 px |
+| P-01 | Logo oficial Miami Ad School México, versión para fondo negro. **Hoy hay uno provisional** (`img/logo-mas-300.png`): sirve para la prueba, pero en pantallas grandes se puede ver suave. | `.mas-brand__logo` | SVG |
+| P-02 | ~~Imagen del hero~~ **Resuelto** con foto de marca (grafitero). | `.mas-plate--image` | Cuadrada · 1080 × 1080 px |
 | P-05 | ~~Key visual de Art Direction~~ **Resuelto** con foto de marca (sillón). | `.mas-board__tile--key` | Cuadrado, mínimo 640 px |
-| P-06 | Preview de cada uno de los 8 books, autorizado por su autor | `.mas-book__cover` | 4:5 · 1000 × 1250 px |
-| P-17 | **Puesto actual** de cada uno de los 8 graduados (puesto y agencia), confirmado por la persona | `.mas-book__role` («Hoy: …») | Ej. `Senior Copywriter en Agencia` |
-| P-08 | Foto de Ricardo | `.mas-host__photo` | Cuadrada, mínimo 320 × 320 px |
-| — | ~~Imagen para compartir en redes (OG)~~ **Lista:** `img/og-carrera-creativa.jpg` (el hero sin la fecha). Falta subirla a GHL | Settings de la página en GHL | 1200 × 630 px |
+| — | ~~Imagen para compartir (OG)~~ **Lista:** `img/og-carrera-creativa.jpg`, con el hero de la V2. Falta subirla a GHL | Settings de la página en GHL | 1200 × 630 px |
 
 No usar fotografía de stock de estudiantes sonriendo frente a una laptop.
 
-**Fotos de marca en uso** (las mandó Ricardo; están en `img/`): grafitero (hero), salto (bienvenida), Grad Show (último capítulo de los 18 meses), sillón (Art Direction) y gorra con la M («La diferencia»). **Confirmar** que Miami Ad School México tiene derechos para usarlas en una página de anuncios pagados, incluida la autorización de las personas que aparecen.
+**Fotos de marca en uso** (las mandó Ricardo; están en `img/`): grafitero (hero), Grad Show («Al graduarte», en «El Programa») y sillón (Art Direction). Las del salto y la gorra salieron con sus secciones. **Confirmar** que Miami Ad School México tiene derechos para usarlas en una página de anuncios pagados, incluida la autorización de las personas que aparecen.
 
-## 2 bis. Prácticas profesionales
-
-| Código | Qué falta | Dónde | Formato |
-|---|---|---|---|
-| P-16 | **Logos de agencias**: ya están los 29 que mandó Ricardo (sin Febrero Made): Wieden+Kennedy, GUT, Leo Burnett, Anita y Vega, Jung von Matt, Founders, Samy, Motor, Ogilvy, Antoni, Astillero, Monks, M&C Saatchi, Innocean, Serviceplan, Miller O’Connor, FCB México, Good Rebels, TBWA\Chiat\Day NY, niji, Impact BBDO, CW, Mass Appeal, Famous, Superheroes, Nu Creative Hub, talented, UTAG y Mediaplus (`img/logos/`). Pendientes: el nombre completo de la agencia «CW» (hoy su `alt` dice solo «CW»); el logo completo de Dude (el SVG que llegó solo trae la «D» del menú) y el de una imagen que llegó como círculo negro sin nada adentro. El SVG de Nu Creative Hub dice «nubank»: confirmar que ese es el logo que se quiere mostrar. Para sumar más, copia un `<li>` | Sección «10 semanas dentro de las mejores agencias del mundo» · `.mas-logo` | SVG o PNG con fondo transparente, versión horizontal (README · paso 6 bis) |
-| P-16 | Confirmar que cada agencia recibe hoy practicantes de Miami Ad School (el pie dice «Agencias donde puedes hacer tus prácticas profesionales antes de graduarte») y que la red MAS está de acuerdo en mostrar su logo | Misma sección | — |
-| P-16 | Validar los textos: «después de tu primer año», «10 semanas», «en las mejores agencias del mundo» (copy de Ricardo: los logos que se muestren tienen que sostenerlo), «el estándar de una agencia global» y «esas 10 semanas pueden abrirte conversaciones y oportunidades reales» (dice «pueden», no promete empleo) | Hero, cinta, sección de prácticas y preguntas frecuentes | — |
-| P-16 | Cómo se asignan las prácticas, en qué ciudad o modalidad, si tienen costo extra y si aplican a todas las personas. Hoy la página **no** promete nada de esto: dice que se explica en la entrevista | Pregunta frecuente «¿Cómo funcionan las prácticas profesionales?» | — |
-
-## 3. Tipografías
-
-| Código | Qué falta | Notas |
-|---|---|---|
-| P-13 | URL de **Obviously Narrow Bold** (titulares) y **Medium** en GHL | Los `.woff` están en Drive (*01 Brand Kit › 07 Tipografia › Web*). Hay que confirmar que la licencia cubre uso web en `tufuturocreativo.com`. |
-| P-13 | **Obviously Regular** (texto corrido, según el manual de marca) | No está en Drive. Mientras no llegue, el texto usa Archivo. |
-| P-13 | URL de Archivo en GHL | Subir `fonts/archivo-latin-wdth-normal.woff2` (licencia OFL). |
-
-## 4. Testimonios autorizados
-
-| Código | Qué falta | Notas |
-|---|---|---|
-| P-07 | Un testimonio real y específico, con nombre, rol actual y autorización por escrito | Va en la tarjeta fucsia de la bienvenida, junto a la foto del salto. Hoy dice que está pendiente. Nunca inventarlo ni parafrasearlo. |
-
-## 5. Datos académicos y fechas
+## 4. Prácticas profesionales
 
 | Código | Qué falta | Dónde |
 |---|---|---|
-| P-11 | Confirmar los tiempos de las cuatro tarjetas: «Los primeros 6 meses», «Del mes 7 al 12», «Después del primer año» y «Cuando te gradúas» | Sección «18 meses. Cuatro momentos que cambian cómo trabajas.» |
-| P-11 | Confirmar la duración total de 18 meses | Misma sección |
-| P-11 | ~~Fechas de inicio reales~~ **Confirmadas:** 10 de enero, 10 de abril, 10 de julio y 10 de octubre | Cuenta regresiva y opciones del formulario. |
-| P-11 | **Cierre de admisión antes de cada inicio** | Hoy el contador salta al siguiente inicio 7 días antes (`intakeCutoffDays` en `landing.js`). Confirmar el número real de días. |
-| P-11 | Horario de clases y carga semanal | Se mencionan en las preguntas frecuentes como algo que se confirma en la entrevista |
+| P-16 | **Logos de agencias**: están los 29 que mandó Ricardo (`img/logos/`). Pendientes: el nombre completo de la agencia «CW» (hoy su `alt` dice solo «CW»); el SVG de Nu Creative Hub dice «nubank»: confirmar que es el logo que se quiere mostrar. | Sección «Dos agencias. 10 semanas en cada una.» · `.mas-logo` |
+| P-16 | Confirmar que cada agencia del slider es de la red de prácticas de Miami Ad School (el pie dice «Agencias de la red de prácticas de Miami Ad School.», C-012) y que la red está de acuerdo en mostrar su logo | Misma sección |
 
-## 6. Claims y textos por validar
+## 5. Tipografías
 
-| Código | Texto | Qué validar |
-|---|---|---|
-| P-14 | «Miami Ad School ha sido reconocida siete veces como Future Lions School of the Year, incluyendo 2025.» (también en el sello del hero y en la descripción SEO) | Verificado en prensa: The Drum, «Miami Ad School claims record seventh Future Lions School of the Year title» (10 jul 2025), y en miamiadschool.com. Confirmar con la red MAS que México puede usarlo así. |
-| P-14 | «Somos Miami Ad School. La escuela de publicidad y creatividad más premiada del mundo.» (bienvenida) | Es el posicionamiento oficial de la red Miami Ad School (lo usa miamiadschool.com y sus sedes). No existe un ranking independiente que lo compare: por eso va siempre junto a la prueba de los siete Future Lions School of the Year. |
-| — | Las cuatro tarjetas de «18 meses» (copy de Ricardo) | Confirmar que describen bien cada momento. La tarjeta 3 no dice «Trabajas dentro de una agencia»: se puede cambiar a esa frase si las prácticas en agencia aplican a la generación que entra. |
-| — | «Miami Ad School es una red internacional de escuelas creativas… con la misma exigencia y el mismo objetivo» (bienvenida) | Que el equipo esté de acuerdo con la formulación. |
-| — | «Carrera Creativa», «18 meses» | Nombre del programa y duración vigentes. |
-| — | «Muchas personas llegan mientras trabajan.» (preguntas frecuentes) | Que sea cierto en la generación actual. |
-| — | «Emmanuel Rocha y Antonio Fragoso son maestros activos en Miami Ad School México.» | Que sigan activos al publicar y que estén de acuerdo con aparecer. |
-| — | Los 8 graduados y sus URLs | Que cada persona autorice aparecer y que su sitio siga en línea. No se pudieron abrir desde el entorno donde se construyó la página. |
-| — | «Online y en vivo», «Entrevista sin costo» | Que sigan siendo ciertos. |
-| — | Preguntas frecuentes: «clases con horario fijo», «recibes la confirmación por correo», «solicitar la entrevista no te compromete a inscribirte» | Que coincidan con la operación real. |
-| — | ~~«Tu entrevista es con Ricardo»~~ **Confirmado por Ricardo:** «Tu entrevista es con Ricardo Ampudia» | — |
-| — | «Dos minutos para conocer tu trabajo actual…» (paso 1 del formulario) | Que el formulario de GHL de verdad se llene en unos dos minutos; si tiene más campos, ajustar el texto. |
+| Código | Estado |
+|---|---|
+| P-13 | **Conectadas en GHL:** Obviously Narrow Bold y Medium, y Archivo (URLs en `ghl/medios.json`). Falta confirmar que la licencia de Obviously cubre uso web en `tufuturocreativo.com`. |
+| P-13 | **Obviously Regular** (texto corrido, según el manual de marca) no está en Drive. Mientras no llegue, el texto usa Archivo. |
+
+## 6. Claims (spec v2, sección 6)
+
+Se usan solo estos, tal cual:
+
+- «Miami Ad School ha sido reconocida siete veces como Future Lions School of the Year, incluyendo 2025.» (C-002, exacta). Fuente: The Drum, 10 jul 2025, y miamiadschool.com.
+- «Dos prácticas de 10 semanas, en dos agencias distintas de la red de Miami Ad School. Pueden ser presenciales u online.» (C-012)
+- «Todo alumno que termina el primer año hace sus dos prácticas.» (C-012)
+- «Agencias de la red de prácticas de Miami Ad School.» (C-012)
+- Nombres en books y maestros solo con permiso confirmado (C-009).
+
+No se usan: «La escuela más premiada del mundo» (C-006), «Ninguna otra escuela lo ha ganado tantas veces», «Las mejores agencias del mundo», cifras de colocación, salarios o empleo garantizado (C-003, C-008), ni cualquier dato que no esté en la spec.
+
+**Para revisar con legal:** el texto del aviso de privacidad dice que solicitar información no confirma la práctica profesional, y la FAQ 4 dice «Las prácticas sí están aseguradas». Las dos cosas pueden ser ciertas (una habla de pedir información, la otra de terminar el primer año), pero conviene que el aviso no se lea como contradicción.
 
 ## 7. Políticas legales
 
-| Código | Qué falta | Dónde |
-|---|---|---|
-| P-12 | URL del **aviso de privacidad** | `href="REEMPLAZAR_URL_PRIVACIDAD"` en el footer, y en el texto de consentimiento del formulario |
-| P-12 | URL de **términos y condiciones** | `href="REEMPLAZAR_URL_TERMINOS"` en el footer |
+Los textos del aviso de privacidad y de los términos están en el footer (`#aviso-privacidad`, `#terminos`), copiados tal cual de la página de GHL. Los links «Aviso de privacidad» y «Términos y condiciones» los despliegan. Si un día existen páginas propias, cambia el `href` por su URL.
 
-Mientras un enlace diga `REEMPLAZAR`, el JS lo desactiva y lo marca como «pendiente».
-
-## 7 bis. Redes sociales del footer
+## 8. Redes sociales del footer
 
 | Código | Qué falta | Dónde |
 |---|---|---|
@@ -96,32 +95,30 @@ Mientras un enlace diga `REEMPLAZAR`, el JS lo desactiva y lo marca como «pendi
 | P-18 | URL de **YouTube** | `href="REEMPLAZAR_URL_YOUTUBE"` |
 | P-18 | URL de **LinkedIn** | `href="REEMPLAZAR_URL_LINKEDIN"` |
 
-Se abren en una pestaña nueva, así la landing sigue abierta. Si una red no se usa, borra su `<li>` completo.
+Mientras una red diga `REEMPLAZAR`, el JS la esconde. Si ninguna tiene URL, no se ve «Síguenos». Se abren en una pestaña nueva.
 
-## 8. Formulario de GHL
+## 9. Formulario de GHL
 
 | Código | Qué falta |
 |---|---|
-| P-09 | Crear la encuesta o formulario con los campos de `README-GHL.md` · paso 8 |
-| P-09 | Query key del campo «Me interesa» y actualizar `prefillParam` en `landing.js` |
+| P-09 | En GHL: campos Nombre · Email · WhatsApp con código de país · Me interesa, y el botón «Enviarme el folleto» (README-GHL · paso 8) |
+| P-09 | Que el campo «Me interesa» acepte `interes_programa` con los valores `Art Direction`, `Copywriting` y `Aún no sé` |
 | P-09 | Redirección al enviar: `?paso=agenda#aplicar` |
-| P-09 | Código de inserción dentro de `#ghl-form-slot` |
-| P-09 | Texto de consentimiento con enlace al aviso de privacidad |
+| P-09 | Workflow que manda el folleto por correo |
 
-## 9. Calendario de GHL
+## 10. Calendario de GHL
 
 | Código | Qué falta |
 |---|---|
-| P-10 | Calendario de entrevistas con Ricardo, con ubicación de videollamada |
+| P-10 | **[VERIFICAR]** URL del calendario de Ricardo en `CONFIG.calendarUrl` |
 | P-10 | Correo de confirmación con fecha, hora y enlace |
 | P-10 | Redirección al agendar: `?paso=confirmado#aplicar` |
-| P-10 | Código de inserción dentro de `#ghl-calendar-slot` |
 
-## 10. Medición: píxel nuevo de Meta y GA4
+## 11. Medición: píxel nuevo de Meta y GA4
 
 | Qué falta | Notas |
 |---|---|
-| ID del **píxel nuevo** de Meta | Instalar en el head de la página (README · paso 10) |
+| ID del **píxel nuevo** de Meta | Instalar en el head de la página (README-GHL · paso 10) |
 | ID de medición de **GA4** | Igual |
 | Activar `TRACKING_ENABLED` en `landing.js` | Solo después de instalar los códigos base |
 | CAPI para `Lead` y `Schedule` | Desde un workflow de GHL, con deduplicación por `eventID` |

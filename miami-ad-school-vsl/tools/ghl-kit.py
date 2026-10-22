@@ -18,6 +18,7 @@ a correr el script. Lo que siga vacío se queda con su ruta local y se reporta.
 
 Solo usa Python 3, sin dependencias. No toca landing.html, landing.css ni landing.js.
 """
+import hashlib
 import json
 import pathlib
 import re
@@ -44,6 +45,16 @@ def main():
         sys.exit('No encuentro una sola vez las marcas «GHL · COPIAR DESDE AQUÍ» y «GHL · HASTA AQUÍ» en landing.html.')
     block = html[html.index(START):html.index(END) + len(END)]
 
+    # 0. Versión del kit: la misma marca en los 3 bloques. Si en GHL se mezclan bloques de
+    #    versiones distintas (pasó con el CSS de una y el HTML de otra), ?revisar=1 lo avisa.
+    kit = hashlib.sha1((block + css + js).encode('utf-8')).hexdigest()[:8]
+    for text, mark, label in ((block, 'data-kit="dev"', 'landing.html'), (css, '--kit: "dev";', 'landing.css'), (js, "var KIT = 'dev';", 'landing.js')):
+        if text.count(mark) != 1:
+            sys.exit('No encuentro la marca de versión ' + mark + ' en ' + label + '.')
+    block = block.replace('data-kit="dev"', 'data-kit="' + kit + '"')
+    css = css.replace('--kit: "dev";', '--kit: "' + kit + '";')
+    js = js.replace("var KIT = 'dev';", "var KIT = '" + kit + "';")
+
     # 1. Mapa de medios: conserva lo que ya se llenó, agrega rutas nuevas y quita las que ya no se usan.
     used = sorted(set(ASSET.findall(block)) | set(ASSET.findall(css)))
     old = json.loads(MEDIA.read_text(encoding='utf-8')) if MEDIA.exists() else {}
@@ -65,7 +76,7 @@ def main():
         return text
 
     # 2. HTML del elemento Custom Code
-    html_out = '<!-- ' + NOTE + ' -->\n' + swap(block) + '\n'
+    html_out = '<!-- ' + NOTE + ' Versión ' + kit + '. -->\n' + swap(block) + '\n'
 
     # 3. CSS: fuentes de marca, URLs y sin comentarios (pesa menos y no cambia nada)
     if urls.get(BOLD):
@@ -84,12 +95,12 @@ def main():
     css = re.sub(r'/\*.*?\*/', '', css, flags=re.S)
     css = re.sub(r'[ \t]+\n', '\n', css)
     css = re.sub(r'\n{2,}', '\n', css).strip()
-    css_out = '/* ' + NOTE + ' */\n' + css + '\n'
+    css_out = '/* ' + NOTE + ' Versión ' + kit + '. */\n' + css + '\n'
 
     # 4. JS para el Footer, ya envuelto en <script>
-    js_out = ('<!-- ' + NOTE + '\n'
-              '     Si usas el formulario o el calendario de GHL incrustados, pega ANTES de este script\n'
-              '     la línea <script src="…/form_embed.js"></script> que viene en su código de inserción. -->\n'
+    js_out = ('<!-- ' + NOTE + ' Versión ' + kit + '.\n'
+              '     Reemplaza TODO el Footer de la página con este bloque: ya trae el formulario, el folleto,\n'
+              '     el video y los textos legales. No dejes scripts de versiones anteriores. -->\n'
               '<script>\n' + js.strip() + '\n</script>\n')
 
     (OUT / '1-custom-code.html').write_text(html_out, encoding='utf-8')
@@ -98,7 +109,7 @@ def main():
 
     # 5. Reporte
     kb = lambda s: '%.0f KB' % (len(s.encode('utf-8')) / 1024)
-    print('Listo en ghl/:')
+    print('Listo en ghl/ · versión ' + kit + ':')
     print('  1-custom-code.html  ' + kb(html_out))
     print('  2-custom-css.css    ' + kb(css_out))
     print('  3-footer.html       ' + kb(js_out))
@@ -112,15 +123,15 @@ def main():
         pend.append('Obviously Narrow sin conectar: los titulares usan Archivo de respaldo')
     if re.search(r"vslUrl:\s*''", js):
         pend.append('Falta CONFIG.vslUrl en landing.js (paso 7)')
-    if 'REEMPLAZAR POR FORMULARIO' in block:
-        pend.append('Falta el código de inserción del formulario (paso 8)')
-    if 'REEMPLAZAR POR WIDGET DE CALENDARIO' in block:
-        pend.append('Falta el código de inserción del calendario (paso 9)')
+    if 'leadconnectorhq.com/widget/form/' not in block:
+        pend.append('Falta el formulario de GoHighLevel dentro de #ghl-form-slot (paso 8)')
+    if re.search(r"calendarUrl:\s*''", js):
+        pend.append('[VERIFICAR] CONFIG.calendarUrl vacío: el link «Agenda tu llamada» no se muestra')
     if 'REEMPLAZAR_URL_PRIVACIDAD' in block or 'REEMPLAZAR_URL_TERMINOS' in block:
         pend.append('Faltan las URLs del aviso de privacidad y términos (P-12)')
     redes = [n for n in ('INSTAGRAM', 'TIKTOK', 'YOUTUBE', 'LINKEDIN') if 'REEMPLAZAR_URL_' + n in block]
     if redes:
-        pend.append('Faltan las URLs de redes del footer: ' + ', '.join(r.capitalize() for r in redes) + ' (P-18)')
+        pend.append('Redes del footer sin URL (no se muestran): ' + ', '.join(r.capitalize() for r in redes) + ' (P-18)')
     for k in bad:
         pend.append('URL inválida en medios.json (debe empezar con https://): ' + k)
     for k in dropped:

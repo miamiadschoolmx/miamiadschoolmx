@@ -18,25 +18,25 @@ Tráfico frío de Meta Ads (Instagram y Facebook) en México y LATAM: personas c
 
 ## Product Purpose
 
-Miami Ad School México forma en Art Direction y Copywriting con Carrera Creativa: un proceso de 18 meses, online y en vivo. La landing convierte tráfico frío en entrevistas calificadas por videollamada con Ricardo. Éxito = entrevistas agendadas con personas que entienden qué ofrece la escuela y por qué.
+Miami Ad School México forma en Art Direction y Copywriting con Carrera Creativa: un proceso de 18 meses, online y en vivo. En la V2 (spec «Landing Carrera Creativa v2», octubre 2026) la landing convierte tráfico frío en solicitudes del folleto con el formulario de GHL; agendar una llamada con Ricardo es opcional y va después del folleto. Éxito = folletos pedidos por personas que entienden qué ofrece la escuela y, después, llamadas agendadas.
 
 ## Positioning
 
-Titular del hero (above the fold, copy de Ricardo): «Aprende a crear campañas. Construye un book para entrar a la industria creativa.», con el eyebrow «Carrera Creativa · Art Direction y Copywriting · Online en vivo · 18 meses» y los botones (sin subtítulo, por decisión de Ricardo) «Agenda una entrevista» y «Conoce el programa».
+Titular del hero (V2): «Tu título no te consigue el mejor trabajo. Tu portafolio sí.», con el eyebrow «Carrera Creativa · Art Direction y Copywriting», el subtítulo «18 meses online y en vivo. Al terminar el primer año, haces prácticas profesionales en dos agencias distintas, 10 semanas en cada una.» y tres datos. El hero no lleva botón. Todos los botones de la página dicen «Recibe el folleto» y llevan a `#aplicar`; antes del formulario no se habla de «entrevista» ni de «conversación».
 
-Big Idea anterior: «El talento no te consigue trabajo. Tu portafolio sí.» (variante usada antes: «Tu título no te abrirá las puertas de las mejores agencias. Tu portafolio sí.»). No se vende una carrera académica, sino una transformación profesional: pasar de tener interés o talento creativo a tener un portafolio que abra conversaciones con la industria.
+Titulares anteriores: «Aprende a crear campañas. Construye un book para entrar a la industria creativa.» y «El talento no te consigue trabajo. Tu portafolio sí.». No se vende una carrera académica, sino una transformación profesional: pasar de tener interés o talento creativo a tener un portafolio que abra conversaciones con la industria.
 
 ## Operating Context
 
-Anuncio en Meta → landing → VSL → explicación del programa → evidencia (books de graduados) → formulario nativo de GHL → calendario de GHL → videollamada con Ricardo.
+Anuncio en Meta → hero → prueba (Future Lions + video) → problema → El Programa (18 meses) → prácticas → Art Direction y Copywriting → ¿es para ti? → preguntas → formulario de GHL («Recibe el folleto») → folleto (`?paso=agenda`) → si quiere, calendario de GHL → videollamada con Ricardo (`?paso=confirmado`).
 
 ## Capabilities and Constraints
 
-- Programas: Art Direction y Copywriting. Modalidad: online y en vivo. Entrevista sin costo.
-- Inicios: 10 de enero, 10 de abril, 10 de julio y 10 de octubre (confirmado por Ricardo). Cierre de admisión antes de cada inicio: por validar.
-- Estructura: tres etapas de seis meses. Nombres de etapas, horarios y carga semanal: por validar.
-- Prácticas profesionales: 10 semanas en agencias después del primer año de clases (dato de Ricardo). Asignación, ciudad o modalidad y logos de agencias: por validar.
-- Prohibido: urgencia falsa, cupos o contadores falsos, testimonios o salarios inventados, promesas de empleo, premios sin fuente, «resultados garantizados», «la mejor escuela del mundo».
+- Programas: Art Direction y Copywriting. Modalidad: online y en vivo, lunes a jueves, 7 a 10 pm (confirmado por Ricardo, 2026-10-21; zona horaria por confirmar).
+- Inicios: enero, abril, julio y octubre. La fecha exacta del ingreso de enero 2027 no está confirmada: la página dice «Próximo ingreso: enero.» y no lleva contador.
+- Prácticas (C-012): dos prácticas de 10 semanas, en dos agencias distintas de la red de Miami Ad School, presenciales u online. Todo alumno que termina el primer año hace sus dos prácticas.
+- Datos pendientes y su texto de respaldo: `miami-ad-school-vsl/CONTENT-PLACEHOLDERS.md` · punto 1.
+- Prohibido: urgencia falsa, cupos o contadores falsos, testimonios o salarios inventados, promesas de empleo, premios sin fuente, «resultados garantizados», «la mejor escuela del mundo», «la escuela más premiada del mundo» (C-006), «las mejores agencias del mundo», cifras de colocación o salarios (C-003, C-008) y la raya larga (—) en cualquier texto.
 - Sin menú, sin WhatsApp y sin enlaces que saquen del recorrido. La medición está preparada pero desactivada hasta instalar el píxel nuevo de Meta y GA4.
 
 ## Brand Commitments
@@ -49,17 +49,17 @@ Anuncio en Meta → landing → VSL → explicación del programa → evidencia 
 
 ## Evidence on Hand
 
-- Books de graduados con URL: Emmanuel Rocha, Antonio Fragoso, Fernando Carrión, Jacky Salomé (Copywriting); Sarah Cardona, Xavi Ocaña, Catarina Barcala, Hanna Choi (Art Direction).
+- Books de graduados con URL: Emmanuel Rocha, Antonio Fragoso, Fernando Carrión, Jacky Salomé (Copywriting); Sarah Cardona, Xavi Ocaña, Catarina Barcala, Hanna Choi (Art Direction). En la V2 no se muestran hasta confirmar relación con MAS y permiso de cada persona (C-009).
 - Emmanuel Rocha y Antonio Fragoso son maestros activos en Miami Ad School México.
 - Miami Ad School ha sido reconocida siete veces como Future Lions School of the Year, incluyendo 2025 (récord; fuente: The Drum, 10 jul 2025, y miamiadschool.com).
 - **No hay todavía:** testimonios autorizados, video de crítica, datos de colocación, salarios ni imágenes oficiales de books. No fabricarlos.
 
 ## Product Principles
 
-- Evidencia antes que promesas: mostrar books, maestros y proceso en lugar de afirmar resultados.
+- Evidencia antes que promesas: mostrar el proceso, las prácticas y, cuando haya permiso, books y maestros, en lugar de afirmar resultados.
 - Honestidad sobre el esfuerzo: no es fácil, pero es estructurado, guiado y acompañado.
 - Portafolio primero: todo lo que se enseña termina en trabajo que se puede mostrar.
-- La entrevista es el siguiente paso lógico, no una presión.
+- El folleto es el siguiente paso lógico; la llamada con Ricardo es opcional y viene después, nunca como presión.
 
 ## Accessibility & Inclusion
 

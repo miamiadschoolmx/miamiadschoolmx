@@ -89,13 +89,13 @@ Implementación de referencia: `miami-ad-school-vsl/landing.css` (todo bajo `.ma
 
 ### Primary
 - **Black** `#0A0A0A` y **White** `#F7F5F2`: base y texto.
-- **Hot** `#FF009B` (Rhodamine Red C): el color de la marca. Campos completos (cinta, veredicto, entrevista), botones principales y la palabra «portafolio». Encima, siempre texto negro (5.4:1).
+- **Hot** `#FF009B` (Rhodamine Red C): el color de la marca. Campos completos (veredicto y bloque de aplicar), botones principales y la palabra «portafolio». Encima, siempre texto negro (5.4:1).
 
 ### Secondary (paleta secundaria M.AD, en campos completos)
-- **Acid** `#FFFF3E` (101 C): el punto. Cursor, progreso, «Ver video» y la cuenta regresiva de inicios.
+- **Acid** `#FFFF3E` (101 C): el punto. Cursor, progreso, el botón de play y la cápsula «Próximo ingreso».
 - **Blue** `#3391F4` (2727 C): panel de Art Direction.
 - **Green** `#00D357` (2420 C): «Esto es para ti si…».
-- **Campo claro** `#F7F5F2` con titular negro + magenta `#C2007A` (la referencia de «La diferencia»): panel de Copywriting, la tarjeta «Después del primer año» y la sección de prácticas. Ricardo descartó el violeta y el naranja como campos.
+- **Campo claro** `#F7F5F2` con titular negro + magenta `#C2007A` (la referencia fue «La diferencia», que salió en la V2): panel de Copywriting, la tarjeta «Después del primer año» y la sección de prácticas. Ricardo descartó el violeta y el naranja como campos.
 - Portadas de books: rotan fucsia, ácido, azul, naranja, verde, violeta `#A572FF`, blanco y rosa `#FF5CCD`.
 
 ### Named Rules
@@ -108,9 +108,8 @@ Implementación de referencia: `miami-ad-school-vsl/landing.css` (todo bajo `.ma
 Obviously Narrow **Bold** para todos los titulares. En la vista previa se imita con Archivo a peso 800 y ancho 74%. El texto corrido va en Archivo Regular hasta que llegue Obviously Regular.
 
 ### Hierarchy
-- **Hero:** eyebrow con el programa y titular en dos líneas («Aprende a crear campañas.» / «Construye un book para entrar a la industria creativa.»), a la izquierda del collage, con «book» encerrado en la pluma. En laptops bajas el tamaño también depende del alto de pantalla, para que el botón quepa sin hacer scroll.
-- **Giant:** «Tu portafolio sí.» en el cierre. Ocupa el ancho; el JS (`data-fit`) la ajusta para que nunca desborde.
-- **Poster:** frases de sección a pantalla completa (veredicto, la diferencia).
+- **Hero (V2):** eyebrow con el programa, la línea «Tu título no te consigue el mejor trabajo.» y el gigante «Tu portafolio sí.», con «portafolio» encerrado en la pluma. El gigante ocupa el ancho; el JS (`data-fit`) lo ajusta para que nunca desborde. Debajo, a dos columnas en escritorio, el subtítulo y los tres datos; a la derecha, el collage. Sin botón.
+- **Poster:** frase de sección a pantalla completa (veredicto «La industria contrata evidencia.»).
 - **H2:** de 13 a 15 caracteres por línea, interlineado 0.9.
 - **Texto:** 1.0625–1.1875rem, 65–75 caracteres por línea.
 
@@ -119,15 +118,15 @@ Obviously Narrow **Bold** para todos los titulares. En la vista previa se imita 
 
 ## Layout
 
-Grid de 12 columnas, ancho máximo de 90rem y medianil fluido hasta 72 px. Secciones a sangre completa que alternan negro, campo de color y claro. Composición asimétrica: escalera en «La brecha», paneles que se expanden en Art Direction y Copywriting, galería que se arrastra y las cuatro tarjetas de «18 meses» que se apilan con `position: sticky` en tablet y escritorio (en móvil y en pantallas bajas van una debajo de otra, para que ninguna tape texto).
+Grid de 12 columnas, ancho máximo de 90rem y medianil fluido hasta 72 px. Secciones a sangre completa que alternan negro, campo de color y claro. Composición asimétrica: escalera en «Problema», paneles que se expanden en Art Direction y Copywriting, galería que se arrastra y las cuatro tarjetas de «El Programa» que se apilan con `position: sticky` en tablet y escritorio (en móvil y en pantallas bajas van una debajo de otra, para que ninguna tape texto).
 
 ## Elevation & Depth
 
-Solo el manuscrito, el módulo de entrevista y las tarjetas apiladas llevan sombra suave con desplazamiento. No hay brillos de color.
+Solo el manuscrito, el módulo de aplicar y las tarjetas apiladas llevan sombra suave con desplazamiento. No hay brillos de color.
 
 ## Photography
 
-Fotos de marca M.AD: personas haciendo (pintar, saltar, desplegar un póster, pensar), con la M fluida y el punto como gráfico o en el vestuario. Blanco y negro contra campo de color, o color saturado de la paleta. Se colocan como piezas físicas: cuadro girado 2° en el hero y −2° en «La diferencia», a sangre dentro de la última tarjeta de los 18 meses. WebP en dos tamaños con `srcset`; solo la del hero carga con prioridad.
+Fotos de marca M.AD: personas haciendo (pintar, saltar, desplegar un póster, pensar), con la M fluida y el punto como gráfico o en el vestuario. Blanco y negro contra campo de color, o color saturado de la paleta. Se colocan como piezas físicas: cuadro girado 2° en el hero y a sangre dentro de la última tarjeta de «El Programa». WebP en dos tamaños con `srcset`; solo la del hero carga con prioridad.
 
 ## Shapes
 
@@ -139,17 +138,16 @@ Botones y chips en píldora; tarjetas con radio de 0.75 a 1.5rem. El punto (cír
 Píldora de 60 px. El hover llena el botón desde abajo con el color de acción (fucsia → ácido; tinta → blanco) y la flecha avanza 4 px.
 
 ### Signature: el punto y la pluma
-- Cursor-punto ácido que sigue al mouse y crece con una etiqueta («Ver», «Play»). Solo con mouse y solo si se permite movimiento; nunca reemplaza al cursor nativo.
-- Pluma: el círculo ácido alrededor de «portafolio», la barra negra que tacha «intención» y los tachados fucsia de «No es para ti».
-- Cinta fucsia que avanza con el scroll, no por tiempo.
-- Las líneas de «La brecha» se encienden al leerlas.
-- Muro de logos de agencias que avanza con el scroll, como la cinta (sin botón de pausa); todos los logos en negro. Con movimiento reducido es una cuadrícula quieta.
+- Cursor-punto ácido que sigue al mouse. Solo con mouse y solo si se permite movimiento; nunca reemplaza al cursor nativo.
+- Pluma: el círculo ácido alrededor de «portafolio».
+- Las líneas de «Problema» se encienden al leerlas.
+- Muro de logos de agencias que avanza con el scroll (sin botón de pausa); todos los logos en negro. Con movimiento reducido es una cuadrícula quieta. La cinta fucsia salió en la V2.
 
 ## Do's and Don'ts
 
 ### Do:
 - Usar los archivos oficiales del logo y del M-dot; nunca redibujarlos.
-- Mostrar evidencia real (books y testimonio con permiso) antes que afirmar resultados.
+- Mostrar evidencia real (books, maestros y testimonios solo con permiso) antes que afirmar resultados.
 - Mantener todo el contenido visible sin JavaScript y con `prefers-reduced-motion`.
 
 ### Don't:

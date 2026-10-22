@@ -12,7 +12,7 @@ La V2 sigue la especificación «Landing Carrera Creativa v2» (21 de octubre de
 
 1. **Custom JS/HTML de la sección:** borra todo lo que tenga y pega `ghl/1-custom-code.html` completo. También desaparecen el bloque `<style>` con `.mas-ghl-embed` y los textos legales viejos: ya vienen en el bloque nuevo.
 2. **Settings → Custom CSS:** borra todo, incluidos los parches «GHL integration fix», «Reparación de hero responsive» y `.mas-apply-module { display: none }`, y pega `ghl/2-custom-css.css`.
-3. **Settings → Tracking Code → Footer** de la página: borra todo, incluido el script que empieza con `var formUrl=`, y pega `ghl/3-footer.html`.
+3. **Settings → Tracking Code → Footer** de la página: borra el script que empieza con `var formUrl=` y cualquier versión anterior de la landing, y pega `ghl/3-footer.html`. **Si ahí o en el Header hay un píxel de Meta, GA4, Google Tag Manager u otro script de medición, no lo borres** (spec v2, sección 1, regla 7).
 4. **Settings → SEO:** título, descripción e imagen del paso 1.
 5. Abre la vista previa con `?revisar=1`. La primera línea dice si los 3 bloques son de la misma versión. En `/pruebaoct` el CSS era de una versión y el HTML de otra: por eso el hero se veía mal.
 

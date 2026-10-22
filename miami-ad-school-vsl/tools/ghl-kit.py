@@ -99,8 +99,8 @@ def main():
 
     # 4. JS para el Footer, ya envuelto en <script>
     js_out = ('<!-- ' + NOTE + ' Versión ' + kit + '.\n'
-              '     Reemplaza TODO el Footer de la página con este bloque: ya trae el formulario, el folleto,\n'
-              '     el video y los textos legales. No dejes scripts de versiones anteriores. -->\n'
+              '     Reemplaza con este bloque los scripts anteriores de la landing: ya trae el formulario, el folleto,\n'
+              '     el video y los textos legales. Si hay un píxel o script de medición, ese se queda. -->\n'
               '<script>\n' + js.strip() + '\n</script>\n')
 
     (OUT / '1-custom-code.html').write_text(html_out, encoding='utf-8')

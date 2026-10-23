@@ -90,6 +90,8 @@ No se usan: «La escuela más premiada del mundo» (C-006), «Ninguna otra escue
 - La foto de la gorra va hasta abajo, en el footer, junto a «Miami Ad School México».
 - «Problema» ya no lleva el título «La brecha no es tu talento.»: empieza directo con las líneas.
 - Volvió la cinta fucsia que avanza con el scroll, justo debajo del hero (la spec la quitaba).
+- «Nuestra misión» ahora es un título grande en fucsia.
+- «El Programa» ahora dice «¿Cómo funciona nuestra Carrera Creativa de 18 meses?» («de 18 meses?» en fucsia).
 - Hero: «Online y en vivo · lunes a jueves, de 7 pm a 10 pm» y «Estudia desde cualquier parte». Nueva pregunta «¿Puedo estudiar desde otra ciudad o país?» (ahora son 9).
 - **Logo pendiente (P-01):** Ricardo quiere arriba el M-dot junto al logotipo «MIAMI AD SCHOOL MÉXICO». Falta el archivo oficial (SVG o PNG con fondo transparente). Mientras tanto sigue el logo provisional.
 

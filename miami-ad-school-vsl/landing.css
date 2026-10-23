@@ -606,21 +606,13 @@
   gap: clamp(1.25rem, 2.5vw, 2rem);
 }
 .mas-vsl .mas-mission__label {
-  display: flex;
-  align-items: center;
-  gap: .625rem;
-  font-size: var(--t-small);
-  font-weight: 650;
-  line-height: 1.2;
-}
-/* El punto: viene del M-dot */
-.mas-vsl .mas-mission__label::before {
-  content: "";
-  flex: none;
-  width: .75rem;
-  height: .75rem;
-  border-radius: 50%;
-  background: var(--acid);
+  font-family: var(--font-display);
+  font-stretch: var(--display-stretch);
+  font-weight: var(--display-weight);
+  font-size: clamp(2.75rem, 1.6rem + 4.2vw, 5.5rem);
+  line-height: .9;
+  letter-spacing: -.02em;
+  color: var(--hot);
 }
 .mas-vsl .mas-mission__statement {
   max-width: 24ch;
@@ -649,9 +641,10 @@
     column-gap: var(--col-gap);
     row-gap: clamp(1.5rem, 2.5vw, 2.5rem);
   }
-  .mas-vsl .mas-mission__label { grid-column: 1 / 4; align-self: start; padding-top: .6em; }
-  .mas-vsl .mas-mission__statement { grid-column: 4 / -1; }
-  .mas-vsl .mas-mission__body { grid-column: 4 / 10; }
+  /* «Nuestra misión» en dos líneas a la izquierda; la frase a la derecha */
+  .mas-vsl .mas-mission__label { grid-column: 1 / 5; align-self: start; max-width: 7ch; }
+  .mas-vsl .mas-mission__statement { grid-column: 5 / -1; }
+  .mas-vsl .mas-mission__body { grid-column: 5 / 11; }
 }
 
 /* ==========================================================================
@@ -1035,7 +1028,7 @@
    tablet y escritorio; en móvil van una debajo de otra y nada tapa el texto)
    ========================================================================== */
 .mas-vsl .mas-stages__intro { display: grid; gap: 1.5rem var(--col-gap); align-items: end; }
-.mas-vsl .mas-stages__title { max-width: 15ch; }
+.mas-vsl .mas-stages__title { max-width: 18ch; font-size: clamp(2.5rem, 1.2rem + 4.2vw, 5.5rem); }
 .mas-vsl .mas-stages__title span { display: block; }
 .mas-vsl .mas-stages__title span + span { color: var(--hot); }
 .mas-vsl .mas-stages__lead { font-size: var(--t-lead); line-height: 1.4; font-weight: 650; max-width: 34ch; }

@@ -84,6 +84,9 @@ No se usan: «La escuela más premiada del mundo» (C-006), «Ninguna otra escue
 
 - «Nuestra misión», debajo del hero: es la misión oficial de Miami Ad School («To train the creative thinkers of the future before the future has happened…»), traducida por nosotros. Si la red tiene una versión oficial en español, se cambia por esa. Términos a confirmar: «insight creativo» (*creative insight*) y «oficio» (*craft*).
 - El veredicto ahora dice «La industria creativa contrata evidencia.».
+- Hero sin el sello «7 veces Future Lions School of the Year» (la frase del premio sigue en «Prueba») y sin el «México» junto al logo.
+- El título de las carreras ahora es «Carreras creativas · 18 meses» / «Art Direction y Copywriting».
+- **Logo pendiente (P-01):** Ricardo quiere arriba el M-dot junto al logotipo «MIAMI AD SCHOOL MÉXICO». Falta el archivo oficial (SVG o PNG con fondo transparente). Mientras tanto sigue el logo provisional.
 
 **Para revisar con legal:** el texto del aviso de privacidad dice que solicitar información no confirma la práctica profesional, y la FAQ 4 dice «Las prácticas sí están aseguradas». Las dos cosas pueden ser ciertas (una habla de pedir información, la otra de terminar el primer año), pero conviene que el aviso no se lea como contradicción.
 

@@ -1,4 +1,4 @@
-/* Generado por tools/ghl-kit.py desde landing.*. No lo edites a mano: cambia el original y vuelve a correr el script. Versión 435ef809. */
+/* Generado por tools/ghl-kit.py desde landing.*. No lo edites a mano: cambia el original y vuelve a correr el script. Versión 0579c611. */
 @font-face {
   font-family: "Obviously Narrow";
   font-style: normal;
@@ -24,7 +24,7 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 .mas-vsl {
-  --kit: "435ef809";
+  --kit: "0579c611";
   --black: #0A0A0A;
   --black-2: #151515;
   --white: #F7F5F2;
@@ -270,29 +270,6 @@
   letter-spacing: -.005em;
 }
 .mas-vsl .mas-brand__logo { width: auto; height: clamp(2.75rem, 2.2rem + 1.6vw, 3.5rem); }
-.mas-vsl .mas-brand span { color: var(--hot); font-size: 1.125rem; padding-top: .35em; }
-.mas-vsl .mas-badge {
-  display: flex;
-  align-items: center;
-  gap: .625rem;
-  font-size: .75rem;
-  line-height: 1.2;
-  color: var(--white-2);
-  text-align: left;
-}
-.mas-vsl .mas-badge__n {
-  display: grid;
-  place-items: center;
-  width: 2.375rem; height: 2.375rem;
-  border-radius: 50%;
-  background: var(--acid);
-  color: var(--black);
-  font-family: var(--font-display);
-  font-stretch: var(--display-stretch);
-  font-weight: var(--display-weight);
-  font-size: 1.375rem;
-  line-height: 1;
-}
 .mas-vsl .mas-hero__title {
   font-family: var(--font-display);
   font-stretch: var(--display-stretch);
@@ -549,15 +526,36 @@
   font-size: var(--t-lead);
   line-height: 1.45;
 }
+.mas-vsl .mas-mission__photo {
+  justify-self: end;
+  width: min(62%, 17rem);
+  margin-top: .5rem;
+}
+.mas-vsl .mas-mission__photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: .5rem;
+  background-color: var(--black-2);
+  transform: rotate(-2deg);
+}
 @media (min-width: 64em) {
   .mas-vsl .mas-mission__grid {
     grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-areas:
+      "rule rule rule rule rule rule rule rule rule rule rule rule"
+      "label label label . stmt stmt stmt stmt stmt stmt stmt stmt"
+      "photo photo photo . stmt stmt stmt stmt stmt stmt stmt stmt"
+      "photo photo photo . body body body body body body body .";
+    grid-template-rows: auto auto auto 1fr;
     column-gap: var(--col-gap);
     row-gap: clamp(1.5rem, 2.5vw, 2.5rem);
   }
-  .mas-vsl .mas-mission__label { grid-column: 1 / 4; align-self: start; padding-top: .6em; }
-  .mas-vsl .mas-mission__statement { grid-column: 4 / -1; }
-  .mas-vsl .mas-mission__body { grid-column: 4 / 10; }
+  .mas-vsl .mas-mission__grid::before { grid-area: rule; }
+  .mas-vsl .mas-mission__label { grid-area: label; align-self: start; padding-top: .6em; }
+  .mas-vsl .mas-mission__statement { grid-area: stmt; }
+  .mas-vsl .mas-mission__body { grid-area: body; }
+  .mas-vsl .mas-mission__photo { grid-area: photo; justify-self: start; align-self: start; width: 100%; max-width: 19rem; margin-top: 0; }
 }
 .mas-vsl .mas-gap__title { max-width: 11ch; }
 .mas-vsl .mas-lines {
@@ -698,6 +696,14 @@
 .mas-vsl .mas-path__for { margin-top: .875rem; color: var(--fg); max-width: 40ch; font-size: 1rem; line-height: 1.45; }
 .mas-vsl .mas-path .mas-btn { margin-top: 2rem; }
 .mas-vsl .mas-paths__title { max-width: 22ch; }
+.mas-vsl .mas-paths__top,
+.mas-vsl .mas-paths__rest { display: block; text-wrap: balance; }
+.mas-vsl .mas-paths__rest { margin-top: .12em; color: var(--hot); }
+.mas-vsl .mas-paths__len { display: block; }
+@media (min-width: 48em) {
+  .mas-vsl .mas-paths__len { display: inline; }
+  .mas-vsl .mas-paths__len::before { content: "· "; }
+}
 .mas-vsl .mas-paths__note { padding-block: clamp(1.75rem, 4vw, 2.75rem); font-size: var(--t-lead); font-weight: 700; max-width: 52ch; }
 .mas-vsl .mas-path--cw .mas-path__claim span + span { color: var(--hot-ink); }
 @media (max-width: 47.99em) {

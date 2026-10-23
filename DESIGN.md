@@ -108,7 +108,7 @@ Implementación de referencia: `miami-ad-school-vsl/landing.css` (todo bajo `.ma
 Obviously Narrow **Bold** para todos los titulares. En la vista previa se imita con Archivo a peso 800 y ancho 74%. El texto corrido va en Archivo Regular hasta que llegue Obviously Regular.
 
 ### Hierarchy
-- **Hero (V2):** eyebrow con el programa, la línea «Tu título no te consigue el mejor trabajo.» y el gigante «Tu portafolio sí.», con «portafolio» encerrado en la pluma. El gigante ocupa el ancho; el JS (`data-fit`) lo ajusta para que nunca desborde. Debajo, a dos columnas en escritorio, el subtítulo y los tres datos; a la derecha, el collage. Sin botón.
+- **Hero (V2):** eyebrow con el programa, la línea «Tu título no te consigue el mejor trabajo.» y el gigante «Tu portafolio sí.», con «portafolio» encerrado en la pluma. El gigante ocupa el ancho; el JS (`data-fit`) lo ajusta para que nunca desborde. Debajo, a dos columnas en escritorio, el subtítulo y los datos; a la derecha, el video con su portada y la píldora fucsia «Ver el video · 3:30». Sin botón de folleto.
 - **Poster:** frase de sección a pantalla completa (veredicto «La industria creativa contrata evidencia.»).
 - **H2:** de 13 a 15 caracteres por línea, interlineado 0.9.
 - **Texto:** 1.0625–1.1875rem, 65–75 caracteres por línea.
@@ -126,7 +126,7 @@ Solo el manuscrito, el módulo de aplicar y las tarjetas apiladas llevan sombra 
 
 ## Photography
 
-Fotos de marca M.AD: personas haciendo (pintar, saltar, desplegar un póster, pensar), con la M fluida y el punto como gráfico o en el vestuario. Blanco y negro contra campo de color, o color saturado de la paleta. Se colocan como piezas físicas: cuadro girado 2° en el hero y a sangre dentro de la última tarjeta de «El Programa». WebP en dos tamaños con `srcset`; solo la del hero carga con prioridad.
+Fotos de marca M.AD: personas haciendo (pintar, saltar, desplegar un póster, pensar), con la M fluida y el punto como gráfico o en el vestuario. Blanco y negro contra campo de color, o color saturado de la paleta. Se colocan como piezas físicas: la gorra con la M girada −2° en el footer y el Grad Show a sangre dentro de la última tarjeta de «El Programa». WebP en dos tamaños con `srcset`; solo la del hero carga con prioridad.
 
 ## Shapes
 
@@ -141,7 +141,8 @@ Píldora de 60 px. El hover llena el botón desde abajo con el color de acción 
 - Cursor-punto ácido que sigue al mouse. Solo con mouse y solo si se permite movimiento; nunca reemplaza al cursor nativo.
 - Pluma: el círculo ácido alrededor de «portafolio».
 - Las líneas de «Problema» se encienden al leerlas.
-- Muro de logos de agencias que avanza con el scroll (sin botón de pausa); todos los logos en negro. Con movimiento reducido es una cuadrícula quieta. La cinta fucsia salió en la V2.
+- Cinta fucsia debajo del hero que avanza con el scroll, no por tiempo (salió en la V2 y volvió a pedido de Ricardo).
+- Muro de logos de agencias que avanza con el scroll, como la cinta (sin botón de pausa); todos los logos en negro. Con movimiento reducido es una cuadrícula quieta.
 
 ## Do's and Don'ts
 

@@ -218,21 +218,21 @@ La sección «Dos agencias. 10 semanas en cada una.» trae 29 logos en dos filas
 
 ### Cómo se comporta
 
-- Las dos filas se mueven con el scroll, en sentidos opuestos: cuando la persona deja de bajar, se detienen. Por eso no necesitan botón de pausa y siguen cumpliendo con accesibilidad.
+- Las dos filas se mueven con el scroll, en sentidos opuestos, igual que la cinta fucsia: cuando la persona deja de bajar, se detienen. Por eso no necesitan botón de pausa y siguen cumpliendo con accesibilidad.
 - Las flechas ‹ › junto al título adelantan o regresan las dos filas, para ver todos los logos sin tener que bajar.
 - Con «reducir movimiento» activado en el sistema, los logos se quedan quietos en una cuadrícula y las flechas no aparecen (no hacen falta: se ven todos).
 
 ## 7. El video
 
-El video vive en la sección «Prueba», junto a la frase del premio (spec v2: se conserva el video embebido, sin texto ni botón propios).
+El video va en el hero, en lugar de la foto (decisión de Ricardo, 2026-10-23). Muestra una portada con el botón fucsia «Ver el video · 3:30» y se carga solo cuando la persona lo toca; entonces arranca solo y se registra `vsl_play`.
 
 1. En el JS (`landing.js`), dentro de `CONFIG`, la variable es una sola:
    ```js
    vslUrl: 'https://www.tella.tv/video/vid_cmm716re6001a04ld880m76nh',
    ```
    Acepta Tella, YouTube (`watch?v=`, `youtu.be`, `shorts`, `live`), Vimeo (también ocultos, con su hash) o la URL directa de un `.mp4`.
-2. **Tella** se carga solo cuando la persona se acerca a la sección y muestra su propio póster y botón de play. No se muestra el nombre del archivo encima del video.
-3. **YouTube, Vimeo o .mp4** muestran un póster con un botón de play y solo se cargan al hacer clic.
+2. **La portada** es un cuadro del video: `img/vsl-poster-640.webp` y `img/vsl-poster-1280.webp`. **Súbelas a la biblioteca de medios de GHL** y pon sus URLs en `ghl/medios.json` (o pásaselas a Claude). Mientras no estén, la portada se ve oscura con el botón, sin la cara.
+3. **«3:30»** es lo que muestra Tella con su velocidad de 1.2×. Si cambias el video, cambia ese texto y el `aria-label` del botón en el HTML (busca `mas-player__len`).
 4. `CONFIG.thanksVideoUrl` es el video que aparece después de agendar (`?paso=confirmado`). Vacío = no aparece.
 
 ## 8. El formulario de GHL

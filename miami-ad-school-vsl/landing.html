@@ -45,14 +45,25 @@
 
       <ul class="mas-hero__facts" role="list">
         <li>2 prácticas de 10 semanas en agencias distintas</li>
-        <li>Online y en vivo · lunes a jueves, 7&nbsp;a&nbsp;10&nbsp;pm</li>
+        <li>Online y en vivo · lunes a jueves, de 7&nbsp;pm a 10&nbsp;pm</li>
+        <li>Estudia desde cualquier parte</li>
         <li>Inicios en enero, abril, julio y octubre</li>
       </ul>
 
-      <div class="mas-collage" aria-hidden="true">
-        <!-- Foto de marca. En GHL: sube img/hero-craft-*.webp y cambia las rutas. -->
-        <div class="mas-plate mas-plate--image" data-placeholder="P-02">
-          <img src="img/hero-craft-1080.webp" srcset="img/hero-craft-640.webp 640w, img/hero-craft-1080.webp 1080w" sizes="(min-width: 64em) 38vw, 88vw" alt="" width="1080" height="1080" fetchpriority="high" decoding="async">
+      <!-- VSL en el hero, en lugar de la foto (decisión de Ricardo, 2026-10-23).
+           Se configura en UNA variable: CONFIG.vslUrl en landing.js. El video se carga solo al hacer clic.
+           Portada: img/vsl-poster-*.webp, un cuadro del video. Ver README-GHL.md · paso 7 -->
+      <div class="mas-hero__vsl" id="vsl" data-event-view="view_vsl">
+        <div class="mas-player" data-vsl-title="Miami Ad School México · Carrera Creativa">
+          <button class="mas-player__poster" type="button" data-event="vsl_play" aria-label="Ver el video, 3 minutos 30 segundos">
+            <img class="mas-player__img" src="img/vsl-poster-1280.webp" srcset="img/vsl-poster-640.webp 640w, img/vsl-poster-1280.webp 1280w" sizes="(min-width: 64em) 34rem, 100vw" alt="" width="1280" height="720" decoding="async">
+            <span class="mas-btn mas-btn--hot mas-player__cta" aria-hidden="true">
+              <span class="mas-player__icon"><svg viewBox="0 0 24 24" focusable="false"><path d="M8.5 5.8v12.4l10-6.2z"/></svg></span>
+              Ver el video
+              <span class="mas-player__len">3:30</span>
+            </span>
+          </button>
+          <p class="mas-player__notice" role="status" hidden></p>
         </div>
       </div>
     </div>
@@ -60,42 +71,35 @@
 
   <main class="mas-main" id="mas-main">
 
+  <!-- Cinta que avanza con el scroll (decorativa: el contenido ya está en la página). Volvió a pedido de Ricardo, 2026-10-23 -->
+  <div class="mas-ticker" aria-hidden="true">
+    <div class="mas-ticker__row" data-ticker>
+      <span>Carrera Creativa</span><i></i><span>Art Direction</span><i></i><span>Copywriting</span><i></i><span>18 meses</span><i></i><span>Online y en vivo</span><i></i><span>Prácticas en agencias</span><i></i><span>Tu book</span><i></i><span>Carrera Creativa</span><i></i><span>Art Direction</span><i></i><span>Copywriting</span><i></i><span>18 meses</span><i></i><span>Online y en vivo</span><i></i><span>Prácticas en agencias</span><i></i><span>Tu book</span><i></i><span>Carrera Creativa</span><i></i><span>Art Direction</span><i></i><span>Copywriting</span><i></i><span>18 meses</span><i></i><span>Online y en vivo</span><i></i><span>Prácticas en agencias</span><i></i><span>Tu book</span><i></i>
+    </div>
+  </div>
+
   <!-- 1 bis · NUESTRA MISIÓN (misión de Miami Ad School en español; la pidió Ricardo, 2026-10-23) -->
   <section class="mas-section mas-mission" aria-labelledby="mas-mission-title">
     <div class="mas-wrap mas-mission__grid">
       <h2 class="mas-mission__label" id="mas-mission-title">Nuestra misión</h2>
       <p class="mas-mission__statement" data-reveal>Formar a los pensadores creativos del futuro <span class="mas-mission__key">antes de que <span class="mas-mission__mark">el futuro suceda<svg class="mas-pen mas-pen--under" viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M4 15C58 7 126 4 186 8C228 11 262 17 296 9"/></svg></span></span>; <span class="mas-mission__then">diseñar la cultura pop con insight creativo y pensamiento estratégico desde una perspectiva&nbsp;global.</span></p>
       <p class="mas-mission__body" data-reveal>Los alumnos aprenden a resolver problemas con la disciplina, el canal, la habilidad o el oficio que haga falta, usando medios nuevos y emergentes, y también los&nbsp;tradicionales.</p>
-      <!-- Foto de marca (gorra con la M). En GHL ya está subida: ghl/medios.json -->
-      <div class="mas-mission__photo" aria-hidden="true" data-reveal>
-        <img src="img/diff-think-1000.webp" srcset="img/diff-think-640.webp 640w, img/diff-think-1000.webp 1000w" sizes="(min-width: 64em) 19rem, 62vw" alt="" width="1000" height="1500" loading="lazy" decoding="async">
-      </div>
     </div>
   </section>
 
-  <!-- 2 · PRUEBA (frase del premio: redacción aprobada C-002, exacta) -->
+  <!-- 2 · PRUEBA (frase del premio: redacción aprobada C-002, exacta). El video pasó al hero. -->
   <section class="mas-section mas-proof mas-light" aria-labelledby="mas-proof-claim">
     <div class="mas-wrap mas-proof__grid">
       <div class="mas-proof__text">
         <p class="mas-proof__claim" id="mas-proof-claim" data-reveal>Miami Ad School ha sido reconocida siete veces como Future Lions School of the Year, incluyendo&nbsp;2025.</p>
         <p class="mas-proof__body" data-reveal>En México formamos Art Directors y Copywriters online y en vivo. Un objetivo: que salgas con un book que abra las mejores&nbsp;puertas.</p>
       </div>
-      <!-- VSL · se configura en UNA variable: CONFIG.vslUrl en landing.js (Tella, YouTube, Vimeo o .mp4). Ver README-GHL.md · paso 7 -->
-      <div class="mas-proof__vsl" id="vsl" data-event-view="view_vsl">
-        <div class="mas-player" data-vsl-title="Miami Ad School México · Carrera Creativa">
-          <button class="mas-player__poster" type="button" data-event="vsl_play" aria-label="Ver video">
-            <span class="mas-player__play"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 5.8v12.4l10-6.2z"/></svg></span>
-          </button>
-          <p class="mas-player__notice" role="status" hidden></p>
-        </div>
-      </div>
     </div>
   </section>
 
   <!-- 3 · PROBLEMA (absorbe «La diferencia») -->
-  <section class="mas-section mas-sec-gap" id="problema" aria-labelledby="mas-problem-title">
+  <section class="mas-section mas-sec-gap" id="problema" aria-label="El problema">
     <div class="mas-wrap">
-      <h2 class="mas-h2 mas-gap__title" id="mas-problem-title" data-reveal>La brecha no es tu&nbsp;talento.</h2>
       <div class="mas-lines" data-glow>
         <p>Estudiaste diseño, comunicación, publicidad, marketing o&nbsp;cine.</p>
         <p>Sabes usar las herramientas.</p>
@@ -341,6 +345,13 @@
             <p>Mucha gente llega mientras trabaja. Las clases en vivo son de lunes a jueves, de 7&nbsp;a&nbsp;10&nbsp;pm. Aun así, necesitas tiempo extra para producir, recibir feedback y rehacer.</p>
           </div></div>
         </div>
+        <!-- Confirmado por Ricardo, 2026-10-23: «Lunes a jueves de 7pm a 10pm online. Estudia desde cualquier parte». -->
+        <div class="mas-qa">
+          <h3 class="mas-qa__q"><button type="button" class="mas-qa__btn" aria-expanded="true" aria-controls="mas-a9" id="mas-q9">¿Puedo estudiar desde otra ciudad o país?<span class="mas-qa__icon" aria-hidden="true"></span></button></h3>
+          <div class="mas-qa__a" id="mas-a9" role="region" aria-labelledby="mas-q9"><div class="mas-qa__inner">
+            <p>Sí. Estudias desde cualquier parte: las clases son online y en vivo, de lunes a jueves de 7&nbsp;pm a 10&nbsp;pm.</p>
+          </div></div>
+        </div>
         <div class="mas-qa">
           <h3 class="mas-qa__q"><button type="button" class="mas-qa__btn" aria-expanded="true" aria-controls="mas-a6" id="mas-q6">¿Y si ya sé usar Adobe, Canva o IA?<span class="mas-qa__icon" aria-hidden="true"></span></button></h3>
           <div class="mas-qa__a" id="mas-a6" role="region" aria-labelledby="mas-q6"><div class="mas-qa__inner">
@@ -419,6 +430,7 @@
   <!-- 12 · FOOTER -->
   <footer class="mas-footer">
     <div class="mas-wrap">
+      <div class="mas-footer__top">
       <div class="mas-footer__main">
         <p class="mas-footer__brand">Miami Ad School <span>México</span></p>
         <p class="mas-footer__program"><span>Carrera Creativa</span> · <span>Art Direction – Copywriting</span><br><span>Online en vivo</span> · <span>18 meses</span></p>
@@ -426,6 +438,11 @@
           Recibe el folleto
           <svg class="mas-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
         </a>
+      </div>
+      <!-- Foto de marca (gorra con la M), hasta abajo: decisión de Ricardo, 2026-10-23. En GHL ya está subida: ghl/medios.json -->
+      <div class="mas-footer__photo" aria-hidden="true" data-reveal>
+        <img src="img/diff-think-1000.webp" srcset="img/diff-think-640.webp 640w, img/diff-think-1000.webp 1000w" sizes="(min-width: 48em) 17rem, 92vw" alt="" width="1000" height="1500" loading="lazy" decoding="async">
+      </div>
       </div>
       <div class="mas-footer__inner">
         <!-- Redes (P-18): cambia REEMPLAZAR por la URL real. Las que sigan con REEMPLAZAR no se muestran. -->

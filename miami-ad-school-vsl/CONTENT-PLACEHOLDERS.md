@@ -11,8 +11,8 @@ Viene de la sección 5 de la spec «Landing Carrera Creativa v2». Cuando Ricard
 | Dato | Dónde se usa | Estado en la V2 | Cómo cambiarlo |
 |---|---|---|---|
 | Horario de clases | Hero, FAQ 5 | **Confirmado:** «Lunes a jueves, 7 a 10 pm» (Ricardo, 2026-10-21) | — |
-| Zona horaria del horario | Hero, FAQ 5 | Respaldo: «7 a 10 pm» sin zona horaria | Agregar la zona en el hero y en la FAQ 5 |
-| [DECIDIR] ¿Se queda el video en «Prueba»? | Sección 2 | Respaldo: video embebido, sin texto ni botón propios | Si sale, borrar `#vsl` dentro de `.mas-proof` |
+| Zona horaria del horario | Hero, FAQ 5, FAQ «otra ciudad o país» | Respaldo: «7 pm a 10 pm» sin zona horaria. **Importa más ahora** que la página dice «Estudia desde cualquier parte» | Agregar la zona (por ejemplo, hora del centro de México) en el hero y en las dos preguntas |
+| [DECIDIR] ¿Se queda el video en «Prueba»? | Sección 2 | **Decidido por Ricardo (2026-10-23):** el video pasa al hero, en lugar de la foto, con el botón «Ver el video · 3:30» | — |
 | Frase incompleta de la tarjeta Art Direction («… a probar rápido.») | Carreras creativas | Respaldo: la frase no está; el texto termina en «El criterio lo pones tú.» | Pedir la frase completa a Ricardo |
 | ¿El PDF trae costos y opciones de pago? | FAQ 7 | Respaldo: «El folleto trae el plan de estudios. La inversión y las opciones de pago las revisamos contigo en una llamada de 30 minutos.» | Si el PDF sí trae costos, cambiar la FAQ 7 |
 | Precio a publicar | FAQ 7 | Respaldo: no se publica precio (la referencia interna de $12,760 MXN/mes no está reconfirmada) | — |
@@ -22,7 +22,7 @@ Viene de la sección 5 de la spec «Landing Carrera Creativa v2». Cuando Ricard
 | Cupo por grupo | Aplicar | Respaldo: no se menciona cupo | — |
 | URL del calendario de Ricardo | Aplicar | Respaldo: el link «¿Ya tienes el folleto? Agenda tu llamada →» no se muestra | Poner la URL en `CONFIG.calendarUrl` de `landing.js`. En GHL estaba `…/widget/booking/FR0Ug1vwpcicPsQ6erYP`: confirmar que es esa |
 | Validez oficial | FAQ opcional | Respaldo: la pregunta no se agregó | — |
-| Estudiar desde otro país | FAQ opcional | Respaldo: la pregunta no se agregó | — |
+| Estudiar desde otro país | FAQ opcional | **Confirmado por Ricardo (2026-10-23):** «Estudia desde cualquier parte». Está en el hero y en la pregunta «¿Puedo estudiar desde otra ciudad o país?» | — |
 
 ## 2. Books (sección oculta)
 
@@ -46,13 +46,13 @@ Para mostrar la sección: copiar de `reserva/books.html` las tarjetas confirmada
 | Código | Qué falta | Dónde | Formato |
 |---|---|---|---|
 | P-01 | Logo oficial Miami Ad School México, versión para fondo negro. **Hoy hay uno provisional** (`img/logo-mas-300.png`): sirve para la prueba, pero en pantallas grandes se puede ver suave. | `.mas-brand__logo` | SVG |
-| P-02 | ~~Imagen del hero~~ **Resuelto** con foto de marca (grafitero). | `.mas-plate--image` | Cuadrada · 1080 × 1080 px |
+| P-02 | ~~Imagen del hero~~ Ya no aplica: en el hero va el video. La foto del grafitero sigue en `img/` por si se usa después. | — | — |
 | P-05 | ~~Key visual de Art Direction~~ **Resuelto** con foto de marca (sillón). | `.mas-board__tile--key` | Cuadrado, mínimo 640 px |
 | — | ~~Imagen para compartir (OG)~~ **Lista:** `img/og-carrera-creativa.jpg`, con el hero de la V2. Falta subirla a GHL | Settings de la página en GHL | 1200 × 630 px |
 
 No usar fotografía de stock de estudiantes sonriendo frente a una laptop.
 
-**Fotos de marca en uso** (las mandó Ricardo; están en `img/`): grafitero (hero), Grad Show («Al graduarte», en «El Programa») y sillón (Art Direction). Las del salto y la gorra salieron con sus secciones. **Confirmar** que Miami Ad School México tiene derechos para usarlas en una página de anuncios pagados, incluida la autorización de las personas que aparecen.
+**Fotos de marca en uso** (las mandó Ricardo; están en `img/`): Grad Show («Al graduarte», en «El Programa»), sillón (Art Direction) y gorra con la M (footer). Las del grafitero y el salto ya no se usan. **Confirmar** que Miami Ad School México tiene derechos para usarlas en una página de anuncios pagados, incluida la autorización de las personas que aparecen.
 
 ## 4. Prácticas profesionales
 
@@ -86,6 +86,11 @@ No se usan: «La escuela más premiada del mundo» (C-006), «Ninguna otra escue
 - El veredicto ahora dice «La industria creativa contrata evidencia.».
 - Hero sin el sello «7 veces Future Lions School of the Year» (la frase del premio sigue en «Prueba») y sin el «México» junto al logo.
 - El título de las carreras ahora es «Carreras creativas · 18 meses» / «Art Direction y Copywriting».
+- El video va en el hero, en lugar de la foto del grafitero, con el botón «Ver el video · 3:30». «Prueba» queda solo con la frase del premio. **Falta subir a GHL** la portada (`img/vsl-poster-640.webp` y `img/vsl-poster-1280.webp`).
+- La foto de la gorra va hasta abajo, en el footer, junto a «Miami Ad School México».
+- «Problema» ya no lleva el título «La brecha no es tu talento.»: empieza directo con las líneas.
+- Volvió la cinta fucsia que avanza con el scroll, justo debajo del hero (la spec la quitaba).
+- Hero: «Online y en vivo · lunes a jueves, de 7 pm a 10 pm» y «Estudia desde cualquier parte». Nueva pregunta «¿Puedo estudiar desde otra ciudad o país?» (ahora son 9).
 - **Logo pendiente (P-01):** Ricardo quiere arriba el M-dot junto al logotipo «MIAMI AD SCHOOL MÉXICO». Falta el archivo oficial (SVG o PNG con fondo transparente). Mientras tanto sigue el logo provisional.
 
 **Para revisar con legal:** el texto del aviso de privacidad dice que solicitar información no confirma la práctica profesional, y la FAQ 4 dice «Las prácticas sí están aseguradas». Las dos cosas pueden ser ciertas (una habla de pedir información, la otra de terminar el primer año), pero conviene que el aviso no se lea como contradicción.

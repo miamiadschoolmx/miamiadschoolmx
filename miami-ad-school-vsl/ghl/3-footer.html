@@ -1,4 +1,4 @@
-<!-- Generado por tools/ghl-kit.py desde landing.*. No lo edites a mano: cambia el original y vuelve a correr el script. Versión 0579c611.
+<!-- Generado por tools/ghl-kit.py desde landing.*. No lo edites a mano: cambia el original y vuelve a correr el script. Versión 2c12cb69.
      Reemplaza con este bloque los scripts anteriores de la landing: ya trae el formulario, el folleto,
      el video y los textos legales. Si hay un píxel o script de medición, ese se queda. -->
 <script>
@@ -34,7 +34,7 @@
     stageParam: 'paso'
   };
   // Versión del kit: tools/ghl-kit.py pone la misma en los 3 bloques. Si no coinciden, ?revisar=1 lo avisa.
-  var KIT = '0579c611';
+  var KIT = '2c12cb69';
 
   /* --- Arranque ------------------------------------------------------------
      En GHL, el HTML del elemento Custom Code y este script llegan en momentos
@@ -268,7 +268,6 @@
         } else {
           media = document.createElement('iframe');
           media.src = embed;
-          if (isTella) media.loading = 'lazy';
           media.title = title;
           media.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media';
           media.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -279,7 +278,6 @@
         player.appendChild(media);
         poster.hidden = true;
         if (notice) notice.hidden = true;
-        if (isTella) return; // Tella pone su póster y su botón: vsl_play se registra cuando la persona entra al video
         trackOnce('vsl_play', { src: src });
         if (media.tagName === 'VIDEO') {
           var p = media.play();
@@ -287,9 +285,8 @@
         }
         media.focus();
       };
-      var isTella = /tella\.tv\//.test(vslSrc);
-      if (isTella) whenNear(player, mount);
-      else poster.addEventListener('click', mount);
+      // Todos los videos (también Tella) se cargan al tocar «Ver el video» y arrancan solos
+      poster.addEventListener('click', mount);
     }
 
     // Convierte enlaces de YouTube y Vimeo a su URL de inserción con autoplay; si no reconoce
@@ -630,13 +627,15 @@
       });
     }
 
-    /* --- Motor de scroll: progreso, logos y líneas que se encienden ----------- */
+    /* --- Motor de scroll: progreso, cinta, logos y líneas que se encienden ----- */
     var progress = root.querySelector('.mas-progress');
+    var tickerRow = root.querySelector('[data-ticker]');
     var glowBox = root.querySelector('[data-glow]');
     var glowItems = root.querySelectorAll('[data-glow] > *');
     var motionOK = !mqReduce.matches;
     var ticking = false;
-    var glowOn = false;
+    var tickerOn = false, glowOn = false, tickerLen = 0;
+    watchVisible(tickerRow, function (v) { tickerOn = v; });
     watchVisible(glowBox, function (v) { glowOn = v; if (v) requestAnimationFrame(onScroll); });
 
     function onScroll() {
@@ -647,6 +646,15 @@
         var total = rect.height - vh;
         var p = total > 0 ? Math.min(1, Math.max(0, -rect.top / total)) : 0;
         progress.style.setProperty('--p', p.toFixed(4));
+      }
+      if (tickerRow && tickerOn && motionOK) {
+        // La cinta avanza con el scroll (no se mueve sola), así que no necesita botón de pausa.
+        if (!tickerLen) {
+          var kids = tickerRow.children, third = kids[kids.length / 3];
+          tickerLen = third && kids.length % 3 === 0 ? third.offsetLeft - kids[0].offsetLeft : tickerRow.scrollWidth / 3;
+        }
+        var x = tickerLen ? (window.pageYOffset * 0.45) % tickerLen : 0;
+        tickerRow.style.setProperty('--x', x.toFixed(1));
       }
       if (logosOn && logoRows.length) placeLogos();
       if (glowOn && glowItems.length && root.classList.contains('has-motion')) {
@@ -659,7 +667,7 @@
     on(window, 'scroll', function () {
       if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
     }, { passive: true });
-    on(window, 'resize', throttle(onScroll), { passive: true });
+    on(window, 'resize', throttle(function () { tickerLen = 0; onScroll(); }), { passive: true });
 
     /* --- Cursor-punto (solo mouse, solo si se permite movimiento) -------------
        Es un acompañante del cursor nativo, nunca lo reemplaza. */

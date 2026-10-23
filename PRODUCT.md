@@ -22,7 +22,7 @@ Miami Ad School México forma en Art Direction y Copywriting con Carrera Creativ
 
 ## Positioning
 
-Titular del hero (V2): «Tu título no te consigue el mejor trabajo. Tu portafolio sí.», con el eyebrow «Carrera Creativa · Art Direction y Copywriting», el subtítulo «18 meses online y en vivo. Al terminar el primer año, haces prácticas profesionales en dos agencias distintas, 10 semanas en cada una.» y tres datos. El hero no lleva botón. Todos los botones de la página dicen «Recibe el folleto» y llevan a `#aplicar`; antes del formulario no se habla de «entrevista» ni de «conversación».
+Titular del hero (V2): «Tu título no te consigue el mejor trabajo. Tu portafolio sí.», con el eyebrow «Carrera Creativa · Art Direction y Copywriting», el subtítulo «18 meses online y en vivo. Al terminar el primer año, haces prácticas profesionales en dos agencias distintas, 10 semanas en cada una.» y tres datos. El hero lleva el video con «Ver el video» y un botón «Recibe el folleto» (Ricardo volvió a pedir botones el 2026-10-23). Todos los botones de la página dicen «Recibe el folleto» y llevan a `#aplicar`: hero, final de «¿Cómo funciona…?», final de prácticas y footer; antes del formulario no se habla de «entrevista» ni de «conversación».
 
 Titulares anteriores: «Aprende a crear campañas. Construye un book para entrar a la industria creativa.» y «El talento no te consigue trabajo. Tu portafolio sí.». No se vende una carrera académica, sino una transformación profesional: pasar de tener interés o talento creativo a tener un portafolio que abra conversaciones con la industria.
 

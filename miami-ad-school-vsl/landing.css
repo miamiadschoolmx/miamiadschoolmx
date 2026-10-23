@@ -281,7 +281,8 @@
     "title title title title title title title title title title title title"
     "collage collage collage collage collage collage collage collage collage collage collage collage"
     "sub sub sub sub sub sub sub sub sub sub sub sub"
-    "facts facts facts facts facts facts facts facts facts facts facts facts";
+    "facts facts facts facts facts facts facts facts facts facts facts facts"
+    "cta cta cta cta cta cta cta cta cta cta cta cta";
 }
 .mas-vsl .mas-hero__top {
   grid-area: top;
@@ -353,6 +354,16 @@
   color: var(--white-2);
   text-wrap: pretty;
 }
+.mas-vsl .mas-hero__cta { grid-area: cta; justify-self: start; align-self: start; margin-top: 2rem; }
+/* Botones «Recibe el folleto» al final de una sección */
+.mas-vsl .mas-cta-row { display: flex; margin-top: clamp(2.5rem, 5vw, 4rem); }
+/* En prácticas el botón va después del muro de logos, que toca el borde de la sección */
+.mas-vsl .mas-intern > .mas-cta-row { padding-bottom: clamp(3.5rem, 7vw, 6rem); }
+@media (max-width: 47.99em) {
+  /* En celular, a todo lo ancho: más fácil de tocar con el pulgar */
+  .mas-vsl .mas-hero__cta,
+  .mas-vsl .mas-cta-row .mas-btn { width: 100%; justify-content: space-between; }
+}
 .mas-vsl .mas-hero__facts {
   grid-area: facts;
   display: grid;
@@ -386,11 +397,12 @@
   .mas-vsl .mas-hero { min-height: min(100svh, 64rem); display: flex; flex-direction: column; }
   .mas-vsl .mas-hero > .mas-wrap { flex: 1; }
   .mas-vsl .mas-hero__grid {
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto 1fr auto auto;
     grid-template-areas:
       "top top top top top top top top top top top top"
       "title title title title title title title title title title title title"
-      "sub sub sub sub sub sub . facts facts facts facts facts";
+      "sub sub sub sub sub sub . facts facts facts facts facts"
+      "cta cta cta cta cta cta . facts facts facts facts facts";
     align-items: end;
   }
   .mas-vsl .mas-hero__top { margin-bottom: 0; align-self: start; }
@@ -416,6 +428,12 @@
   .mas-vsl .mas-hero__sub,
   .mas-vsl .mas-hero__facts { align-self: start; margin-top: 2.75rem; }
   .mas-vsl .mas-hero__facts { padding-top: .25rem; }
+}
+@media (min-width: 64em) and (max-height: 50em) {
+  /* Laptops bajas (1280 × 800): el botón del hero debe caber en la primera pantalla */
+  .mas-vsl .mas-hero__sub,
+  .mas-vsl .mas-hero__facts { margin-top: 1.75rem; }
+  .mas-vsl .mas-hero__cta { margin-top: 1.5rem; }
 }
 
 /* ==========================================================================
@@ -1366,6 +1384,7 @@
   .mas-vsl .mas-hero__facts { animation: mas-rise .8s var(--ease-out) both; }
   .mas-vsl .mas-hero__sub { animation-delay: .25s; }
   .mas-vsl .mas-hero__facts { animation-delay: .35s; }
+  .mas-vsl .mas-hero__cta { animation: mas-rise .8s var(--ease-out) .45s both; }
   .mas-vsl .mas-hero__vsl { animation: mas-rise .9s var(--ease-out) .45s both; }
 
   /* La pluma: dasharray 3 cubre el trazo aunque el SVG esté estirado */

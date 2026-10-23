@@ -283,7 +283,7 @@ Hoy **no se envía nada**. Todos los eventos solo se guardan en `window.masVsl.e
 
 | Evento | Cuándo ocurre | Sugerencia en Meta |
 |---|---|---|
-| `cta_click` | Clic en cualquier botón «Recibe el folleto» (trae cuál, en `cta`) | personalizado |
+| `cta_click` | Clic en cualquier botón «Recibe el folleto»; `cta` dice cuál: `hero-folleto`, `como-funciona-folleto`, `practicas-folleto` o `footer-folleto` | personalizado |
 | `view_vsl` | El video entra en pantalla | personalizado |
 | `vsl_play` | La persona da play (Tella: cuando entra al video) | personalizado |
 | `vsl_50_percent` | Mitad del video (solo `.mp4` propio) | personalizado |

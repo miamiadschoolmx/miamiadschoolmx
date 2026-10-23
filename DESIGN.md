@@ -94,7 +94,6 @@ Implementación de referencia: `miami-ad-school-vsl/landing.css` (todo bajo `.ma
 ### Secondary (paleta secundaria M.AD, en campos completos)
 - **Acid** `#FFFF3E` (101 C): el punto. Cursor, progreso, el botón de play y la cápsula «Próximo ingreso».
 - **Blue** `#3391F4` (2727 C): tarjeta final de «¿Cómo funciona…?» (lo que te llevas).
-- **Green** `#00D357` (2420 C): «Esto es para ti si…».
 - **Campo claro** `#F7F5F2` con titular negro + magenta `#C2007A` (la referencia fue «La diferencia», que salió en la V2): la tarjeta «Después del primer año» y la sección de prácticas. Ricardo descartó el violeta y el naranja como campos.
 - Portadas de books: rotan fucsia, ácido, azul, naranja, verde, violeta `#A572FF`, blanco y rosa `#FF5CCD`.
 

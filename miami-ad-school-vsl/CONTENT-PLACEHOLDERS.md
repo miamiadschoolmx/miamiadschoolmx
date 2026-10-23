@@ -92,6 +92,7 @@ No se usan: «La escuela más premiada del mundo» (C-006), «Ninguna otra escue
 - Volvió la cinta fucsia que avanza con el scroll, justo debajo del hero (la spec la quitaba).
 - «Nuestra misión» ahora es un título grande en fucsia.
 - «El Programa» ahora dice «¿Cómo funciona nuestra Carrera Creativa de 18 meses?» («de 18 meses?» en fucsia).
+- Las tarjetas de esa sección se reescribieron (2026-10-23): tres etapas de seis meses, cada una con «Terminas con:», y una tarjeta final con lo que te llevas. Solo usan datos ya confirmados. **Confirmar:** que las dos prácticas caen en los meses 13 a 18 (la tarjeta 3 dice «Etapa 3 · Meses 13 a 18»).
 - Hero: «Online y en vivo · lunes a jueves, de 7 pm a 10 pm» y «Estudia desde cualquier parte». Nueva pregunta «¿Puedo estudiar desde otra ciudad o país?» (ahora son 9).
 - **Logo pendiente (P-01):** Ricardo quiere arriba el M-dot junto al logotipo «MIAMI AD SCHOOL MÉXICO». Falta el archivo oficial (SVG o PNG con fondo transparente). Mientras tanto sigue el logo provisional.
 

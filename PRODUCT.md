@@ -28,7 +28,7 @@ Titulares anteriores: «Aprende a crear campañas. Construye un book para entrar
 
 ## Operating Context
 
-Anuncio en Meta → hero (con el video) → nuestra misión (la misión de Miami Ad School, en español) → prueba (Future Lions) → problema → El Programa (18 meses) → prácticas → Art Direction y Copywriting → ¿es para ti? → preguntas → formulario de GHL («Recibe el folleto») → folleto (`?paso=agenda`) → si quiere, calendario de GHL → videollamada con Ricardo (`?paso=confirmado`).
+Anuncio en Meta → hero (con el video) → nuestra misión (la misión de Miami Ad School, en español) → problema → El Programa (18 meses) → prácticas → ¿es para ti? → preguntas → formulario de GHL («Recibe el folleto») → folleto (`?paso=agenda`) → si quiere, calendario de GHL → videollamada con Ricardo (`?paso=confirmado`).
 
 ## Capabilities and Constraints
 

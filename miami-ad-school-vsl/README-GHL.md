@@ -250,7 +250,7 @@ El formulario ya está en el HTML: es el de GoHighLevel `DWvr3OTjwswSDGd9wnM6`, 
 
 ### Prellenar «Me interesa»
 
-Los botones «Recibe el folleto de Art Direction» y «Recibe el folleto de Copywriting» agregan `?interes_programa=Art Direction` (o `Copywriting`) al formulario y bajan a `#aplicar`. También funciona si la URL de la página trae `?interes_programa=Copywriting`, por ejemplo desde un anuncio.
+La página ya no tiene botones por programa (Ricardo los quitó para simplificarla, 2026-10-23). «Me interesa» se prellena solo si la URL de la página trae `?interes_programa=Art Direction` (o `Copywriting`), por ejemplo desde un anuncio de cada programa.
 
 - La clave está en `CONFIG.prefillParam` (`interes_programa`) y los valores en `CONFIG.programLabels`. Deben coincidir **exactamente** con el campo de GHL.
 
@@ -288,7 +288,7 @@ Hoy **no se envía nada**. Todos los eventos solo se guardan en `window.masVsl.e
 | `vsl_play` | La persona da play (Tella: cuando entra al video) | personalizado |
 | `vsl_50_percent` | Mitad del video (solo `.mp4` propio) | personalizado |
 | `vsl_complete` | Fin del video (solo `.mp4` propio) | personalizado |
-| `program_select` | Elige Art Direction, Copywriting o «Aún no sé» | personalizado |
+| `program_select` | Llega con `?interes_programa=` en la URL (ya no hay botones por programa) | personalizado |
 | `view_books` | La sección de books entra en pantalla (hoy oculta, ver reserva/books.html) | `ViewContent` |
 | `external_book_click` | Clic en el book de un graduado (hoy oculta) | personalizado |
 | `social_click` | Clic en una red del footer (Instagram, TikTok, YouTube o LinkedIn) | personalizado |
@@ -319,7 +319,7 @@ Prueba en la **página publicada** en `tufuturocreativo.com`, no solo en el buil
 
 **Recorrido**
 - [ ] Todos los botones «Recibe el folleto» llevan a `#aplicar`, sin salir de la página.
-- [ ] «Recibe el folleto de Art Direction» y «… de Copywriting» marcan el programa en «Me interesa».
+- [ ] Con `?interes_programa=Copywriting` en la URL, el formulario llega con «Me interesa» marcado.
 - [ ] El video de Tella se reproduce dentro de la página.
 - [ ] El formulario se envía y redirige a `?paso=agenda`; aparece «Tu folleto ya está listo.» con «Descargar folleto», y el folleto llega al correo.
 - [ ] Si `CONFIG.calendarUrl` está lleno: agendar redirige a `?paso=confirmado` y llega el correo con el enlace.

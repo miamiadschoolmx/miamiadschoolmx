@@ -1,4 +1,4 @@
-/* Generado por tools/ghl-kit.py desde landing.*. No lo edites a mano: cambia el original y vuelve a correr el script. Versión 168b55fa. */
+/* Generado por tools/ghl-kit.py desde landing.*. No lo edites a mano: cambia el original y vuelve a correr el script. Versión 435ef809. */
 @font-face {
   font-family: "Obviously Narrow";
   font-style: normal;
@@ -24,7 +24,7 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 .mas-vsl {
-  --kit: "168b55fa";
+  --kit: "435ef809";
   --black: #0A0A0A;
   --black-2: #151515;
   --white: #F7F5F2;
@@ -500,6 +500,65 @@
   .mas-vsl .mas-proof__text { grid-column: 1 / span 5; }
   .mas-vsl .mas-proof__vsl { grid-column: 6 / -1; }
 }
+.mas-vsl .mas-mission { padding-top: 0; }
+.mas-vsl .mas-mission__grid {
+  display: grid;
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+.mas-vsl .mas-mission__grid::before {
+  content: "";
+  grid-column: 1 / -1;
+  height: 1px;
+  margin-bottom: clamp(1rem, 3vw, 2.5rem);
+  background: var(--rule);
+}
+.mas-vsl .mas-mission__label {
+  display: flex;
+  align-items: center;
+  gap: .625rem;
+  font-size: var(--t-small);
+  font-weight: 650;
+  line-height: 1.2;
+}
+.mas-vsl .mas-mission__label::before {
+  content: "";
+  flex: none;
+  width: .75rem;
+  height: .75rem;
+  border-radius: 50%;
+  background: var(--acid);
+}
+.mas-vsl .mas-mission__statement {
+  max-width: 24ch;
+  font-family: var(--font-display);
+  font-stretch: var(--display-stretch);
+  font-weight: var(--display-weight);
+  font-size: clamp(1.875rem, 1.05rem + 3.2vw, 4.75rem);
+  line-height: 1.04;
+  letter-spacing: -.02em;
+  text-wrap: pretty;
+}
+.mas-vsl .mas-mission__key { color: var(--hot); }
+.mas-vsl .mas-mission__mark { position: relative; display: inline-block; white-space: nowrap; }
+.mas-vsl .mas-mission__then { color: var(--fg-2); }
+.mas-vsl .mas-pen--under { left: -2%; bottom: -.13em; width: 104%; height: .2em; --pen: var(--acid); }
+.mas-vsl .mas-pen--under path { stroke-width: 4; }
+.mas-vsl .mas-mission__body {
+  max-width: 52ch;
+  color: var(--fg-2);
+  font-size: var(--t-lead);
+  line-height: 1.45;
+}
+@media (min-width: 64em) {
+  .mas-vsl .mas-mission__grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--col-gap);
+    row-gap: clamp(1.5rem, 2.5vw, 2.5rem);
+  }
+  .mas-vsl .mas-mission__label { grid-column: 1 / 4; align-self: start; padding-top: .6em; }
+  .mas-vsl .mas-mission__statement { grid-column: 4 / -1; }
+  .mas-vsl .mas-mission__body { grid-column: 4 / 10; }
+}
 .mas-vsl .mas-gap__title { max-width: 11ch; }
 .mas-vsl .mas-lines {
   display: grid;
@@ -528,7 +587,7 @@
   font-family: var(--font-display);
   font-stretch: var(--display-stretch);
   font-weight: var(--display-weight);
-  font-size: min(var(--t-poster), 13.5vw);
+  font-size: min(var(--t-poster), 12vw);
   line-height: .88;
   letter-spacing: -.03em;
   text-wrap: balance;
@@ -1329,6 +1388,7 @@
     animation: mas-draw .9s var(--ease-io) .7s forwards;
   }
   .mas-vsl.has-motion .mas-verdict .mas-pen path,
+  .mas-vsl.has-motion .mas-mission .mas-pen path,
   .mas-vsl.has-motion .mas-path--cw .mas-pen path {
     stroke-dasharray: 3;
     stroke-dashoffset: 3;

@@ -109,7 +109,7 @@ Obviously Narrow **Bold** para todos los titulares. En la vista previa se imita 
 
 ### Hierarchy
 - **Hero (V2):** eyebrow con el programa, la línea «Tu título no te consigue el mejor trabajo.» y el gigante «Tu portafolio sí.», con «portafolio» encerrado en la pluma. El gigante ocupa el ancho; el JS (`data-fit`) lo ajusta para que nunca desborde. Debajo, a dos columnas en escritorio, el subtítulo y los tres datos; a la derecha, el collage. Sin botón.
-- **Poster:** frase de sección a pantalla completa (veredicto «La industria contrata evidencia.»).
+- **Poster:** frase de sección a pantalla completa (veredicto «La industria creativa contrata evidencia.»).
 - **H2:** de 13 a 15 caracteres por línea, interlineado 0.9.
 - **Texto:** 1.0625–1.1875rem, 65–75 caracteres por línea.
 

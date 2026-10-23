@@ -80,6 +80,11 @@ Se usan solo estos, tal cual:
 
 No se usan: «La escuela más premiada del mundo» (C-006), «Ninguna otra escuela lo ha ganado tantas veces», «Las mejores agencias del mundo», cifras de colocación, salarios o empleo garantizado (C-003, C-008), ni cualquier dato que no esté en la spec.
 
+**Agregados por Ricardo (2026-10-23), fuera de la spec:**
+
+- «Nuestra misión», debajo del hero: es la misión oficial de Miami Ad School («To train the creative thinkers of the future before the future has happened…»), traducida por nosotros. Si la red tiene una versión oficial en español, se cambia por esa. Términos a confirmar: «insight creativo» (*creative insight*) y «oficio» (*craft*).
+- El veredicto ahora dice «La industria creativa contrata evidencia.».
+
 **Para revisar con legal:** el texto del aviso de privacidad dice que solicitar información no confirma la práctica profesional, y la FAQ 4 dice «Las prácticas sí están aseguradas». Las dos cosas pueden ser ciertas (una habla de pedir información, la otra de terminar el primer año), pero conviene que el aviso no se lea como contradicción.
 
 ## 7. Políticas legales

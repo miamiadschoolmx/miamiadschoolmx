@@ -569,6 +569,70 @@
 }
 
 /* ==========================================================================
+   A bis · NUESTRA MISIÓN (sigue al hero en negro; una línea fina las separa)
+   ========================================================================== */
+.mas-vsl .mas-mission { padding-top: 0; }
+.mas-vsl .mas-mission__grid {
+  display: grid;
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+.mas-vsl .mas-mission__grid::before {
+  content: "";
+  grid-column: 1 / -1;
+  height: 1px;
+  margin-bottom: clamp(1rem, 3vw, 2.5rem);
+  background: var(--rule);
+}
+.mas-vsl .mas-mission__label {
+  display: flex;
+  align-items: center;
+  gap: .625rem;
+  font-size: var(--t-small);
+  font-weight: 650;
+  line-height: 1.2;
+}
+/* El punto: viene del M-dot */
+.mas-vsl .mas-mission__label::before {
+  content: "";
+  flex: none;
+  width: .75rem;
+  height: .75rem;
+  border-radius: 50%;
+  background: var(--acid);
+}
+.mas-vsl .mas-mission__statement {
+  max-width: 24ch;
+  font-family: var(--font-display);
+  font-stretch: var(--display-stretch);
+  font-weight: var(--display-weight);
+  font-size: clamp(1.875rem, 1.05rem + 3.2vw, 4.75rem);
+  line-height: 1.04;
+  letter-spacing: -.02em;
+  text-wrap: pretty;
+}
+.mas-vsl .mas-mission__key { color: var(--hot); }
+.mas-vsl .mas-mission__mark { position: relative; display: inline-block; white-space: nowrap; }
+.mas-vsl .mas-mission__then { color: var(--fg-2); }
+.mas-vsl .mas-pen--under { left: -2%; bottom: -.13em; width: 104%; height: .2em; --pen: var(--acid); }
+.mas-vsl .mas-pen--under path { stroke-width: 4; }
+.mas-vsl .mas-mission__body {
+  max-width: 52ch;
+  color: var(--fg-2);
+  font-size: var(--t-lead);
+  line-height: 1.45;
+}
+@media (min-width: 64em) {
+  .mas-vsl .mas-mission__grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--col-gap);
+    row-gap: clamp(1.5rem, 2.5vw, 2.5rem);
+  }
+  .mas-vsl .mas-mission__label { grid-column: 1 / 4; align-self: start; padding-top: .6em; }
+  .mas-vsl .mas-mission__statement { grid-column: 4 / -1; }
+  .mas-vsl .mas-mission__body { grid-column: 4 / 10; }
+}
+
+/* ==========================================================================
    C · LA BRECHA (las líneas se encienden al leerlas)
    ========================================================================== */
 .mas-vsl .mas-gap__title { max-width: 11ch; }
@@ -601,8 +665,9 @@
   font-family: var(--font-display);
   font-stretch: var(--display-stretch);
   font-weight: var(--display-weight);
-  /* El tope en vw evita que «contrata evidencia.» (unidas) se salga en pantallas de 320 px. */
-  font-size: min(var(--t-poster), 13.5vw);
+  /* El tope en vw evita que «contrata evidencia.» (unidas) se salga en pantallas de 320 px,
+     medido con Obviously Narrow, que es más ancha que el respaldo. */
+  font-size: min(var(--t-poster), 12vw);
   line-height: .88;
   letter-spacing: -.03em;
   text-wrap: balance;
@@ -1479,6 +1544,7 @@
   }
 
   .mas-vsl.has-motion .mas-verdict .mas-pen path,
+  .mas-vsl.has-motion .mas-mission .mas-pen path,
   .mas-vsl.has-motion .mas-path--cw .mas-pen path {
     stroke-dasharray: 3;
     stroke-dashoffset: 3;

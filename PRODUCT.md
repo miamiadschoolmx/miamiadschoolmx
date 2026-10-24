@@ -32,7 +32,7 @@ Anuncio en Meta → hero (con el video) → cinta → dos rutas (Copywriter o Di
 
 ## Capabilities and Constraints
 
-- Rutas: Copywriter y Director de Arte (en el formulario, `Copywriter`, `Director de Arte` o `Aún no sé`). Modalidad: online y en vivo, lunes a jueves, 7 a 10 pm (confirmado por Ricardo, 2026-10-21; zona horaria por confirmar).
+- Rutas: Copywriter y Director de Arte (en el formulario, `Copywriter`, `Director de Arte` o `Aún no sé`). Modalidad: online y en vivo, lunes a jueves, 7 a 10 pm, horario CDMX (confirmado por Ricardo, 2026-10-21 y 2026-10-24). Se estudia desde cualquier parte.
 - Inicios: enero, abril, julio y octubre. La fecha exacta del ingreso de enero 2027 no está confirmada: la página dice «Próximo ingreso: enero.» y no lleva contador.
 - Prácticas (C-012): dos prácticas de 10 semanas, en dos agencias distintas de la red de Miami Ad School, presenciales u online. Todo alumno que termina el primer año hace sus dos prácticas.
 - Datos pendientes y su texto de respaldo: `miami-ad-school-vsl/CONTENT-PLACEHOLDERS.md` · punto 1.

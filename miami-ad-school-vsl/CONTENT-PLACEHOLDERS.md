@@ -10,7 +10,7 @@ Viene de la sección 10 de `PROMPT-V3-META.md` (24 oct 2026). Mientras Ricardo n
 
 | # | Dato | Dónde se usa | Respaldo en uso | Cómo cambiarlo |
 |---|---|---|---|---|
-| 10.1 | Zona horaria del horario | Hero, «¿Cuánto dura?», «¿Puedo trabajar…?», «¿Otra ciudad o país?» | «de 7 pm a 10 pm», sin zona | Agregar la zona en el hero y en esas tres respuestas |
+| 10.1 | Zona horaria del horario | Hero, «¿Cuánto dura?», «¿Puedo trabajar…?», «¿Otra ciudad o país?», JSON-LD | **Confirmado por Ricardo (24 oct 2026):** «Lunes a jueves, de 7 pm a 10 pm, horario CDMX» y «Estudia desde cualquier parte» | |
 | 10.2 | Fechas de inicio | Hero, «Tenemos 4 inicios al año», «¿Cuándo empieza?», aplicar | **Confirmado por Ricardo (24 oct 2026):** el 10 de enero, abril, julio y octubre. El próximo lo calcula el JS | Si cambian: `data-start` y textos de la sección de inicios, y la respuesta de «¿Cuándo empieza?» (README-GHL · 10 bis) |
 | 10.3 | ¿Es licenciatura? ¿Qué documento se recibe? | FAQ «¿Es una licenciatura?» | La pregunta no está | Agregarla después de «¿Cuánto cuesta?» (texto en 6.11) |
 | 10.4 | ¿Qué trae el PDF? | Microcopy del hero y texto de aplicar | «PDF gratis con el plan de estudios. Te llega a tu correo.» y «Recibe el folleto con el plan de estudios y las fechas.» | Ajustar si el PDF no trae fechas o trae más |

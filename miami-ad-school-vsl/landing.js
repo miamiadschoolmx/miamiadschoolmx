@@ -479,6 +479,47 @@
         calendarLinks[cl].hidden = false;
       }
     }
+    // «Agenda tu entrevista» (sección de inicios): abre el calendario en otra pestaña.
+    // Sin calendario se queda en #aplicar, el formulario.
+    var calendarCtas = root.querySelectorAll('[data-calendar-cta]');
+    if (CONFIG.calendarUrl) {
+      for (var cc = 0; cc < calendarCtas.length; cc++) {
+        calendarCtas[cc].href = CONFIG.calendarUrl;
+        calendarCtas[cc].target = '_blank';
+        calendarCtas[cc].rel = 'noopener noreferrer';
+      }
+    }
+
+    /* --- Próximo inicio ------------------------------------------------------
+       Los inicios están en el HTML (data-start="MM-DD" en la sección de inicios).
+       Con la fecha de hoy se marca el próximo y se escribe en cada data-next-start
+       (hero, «¿Cuándo empieza?» y el formulario). Sin JS queda lo del HTML. */
+    (function () {
+      var tiles = root.querySelectorAll('[data-start]');
+      if (!tiles.length) return;
+      var MONTHS = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+      var now = new Date();
+      var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      var next = null, nextTile = null;
+      for (var t = 0; t < tiles.length; t++) {
+        var md = /^(\d\d)-(\d\d)$/.exec(tiles[t].getAttribute('data-start') || '');
+        if (!md) continue;
+        // El día del inicio ya no cuenta como «próximo»: se pasa al siguiente.
+        var d = new Date(today.getFullYear(), +md[1] - 1, +md[2]);
+        if (d <= today) d = new Date(today.getFullYear() + 1, +md[1] - 1, +md[2]);
+        if (!next || d < next) { next = d; nextTile = tiles[t]; }
+      }
+      if (!next) return;
+      for (var u = 0; u < tiles.length; u++) {
+        var on = tiles[u] === nextTile;
+        tiles[u].classList.toggle('is-next', on);
+        var tag = tiles[u].querySelector('[data-start-tag]');
+        if (tag) tag.hidden = !on;
+      }
+      var label = next.getDate() + ' de ' + MONTHS[next.getMonth()] + ' de ' + next.getFullYear();
+      var slots = root.querySelectorAll('[data-next-start]');
+      for (var w = 0; w < slots.length; w++) slots[w].textContent = label;
+    })();
 
     // Evita contar dos veces el mismo lead si la persona recarga la página.
     function onceStorage(name) {

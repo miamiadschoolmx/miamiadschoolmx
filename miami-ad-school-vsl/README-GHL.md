@@ -295,7 +295,7 @@ El píxel de Meta `1349923403740237` ya está en la página. La landing **no ins
 
 | Evento | Cuándo ocurre |
 |---|---|
-| `cta_click` | Clic en un botón; `cta` dice cuál: `hero-folleto`, `ruta-copywriter`, `ruta-director-de-arte`, `ruta-aun-no-se`, `como-funciona-folleto`, `practicas-folleto`, `footer-folleto` o `sticky-folleto` |
+| `cta_click` | Clic en un botón; `cta` dice cuál: `hero-folleto`, `ruta-copywriter`, `ruta-director-de-arte`, `ruta-aun-no-se`, `como-funciona-folleto`, `practicas-folleto`, `inicios-entrevista`, `inicios-folleto`, `footer-folleto` o `sticky-folleto` |
 | `program_select` | Elige una ruta en «Dos rutas» o llega con `?interes_programa=` |
 | `view_vsl` | El video entra en pantalla |
 | `vsl_play` | Da play al video |
@@ -303,7 +303,7 @@ El píxel de Meta `1349923403740237` ya está en la página. La landing **no ins
 | `form_start` | Entra al formulario |
 | `lead_submit` | Se manda como `Lead` |
 | `brochure_download` | Clic en «Descargar folleto» |
-| `calendar_click` | Clic en «Agenda tu llamada» |
+| `calendar_click` | Clic en «Agenda tu llamada» o en «Agenda tu entrevista» |
 | `appointment_booked` | Se manda como `Schedule` |
 | `social_click` | Clic en una red del footer |
 
@@ -314,12 +314,13 @@ El píxel de Meta `1349923403740237` ya está en la página. La landing **no ins
 
 ## 10 bis. Fechas de inicio
 
-La V2 no tiene cuenta regresiva ni la cápsula «Próximo inicio · faltan X días»: la fecha exacta del ingreso de enero 2027 no está confirmada (spec v2, sección 5). En su lugar:
+Confirmadas por Ricardo (24 oct 2026): **4 inicios al año, el 10 de enero, abril, julio y octubre.**
 
-- El hero dice «Inicios en enero, abril, julio y octubre» y la pregunta «¿Cuándo empieza?» responde lo mismo.
-- El bloque de aplicar dice «Próximo ingreso: enero.».
-
-Cuando la fecha esté confirmada (la V3 propone «10 de enero de 2027», ver `PROMPT-V3-META.md` 10.2), cambia el dato del hero, la respuesta de «¿Cuándo empieza?» y la línea de aplicar (busca `mas-apply__date`). Si se decide volver a poner un contador, que tome esa fecha confirmada y nunca sea *evergreen*.
+- La sección «Tenemos 4 inicios al año» (entre las preguntas y el formulario) muestra las 4 fechas. El JS marca en fucsia la próxima según la fecha de hoy; el día del inicio ya cuenta el siguiente.
+- El hero, la respuesta de «¿Cuándo empieza?» y el bloque del formulario dicen «Próximo inicio: 10 de enero de 2027». El JS lo cambia solo por el que sigue (cualquier elemento con `data-next-start`). Sin JS queda lo que dice el HTML.
+- Si cambian las fechas, cambia `data-start="MM-DD"` y el texto de cada fecha en esa sección, y la respuesta de «¿Cuándo empieza?».
+- No hay cuenta regresiva ni cupo: si un día se pone, que use la fecha confirmada y nunca sea *evergreen*.
+- «Agenda tu entrevista» abre el calendario de Ricardo en otra pestaña (`CONFIG.calendarUrl`); si no hay calendario, baja al formulario. «¿Primero quieres el folleto? Recíbelo aquí» baja al formulario.
 
 ## 11. Probar antes de publicar
 
@@ -335,6 +336,7 @@ Prueba en la **página publicada** en `tufuturocreativo.com`, no solo en el buil
 - [ ] En celular, al pasar el hero aparece abajo la barra «Recibe el folleto»; se esconde al llegar al formulario y al footer.
 - [ ] El video de Tella se reproduce dentro de la página.
 - [ ] El formulario se envía y redirige a `?paso=agenda`; aparece «Tu folleto ya está listo.» con «Descargar folleto», y el folleto llega al correo.
+- [ ] En «Tenemos 4 inicios al año» está marcada la próxima fecha y «Agenda tu entrevista» abre el calendario en otra pestaña.
 - [ ] En `?paso=agenda` aparece el calendario de Ricardo dentro de la página; agendar redirige a `?paso=confirmado` y llega el correo con el enlace.
 - [ ] El slider de logos se mueve al hacer scroll, las flechas lo adelantan y cargan los 29 logos.
 - [ ] «Aviso de privacidad» y «Términos y condiciones» despliegan sus textos en el footer.
@@ -359,6 +361,6 @@ Solo después de esta lista: **publicar**.
 - No agregar menú ni WhatsApp: cada salida le resta al folleto. Las únicas redes van en el footer («Síguenos», decisión de Ricardo) y se abren en una pestaña nueva.
 - No inventar urgencia, cupos, contadores, testimonios, salarios ni promesas de empleo.
 - No dejar «[VERIFICAR]», «[DECIDIR]» ni corchetes a la vista, y no usar la raya larga en ningún texto (spec v2, sección 1).
-- No hablar de «entrevista» ni de «conversación» antes del formulario: todos los botones dicen «Recibe el folleto».
+- No hablar de «entrevista» ni de «conversación» antes del formulario, salvo en «Tenemos 4 inicios al año» (justo antes del formulario), donde Ricardo pidió «Agenda tu entrevista. Realiza tu prueba creativa.» (24 oct 2026). Los demás botones dicen «Recibe el folleto».
 - No quitar la clase `mas-vsl` ni los `id` (`vsl`, `rutas`, `aplicar`, `ghl-form-slot`, `ghl-career-form`): el CSS y el JS dependen de ellos.
 - No instalar otro píxel ni pegar el calendario a mano: los dos ya están resueltos (pasos 9 y 10).

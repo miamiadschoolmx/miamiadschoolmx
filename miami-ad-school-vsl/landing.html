@@ -79,11 +79,12 @@
 
       <p class="mas-hero__sub">Online y en vivo, con dos prácticas de 10 semanas en agencias de la red de Miami Ad&nbsp;School.</p>
 
-      <!-- Zona horaria y fecha exacta sin confirmar (PROMPT-V3-META.md 10.1 y 10.2): van los respaldos. -->
+      <!-- Zona horaria sin confirmar (PROMPT-V3-META.md 10.1). Inicios confirmados por Ricardo (2026-10-24): el 10 de
+           enero, abril, julio y octubre. El JS cambia data-next-start por el próximo según la fecha de hoy. -->
       <ul class="mas-hero__facts" role="list">
         <li>Lunes a jueves, de 7&nbsp;pm a 10&nbsp;pm</li>
         <li>Desde cualquier parte</li>
-        <li>Inicios en enero, abril, julio y octubre</li>
+        <li>Próximo inicio: <span data-next-start>10 de enero de 2027</span></li>
       </ul>
 
       <!-- CTA del hero + qué trae el folleto (PROMPT-V3-META.md 6.1) -->
@@ -328,7 +329,7 @@
         <div class="mas-qa">
           <h3 class="mas-qa__q"><button type="button" class="mas-qa__btn" aria-expanded="true" aria-controls="mas-a2" id="mas-q2">¿Cuándo empieza?<span class="mas-qa__icon" aria-hidden="true"></span></button></h3>
           <div class="mas-qa__a" id="mas-a2" role="region" aria-labelledby="mas-q2"><div class="mas-qa__inner">
-            <p>Hay inicios en enero, abril, julio y octubre.</p>
+            <p>Hay cuatro inicios al año: el 10 de enero, el 10 de abril, el 10 de julio y el 10 de octubre. El próximo es el <span data-next-start>10 de enero de 2027</span>.</p>
           </div></div>
         </div>
         <div class="mas-qa">
@@ -389,14 +390,45 @@
     </div>
   </section>
 
+  <!-- 10 bis · INICIOS (pedida por Ricardo, 2026-10-24): 4 al año, el día 10. El JS marca el próximo según la fecha
+       de hoy (sin JS queda marcado enero). «Agenda tu entrevista» abre el calendario de Ricardo (CONFIG.calendarUrl);
+       sin calendario, baja al formulario. -->
+  <section class="mas-section mas-starts" id="inicios" aria-labelledby="mas-starts-title">
+    <div class="mas-wrap">
+      <h2 class="mas-h2 mas-starts__title" id="mas-starts-title" data-reveal>Tenemos <span class="mas-circled">4<svg class="mas-pen mas-pen--circle" viewBox="0 0 300 110" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M42 78C14 64 18 30 66 18C130 2 238 6 276 30C302 47 288 82 232 94C160 109 70 104 34 86C10 74 20 52 52 40"/></svg></span> inicios al&nbsp;año.</h2>
+      <ol class="mas-starts__dates" role="list" aria-label="Fechas de inicio">
+        <li class="mas-start is-next" data-start="01-10"><span class="mas-start__tag" data-start-tag>Próximo inicio</span><time class="mas-start__date" datetime="--01-10"><span class="mas-start__day">10</span> <span class="mas-start__month">enero</span></time></li>
+        <li class="mas-start" data-start="04-10"><span class="mas-start__tag" data-start-tag hidden>Próximo inicio</span><time class="mas-start__date" datetime="--04-10"><span class="mas-start__day">10</span> <span class="mas-start__month">abril</span></time></li>
+        <li class="mas-start" data-start="07-10"><span class="mas-start__tag" data-start-tag hidden>Próximo inicio</span><time class="mas-start__date" datetime="--07-10"><span class="mas-start__day">10</span> <span class="mas-start__month">julio</span></time></li>
+        <li class="mas-start" data-start="10-10"><span class="mas-start__tag" data-start-tag hidden>Próximo inicio</span><time class="mas-start__date" datetime="--10-10"><span class="mas-start__day">10</span> <span class="mas-start__month">octubre</span></time></li>
+      </ol>
+      <div class="mas-starts__foot">
+        <div class="mas-starts__how">
+          <h3 class="mas-starts__how-title">Cómo entras</h3>
+          <ol class="mas-starts__steps" role="list">
+            <li><span class="mas-starts__n" aria-hidden="true">1</span><span>Agenda tu entrevista.</span></li>
+            <li><span class="mas-starts__n" aria-hidden="true">2</span><span>Realiza tu prueba creativa.</span></li>
+          </ol>
+        </div>
+        <div class="mas-starts__action">
+          <a class="mas-btn mas-btn--ink" href="#aplicar" data-calendar-cta data-event="calendar_click" data-cta="inicios-entrevista">
+            Agenda tu entrevista
+            <svg class="mas-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="mas-starts__alt" href="#aplicar" data-cta="inicios-folleto">¿Primero quieres el folleto? Recíbelo&nbsp;aquí</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- 11 · APLICAR · formulario de GoHighLevel (folleto primero, llamada opcional) -->
   <section class="mas-section mas-sec-apply" id="aplicar" aria-labelledby="mas-apply-title">
     <div class="mas-wrap mas-apply">
       <div class="mas-apply__intro">
         <h2 class="mas-h2 mas-apply__title" id="mas-apply-title"><span>Tu título dice qué estudiaste.</span> <span>Tu portafolio muestra qué puedes&nbsp;hacer.</span></h2>
         <p class="mas-apply__sub">Recibe el folleto con el plan de estudios y las fechas. Si quieres, después agenda 30 minutos con&nbsp;Ricardo.</p>
-        <!-- Fecha exacta y cupo sin confirmar (spec v2, sección 5): solo el mes. -->
-        <p class="mas-apply__date">Próximo ingreso: enero.</p>
+        <!-- Fecha confirmada por Ricardo (2026-10-24); el JS la mantiene al día. Cupo sin confirmar: no se menciona. -->
+        <p class="mas-apply__date">Próximo inicio: <span data-next-start>10 de enero de 2027</span>.</p>
 
         <ol class="mas-steps" role="list" aria-label="Cómo funciona">
           <li class="mas-step" data-step="form"><span class="mas-step__n" aria-hidden="true">1</span><span><strong>Deja tus datos.</strong> 30 segundos.</span></li>

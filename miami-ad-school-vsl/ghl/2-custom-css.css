@@ -1,4 +1,4 @@
-/* Generado por tools/ghl-kit.py desde landing.*. No lo edites a mano: cambia el original y vuelve a correr el script. Versión d4c3d2db. */
+/* Generado por tools/ghl-kit.py desde landing.*. No lo edites a mano: cambia el original y vuelve a correr el script. Versión 64ad345a. */
 @font-face {
   font-family: "Obviously Narrow";
   font-style: normal;
@@ -24,7 +24,7 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 .mas-vsl {
-  --kit: "d4c3d2db";
+  --kit: "64ad345a";
   --black: #0A0A0A;
   --black-2: #151515;
   --white: #F7F5F2;
@@ -1000,6 +1000,118 @@
   .mas-vsl .mas-faq__title { grid-column: 1 / span 5; position: sticky; top: 2rem; }
   .mas-vsl .mas-accordion { grid-column: 6 / -1; }
 }
+.mas-vsl .mas-starts {
+  --bg: var(--acid);
+  --fg: var(--black);
+  --fg-2: #45450A;
+  --rule: rgba(10, 10, 10, .25);
+  --focus: var(--black);
+  background: var(--bg);
+  color: var(--fg);
+}
+.mas-vsl .mas-starts ::selection { background: var(--black); color: var(--acid); }
+.mas-vsl .mas-starts__title { max-width: 11ch; font-size: var(--t-poster); line-height: .88; }
+.mas-vsl .mas-starts .mas-circled { margin-inline: .16em .1em; color: var(--black); }
+.mas-vsl .mas-starts .mas-pen--circle { --pen: var(--hot); left: -32%; top: -6%; width: 164%; height: 114%; }
+.mas-vsl .mas-starts__dates {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(.75rem, 2vw, 1.5rem);
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+.mas-vsl .mas-start {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: clamp(10rem, 22vw, 18rem);
+  padding: clamp(1rem, 2.4vw, 1.75rem);
+  border-radius: clamp(.75rem, 1.6vw, 1.5rem);
+  background: var(--black);
+  color: var(--white);
+}
+.mas-vsl .mas-start__date { display: flex; flex-direction: column; margin-top: auto; }
+.mas-vsl .mas-start__day {
+  font-family: var(--font-display);
+  font-stretch: var(--display-stretch);
+  font-weight: var(--display-weight);
+  font-size: clamp(4rem, 2rem + 8vw, 9.5rem);
+  line-height: .8;
+  letter-spacing: -.03em;
+}
+.mas-vsl .mas-start__month {
+  margin-top: .35em;
+  font-family: var(--font-display);
+  font-stretch: var(--display-stretch);
+  font-weight: var(--display-weight);
+  font-size: clamp(1.5rem, 1rem + 1.8vw, 2.75rem);
+  line-height: 1;
+  letter-spacing: -.01em;
+}
+.mas-vsl .mas-start__tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.875rem;
+  padding: .25rem .75rem;
+  border-radius: 999px;
+  background: var(--black);
+  color: var(--white);
+  font-size: var(--t-micro);
+  font-weight: 800;
+  line-height: 1.15;
+}
+.mas-vsl .mas-start.is-next { background: var(--hot); color: var(--black); }
+.mas-vsl .mas-starts__foot {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3rem);
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  padding-top: clamp(2rem, 4vw, 3rem);
+  border-top: 2px solid var(--black);
+}
+.mas-vsl .mas-starts__how-title { font-size: var(--t-small); font-weight: 800; color: var(--fg-2); }
+.mas-vsl .mas-starts__steps { display: grid; gap: 1rem; margin-top: 1rem; }
+.mas-vsl .mas-starts__steps li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-display);
+  font-stretch: var(--display-stretch);
+  font-weight: var(--display-weight);
+  font-size: clamp(1.75rem, 1rem + 2.8vw, 3.5rem);
+  line-height: .95;
+  letter-spacing: -.02em;
+}
+.mas-vsl .mas-starts__n {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.35em; height: 1.35em;
+  border-radius: 50%;
+  background: var(--black);
+  color: var(--acid);
+  font-size: .62em;
+  line-height: 1;
+}
+.mas-vsl .mas-starts__action { display: grid; justify-items: start; gap: .75rem; align-self: end; }
+.mas-vsl .mas-starts__alt {
+  display: inline-block;
+  padding-block: .625rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: .25em;
+}
+@media (max-width: 47.99em) {
+  .mas-vsl .mas-starts__action { justify-items: stretch; }
+  .mas-vsl .mas-starts__action .mas-btn { justify-content: space-between; }
+}
+@media (min-width: 48em) {
+  .mas-vsl .mas-starts__dates { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .mas-vsl .mas-start:nth-child(odd) { transform: rotate(-1.5deg); }
+  .mas-vsl .mas-start:nth-child(even) { transform: rotate(1.5deg); }
+  .mas-vsl .mas-start.is-next { transform: rotate(-1.5deg) scale(1.04); box-shadow: 0 18px 40px -18px rgba(10, 10, 10, .55); }
+  .mas-vsl .mas-starts__foot { grid-template-columns: minmax(0, 1fr) auto; align-items: end; }
+  .mas-vsl .mas-starts__action { justify-items: end; }
+}
 .mas-vsl .mas-apply { display: grid; gap: clamp(2.5rem, 6vw, 4rem); }
 .mas-vsl .mas-apply__title { max-width: 14ch; font-size: clamp(2.25rem, 1.1rem + 3.6vw, 5rem); }
 .mas-vsl .mas-apply__title span { display: block; }
@@ -1312,7 +1424,8 @@
     stroke-dashoffset: 3;
     animation: mas-draw .9s var(--ease-io) .7s forwards;
   }
-  .mas-vsl.has-motion .mas-verdict .mas-pen path {
+  .mas-vsl.has-motion .mas-verdict .mas-pen path,
+  .mas-vsl.has-motion .mas-starts .mas-pen path {
     stroke-dasharray: 3;
     stroke-dashoffset: 3;
     transition: stroke-dashoffset .8s var(--ease-io) .45s;

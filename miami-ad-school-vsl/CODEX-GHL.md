@@ -2,7 +2,7 @@
 
 Instrucciones para Codex (o para quien lo haga a mano). Página de prueba: **`https://preview.tufuturocreativo.com/pruebaoct`**, cuenta de GHL de Miami Ad School México. Versión del kit: la que dice la primera línea de cada bloque (los 4 deben decir la misma).
 
-Qué cambia en la V3 (`PROMPT-V3-META.md`): hero nuevo con sello de Future Lions, «Dos rutas» en lugar de «Nuestra misión», barra fija en celular, textos sin jerga, preguntas nuevas, SEO nuevo, calendario dentro de la página y **medición encendida** con el píxel que ya está.
+Qué cambia en la V3 (`PROMPT-V3-META.md`): hero nuevo con sello de Future Lions, «Dos rutas» en lugar de «Nuestra misión», «Tenemos 4 inicios al año» antes del formulario, barra fija en celular, textos sin jerga, preguntas nuevas, SEO nuevo, calendario dentro de la página y **medición encendida** con el píxel que ya está.
 
 ## Reglas (no se negocian)
 
@@ -123,15 +123,16 @@ Guarda la página y abre **`https://preview.tufuturocreativo.com/pruebaoct?revis
 1. Toca el **video** del hero: debe reproducirse dentro de la página.
 2. Toca cada **«Recibe el folleto»** (hero, final de «¿Cómo funciona…?», final de prácticas, footer): todos bajan al formulario.
 3. En «Dos rutas», toca **«Me interesa Copywriter»**: baja al formulario con «Copywriter» marcado. Igual con «Director de Arte».
-4. En el celular: al pasar el hero aparece abajo la barra **«Recibe el folleto»**; se esconde al llegar al formulario y al footer.
-5. Abre Meta **Events Manager → Probar eventos** con la URL `https://preview.tufuturocreativo.com/pruebaoct?utm_source=prueba&utm_campaign=prueba-codex`.
-6. Envía el formulario con un correo de prueba: debe redirigir y mostrar **«Tu folleto ya está listo.»**, el botón **«Descargar folleto»** y el **calendario** dentro de la página.
-7. En Probar eventos: llegan `PageView` y **un solo** `Lead`. Toma captura.
-8. En GHL, abre el contacto de prueba: debe tener `prueba` en `utm_source` y `prueba-codex` en `utm_campaign`. Toma captura.
-9. Si el workflow ya está publicado: llega el correo con el folleto.
-10. «Aviso de privacidad» y «Términos y condiciones» del footer despliegan sus textos.
-11. Ninguna sección se sale de la pantalla en el celular, ni hay scroll horizontal.
-12. Borra el contacto de prueba en GHL.
+4. En «Tenemos 4 inicios al año» está marcado en fucsia el 10 de enero y **«Agenda tu entrevista»** abre el calendario de Ricardo en otra pestaña.
+5. En el celular: al pasar el hero aparece abajo la barra **«Recibe el folleto»**; se esconde al llegar al formulario y al footer.
+6. Abre Meta **Events Manager → Probar eventos** con la URL `https://preview.tufuturocreativo.com/pruebaoct?utm_source=prueba&utm_campaign=prueba-codex`.
+7. Envía el formulario con un correo de prueba: debe redirigir y mostrar **«Tu folleto ya está listo.»**, el botón **«Descargar folleto»** y el **calendario** dentro de la página.
+8. En Probar eventos: llegan `PageView` y **un solo** `Lead`. Toma captura.
+9. En GHL, abre el contacto de prueba: debe tener `prueba` en `utm_source` y `prueba-codex` en `utm_campaign`. Toma captura.
+10. Si el workflow ya está publicado: llega el correo con el folleto.
+11. «Aviso de privacidad» y «Términos y condiciones» del footer despliegan sus textos.
+12. Ninguna sección se sale de la pantalla en el celular, ni hay scroll horizontal.
+13. Borra el contacto de prueba en GHL.
 
 **Formulario en `loading="lazy"`:** en vivo lo habían cambiado a `eager`. Prueba que cargue al tocar un botón, en celular y escritorio. Si alguna vez no carga, no lo cambies en GHL: anótalo en el reporte.
 

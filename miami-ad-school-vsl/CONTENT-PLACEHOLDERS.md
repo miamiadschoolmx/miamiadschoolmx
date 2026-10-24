@@ -11,7 +11,7 @@ Viene de la sección 10 de `PROMPT-V3-META.md` (24 oct 2026). Mientras Ricardo n
 | # | Dato | Dónde se usa | Respaldo en uso | Cómo cambiarlo |
 |---|---|---|---|---|
 | 10.1 | Zona horaria del horario | Hero, «¿Cuánto dura?», «¿Puedo trabajar…?», «¿Otra ciudad o país?» | «de 7 pm a 10 pm», sin zona | Agregar la zona en el hero y en esas tres respuestas |
-| 10.2 | ¿Inicio el 10 de enero de 2027? | Hero, «¿Cuándo empieza?», aplicar | «Inicios en enero, abril, julio y octubre» y «Próximo ingreso: enero.» | Hero: «Inicia el 10 de enero de 2027». FAQ: «El próximo inicio es el 10 de enero de 2027.». Aplicar: «Próximo inicio: 10 de enero de 2027». Si cabe, también al final de la descripción SEO |
+| 10.2 | Fechas de inicio | Hero, «Tenemos 4 inicios al año», «¿Cuándo empieza?», aplicar | **Confirmado por Ricardo (24 oct 2026):** el 10 de enero, abril, julio y octubre. El próximo lo calcula el JS | Si cambian: `data-start` y textos de la sección de inicios, y la respuesta de «¿Cuándo empieza?» (README-GHL · 10 bis) |
 | 10.3 | ¿Es licenciatura? ¿Qué documento se recibe? | FAQ «¿Es una licenciatura?» | La pregunta no está | Agregarla después de «¿Cuánto cuesta?» (texto en 6.11) |
 | 10.4 | ¿Qué trae el PDF? | Microcopy del hero y texto de aplicar | «PDF gratis con el plan de estudios. Te llega a tu correo.» y «Recibe el folleto con el plan de estudios y las fechas.» | Ajustar si el PDF no trae fechas o trae más |
 | 10.5 | ¿Prácticas en los meses 13 a 18? | Etapa 3 y «¿Cuánto dura?» | «Etapa 3 · Meses 13 a 18» (tres etapas de seis meses) | Si no, «Después del primer año» |
@@ -93,6 +93,7 @@ No se usan: «La escuela más premiada del mundo» (C-006), «Ninguna otra escue
 - «Problema» suma «O vienes de otra carrera y sabes que lo tuyo es crear.».
 - Preguntas nuevas: «¿Cuánto dura?», «¿Cuándo empieza?», «¿Por qué Miami Ad School?». Salió «¿Cómo funcionan las prácticas profesionales?» (ya está en la página). Son 11.
 - Barra fija «Recibe el folleto» en celular (`sticky-folleto`).
+- «Tenemos 4 inicios al año» (pedida por Ricardo, 24 oct 2026), entre las preguntas y el formulario: las 4 fechas con la próxima marcada, «Cómo entras: 1. Agenda tu entrevista. 2. Realiza tu prueba creativa.», el botón «Agenda tu entrevista» (abre el calendario) y «¿Primero quieres el folleto? Recíbelo aquí».
 - Footer: «Copywriting y Dirección de Arte».
 
 **Agregados por Ricardo (2026-10-23), fuera de la spec** (historia de la V2; lo que cambió en la V3 está arriba):

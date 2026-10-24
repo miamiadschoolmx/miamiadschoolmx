@@ -1172,6 +1172,16 @@
   color: var(--fg-2);
   text-wrap: pretty;
 }
+/* «Agenda tu llamada» en «¿Hay becas?»: abre el calendario */
+.mas-vsl .mas-qa__inner a {
+  color: var(--fg);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--hot);
+  text-underline-offset: .2em;
+}
+.mas-vsl .mas-qa__inner a:hover { color: var(--hot); }
 @media (min-width: 64em) {
   .mas-vsl .mas-faq { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--col-gap); align-items: start; }
   .mas-vsl .mas-faq__title { grid-column: 1 / span 5; position: sticky; top: 2rem; }
@@ -1443,6 +1453,8 @@
   color: var(--white-2);
 }
 .mas-vsl .mas-footer__program span { white-space: nowrap; }
+/* El sello del hero, otra vez al cierre, en su propio renglón y un poco más grande */
+.mas-vsl .mas-footer__seal { flex-basis: 100%; max-width: 30rem; margin-bottom: 0; font-size: var(--t-small); }
 .mas-vsl .mas-footer__cta { flex: none; }
 /* Foto de cierre: pieza física girada −2°. En celular va primero y a todo lo ancho;
    desde tablet, a la derecha del nombre, que crece a dos líneas para que no queden huecos. */

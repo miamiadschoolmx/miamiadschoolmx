@@ -295,7 +295,7 @@ El píxel de Meta `1349923403740237` ya está en la página. La landing **no ins
 
 | Evento | Cuándo ocurre |
 |---|---|
-| `cta_click` | Clic en un botón; `cta` dice cuál: `hero-folleto`, `ruta-copywriter`, `ruta-director-de-arte`, `ruta-aun-no-se`, `como-funciona-folleto`, `practicas-folleto`, `inicios-entrevista`, `inicios-folleto`, `footer-folleto` o `sticky-folleto` |
+| `cta_click` | Clic en un botón; `cta` dice cuál: `hero-folleto`, `ruta-copywriter`, `ruta-director-de-arte`, `ruta-aun-no-se`, `como-funciona-folleto`, `practicas-folleto`, `inicios-entrevista`, `inicios-folleto`, `faq-becas`, `footer-folleto` o `sticky-folleto` |
 | `program_select` | Elige una ruta en «Dos rutas» o llega con `?interes_programa=` |
 | `view_vsl` | El video entra en pantalla |
 | `vsl_play` | Da play al video |
@@ -303,7 +303,7 @@ El píxel de Meta `1349923403740237` ya está en la página. La landing **no ins
 | `form_start` | Entra al formulario |
 | `lead_submit` | Se manda como `Lead` |
 | `brochure_download` | Clic en «Descargar folleto» |
-| `calendar_click` | Clic en «Agenda tu llamada» o en «Agenda tu entrevista» |
+| `calendar_click` | Clic en «Agenda tu llamada» (también el de «¿Hay becas?») o en «Agenda tu entrevista» |
 | `appointment_booked` | Se manda como `Schedule` |
 | `social_click` | Clic en una red del footer |
 

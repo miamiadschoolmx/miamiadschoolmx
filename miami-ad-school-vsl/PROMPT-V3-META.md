@@ -37,7 +37,7 @@ Lo revisé en celular (390 px) y escritorio (1440 px), con el panel `?revisar=1`
 
 | # | Qué pasa | Por qué importa en Meta | Qué hacer |
 |---|---|---|---|
-| P0-1 | **El video contradice la página.** Dice «12 meses» y «en un año», contra los 18 meses de la página. Dice «10 semanas de prácticas» (una), contra las dos de la página. Dice «Somos la escuela de publicidad y creatividad más premiada del mundo», «las mejores agencias del mundo» y «el portafolio que te va a conseguir trabajo» (claims prohibidos C-006, C-003 y C-008). También dice «Cada maestro es un director creativo activo… Netflix, Nike, Coca Cola, Apple» y «12 sedes» (sin verificar). Su cierre pide «agenda una llamada de 10 minutos», contra el «Recibe el folleto» y la llamada de 30 minutos de la página. Además habla de «escuela». | Es lo primero que ve el tráfico frío. Dos cifras distintas de duración destruyen la confianza y bajan la calidad de los leads. Las promesas de empleo arriesgan el rechazo de anuncios y problemas con PROFECO. | **[DECIDIR]** Regrabar un video corto con el guion de la sección 7 (recomendado). Respaldo: quitar el video del hero y dejar el botón «Recibe el folleto» hasta tener el nuevo. Corregir también el título («MIAMI Venta_Mad_02») y la descripción («12 meses») en Tella. |
+| P0-1 | **El video contradice la página.** Dice «12 meses» y «en un año», contra los 18 meses de la página. Dice «10 semanas de prácticas» (una), contra las dos de la página. Dice «Somos la escuela de publicidad y creatividad más premiada del mundo», «las mejores agencias del mundo» y «el portafolio que te va a conseguir trabajo» (claims prohibidos C-006, C-003 y C-008). También dice «Cada maestro es un director creativo activo… Netflix, Nike, Coca Cola, Apple» y «12 sedes» (sin verificar). Su cierre pide «agenda una llamada de 10 minutos», contra el «Recibe el folleto» y la llamada de 30 minutos de la página. Además habla de «escuela». | Es lo primero que ve el tráfico frío. Dos cifras distintas de duración destruyen la confianza y bajan la calidad de los leads. Las promesas de empleo arriesgan el rechazo de anuncios y problemas con PROFECO. | **Decisión de Ricardo (24 oct 2026): el video actual se queda hasta que grabe uno nuevo** con el guion de la sección 7. Mientras tanto: no usar este video ni sus frases en los anuncios, y corregir en Tella el título («MIAMI Venta_Mad_02») y la descripción («12 meses»). Cuando llegue el nuevo, solo se cambia `CONFIG.vslUrl` y la portada. |
 | P0-2 | **El evento Lead no se envía.** El píxel `1349923403740237` está instalado (solo manda PageView), pero la medición de la landing sigue apagada (`TRACKING_ENABLED = false`). | Sin Lead, Meta no puede optimizar campañas de clientes potenciales ni saber qué anuncio trae folletos. | Activar la medición (sección 6.1) y probarla en Events Manager → Probar eventos antes del primer peso. |
 | P0-3 | **Los UTM no llegan a GHL.** El formulario es un iframe con URL fija: el `utm_source`, `utm_campaign`, `utm_content` y `fbclid` del anuncio se quedan en la página y no llegan al contacto. | No podrás saber qué campaña o creativo trae cada lead, ni pasarlo a CAPI. | Reenviar esos parámetros al `src` del iframe y crear campos ocultos en el formulario de GHL (sección 6.2). |
 | P0-4 | **El hero no dice lo que dice el anuncio.** El anuncio dirá «Conviértete en Copywriter o Director de Arte»; el H1 dice «Tu título no te consigue el mejor trabajo». | Coincidencia de mensaje: si en 2 segundos no reconoce la promesa del anuncio, se va, y Meta encarece el clic. | Nuevo hero (sección 5.1). |
@@ -119,7 +119,7 @@ Todo lo de esta sección es **propuesta** con datos confirmados. Ricardo elige; 
   - B: `Recibe el folleto` (control)
 - **Microcopy bajo el botón:** `PDF gratis en tu correo. Sin compromiso.`
 - **Sello de prueba (C-002, exacto) [DECIDIR]:** `Miami Ad School ha sido reconocida siete veces como Future Lions School of the Year, incluyendo 2025.`
-- **Video:** el nuevo de la sección 7, o ninguno (respaldo P0-1).
+- **Video:** el actual, hasta que llegue el nuevo de la sección 7.
 
 ### 5.2 ¿Copywriter o Director de Arte? (nueva)
 - **Título:** `¿Copywriter o Director de Arte?`
@@ -217,7 +217,7 @@ Quitar `¿Y si ya sé usar Adobe, Canva o IA?` o dejarla al final. **[DECIDIR]**
 
 | # | Dato | Para qué | Respaldo si no llega |
 |---|---|---|---|
-| 8.1 | ¿Se regraba el video? ¿Para cuándo? | P0-1 | Quitar el video del hero hasta tenerlo |
+| 8.1 | ~~¿Se regraba el video?~~ **Decidido:** se queda el actual hasta que Ricardo grabe el nuevo | P0-1 | Se queda el actual |
 | 8.2 | Zona horaria del horario | Hero y FAQ | «7 a 10 pm» sin zona |
 | 8.3 | ¿Qué documento recibe el alumno? ¿Es licenciatura? | FAQ 2 | No agregar la pregunta |
 | 8.4 | Contenido real del PDF | Botón y bloque de aplicar | «Recibe el folleto» |
@@ -236,7 +236,7 @@ Quitar `¿Y si ya sé usar Adobe, Canva o IA?` o dejarla al final. **[DECIDIR]**
 
 1. P0-5: sincronizar repo y GHL.
 2. P0-2 y P0-3: medición y UTM (se pueden probar antes de cambiar textos).
-3. P0-1: video (decisión 8.1).
+3. P0-1: video. Se queda el actual; se cambia cuando Ricardo grabe el nuevo.
 4. P0-4 y P1: hero, roles, problema, jerga, barra fija, FAQ, aplicar.
 5. P2.
 6. QA completo, `?revisar=1`, prueba real con UTM, Probar eventos de Meta.

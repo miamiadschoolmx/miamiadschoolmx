@@ -6,17 +6,19 @@ Guía paso a paso para montar `landing.html`, `landing.css` y `landing.js` en Go
 >
 > Los nombres de menús de GHL cambian con las actualizaciones. Si algo no aparece exactamente con el nombre que se usa aquí, busca la opción equivalente.
 
-## V2 (octubre 2026): cómo reemplazar lo que está en `/pruebaoct`
+## V3 (24 de octubre de 2026): lo nuevo antes de Meta Ads
 
-La V2 sigue la especificación «Landing Carrera Creativa v2» (21 de octubre de 2026). Ya trae adentro lo que antes se había agregado a mano en GHL: el formulario, el folleto en PDF, los videos de Tella y los textos legales. Por eso **se reemplaza todo, no se mezcla**:
+La V3 sigue `PROMPT-V3-META.md`. Cambia el hero («Conviértete en Copywriter o Director de Arte.», con el sello de Future Lions), quita «Nuestra misión», agrega «Dos rutas», la barra fija en celular, textos sin jerga y preguntas nuevas, y **enciende la medición**. Se reemplaza todo, no se mezcla:
 
-1. **Custom JS/HTML de la sección:** borra todo lo que tenga y pega `ghl/1-custom-code.html` completo. También desaparecen el bloque `<style>` con `.mas-ghl-embed` y los textos legales viejos: ya vienen en el bloque nuevo.
-2. **Settings → Custom CSS:** borra todo, incluidos los parches «GHL integration fix», «Reparación de hero responsive» y `.mas-apply-module { display: none }`, y pega `ghl/2-custom-css.css`.
-3. **Settings → Tracking Code → Footer** de la página: borra el script que empieza con `var formUrl=` y cualquier versión anterior de la landing, y pega `ghl/3-footer.html`. **Si ahí o en el Header hay un píxel de Meta, GA4, Google Tag Manager u otro script de medición, no lo borres** (spec v2, sección 1, regla 7).
-4. **Settings → SEO:** título, descripción e imagen del paso 1.
-5. Abre la vista previa con `?revisar=1`. La primera línea dice si los 3 bloques son de la misma versión. En `/pruebaoct` el CSS era de una versión y el HTML de otra: por eso el hero se veía mal.
+1. **Custom JS/HTML de la sección:** borra todo y pega `ghl/1-custom-code.html`. Si en el paso «Tu folleto ya está listo» alguien pegó a mano un iframe de calendario (con un comentario «Google Calendar»), también se va: ahora el JS crea el calendario solo en ese paso.
+2. **Settings → Custom CSS:** borra todo y pega `ghl/2-custom-css.css`.
+3. **Settings → Tracking Code → Footer:** borra la versión anterior de la landing y pega `ghl/3-footer.html`. **El píxel de Meta se queda.**
+4. **Settings → Tracking Code → Header (nuevo):** deja el píxel y pega debajo `ghl/4-header-seo.html` (canonical y datos estructurados `Course`).
+5. **Settings → SEO:** título, descripción e imagen nuevos (paso 1). La imagen para compartir es `img/og-carrera-creativa-v3.jpg`: súbela a la biblioteca de medios.
+6. **Formulario de GHL** (paso 8): opciones de «Me interesa» en español y 6 campos ocultos para los UTM.
+7. Abre la vista previa con `?revisar=1`: la primera línea dice si los bloques son de la misma versión.
 
-Las imágenes y las fuentes **no se vuelven a subir**: `ghl/medios.json` ya tiene sus URLs de GHL. Solo hay que subir la nueva imagen para compartir (`img/og-carrera-creativa.jpg`, paso 1).
+Las demás imágenes y las fuentes **no se vuelven a subir**: `ghl/medios.json` ya tiene sus URLs de GHL.
 
 ## Qué hay en esta carpeta
 
@@ -24,11 +26,11 @@ Las imágenes y las fuentes **no se vuelven a subir**: `ghl/medios.json` ya tien
 |---|---|
 | `landing.html` | La página completa para vista previa local. Para GHL solo se copia el bloque entre `GHL · COPIAR DESDE AQUÍ` y `GHL · HASTA AQUÍ`. |
 | `landing.css` | Estilos. Todo está bajo `.mas-vsl`, así que no toca la plantilla de GHL. |
-| `landing.js` | Comportamiento: VSL, acordeón, galería, selección de programa, etapas del formulario y eventos de medición (desactivados). |
+| `landing.js` | Comportamiento: VSL, acordeón, rutas que prellenan el formulario, UTM al formulario, etapas del formulario, calendario, barra fija en celular y eventos de medición (encendidos, con el píxel que ya está en la página). |
 | `fonts/` | Archivo (licencia SIL OFL, se puede usar y redistribuir). Obviously Narrow **no** está incluida porque es una fuente con licencia comercial. |
 | `img/` | Fotos de marca ya optimizadas (WebP), el logo provisional y la imagen para compartir. Son las que se suben a la biblioteca de medios de GHL (paso 6). |
 | `CONTENT-PLACEHOLDERS.md` | Todo lo que hay que reemplazar antes de publicar. |
-| `ghl/` | **El kit para pegar:** los 3 bloques ya cortados (`1-custom-code.html`, `2-custom-css.css`, `3-footer.html`) y `medios.json`, la lista de archivos con su URL de GHL. |
+| `ghl/` | **El kit para pegar:** los 3 bloques ya cortados (`1-custom-code.html`, `2-custom-css.css`, `3-footer.html`), el SEO del Header (`4-header-seo.html`) y `medios.json`, la lista de archivos con su URL de GHL. |
 | `tools/ghl-kit.py` | Arma el kit. Cambia todas las rutas `img/...` y `fonts/...` por las URLs de GHL de una sola vez. |
 
 Para ver la vista previa local, abre una terminal en esta carpeta y corre `python3 -m http.server 8000`; después entra a `http://localhost:8000/landing.html`. Para ver los otros estados del formulario usa `?paso=agenda` y `?paso=confirmado`.
@@ -44,6 +46,7 @@ En lugar de cortar el HTML entre marcas y cambiar más de 40 rutas a mano:
    - `ghl/1-custom-code.html` en el elemento Custom JS/HTML (paso 3).
    - `ghl/2-custom-css.css` en Custom CSS (paso 4).
    - `ghl/3-footer.html` en Tracking Code → Footer (paso 5).
+   - `ghl/4-header-seo.html` en Tracking Code → Header, debajo del píxel (paso 1).
 
 Si cambias `landing.html`, `landing.css` o `landing.js`, vuelve a correr el script antes de pegar. Los bloques de `ghl/` nunca se editan a mano.
 
@@ -58,7 +61,9 @@ Cuando ya esté pegada, abre la página publicada con `?revisar=1` al final (por
 - Qué contenido pendiente se vería todavía.
 - Si la sección ocupa todo el ancho.
 - Si algún contenedor de GHL puede estorbar al scroll.
-- Si quedó algún «[VERIFICAR]» o raya larga (—) a la vista, y si el título SEO es el correcto.
+- Si quedó algún «[VERIFICAR]» o raya larga a la vista.
+- Si el título SEO es el correcto, si están el canonical y el JSON-LD (y si el canonical quedó repetido).
+- Si la medición está encendida y encuentra el píxel de Meta.
 
 Sin `?revisar=1` nadie lo ve, y no envía nada.
 
@@ -70,11 +75,12 @@ Sin `?revisar=1` nadie lo ve, y no envía nada.
 2. Crea un funnel nuevo, o abre el existente, y agrega un paso o página nueva. Ejemplo de ruta: `/carrera-creativa`.
 3. Elige **plantilla en blanco**. No uses una plantilla con header, menú o footer: la landing no debe tener enlaces que saquen a la persona del recorrido.
 4. En la configuración de la página (**Settings**) define:
-   - **Título SEO:** `Carrera Creativa | Miami Ad School México`
-   - **Descripción:** `18 meses online y en vivo para construir un book de Art Direction o Copywriting. Dos prácticas de 10 semanas en agencias de la red Miami Ad School.`
+   - **Título SEO:** `Carrera de Copywriter y Director de Arte | Miami Ad School México`
+   - **Descripción:** `Conviértete en copywriter o director de arte publicitario: 18 meses online y en vivo, con dos prácticas de 10 semanas en agencias de la red Miami Ad School.`
    - **Idioma:** español (`es-MX`), si tu cuenta lo permite.
-   - **Imagen para compartir (OG):** sube `img/og-carrera-creativa.jpg` (1200 × 630, está en `img/`) y úsala aquí. Es el hero de la V2: «Tu título no te consigue el mejor trabajo. Tu portafolio sí.»
+   - **Imagen para compartir (OG):** sube `img/og-carrera-creativa-v3.jpg` (1200 × 630) y úsala aquí. Es el hero de la V3: sello, «Conviértete en Copywriter o Director de Arte.» y «Tu portafolio sí.».
    - **Título y descripción para redes** (si GHL los pide aparte): los mismos de arriba.
+   - **Tracking Code → Header:** deja el píxel de Meta y pega debajo `ghl/4-header-seo.html`: el canonical (`https://tufuturocreativo.com/carrera-creativa`) y el JSON-LD `Course`, solo con datos confirmados. Si `?revisar=1` dice que el canonical está repetido, GHL ya pone uno: borra esa línea del Header.
    - **Velocidad:** cuando ya tengas las fuentes en GHL (paso 4), en **Tracking Code → Header** precarga la de titulares para que aparezcan sin parpadeo: `<link rel="preload" href="URL_DE_OBVIOUSLY_NARROW_BOLD.woff" as="font" type="font/woff" crossorigin>`.
 5. **No publiques todavía.**
 
@@ -96,7 +102,7 @@ Si el builder está en ancho completo pero la página publicada sigue con márge
    }
    ```
 
-No le pongas a esta sección animaciones de entrada de GHL, ni `overflow` o `transform` en sus ajustes. Rompen las tarjetas que se apilan al hacer scroll.
+No le pongas a esta sección animaciones de entrada de GHL, ni `overflow` o `transform` en sus ajustes. Rompen las tarjetas que se apilan al hacer scroll y la barra fija del celular («Recibe el folleto» abajo de la pantalla).
 
 ## 3. Insertar el HTML
 
@@ -166,13 +172,13 @@ El script se protege solo contra ejecuciones dobles. Si un día lo pegas en los 
 | Archivo | Dónde va | Código |
 |---|---|---|
 | `logo-mas-300.png` | Logo del hero (provisional, ver P-01) | P-01 |
-| `hero-craft-640.webp`, `hero-craft-1080.webp` | Foto cuadrada del hero (grafitero) | P-02 |
+| `vsl-poster-640.webp`, `vsl-poster-1280.webp` | Portada del video del hero | |
 | Los 29 archivos de `logos/` | Slider de agencias de la sección de prácticas | P-16 |
-| `og-carrera-creativa.jpg` | Imagen para compartir en redes (no va en el HTML: va en la configuración de la página, paso 1) | — |
-| `grad-show-640.webp`, `grad-show-1080.webp` | Última tarjeta de «El Programa», «Al graduarte» (Grad Show) | — |
-| `ad-keyvisual-640.webp` | Moodboard de Art Direction (sillón) | P-05 |
+| `grad-show-640.webp`, `grad-show-1080.webp` | Última tarjeta de «¿Cómo funciona…?», «Al terminar los 18 meses» (Grad Show) | |
+| `diff-think-640.webp`, `diff-think-1000.webp` | Foto de la gorra en el footer | |
+| `og-carrera-creativa-v3.jpg` | Imagen para compartir en redes (no va en el HTML: va en la configuración de la página, paso 1). **Esta sí hay que subirla.** | |
 
-Las fotos del salto (bienvenida) y de la gorra («La diferencia») salieron con sus secciones en la V2. Siguen en `img/` por si se usan después. Para encontrar las que sí se usan, busca `img/` en el HTML. Si al publicar alguna foto no aparece, casi siempre es una ruta `img/...` que se quedó sin cambiar.
+Las fotos del hero anterior (grafitero), del moodboard y de bienvenida ya no se usan. Siguen en `img/` por si se usan después. Para encontrar las que sí se usan, busca `img/` en el HTML. Si al publicar alguna foto no aparece, casi siempre es una ruta `img/...` que se quedó sin cambiar.
 
 ### Las que todavía faltan
 
@@ -231,7 +237,7 @@ El video va en el hero, en lugar de la foto (decisión de Ricardo, 2026-10-23). 
    vslUrl: 'https://www.tella.tv/video/vid_cmm716re6001a04ld880m76nh',
    ```
    Acepta Tella, YouTube (`watch?v=`, `youtu.be`, `shorts`, `live`), Vimeo (también ocultos, con su hash) o la URL directa de un `.mp4`.
-2. **La portada** es un cuadro del video: `img/vsl-poster-640.webp` y `img/vsl-poster-1280.webp`. **Súbelas a la biblioteca de medios de GHL** y pon sus URLs en `ghl/medios.json` (o pásaselas a Claude). Mientras no estén, la portada se ve oscura con el botón, sin la cara.
+2. **La portada** es un cuadro del video: `img/vsl-poster-640.webp` y `img/vsl-poster-1280.webp`. Ya están en GHL y sus URLs en `ghl/medios.json`.
 3. **«3:30»** es lo que muestra Tella con su velocidad de 1.2×. Si cambias el video, cambia ese texto y el `aria-label` del botón en el HTML (busca `mas-player__len`).
 4. `CONFIG.thanksVideoUrl` es el video que aparece después de agendar (`?paso=confirmado`). Vacío = no aparece.
 
@@ -239,20 +245,24 @@ El video va en el hero, en lugar de la foto (decisión de Ricardo, 2026-10-23). 
 
 El formulario ya está en el HTML: es el de GoHighLevel `DWvr3OTjwswSDGd9wnM6`, el mismo que estaba conectado en `/pruebaoct`. Va dentro de `<div id="ghl-form-slot">`.
 
-### En el constructor de formularios de GHL (spec v2, sección 11)
+### En el constructor de formularios de GHL
 
-- **Campos:** Nombre · Email · WhatsApp con código de país · Me interesa (`Art Direction` / `Copywriting` / `Aún no sé`).
-- **Botón:** `Enviarme el folleto`. Hoy dice «Recibir el folleto»: cámbialo en GHL.
+- **Campos:** Nombre · Email · WhatsApp con código de país · Me interesa.
+- **Opciones de «Me interesa» (V3, en español):** exactamente `Copywriter`, `Director de Arte` y `Aún no sé`. Hoy dicen «Art Direction» y «Copywriting»: cámbialas en GHL **al mismo tiempo** que pegas el kit, porque el JS prellena con los nombres nuevos (`CONFIG.programLabels`). Si no se cambian, no se rompe nada: el campo solo deja de llegar marcado.
+- **Campos ocultos para saber de qué anuncio viene cada contacto (P0-3):** agrega 6 campos ocultos (*Hidden field*) con estas *query keys*, exactas: `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term` y `fbclid`. El JS copia esos parámetros de la URL de la página al formulario (`CONFIG.attributionParams`). Prueba: abre la página con `?utm_campaign=prueba`, envía el formulario y revisa que el contacto tenga `prueba`.
+- **Botón:** `Enviarme el folleto`.
 - **Las preguntas de calificación** (portafolio, situación actual, cuándo empezar) **no** van aquí. Van en el paso de agendar.
-- **Al enviar:** redirigir a `https://tufuturocreativo.com/TU-RUTA?paso=agenda#aplicar`. Ahí la página dice «Tu folleto ya está listo.», muestra el botón «Descargar folleto» y registra `lead_submit`.
-- **Correo:** el folleto también debe llegar por correo (workflow de GHL), porque la página dice «Recibe el folleto en tu correo».
+- **Al enviar:** redirigir a `https://tufuturocreativo.com/TU-RUTA?paso=agenda#aplicar`. Ahí la página dice «Tu folleto ya está listo.», muestra «Descargar folleto», el calendario de Ricardo y manda `Lead` a Meta.
+- **No actives un evento `Lead` propio de GHL** en el formulario ni en la página de gracias: lo manda la landing, una vez por sesión. Si GHL también lo manda, Meta lo cuenta doble.
+- **Correo:** el folleto también debe llegar por correo (workflow de GHL), porque la página dice «Te llega a tu correo».
 - **Sticky Contact:** actívalo en el formulario y en el calendario.
+- **Carga diferida:** el iframe del formulario lleva `loading="lazy"` (en vivo lo habían cambiado a `eager`). Pruébalo en GHL desde un botón, en celular y en escritorio: si alguna vez no carga, cámbialo a `eager` en `landing.html` y anota por qué.
 
 ### Prellenar «Me interesa»
 
-La página ya no tiene botones por programa (Ricardo los quitó para simplificarla, 2026-10-23). «Me interesa» se prellena solo si la URL de la página trae `?interes_programa=Art Direction` (o `Copywriting`), por ejemplo desde un anuncio de cada programa.
-
-- La clave está en `CONFIG.prefillParam` (`interes_programa`) y los valores en `CONFIG.programLabels`. Deben coincidir **exactamente** con el campo de GHL.
+- En «Dos rutas», «Me interesa Copywriter», «Me interesa Director de Arte» y «Aún no sé» prellenan el campo y bajan al formulario.
+- También se prellena si la URL trae `?interes_programa=Copywriter` (o `Director de Arte`), por ejemplo desde un anuncio. Los valores viejos (`Copywriting`, `Art Direction`) se siguen entendiendo, para no romper anuncios ya creados.
+- La clave está en `CONFIG.prefillParam` (`interes_programa`) y los valores en `CONFIG.programLabels`. Deben coincidir **exactamente** con las opciones del campo en GHL.
 
 ### Alto del formulario
 
@@ -264,51 +274,52 @@ El formulario no usa `form_embed.js`, así que su alto es fijo y está medido pa
 
 ## 9. El calendario de Ricardo
 
-En la V2 el calendario es **opcional y va después del folleto**. Debajo del formulario está el link «¿Ya tienes el folleto? Agenda tu llamada →», para tráfico de retargeting.
+El calendario es **opcional y va después del folleto**: «Carrera Creativa · 30 minutos con Ricardo».
 
-1. **[VERIFICAR]** Pon la URL del calendario de Ricardo en `CONFIG.calendarUrl`. Mientras esté vacía, el link no se muestra (spec v2, sección 5).
-   - En la integración que había en GHL estaba `https://api.leadconnectorhq.com/widget/booking/FR0Ug1vwpcicPsQ6erYP`. Úsala solo si confirmas que es la correcta.
-2. En la confirmación de la cita, elige **redirigir a una URL**: `https://tufuturocreativo.com/TU-RUTA?paso=confirmado#aplicar`. Ahí la página muestra la confirmación y el video de bienvenida, y registra `appointment_booked`.
-3. Confirma que el correo de confirmación incluya fecha, hora y el enlace de la videollamada.
+1. `CONFIG.calendarUrl` tiene `https://api.leadconnectorhq.com/widget/booking/5vsO5cFmjBZvURwoHY2s`, el que está activo en GHL. Debajo del formulario se ve «¿Ya tienes el folleto? Agenda tu llamada →».
+2. Con `CONFIG.calendarEmbed: true`, en el paso «Tu folleto ya está listo» el JS crea el calendario dentro de la página. Así no se descarga en cada visita. **No pegues un iframe de calendario a mano** en GHL. El link queda debajo como respaldo: «¿No ves el calendario? Ábrelo en otra pestaña →».
+3. En la confirmación de la cita, elige **redirigir a una URL**: `https://tufuturocreativo.com/TU-RUTA?paso=confirmado#aplicar`. Ahí la página muestra la confirmación y el video de bienvenida, y manda `Schedule` a Meta.
+4. Confirma que el correo de confirmación incluya fecha, hora y el enlace de la videollamada.
 
-El recorrido: **formulario → `?paso=agenda` (folleto) → si quiere, agenda → `?paso=confirmado`**.
+El recorrido: **formulario → `?paso=agenda` (folleto y calendario) → si quiere, agenda → `?paso=confirmado`**.
 
-## 10. Conectar el píxel nuevo de Meta y GA4 (después)
+## 10. Medición con Meta (encendida en la V3)
 
-Hoy **no se envía nada**. Todos los eventos solo se guardan en `window.masVsl.events` dentro del navegador.
+El píxel de Meta `1349923403740237` ya está en la página. La landing **no instala ningún píxel**: usa el que está, si existe (`window.fbq`). `TRACKING_ENABLED` está en `true`.
 
-1. Instala los códigos base del **píxel nuevo de Meta** y de **GA4** en **Settings → Tracking Code → Header code**, o con la integración nativa de GHL si la usas.
-2. En `landing.js` cambia `var TRACKING_ENABLED = false;` a `true` y descomenta las líneas de `fbq`, `gtag` o `dataLayer` que vayas a usar.
-3. Eventos disponibles:
+1. Deja el píxel en **Settings → Tracking Code → Header** (o en la integración de GHL). Si falta, `?revisar=1` lo marca.
+2. Eventos estándar, con `eventID` para deduplicar después con la API de Conversiones:
+   - `Lead` cuando la persona regresa con `?paso=agenda` (después de enviar el formulario), una vez por sesión.
+   - `Schedule` cuando regresa con `?paso=confirmado` (después de agendar), una vez por sesión.
+3. Los demás van como eventos personalizados (`trackCustom`), con el mismo `eventID`:
 
-| Evento | Cuándo ocurre | Sugerencia en Meta |
-|---|---|---|
-| `cta_click` | Clic en cualquier botón «Recibe el folleto»; `cta` dice cuál: `hero-folleto`, `como-funciona-folleto`, `practicas-folleto` o `footer-folleto` | personalizado |
-| `view_vsl` | El video entra en pantalla | personalizado |
-| `vsl_play` | La persona da play (Tella: cuando entra al video) | personalizado |
-| `vsl_50_percent` | Mitad del video (solo `.mp4` propio) | personalizado |
-| `vsl_complete` | Fin del video (solo `.mp4` propio) | personalizado |
-| `program_select` | Llega con `?interes_programa=` en la URL (ya no hay botones por programa) | personalizado |
-| `view_books` | La sección de books entra en pantalla (hoy oculta, ver reserva/books.html) | `ViewContent` |
-| `external_book_click` | Clic en el book de un graduado (hoy oculta) | personalizado |
-| `social_click` | Clic en una red del footer (Instagram, TikTok, YouTube o LinkedIn) | personalizado |
-| `form_start` | La persona entra al formulario | personalizado |
-| `lead_submit` | Regresa con `?paso=agenda`, después de enviar el formulario (una vez por sesión) | `Lead` |
-| `brochure_download` | Clic en «Descargar folleto» | personalizado |
-| `calendar_click` | Clic en «Agenda tu llamada» | personalizado |
-| `appointment_booked` | Regresa con `?paso=confirmado` (una vez por sesión) | `Schedule` |
+| Evento | Cuándo ocurre |
+|---|---|
+| `cta_click` | Clic en un botón; `cta` dice cuál: `hero-folleto`, `ruta-copywriter`, `ruta-director-de-arte`, `ruta-aun-no-se`, `como-funciona-folleto`, `practicas-folleto`, `footer-folleto` o `sticky-folleto` |
+| `program_select` | Elige una ruta en «Dos rutas» o llega con `?interes_programa=` |
+| `view_vsl` | El video entra en pantalla |
+| `vsl_play` | Da play al video |
+| `vsl_50_percent`, `vsl_complete` | Mitad y fin del video (solo `.mp4` propio) |
+| `form_start` | Entra al formulario |
+| `lead_submit` | Se manda como `Lead` |
+| `brochure_download` | Clic en «Descargar folleto» |
+| `calendar_click` | Clic en «Agenda tu llamada» |
+| `appointment_booked` | Se manda como `Schedule` |
+| `social_click` | Clic en una red del footer |
 
-4. **YouTube o Vimeo:** `vsl_50_percent` y `vsl_complete` requieren la API de su reproductor (YouTube IFrame API o Vimeo Player SDK). Si los necesitas, súmalos en ese momento o aloja la VSL como `.mp4`.
-5. **API de Conversiones (CAPI):** envía `Lead` y `Schedule` desde el servidor con un workflow de GHL (acción de Meta Conversions API, si tu cuenta la tiene) y usa el mismo `eventID` que el navegador para deduplicar. Nunca pongas tokens de CAPI en este JS.
+4. Con `?revisar=1` no se manda nada: no es un lead real.
+5. En Meta: dominio verificado y `Lead` como evento prioritario. Prueba en **Events Manager → Probar eventos**: abre la página, envía el formulario con un correo tuyo y confirma `PageView` y **un solo** `Lead`.
+6. **API de Conversiones (fase 2):** un workflow de GHL que mande `Lead` y `Schedule` desde el servidor. Nunca pongas tokens de CAPI en este JS.
+7. GA4 no está instalado. Si se instala después, `track()` en `landing.js` tiene el lugar para `gtag`.
 
 ## 10 bis. Fechas de inicio
 
 La V2 no tiene cuenta regresiva ni la cápsula «Próximo inicio · faltan X días»: la fecha exacta del ingreso de enero 2027 no está confirmada (spec v2, sección 5). En su lugar:
 
-- El hero dice «Inicios en enero, abril, julio y octubre».
+- El hero dice «Inicios en enero, abril, julio y octubre» y la pregunta «¿Cuándo empieza?» responde lo mismo.
 - El bloque de aplicar dice «Próximo ingreso: enero.».
 
-Cuando la fecha esté confirmada, cambia esa línea en el HTML (busca `mas-apply__date`). Si se decide volver a poner un contador, que tome esa fecha confirmada y nunca sea *evergreen*.
+Cuando la fecha esté confirmada (la V3 propone «10 de enero de 2027», ver `PROMPT-V3-META.md` 10.2), cambia el dato del hero, la respuesta de «¿Cuándo empieza?» y la línea de aplicar (busca `mas-apply__date`). Si se decide volver a poner un contador, que tome esa fecha confirmada y nunca sea *evergreen*.
 
 ## 11. Probar antes de publicar
 
@@ -319,10 +330,12 @@ Prueba en la **página publicada** en `tufuturocreativo.com`, no solo en el buil
 
 **Recorrido**
 - [ ] Todos los botones «Recibe el folleto» llevan a `#aplicar`, sin salir de la página.
-- [ ] Con `?interes_programa=Copywriting` en la URL, el formulario llega con «Me interesa» marcado.
+- [ ] «Me interesa Copywriter» y «Me interesa Director de Arte» bajan al formulario con el campo marcado. Con `?interes_programa=Copywriter` en la URL, también.
+- [ ] Con `?utm_campaign=prueba` en la URL, el contacto de prueba guarda `prueba` en su campo oculto.
+- [ ] En celular, al pasar el hero aparece abajo la barra «Recibe el folleto»; se esconde al llegar al formulario y al footer.
 - [ ] El video de Tella se reproduce dentro de la página.
 - [ ] El formulario se envía y redirige a `?paso=agenda`; aparece «Tu folleto ya está listo.» con «Descargar folleto», y el folleto llega al correo.
-- [ ] Si `CONFIG.calendarUrl` está lleno: agendar redirige a `?paso=confirmado` y llega el correo con el enlace.
+- [ ] En `?paso=agenda` aparece el calendario de Ricardo dentro de la página; agendar redirige a `?paso=confirmado` y llega el correo con el enlace.
 - [ ] El slider de logos se mueve al hacer scroll, las flechas lo adelantan y cargan los 29 logos.
 - [ ] «Aviso de privacidad» y «Términos y condiciones» despliegan sus textos en el footer.
 
@@ -335,9 +348,8 @@ Prueba en la **página publicada** en `tufuturocreativo.com`, no solo en el buil
 - [ ] Con mouse: el punto amarillo sigue al cursor. En celular no aparece (es correcto).
 - [ ] Si el builder de GHL aplica `transform` a la sección contenedora, el cursor-punto y el indicador de progreso podrían desfasarse; en ese caso quita el `transform` de esa sección.
 
-**Medición** (solo cuando se active el paso 10)
-- [ ] Meta Events Manager → **Probar eventos**: llegan `Lead` y `Schedule` sin duplicarse.
-- [ ] GA4 → **DebugView**: llegan los eventos con sus parámetros.
+**Medición** (paso 10)
+- [ ] Meta Events Manager → **Probar eventos**: llegan `PageView`, `Lead` y `Schedule`, cada uno una sola vez.
 - [ ] Haz una prueba con un correo tuyo y borra ese contacto de GHL después.
 
 Solo después de esta lista: **publicar**.
@@ -346,6 +358,7 @@ Solo después de esta lista: **publicar**.
 
 - No agregar menú ni WhatsApp: cada salida le resta al folleto. Las únicas redes van en el footer («Síguenos», decisión de Ricardo) y se abren en una pestaña nueva.
 - No inventar urgencia, cupos, contadores, testimonios, salarios ni promesas de empleo.
-- No dejar «[VERIFICAR]», «[DECIDIR]» ni corchetes a la vista, y no usar la raya larga (—) en ningún texto (spec v2, sección 1).
+- No dejar «[VERIFICAR]», «[DECIDIR]» ni corchetes a la vista, y no usar la raya larga en ningún texto (spec v2, sección 1).
 - No hablar de «entrevista» ni de «conversación» antes del formulario: todos los botones dicen «Recibe el folleto».
-- No quitar la clase `mas-vsl` ni los `id` (`vsl`, `aplicar`, `ghl-form-slot`, `ghl-career-form`): el CSS y el JS dependen de ellos.
+- No quitar la clase `mas-vsl` ni los `id` (`vsl`, `rutas`, `aplicar`, `ghl-form-slot`, `ghl-career-form`): el CSS y el JS dependen de ellos.
+- No instalar otro píxel ni pegar el calendario a mano: los dos ya están resueltos (pasos 9 y 10).

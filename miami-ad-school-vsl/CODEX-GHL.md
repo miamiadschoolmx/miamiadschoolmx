@@ -1,15 +1,18 @@
-# Codex: montar la Landing Carrera Creativa V2 en GoHighLevel
+# Codex: montar la Landing Carrera Creativa V3 en GoHighLevel
 
-Instrucciones para Codex (o para quien lo haga a mano). Página: **`https://preview.tufuturocreativo.com/pruebaoct`**, cuenta de GHL de Miami Ad School México. Versión del kit: **`51e508f4`**.
+Instrucciones para Codex (o para quien lo haga a mano). Página de prueba: **`https://preview.tufuturocreativo.com/pruebaoct`**, cuenta de GHL de Miami Ad School México. Versión del kit: la que dice la primera línea de cada bloque (los 4 deben decir la misma).
+
+Qué cambia en la V3 (`PROMPT-V3-META.md`): hero nuevo con sello de Future Lions, «Dos rutas» en lugar de «Nuestra misión», barra fija en celular, textos sin jerga, preguntas nuevas, SEO nuevo, calendario dentro de la página y **medición encendida** con el píxel que ya está.
 
 ## Reglas (no se negocian)
 
-1. **No publiques en el dominio final.** Todo se queda en `/pruebaoct` hasta que Ricardo lo apruebe.
-2. **No instales píxeles, GA4, Google Tag Manager ni scripts de terceros.** Si ya hay un píxel o script de medición en Tracking Code, **no lo borres**.
-3. **No edites el código de los 3 bloques**, salvo los dos cambios que se indican abajo (rutas de la portada del video y, si Ricardo lo confirma, la URL del calendario).
-4. **No inventes textos, cifras ni datos.** Si algo no está aquí, pregunta a Ricardo.
-5. **Respaldo antes de borrar**: copia lo que hay hoy en cada lugar a un documento.
-6. Al terminar, entrega el reporte del paso 12.
+1. **No publiques en `/carrera-creativa`.** Todo va primero en `/pruebaoct` hasta que Ricardo lo apruebe.
+2. **No instales otro píxel, GA4, Google Tag Manager ni scripts de terceros.** El píxel de Meta `1349923403740237` ya está: **no lo borres**. La landing lo usa.
+3. **No edites el código de los bloques.** Si algo no funciona, repórtalo; el cambio se hace en el repo y se regenera el kit.
+4. **No pegues un calendario a mano.** El JS lo crea solo en el paso del folleto.
+5. **No inventes textos, cifras ni datos.** Si algo no está aquí, pregunta a Ricardo.
+6. **Respaldo antes de borrar**: copia lo que hay hoy en cada lugar a un documento.
+7. Al terminar, entrega el reporte del paso 12.
 
 ## Archivos (rama `claude/landing-v2`, repo público)
 
@@ -17,12 +20,11 @@ Instrucciones para Codex (o para quien lo haga a mano). Página: **`https://prev
 |---|---|
 | Bloque 1 · HTML | https://raw.githubusercontent.com/miamiadschoolmx/miamiadschoolmx/claude/landing-v2/miami-ad-school-vsl/ghl/1-custom-code.html |
 | Bloque 2 · CSS | https://raw.githubusercontent.com/miamiadschoolmx/miamiadschoolmx/claude/landing-v2/miami-ad-school-vsl/ghl/2-custom-css.css |
-| Bloque 3 · JavaScript | https://raw.githubusercontent.com/miamiadschoolmx/miamiadschoolmx/claude/landing-v2/miami-ad-school-vsl/ghl/3-footer.html |
-| Portada del video (chica) | https://raw.githubusercontent.com/miamiadschoolmx/miamiadschoolmx/claude/landing-v2/miami-ad-school-vsl/img/vsl-poster-640.webp |
-| Portada del video (grande) | https://raw.githubusercontent.com/miamiadschoolmx/miamiadschoolmx/claude/landing-v2/miami-ad-school-vsl/img/vsl-poster-1280.webp |
-| Imagen para compartir (OG) | https://raw.githubusercontent.com/miamiadschoolmx/miamiadschoolmx/claude/landing-v2/miami-ad-school-vsl/img/og-carrera-creativa.jpg |
+| Bloque 3 · JavaScript (Footer) | https://raw.githubusercontent.com/miamiadschoolmx/miamiadschoolmx/claude/landing-v2/miami-ad-school-vsl/ghl/3-footer.html |
+| Bloque 4 · SEO (Header) | https://raw.githubusercontent.com/miamiadschoolmx/miamiadschoolmx/claude/landing-v2/miami-ad-school-vsl/ghl/4-header-seo.html |
+| Imagen para compartir (OG) | https://raw.githubusercontent.com/miamiadschoolmx/miamiadschoolmx/claude/landing-v2/miami-ad-school-vsl/img/og-carrera-creativa-v3.jpg |
 
-Las demás imágenes y las fuentes **ya están en GHL**: el bloque 1 y el bloque 2 ya traen sus URLs.
+Las demás imágenes (incluida la portada del video) y las fuentes **ya están en GHL**: los bloques ya traen sus URLs.
 
 ## Paso 0 · Respaldo
 
@@ -30,65 +32,60 @@ En el editor de `/pruebaoct`, copia a un documento lo que hay hoy en:
 - El elemento **Custom JS/HTML** de la landing.
 - **Settings → Custom CSS**.
 - **Settings → Tracking Code → Header** y **Footer**.
+- **Settings → SEO**.
 
 Toma una captura de la página como está.
 
-## Paso 1 · Subir 3 imágenes a la biblioteca de medios
+## Paso 1 · Subir la imagen para compartir
 
-Sube a **Media Storage** (carpeta `landing-carrera-creativa`):
-- `vsl-poster-640.webp`
-- `vsl-poster-1280.webp`
-- `og-carrera-creativa.jpg`
+Sube `og-carrera-creativa-v3.jpg` a **Media Storage** (carpeta `landing-carrera-creativa`) y copia su URL pública.
 
-Copia la URL pública de cada una.
+## Paso 2 · Pegar el HTML
 
-## Paso 2 · Conectar la portada del video en el bloque 1
+En el elemento **Custom JS/HTML** de la sección: selecciona todo, bórralo y pega el **bloque 1** completo. Guarda.
 
-En el texto del **bloque 1**, cambia (aparecen en `src` y en `srcset`; cambia todas):
-- `img/vsl-poster-640.webp` → la URL de GHL de `vsl-poster-640.webp`
-- `img/vsl-poster-1280.webp` → la URL de GHL de `vsl-poster-1280.webp`
+- Si ahí había un iframe de calendario pegado a mano (con un comentario «Google Calendar» o `widget/booking`), se va con todo lo demás. Es correcto.
+- La sección que lo contiene: ancho completo, sin padding, fondo `#0A0A0A`, sin animaciones de GHL, **sin `overflow` ni `transform`** (rompen la barra fija del celular y las tarjetas que se apilan).
 
-No cambies nada más del bloque.
+## Paso 3 · Pegar el CSS
 
-## Paso 3 · Pegar el HTML
+En **Settings → Custom CSS** de la página: borra **todo** y pega el **bloque 2**. Guarda.
 
-En el elemento **Custom JS/HTML** de la sección: selecciona todo, bórralo y pega el **bloque 1** (con el cambio del paso 2). Guarda.
-
-- La sección que lo contiene: ancho completo, sin padding, fondo `#0A0A0A`, sin animaciones de GHL, sin `overflow` ni `transform`.
-
-## Paso 4 · Pegar el CSS
-
-En **Settings → Custom CSS** de la página: borra **todo** (incluidos parches viejos como «Reparación de hero responsive» o `.mas-apply-module { display: none }`) y pega el **bloque 2**. Guarda.
-
-## Paso 5 · Pegar el JavaScript
+## Paso 4 · Pegar el JavaScript
 
 En **Settings → Tracking Code → Footer** de **esta página** (no del funnel completo):
-- Borra el script viejo que empieza con `var formUrl=` y cualquier otra versión anterior de la landing.
-- **Si hay un píxel de Meta, GA4, GTM u otro script de medición, déjalo.**
+- Borra la versión anterior de la landing (empieza con `<!-- Generado por tools/ghl-kit.py`) y cualquier script viejo como `var formUrl=`.
+- **El píxel de Meta y cualquier script de medición se quedan.**
 - Pega el **bloque 3** completo. Guarda.
 
-No toques el Header, salvo para confirmar que no tiene versiones viejas de la landing.
-
 Si la cuenta tiene **Optimize JavaScript**, prueba la página con la opción encendida y apagada (paso 10).
+
+## Paso 5 · Pegar el SEO en el Header
+
+En **Settings → Tracking Code → Header** de esta página:
+- **Deja el píxel de Meta** donde está.
+- Pega debajo el **bloque 4** (canonical y datos estructurados `Course`). Guarda.
 
 ## Paso 6 · SEO de la página
 
 En **Settings → SEO**:
-- **Título:** `Carrera Creativa | Miami Ad School México`
-- **Descripción:** `18 meses online y en vivo para construir un book de Art Direction o Copywriting. Dos prácticas de 10 semanas en agencias de la red Miami Ad School.`
-- **Imagen para compartir:** la URL de `og-carrera-creativa.jpg` del paso 1.
+- **Título:** `Carrera de Copywriter y Director de Arte | Miami Ad School México`
+- **Descripción:** `Conviértete en copywriter o director de arte publicitario: 18 meses online y en vivo, con dos prácticas de 10 semanas en agencias de la red Miami Ad School.`
+- **Imagen para compartir:** la URL del paso 1.
 
 ## Paso 7 · Formulario de GHL (`DWvr3OTjwswSDGd9wnM6`)
 
-Es el formulario que la página ya muestra en «Recibe el folleto».
-- **Botón:** cambia el texto a `Enviarme el folleto`.
-- **Campo «Me interesa»** (hoy dice «¿Qué te interesa explorar?»): su *query key* debe ser `interes_programa` y sus opciones, exactamente `Art Direction`, `Copywriting` y `Aún no sé`.
-- **Al enviar:** redirigir a la URL `https://preview.tufuturocreativo.com/pruebaoct?paso=agenda#aplicar`.
-- No agregues ni quites campos sin preguntar a Ricardo. Si cambias el número de campos, avisa: el alto del formulario está medido en el CSS.
+Es el formulario que la página muestra en «Recibe el folleto».
+- **Campo «Me interesa»:** *query key* `interes_programa`. Cambia sus opciones a exactamente **`Copywriter`**, **`Director de Arte`** y **`Aún no sé`** (hoy dicen «Art Direction» y «Copywriting»). Hazlo en la misma sesión que pegas el kit: los botones de «Dos rutas» prellenan con los nombres nuevos.
+- **Campos ocultos nuevos** (*Hidden field*), con estas *query keys* exactas: `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`, `fbclid`. Sirven para saber de qué anuncio viene cada contacto.
+- **Botón:** `Enviarme el folleto`.
+- **Al enviar:** redirigir a `https://preview.tufuturocreativo.com/pruebaoct?paso=agenda#aplicar`.
+- **No actives un evento `Lead` de GHL** (ni en el formulario ni en una página de gracias): la landing lo manda una vez. Si GHL ya tiene uno activo, anótalo en el reporte y no lo borres sin preguntar.
+- No agregues ni quites otros campos sin preguntar a Ricardo. Los campos ocultos no cambian el alto del formulario; si cambias campos visibles, avisa: el alto está medido en el CSS.
 
 ## Paso 8 · Correo automático con el folleto (workflow)
 
-Crea un workflow **en borrador** (Ricardo lo revisa y lo publica):
+Si ya existe el workflow del folleto, revísalo; si no, créalo **en borrador** (Ricardo lo revisa y lo publica):
 - **Disparador:** Form Submitted → formulario `DWvr3OTjwswSDGd9wnM6`.
 - **Acción 1:** Add Tag → `carrera-creativa-folleto`.
 - **Acción 2:** Send Email, con este borrador:
@@ -100,48 +97,54 @@ Crea un workflow **en borrador** (Ricardo lo revisa y lo publica):
 > Aquí está el folleto de la Carrera Creativa de Miami Ad School México, con el plan de estudios y las fechas:
 > **Descargar el folleto** → `https://assets.cdn.filesafe.space/XpyeC21v7pmmK0tDJtpr/media/6aca981fc478ac553591bdd7.pdf`
 >
-> Si quieres resolver tus dudas, agenda 30 minutos con Ricardo: **Agenda tu llamada** → *(URL del calendario; esta línea va solo si Ricardo confirmó el calendario en el paso 9)*
+> Si quieres resolver tus dudas, agenda 30 minutos con Ricardo: **Agenda tu llamada** → `https://api.leadconnectorhq.com/widget/booking/5vsO5cFmjBZvURwoHY2s`
 >
 > Miami Ad School México
 
-El remitente lo define Ricardo. La secuencia completa de correos se escribe después: depende del contenido del PDF, el calendario, la fecha de enero y el remitente.
+El remitente lo define Ricardo.
 
-## Paso 9 · Calendario (solo si Ricardo lo confirma)
+## Paso 9 · Calendario
 
-En la integración anterior estaba el calendario `https://api.leadconnectorhq.com/widget/booking/FR0Ug1vwpcicPsQ6erYP`. **Pregúntale a Ricardo si es su calendario.**
-
-- **Si dice que sí:**
-  1. En el **bloque 3 ya pegado**, cambia solo la línea `calendarUrl: '',` por `calendarUrl: 'https://api.leadconnectorhq.com/widget/booking/FR0Ug1vwpcicPsQ6erYP',`.
-  2. En la configuración del calendario, la confirmación debe redirigir a `https://preview.tufuturocreativo.com/pruebaoct?paso=confirmado#aplicar`.
-  3. Que el correo de confirmación incluya fecha, hora y el enlace de la videollamada.
-- **Si dice que no, o no sabe:** no lo toques. El link «Agenda tu llamada» se queda oculto.
+El calendario de Ricardo es `https://api.leadconnectorhq.com/widget/booking/5vsO5cFmjBZvURwoHY2s` («Carrera Creativa · 30 minutos con Ricardo»). Ya está en el bloque 3; no se pega nada.
+1. En la configuración del calendario, la confirmación debe **redirigir** a `https://preview.tufuturocreativo.com/pruebaoct?paso=confirmado#aplicar`.
+2. Que el correo de confirmación incluya fecha, hora y el enlace de la videollamada.
 
 ## Paso 10 · Revisión con el panel
 
 Guarda la página y abre **`https://preview.tufuturocreativo.com/pruebaoct?revisar=1`** en escritorio y en celular. Aparece un panel que solo ve quien tenga esa URL. Debe decir:
-- **«Versión del kit: HTML, CSS y JS son de la misma versión (51e508f4)».**
-- **0 por resolver.** Si marca imágenes que no cargan, revisa el paso 2.
-- Es normal que marque «por revisar»: calendario (si no se confirmó), redes del footer sin URL y, a veces, la imagen para compartir.
+- **«Versión del kit: HTML, CSS y JS son de la misma versión»**.
+- **0 por resolver.**
+- **Medición: «Encendida con el píxel de Meta».** Si dice que no encuentra el píxel, revisa que siga en el Header.
+- **Título SEO** correcto y **SEO del Header** con canonical y JSON-LD. Si dice «Canonical repetido», GHL ya pone uno: borra la línea `<link rel="canonical" …>` del Header (el panel lo llama «paso 1» porque sigue la numeración de README-GHL.md).
+- Es normal que marque «por revisar»: redes del footer sin URL.
 
 ## Paso 11 · Prueba real
 
 1. Toca el **video** del hero: debe reproducirse dentro de la página.
 2. Toca cada **«Recibe el folleto»** (hero, final de «¿Cómo funciona…?», final de prácticas, footer): todos bajan al formulario.
-3. Abre `https://preview.tufuturocreativo.com/pruebaoct?interes_programa=Copywriting`: el formulario debe llegar con «Copywriting» marcado.
-4. Envía el formulario con un correo de prueba: debe redirigir y mostrar **«Tu folleto ya está listo.»** con el botón **«Descargar folleto»**.
-5. Si el workflow ya está publicado: llega el correo con el folleto.
-6. «Aviso de privacidad» y «Términos y condiciones» del footer despliegan sus textos.
-7. Borra el contacto de prueba en GHL.
-8. Ninguna sección se sale de la pantalla en el celular, ni hay scroll horizontal.
+3. En «Dos rutas», toca **«Me interesa Copywriter»**: baja al formulario con «Copywriter» marcado. Igual con «Director de Arte».
+4. En el celular: al pasar el hero aparece abajo la barra **«Recibe el folleto»**; se esconde al llegar al formulario y al footer.
+5. Abre Meta **Events Manager → Probar eventos** con la URL `https://preview.tufuturocreativo.com/pruebaoct?utm_source=prueba&utm_campaign=prueba-codex`.
+6. Envía el formulario con un correo de prueba: debe redirigir y mostrar **«Tu folleto ya está listo.»**, el botón **«Descargar folleto»** y el **calendario** dentro de la página.
+7. En Probar eventos: llegan `PageView` y **un solo** `Lead`. Toma captura.
+8. En GHL, abre el contacto de prueba: debe tener `prueba` en `utm_source` y `prueba-codex` en `utm_campaign`. Toma captura.
+9. Si el workflow ya está publicado: llega el correo con el folleto.
+10. «Aviso de privacidad» y «Términos y condiciones» del footer despliegan sus textos.
+11. Ninguna sección se sale de la pantalla en el celular, ni hay scroll horizontal.
+12. Borra el contacto de prueba en GHL.
+
+**Formulario en `loading="lazy"`:** en vivo lo habían cambiado a `eager`. Prueba que cargue al tocar un botón, en celular y escritorio. Si alguna vez no carga, no lo cambies en GHL: anótalo en el reporte.
 
 ## Paso 12 · Reporte para Ricardo
 
 Entrega:
 - Qué se hizo en cada paso, y lo que no se pudo hacer y por qué.
-- Las URLs de GHL de las 3 imágenes del paso 1 (para guardarlas en `ghl/medios.json` del repo).
+- La URL de GHL de `og-carrera-creativa-v3.jpg` (para `ghl/medios.json` del repo).
 - El texto del panel `?revisar=1` (escritorio y celular).
-- Capturas de la página en escritorio y en celular.
-- Si se cambió `calendarUrl` en el bloque 3 (para pasarlo también al repo).
+- Capturas de la página en escritorio y en celular (primera pantalla y completa).
+- Captura de **Probar eventos** con `PageView` y `Lead`, y del contacto de prueba con sus UTM.
+- Si GHL ya tenía un evento `Lead` propio o un canonical propio.
+- Si el formulario en `lazy` cargó bien.
 - Cualquier diferencia que hayas visto contra estas instrucciones.
 
-**No publiques en el dominio final.** Eso lo decide Ricardo después de revisar.
+**No publiques en `/carrera-creativa`.** Eso lo decide Ricardo después de revisar.

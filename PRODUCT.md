@@ -22,22 +22,22 @@ Miami Ad School México forma en Art Direction y Copywriting con Carrera Creativ
 
 ## Positioning
 
-Titular del hero (V2): «Tu título no te consigue el mejor trabajo. Tu portafolio sí.», con el eyebrow «Carrera Creativa · Art Direction y Copywriting», el subtítulo «18 meses online y en vivo. Al terminar el primer año, haces prácticas profesionales en dos agencias distintas, 10 semanas en cada una.» y tres datos. El hero lleva el video con «Ver el video» y un botón «Recibe el folleto» (Ricardo volvió a pedir botones el 2026-10-23). Todos los botones de la página dicen «Recibe el folleto» y llevan a `#aplicar`: hero, final de «¿Cómo funciona…?», final de prácticas y footer; antes del formulario no se habla de «entrevista» ni de «conversación».
+Titular del hero (V3, 24 oct 2026): «Conviértete en Copywriter o Director de Arte.», igual que los anuncios: se habla del rol, no de la escuela. Arriba, el sello «7 veces Future Lions School of the Year, incluyendo 2025» (C-002) y el eyebrow «Carrera Creativa · 18 meses». Debajo, la línea de marca «Tu título no te consigue el mejor trabajo. Tu portafolio sí.», el subtítulo «Online y en vivo, con dos prácticas de 10 semanas en agencias de la red de Miami Ad School.» y tres datos. Búsquedas al mes en México que sostienen la decisión: copywriter 2,900; creatividad publicitaria 880; director de arte 320; carrera en publicidad 210. El hero lleva el video con «Ver el video» y un botón «Recibe el folleto» (Ricardo volvió a pedir botones el 2026-10-23). Todos los botones de la página dicen «Recibe el folleto» y llevan a `#aplicar`: hero, final de «¿Cómo funciona…?», final de prácticas y footer; antes del formulario no se habla de «entrevista» ni de «conversación».
 
-Titulares anteriores: «Aprende a crear campañas. Construye un book para entrar a la industria creativa.» y «El talento no te consigue trabajo. Tu portafolio sí.». No se vende una carrera académica, sino una transformación profesional: pasar de tener interés o talento creativo a tener un portafolio que abra conversaciones con la industria.
+Titulares anteriores: «Tu título no te consigue el mejor trabajo. Tu portafolio sí.» (V2, hoy línea de marca), «Aprende a crear campañas. Construye un book para entrar a la industria creativa.» y «El talento no te consigue trabajo. Tu portafolio sí.». No se vende una carrera académica, sino una transformación profesional: pasar de tener interés o talento creativo a tener un portafolio que abra conversaciones con la industria.
 
 ## Operating Context
 
-Anuncio en Meta → hero (con el video) → nuestra misión (la misión de Miami Ad School, en español) → problema → El Programa (18 meses) → prácticas → preguntas → formulario de GHL («Recibe el folleto») → folleto (`?paso=agenda`) → si quiere, calendario de GHL → videollamada con Ricardo (`?paso=confirmado`).
+Anuncio en Meta → hero (con el video) → cinta → dos rutas (Copywriter o Director de Arte) → problema → ¿Cómo funciona…? (18 meses) → prácticas → preguntas → formulario de GHL («Recibe el folleto», con los UTM del anuncio) → folleto y calendario (`?paso=agenda`, evento `Lead`) → si quiere, videollamada con Ricardo (`?paso=confirmado`, evento `Schedule`). En celular, la barra fija «Recibe el folleto» acompaña desde el final del hero.
 
 ## Capabilities and Constraints
 
-- Programas: Art Direction y Copywriting. Modalidad: online y en vivo, lunes a jueves, 7 a 10 pm (confirmado por Ricardo, 2026-10-21; zona horaria por confirmar).
+- Rutas: Copywriter y Director de Arte (en el formulario, `Copywriter`, `Director de Arte` o `Aún no sé`). Modalidad: online y en vivo, lunes a jueves, 7 a 10 pm (confirmado por Ricardo, 2026-10-21; zona horaria por confirmar).
 - Inicios: enero, abril, julio y octubre. La fecha exacta del ingreso de enero 2027 no está confirmada: la página dice «Próximo ingreso: enero.» y no lleva contador.
 - Prácticas (C-012): dos prácticas de 10 semanas, en dos agencias distintas de la red de Miami Ad School, presenciales u online. Todo alumno que termina el primer año hace sus dos prácticas.
 - Datos pendientes y su texto de respaldo: `miami-ad-school-vsl/CONTENT-PLACEHOLDERS.md` · punto 1.
 - Prohibido: urgencia falsa, cupos o contadores falsos, testimonios o salarios inventados, promesas de empleo, premios sin fuente, «resultados garantizados», «la mejor escuela del mundo», «la escuela más premiada del mundo» (C-006), «las mejores agencias del mundo», cifras de colocación o salarios (C-003, C-008) y la raya larga (—) en cualquier texto.
-- Sin menú, sin WhatsApp y sin enlaces que saquen del recorrido. La medición está preparada pero desactivada hasta instalar el píxel nuevo de Meta y GA4.
+- Sin menú, sin WhatsApp y sin enlaces que saquen del recorrido. La medición está encendida con el píxel de Meta que ya está en GHL (`Lead` y `Schedule`); GA4 y CAPI quedan para después.
 
 ## Brand Commitments
 

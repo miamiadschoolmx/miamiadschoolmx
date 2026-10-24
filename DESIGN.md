@@ -107,7 +107,9 @@ Implementación de referencia: `miami-ad-school-vsl/landing.css` (todo bajo `.ma
 Obviously Narrow **Bold** para todos los titulares. En la vista previa se imita con Archivo a peso 800 y ancho 74%. El texto corrido va en Archivo Regular hasta que llegue Obviously Regular.
 
 ### Hierarchy
-- **Hero (V2):** eyebrow con el programa, la línea «Tu título no te consigue el mejor trabajo.» y el gigante «Tu portafolio sí.», con «portafolio» encerrado en la pluma. El gigante ocupa el ancho; el JS (`data-fit`) lo ajusta para que nunca desborde. Debajo, a dos columnas en escritorio, el subtítulo y los datos; a la derecha, el video con su portada y la píldora fucsia «Ver el video · 3:30». Debajo del subtítulo, el botón fucsia «Recibe el folleto».
+- **Hero (V3):** sello con el número en el círculo ácido («7 · veces Future Lions School of the Year, incluyendo 2025»), eyebrow «Carrera Creativa · 18 meses» y el titular del anuncio, «Conviértete en Copywriter o Director de Arte.», que es lo más grande del hero. Debajo, la línea de marca: «Tu título no te consigue el mejor trabajo.» en gris y «Tu portafolio sí.» con «portafolio» encerrado en la pluma (el JS, `data-fit`, la ajusta para que nunca desborde). En escritorio, mitad y mitad: titular y línea de marca a la izquierda, el video con la píldora fucsia «Ver el video · 3:30» a la derecha; abajo, el subtítulo y el botón «Recibe el folleto» con su microcopy a la izquierda y los datos debajo del video. En celular: titular, línea de marca, video, texto, datos y botón.
+- **Dos rutas (V3):** campo claro con dos tarjetas, Copywriter en fucsia y Director de Arte en azul `#3391F4`, cada una con su link «Me interesa…» que prellena el formulario.
+- **Barra fija en celular (V3):** franja negra abajo con el botón fucsia «Recibe el folleto». Aparece al pasar el hero y se esconde en el formulario y el footer.
 - **Poster:** frase de sección a pantalla completa (veredicto «La industria creativa contrata evidencia.»).
 - **H2:** de 13 a 15 caracteres por línea, interlineado 0.9.
 - **Texto:** 1.0625–1.1875rem, 65–75 caracteres por línea.

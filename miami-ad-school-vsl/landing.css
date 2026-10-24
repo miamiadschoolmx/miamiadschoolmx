@@ -266,12 +266,13 @@
 .mas-vsl .mas-pen path { stroke-width: 3; vector-effect: non-scaling-stroke; }
 
 /* ==========================================================================
-   A · HERO (sin botón: decisión de Ricardo, spec v2)
+   A · HERO (V3: sello, titular del anuncio, línea de marca, video y botón)
    ========================================================================== */
 .mas-vsl .mas-hero {
   position: relative;
   padding-block: clamp(1.25rem, 2.5vw, 2rem) clamp(3rem, 6vw, 5rem);
 }
+/* Celular y tablet: titular, línea de marca, video, texto, datos y botón, uno debajo de otro */
 .mas-vsl .mas-hero__grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -279,6 +280,7 @@
   grid-template-areas:
     "top top top top top top top top top top top top"
     "title title title title title title title title title title title title"
+    "brand brand brand brand brand brand brand brand brand brand brand brand"
     "collage collage collage collage collage collage collage collage collage collage collage collage"
     "sub sub sub sub sub sub sub sub sub sub sub sub"
     "facts facts facts facts facts facts facts facts facts facts facts facts"
@@ -290,19 +292,9 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: clamp(2.5rem, 7vw, 5rem);
+  margin-bottom: clamp(1.75rem, 6vw, 5rem);
 }
 .mas-vsl .mas-hero__head { grid-area: title; position: relative; z-index: 2; }
-.mas-vsl .mas-hero__eyebrow {
-  max-width: 40rem;
-  margin-bottom: clamp(1rem, 2vw, 1.5rem);
-  font-size: var(--t-small);
-  font-weight: 600;
-  line-height: 1.45;
-  color: var(--white-2);
-  text-wrap: balance;
-}
-.mas-vsl .mas-hero__eyebrow span { white-space: nowrap; }
 .mas-vsl .mas-brand {
   display: flex;
   align-items: center;
@@ -316,7 +308,61 @@
 }
 .mas-vsl .mas-brand__logo { width: auto; height: clamp(2.75rem, 2.2rem + 1.6vw, 3.5rem); }
 
+/* Sello de prueba (frase C-002): el número en el círculo ácido, como el sello de la V1 */
+.mas-vsl .mas-seal {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  max-width: 22rem;
+  margin-bottom: clamp(1.25rem, 2.4vw, 1.75rem);
+  font-size: var(--t-micro);
+  font-weight: 650;
+  line-height: 1.3;
+  color: var(--white-2);
+}
+.mas-vsl .mas-seal__n {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2.5rem; height: 2.5rem;
+  border-radius: 50%;
+  background: var(--acid);
+  color: var(--black);
+  font-family: var(--font-display);
+  font-stretch: var(--display-stretch);
+  font-weight: var(--display-weight);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+.mas-vsl .mas-hero__eyebrow {
+  max-width: 40rem;
+  margin-bottom: clamp(.75rem, 1.6vw, 1.25rem);
+  font-size: var(--t-small);
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--white-2);
+  text-wrap: balance;
+}
+.mas-vsl .mas-hero__eyebrow span { white-space: nowrap; }
+
+/* Titular: repite el anuncio. Es lo más grande del hero */
 .mas-vsl .mas-hero__title {
+  max-width: 12ch;
+  font-family: var(--font-display);
+  font-stretch: var(--display-stretch);
+  font-weight: var(--display-weight);
+  font-size: clamp(2.5rem, 1rem + 5.2vw, 6.25rem);
+  line-height: .9;
+  letter-spacing: -.02em;
+  text-wrap: balance;
+  color: var(--white);
+}
+.mas-vsl .mas-hero__role { white-space: nowrap; }
+
+/* Línea de marca: «Tu título no te consigue el mejor trabajo. Tu portafolio sí.» */
+.mas-vsl .mas-hero__brand {
+  grid-area: brand;
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
   font-family: var(--font-display);
   font-stretch: var(--display-stretch);
   font-weight: var(--display-weight);
@@ -324,22 +370,22 @@
 }
 .mas-vsl .mas-hero__setup {
   display: block;
-  font-size: clamp(2.1rem, 1rem + 4.4vw, 5.25rem);
-  line-height: .92;
-  max-width: 11ch;
+  max-width: 24ch;
+  font-size: clamp(1.25rem, .95rem + 1.3vw, 2.25rem);
+  line-height: 1.05;
   text-wrap: balance;
-  color: var(--white);
+  color: var(--white-2);
 }
-/* «Tu portafolio sí.»: ocupa el ancho; el JS (data-fit) la ajusta para que nunca desborde */
+/* «Tu portafolio sí.»: el JS (data-fit) la reduce si no cabe, así nunca desborda */
 .mas-vsl .mas-hero__punch {
   display: block;
-  margin-top: .12em;
+  margin-top: .08em;
+  margin-left: -.04em;
   font-size: var(--t-giant);
   line-height: .86;
   letter-spacing: -.035em;
   white-space: nowrap;
   color: var(--white);
-  margin-left: -.04em;
 }
 .mas-vsl .mas-circled { position: relative; display: inline-block; color: var(--hot); }
 .mas-vsl .mas-pen--circle { left: -6%; top: -10%; width: 112%; height: 124%; --pen: var(--acid); }
@@ -354,21 +400,11 @@
   color: var(--white-2);
   text-wrap: pretty;
 }
-.mas-vsl .mas-hero__cta { grid-area: cta; justify-self: start; align-self: start; margin-top: 2rem; }
-/* Botones «Recibe el folleto» al final de una sección */
-.mas-vsl .mas-cta-row { display: flex; margin-top: clamp(2.5rem, 5vw, 4rem); }
-/* En prácticas el botón va después del muro de logos, que toca el borde de la sección */
-.mas-vsl .mas-intern > .mas-cta-row { padding-bottom: clamp(3.5rem, 7vw, 6rem); }
-@media (max-width: 47.99em) {
-  /* En celular, a todo lo ancho: más fácil de tocar con el pulgar */
-  .mas-vsl .mas-hero__cta,
-  .mas-vsl .mas-cta-row .mas-btn { width: 100%; justify-content: space-between; }
-}
 .mas-vsl .mas-hero__facts {
   grid-area: facts;
   display: grid;
   gap: .625rem;
-  margin-top: 1.75rem;
+  margin-top: 1.5rem;
   font-weight: 700;
   line-height: 1.35;
   color: var(--white);
@@ -383,8 +419,22 @@
   background: var(--hot);
 }
 
-/* Video del hero (en el lugar de la foto). En celular y tablet va justo debajo del titular,
-   para que el botón «Ver el video» se vea sin hacer scroll; en escritorio, arriba a la derecha. */
+/* Botón del hero y, debajo, qué trae el folleto */
+.mas-vsl .mas-hero__action { grid-area: cta; justify-self: start; align-self: start; margin-top: 2rem; }
+.mas-vsl .mas-hero__micro { margin-top: .75rem; font-size: var(--t-small); line-height: 1.4; color: var(--white-2); }
+/* Botones «Recibe el folleto» al final de una sección */
+.mas-vsl .mas-cta-row { display: flex; margin-top: clamp(2.5rem, 5vw, 4rem); }
+/* En prácticas el botón va después del muro de logos, que toca el borde de la sección */
+.mas-vsl .mas-intern > .mas-cta-row { padding-bottom: clamp(3.5rem, 7vw, 6rem); }
+@media (max-width: 47.99em) {
+  /* En celular, a todo lo ancho: más fácil de tocar con el pulgar */
+  .mas-vsl .mas-hero__action { justify-self: stretch; }
+  .mas-vsl .mas-hero__cta,
+  .mas-vsl .mas-cta-row .mas-btn { width: 100%; justify-content: space-between; }
+}
+
+/* Video del hero. En celular y tablet va después de la línea de marca, antes del texto;
+   en escritorio, arriba a la derecha, junto al titular. */
 .mas-vsl .mas-hero__vsl {
   grid-area: collage;
   position: relative;
@@ -393,47 +443,53 @@
 }
 .mas-vsl .mas-hero__vsl .mas-player { margin-top: 0; }
 
+@media (min-width: 48em) and (max-width: 63.99em) {
+  /* Tablet: el titular sigue siendo lo más fuerte; la línea de marca no ocupa todo el ancho */
+  .mas-vsl .mas-hero__title { font-size: 4.25rem; }
+  .mas-vsl .mas-hero__punch { font-size: 9.5vw; }
+}
 @media (min-width: 64em) {
   .mas-vsl .mas-hero { min-height: min(100svh, 64rem); display: flex; flex-direction: column; }
   .mas-vsl .mas-hero > .mas-wrap { flex: 1; }
+  /* Mitad y mitad: titular y línea de marca a la izquierda, el video a la derecha;
+     abajo, el texto y el botón a la izquierda y los datos debajo del video */
   .mas-vsl .mas-hero__grid {
-    grid-template-rows: auto 1fr auto auto;
+    grid-template-rows: auto auto 1fr auto auto;
     grid-template-areas:
       "top top top top top top top top top top top top"
-      "title title title title title title title title title title title title"
-      "sub sub sub sub sub sub . facts facts facts facts facts"
-      "cta cta cta cta cta cta . facts facts facts facts facts";
-    align-items: end;
+      "title title title title title title collage collage collage collage collage collage"
+      "brand brand brand brand brand brand collage collage collage collage collage collage"
+      "sub sub sub sub sub sub facts facts facts facts facts facts"
+      "cta cta cta cta cta cta facts facts facts facts facts facts";
   }
   .mas-vsl .mas-hero__top { margin-bottom: 0; align-self: start; }
-  /* Eyebrow y primera línea arriba, junto al collage; «Tu portafolio sí.» abajo, a todo lo ancho */
-  .mas-vsl .mas-hero__head {
-    display: flex;
-    flex-direction: column;
-    align-self: stretch;
-    min-height: clamp(26rem, 38vw, 36rem);
-    padding-top: clamp(1.5rem, 3vw, 2.5rem);
-  }
-  .mas-vsl .mas-hero__title { flex: 1; display: flex; flex-direction: column; }
-  .mas-vsl .mas-hero__setup { margin-bottom: auto; }
+  .mas-vsl .mas-hero__head { padding-top: clamp(1.5rem, 3vw, 2.5rem); }
   .mas-vsl .mas-hero__vsl {
-    grid-area: title;
-    align-self: start;
-    justify-self: end;
-    margin-top: 1.5rem;
-    width: min(42%, 34rem);
-    z-index: 3; /* encima del bloque del titular (z-index 2), que ocupa la misma área: si no, no recibe el clic */
+    align-self: center;
+    margin-top: clamp(1.5rem, 3vw, 2.5rem);
+    z-index: 3;
   }
   .mas-vsl .mas-hero__vsl .mas-player { box-shadow: 0 24px 60px -24px rgba(0, 0, 0, .9); }
+  .mas-vsl .mas-hero__title { font-size: clamp(3.5rem, .5rem + 5vw, 5.75rem); }
+  .mas-vsl .mas-hero__brand { align-self: end; margin-top: clamp(1.25rem, 2.2vw, 2rem); }
+  .mas-vsl .mas-hero__setup { font-size: clamp(1.375rem, .9rem + .9vw, 1.875rem); }
+  /* En escritorio la línea de marca acompaña al titular: no compite con él */
+  .mas-vsl .mas-hero__punch { font-size: clamp(4.5rem, 7.4vw, 8rem); }
   .mas-vsl .mas-hero__sub,
-  .mas-vsl .mas-hero__facts { align-self: start; margin-top: 2.75rem; }
+  .mas-vsl .mas-hero__facts { align-self: start; margin-top: 2.25rem; }
   .mas-vsl .mas-hero__facts { padding-top: .25rem; }
 }
 @media (min-width: 64em) and (max-height: 50em) {
   /* Laptops bajas (1280 × 800): el botón del hero debe caber en la primera pantalla */
+  .mas-vsl .mas-hero__head { padding-top: 1rem; }
+  .mas-vsl .mas-seal { margin-bottom: 1rem; }
+  .mas-vsl .mas-hero__title { font-size: clamp(3.25rem, .25rem + 4.6vw, 5.25rem); }
+  .mas-vsl .mas-hero__vsl { margin-top: 1rem; }
+  .mas-vsl .mas-hero__brand { margin-top: 1rem; }
+  .mas-vsl .mas-hero__punch { font-size: clamp(4.25rem, 6.6vw, 7rem); }
   .mas-vsl .mas-hero__sub,
-  .mas-vsl .mas-hero__facts { margin-top: 1.75rem; }
-  .mas-vsl .mas-hero__cta { margin-top: 1.5rem; }
+  .mas-vsl .mas-hero__facts { margin-top: 1.5rem; }
+  .mas-vsl .mas-hero__action { margin-top: 1.25rem; }
 }
 
 /* ==========================================================================
@@ -577,66 +633,77 @@
 }
 
 /* ==========================================================================
-   A bis · NUESTRA MISIÓN (en negro, después de la cinta)
+   A bis · DOS RUTAS (campo claro, después de la cinta): qué hace cada rol
    ========================================================================== */
-.mas-vsl .mas-mission__grid {
+.mas-vsl .mas-routes__title { max-width: 16ch; font-size: clamp(2.5rem, 1.2rem + 4.2vw, 5.5rem); }
+.mas-vsl .mas-routes__title span { display: block; }
+.mas-vsl .mas-routes__title span + span { color: var(--hot-ink); }
+.mas-vsl .mas-routes__list {
   display: grid;
-  gap: clamp(1.25rem, 2.5vw, 2rem);
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+  margin-top: clamp(2.5rem, 5vw, 4rem);
 }
-.mas-vsl .mas-mission__label {
+.mas-vsl .mas-route {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-radius: clamp(.75rem, 1.6vw, 1.5rem);
+  color: var(--black);
+  --focus: var(--black);
+}
+.mas-vsl .mas-route--cw { background: var(--hot); --fg-2: var(--on-hot-2); }
+.mas-vsl .mas-route--ad { background: #3391F4; --fg-2: #0B2340; }
+.mas-vsl .mas-route__name {
   font-family: var(--font-display);
   font-stretch: var(--display-stretch);
   font-weight: var(--display-weight);
-  font-size: clamp(2.75rem, 1.6rem + 4.2vw, 5.5rem);
+  font-size: clamp(2.25rem, 1.3rem + 3.6vw, 4.75rem);
   line-height: .9;
   letter-spacing: -.02em;
-  color: var(--hot);
 }
-.mas-vsl .mas-mission__statement {
-  max-width: 24ch;
-  font-family: var(--font-display);
-  font-stretch: var(--display-stretch);
-  font-weight: var(--display-weight);
-  font-size: clamp(1.875rem, 1.05rem + 3.2vw, 4.75rem);
-  line-height: 1.04;
-  letter-spacing: -.02em;
+.mas-vsl .mas-route__text { max-width: 30ch; font-size: var(--t-lead); font-weight: 650; line-height: 1.35; }
+.mas-vsl .mas-route__tools { max-width: 36ch; font-weight: 650; line-height: 1.4; color: var(--fg-2); }
+/* Prellena «Me interesa» y baja al formulario */
+.mas-vsl .mas-route__cta {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  min-height: 2.75rem;
+  margin-top: auto;
+  padding-top: .5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: .3em;
+}
+.mas-vsl .mas-route__cta .mas-icon { width: 1.125rem; height: 1.125rem; flex: none; transition: transform .3s var(--ease-out); }
+.mas-vsl .mas-route__cta:hover .mas-icon { transform: translateX(4px); }
+.mas-vsl .mas-routes__close {
+  max-width: 46ch;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  font-size: var(--t-lead);
+  font-weight: 650;
+  line-height: 1.4;
   text-wrap: pretty;
 }
-.mas-vsl .mas-mission__key { color: var(--hot); }
-.mas-vsl .mas-mission__mark { position: relative; display: inline-block; white-space: nowrap; }
-.mas-vsl .mas-mission__then { color: var(--fg-2); }
-.mas-vsl .mas-pen--under { left: -2%; bottom: -.13em; width: 104%; height: .2em; --pen: var(--acid); }
-.mas-vsl .mas-pen--under path { stroke-width: 4; }
-.mas-vsl .mas-mission__body {
-  max-width: 52ch;
-  color: var(--fg-2);
-  font-size: var(--t-lead);
-  line-height: 1.45;
+.mas-vsl .mas-routes__close a {
+  color: var(--hot-ink);
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: .2em;
 }
-@media (min-width: 64em) {
-  .mas-vsl .mas-mission__grid {
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    column-gap: var(--col-gap);
-    row-gap: clamp(1.5rem, 2.5vw, 2.5rem);
-  }
-  /* «Nuestra misión» en dos líneas a la izquierda; la frase a la derecha */
-  .mas-vsl .mas-mission__label { grid-column: 1 / 5; align-self: start; max-width: 7ch; }
-  .mas-vsl .mas-mission__statement { grid-column: 5 / -1; }
-  .mas-vsl .mas-mission__body { grid-column: 5 / 11; }
+@media (min-width: 48em) {
+  .mas-vsl .mas-routes__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mas-vsl .mas-route { min-height: clamp(17rem, 24vw, 21rem); }
 }
 
 /* ==========================================================================
    C · LA BRECHA (las líneas se encienden al leerlas)
    ========================================================================== */
-/* Viene justo después de la misión, también en negro: una línea fina marca el cambio de sección */
-.mas-vsl .mas-mission + .mas-sec-gap { padding-top: 0; }
-.mas-vsl .mas-mission + .mas-sec-gap > .mas-wrap::before {
-  content: "";
-  display: block;
-  height: 1px;
-  margin-bottom: var(--section);
-  background: var(--rule);
-}
 .mas-vsl .mas-lines {
   display: grid;
   gap: clamp(.5rem, 1.2vw, 1rem);
@@ -652,6 +719,8 @@
 .mas-vsl .mas-lines p:nth-child(3) { margin-left: 16%; }
 .mas-vsl .mas-lines__turn { margin-top: clamp(1.25rem, 3vw, 2.5rem); }
 .mas-vsl .mas-lines .mas-lines__key { color: var(--hot); }
+/* «O vienes de otra carrera…»: segunda frase de la primera línea, en su propio renglón */
+.mas-vsl .mas-lines__or { display: block; margin-top: .2em; }
 .mas-vsl.has-motion [data-glow] > * { color: var(--dim); }
 .mas-vsl.has-motion [data-glow] > .is-lit { color: var(--white); }
 .mas-vsl.has-motion [data-glow] > .mas-lines__key.is-lit { color: var(--hot); }
@@ -1150,11 +1219,15 @@
 @media (min-width: 64em) { .mas-vsl { --form-h: 51rem; } }
 @media (min-width: 80em) { .mas-vsl { --form-h: 49rem; } }
 @media (min-width: 90em) { .mas-vsl { --form-h: 48rem; } }
-.mas-vsl .mas-apply__call { margin-top: 1.25rem; font-weight: 700; }
-.mas-vsl .mas-apply__call a { color: var(--black); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: .25em; text-decoration-color: var(--hot); }
+.mas-vsl .mas-apply__call { margin-top: .625rem; font-weight: 700; }
+/* inline-block: con el calendario ya activo, el link se ve siempre; así su área de toque es un bloque, aunque se parta en dos líneas */
+.mas-vsl .mas-apply__call a { display: inline-block; padding-block: .625rem; color: var(--black); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: .25em; text-decoration-color: var(--hot); }
 .mas-vsl .mas-apply__call a:hover { color: var(--hot-ink); }
 .mas-vsl .mas-brochure__intro { margin-top: 1rem; color: var(--light-2); max-width: 44ch; }
 .mas-vsl .mas-brochure .mas-btn { margin-top: 1.5rem; }
+/* Calendario de Ricardo dentro de la página (solo en el paso del folleto). El widget mide unos 800 px. */
+.mas-vsl .mas-booking { margin-top: 1.75rem; overflow: hidden; border-radius: .75rem; background: #FFFFFF; }
+.mas-vsl .mas-booking iframe { display: block; width: 100%; height: 52rem; border: 0; }
 .mas-vsl .mas-done__video { margin-top: 1.5rem; aspect-ratio: 16 / 9; overflow: hidden; border-radius: .75rem; background: var(--black); }
 .mas-vsl .mas-done__video:empty { display: none; }
 .mas-vsl .mas-done__video iframe { display: block; width: 100%; height: 100%; border: 0; }
@@ -1292,6 +1365,23 @@
 }
 @media (min-width: 64em) { .mas-vsl.has-js .mas-progress { display: block; } }
 
+/* Barra fija en celular: «Recibe el folleto» siempre a mano después del hero (el JS pone .is-on).
+   Necesita que ningún contenedor de GHL tenga transform: si no, deja de ser fija. */
+.mas-vsl .mas-sticky {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 60;
+  padding: .625rem var(--gutter) max(.625rem, env(safe-area-inset-bottom));
+  background: rgba(10, 10, 10, .94);
+  border-top: 1px solid var(--rule-dark);
+  transform: translateY(110%);
+  visibility: hidden;
+  transition: transform .35s var(--ease-out), visibility 0s linear .35s;
+}
+.mas-vsl .mas-sticky.is-on { transform: none; visibility: visible; transition: transform .35s var(--ease-out), visibility 0s; }
+.mas-vsl .mas-sticky__btn { width: 100%; min-height: 3.25rem; justify-content: space-between; }
+@media (min-width: 48em) { .mas-vsl .mas-sticky { display: none; } }
+
 .mas-vsl .mas-cursor {
   position: fixed;
   left: 0; top: 0;
@@ -1384,7 +1474,7 @@
   .mas-vsl .mas-hero__facts { animation: mas-rise .8s var(--ease-out) both; }
   .mas-vsl .mas-hero__sub { animation-delay: .25s; }
   .mas-vsl .mas-hero__facts { animation-delay: .35s; }
-  .mas-vsl .mas-hero__cta { animation: mas-rise .8s var(--ease-out) .45s both; }
+  .mas-vsl .mas-hero__action { animation: mas-rise .8s var(--ease-out) .45s both; }
   .mas-vsl .mas-hero__vsl { animation: mas-rise .9s var(--ease-out) .45s both; }
 
   /* La pluma: dasharray 3 cubre el trazo aunque el SVG esté estirado */
@@ -1394,8 +1484,7 @@
     animation: mas-draw .9s var(--ease-io) .7s forwards;
   }
 
-  .mas-vsl.has-motion .mas-verdict .mas-pen path,
-  .mas-vsl.has-motion .mas-mission .mas-pen path {
+  .mas-vsl.has-motion .mas-verdict .mas-pen path {
     stroke-dasharray: 3;
     stroke-dashoffset: 3;
     transition: stroke-dashoffset .8s var(--ease-io) .45s;

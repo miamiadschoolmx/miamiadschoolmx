@@ -8,19 +8,32 @@
   /* --- Configuración ------------------------------------------------------
      Ajusta estos valores al conectar GoHighLevel (ver README-GHL.md). */
   var CONFIG = {
-    // Video de la sección «Prueba». Acepta Tella, YouTube, Vimeo o la URL directa de un .mp4.
-    // Tella se muestra con su propio póster al acercarse; los demás cargan al hacer clic.
+    // Video del hero. Acepta Tella, YouTube, Vimeo o la URL directa de un .mp4.
+    // Se carga solo cuando la persona toca «Ver el video».
     vslUrl: 'https://www.tella.tv/video/vid_cmm716re6001a04ld880m76nh',
     // Campo «Me interesa» del formulario de GHL: su query key y los valores exactos de sus opciones.
+    // V3: las opciones van en español (README-GHL.md · paso 8). Si en GHL siguen «Art Direction» y
+    // «Copywriting», el formulario no se prellena (la persona elige a mano), pero nada se rompe.
     prefillParam: 'interes_programa',
     programLabels: {
-      'art-direction': 'Art Direction',
-      'copywriting': 'Copywriting',
+      'art-direction': 'Director de Arte',
+      'copywriting': 'Copywriter',
       'no-se': 'Aún no sé'
     },
-    // Calendario de Ricardo para «¿Ya tienes el folleto? Agenda tu llamada». Vacío = el link no se muestra.
-    // [VERIFICAR] Pon aquí la URL cuando esté confirmada (spec v2, sección 5).
-    calendarUrl: '',
+    // Valores anteriores que todavía pueden llegar en la URL de un anuncio (?interes_programa=Copywriting)
+    programAliases: {
+      'Art Direction': 'art-direction',
+      'Copywriting': 'copywriting'
+    },
+    // Calendario de Ricardo («Carrera Creativa · 30 minutos con Ricardo»): es el que está activo en GHL
+    // desde octubre de 2026. Vacío = no se muestra ni el link ni el calendario.
+    calendarUrl: 'https://api.leadconnectorhq.com/widget/booking/5vsO5cFmjBZvURwoHY2s',
+    // true = en el paso «Tu folleto ya está listo» el calendario aparece dentro de la página.
+    // Se crea solo en ese paso, así no se descarga en cada visita.
+    calendarEmbed: true,
+    // Parámetros del anuncio que se pasan al formulario de GHL, para que cada contacto guarde su origen.
+    // En GHL, el formulario necesita un campo oculto por cada uno (README-GHL.md · paso 8).
+    attributionParams: ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid'],
     // PDF del folleto: el botón de descarga aparece solo después de enviar el formulario (?paso=agenda).
     // Vacío = solo se dice que llega al correo.
     brochureUrl: 'https://assets.cdn.filesafe.space/XpyeC21v7pmmK0tDJtpr/media/6aca981fc478ac553591bdd7.pdf',
@@ -99,12 +112,12 @@
       }).observe(el);
     }
 
-    /* --- Medición: preparada, desactivada ------------------------------------
-       Hoy NO se envía nada a ningún servicio. track() solo guarda el evento en
-       window.masVsl.events y emite un CustomEvent local "mas:track".
-       Cuando instales el píxel nuevo y GA4, cambia TRACKING_ENABLED a true y
-       descomenta las líneas que correspondan. */
-    var TRACKING_ENABLED = false;
+    /* --- Medición -------------------------------------------------------------
+       track() guarda el evento en window.masVsl.events, emite el CustomEvent local
+       "mas:track" y, con TRACKING_ENABLED, lo manda al píxel de Meta que ya está
+       instalado en la página (spec v3, 8.1). Este archivo no instala ningún píxel:
+       si window.fbq no existe, no se envía nada. */
+    var TRACKING_ENABLED = true;
     var events = [];
     var fired = {};
 
@@ -114,16 +127,19 @@
       try {
         root.dispatchEvent(new CustomEvent('mas:track', { detail: payload, bubbles: true }));
       } catch (e) { /* navegadores sin CustomEvent: se ignora */ }
-      if (!TRACKING_ENABLED) return;
+      // Con ?revisar=1 nada sale de la página: es una revisión, no una visita real.
+      if (!TRACKING_ENABLED || reviewing) return;
 
       // Meta Pixel (navegador): los eventos con equivalente estándar van como estándar, el resto como
       // personalizados. eventID sirve para deduplicar con la API de Conversiones (CAPI).
-      // var META_STANDARD = { lead_submit: 'Lead', appointment_booked: 'Schedule', view_books: 'ViewContent' };
-      // if (window.fbq) {
-      //   var metaOpts = { eventID: name + '-' + payload.ts };
-      //   if (META_STANDARD[name]) window.fbq('track', META_STANDARD[name], payload.detail, metaOpts);
-      //   else window.fbq('trackCustom', name, payload.detail, metaOpts);
-      // }
+      if (typeof window.fbq === 'function') {
+        var META_STANDARD = { lead_submit: 'Lead', appointment_booked: 'Schedule' };
+        var metaOpts = { eventID: name + '-' + payload.ts };
+        try {
+          if (META_STANDARD[name]) window.fbq('track', META_STANDARD[name], payload.detail, metaOpts);
+          else window.fbq('trackCustom', name, payload.detail, metaOpts);
+        } catch (e) { /* un error del píxel nunca debe romper la página */ }
+      }
 
       // GA4 (gtag.js). lead_submit también sale como el evento recomendado generate_lead:
       // if (window.gtag) {
@@ -207,15 +223,36 @@
       } catch (e) { /* src no válido: se deja intacto */ }
     }
 
+    // Pasa al formulario los parámetros del anuncio (utm_*, fbclid) que trae la URL de la página.
+    // Solo agrega los que faltan, así no recarga el formulario si ya los tiene.
+    (function () {
+      var frame = document.querySelector('#ghl-form-slot iframe');
+      if (!frame || !frame.src) return;
+      try {
+        var page = new URLSearchParams(location.search);
+        var url = new URL(frame.src, location.href);
+        var changed = false;
+        (CONFIG.attributionParams || []).forEach(function (key) {
+          var value = page.get(key);
+          if (value && url.searchParams.get(key) !== value) { url.searchParams.set(key, value); changed = true; }
+        });
+        if (changed) frame.src = url.toString();
+      } catch (e) { /* URL no válida: el formulario queda como está */ }
+    })();
+
     try {
       var saved = sessionStorage.getItem('mas-program');
       if (saved) setProgram(saved, null);
     } catch (e) { /* sin almacenamiento */ }
-    // ?interes_programa=Copywriting en la URL de la página (por ejemplo, desde un anuncio) también prellena
+    // ?interes_programa=Copywriter en la URL de la página (por ejemplo, desde un anuncio) también prellena
     (function () {
       var fromUrl;
       try { fromUrl = new URLSearchParams(location.search).get(CONFIG.prefillParam); } catch (e) { fromUrl = null; }
       if (!fromUrl) return;
+      if (CONFIG.programAliases && Object.prototype.hasOwnProperty.call(CONFIG.programAliases, fromUrl)) {
+        setProgram(CONFIG.programAliases[fromUrl], null);
+        return;
+      }
       for (var key in CONFIG.programLabels) {
         if (Object.prototype.hasOwnProperty.call(CONFIG.programLabels, key) && CONFIG.programLabels[key] === fromUrl) setProgram(key, null);
       }
@@ -385,7 +422,7 @@
       if (value === 'agenda' && !reviewing) {
         onceStorage('lead_submit');
       }
-      if (value === 'agenda') showBrochure();
+      if (value === 'agenda') { showBrochure(); showBooking(); }
       if (value === 'confirmado') {
         if (!reviewing) onceStorage('appointment_booked');
         showThanksVideo();
@@ -406,6 +443,20 @@
       a.setAttribute('data-event', 'brochure_download');
       a.textContent = 'Descargar folleto';
       box.appendChild(a);
+    }
+    // Calendario dentro de la página, solo en el paso del folleto. El link de arriba queda como
+    // respaldo, por si el calendario no carga.
+    function showBooking() {
+      var box = root.querySelector('[data-booking]');
+      if (!box || !CONFIG.calendarUrl || !CONFIG.calendarEmbed || box.firstChild) return;
+      var f = document.createElement('iframe');
+      f.src = CONFIG.calendarUrl;
+      f.title = 'Agenda 30 minutos con Ricardo';
+      f.loading = 'lazy';
+      box.appendChild(f);
+      box.hidden = false;
+      var backup = box.parentNode && box.parentNode.querySelector('[data-calendar-link] a');
+      if (backup) backup.textContent = '¿No ves el calendario? Ábrelo en otra pestaña →';
     }
     function showThanksVideo() {
       var box = root.querySelector('[data-thanks-video]');
@@ -495,6 +546,21 @@
         });
       }, { threshold: [0, 0.1, 0.2, 0.3, 0.4] });
       for (var v = 0; v < viewTargets.length; v++) viewObserver.observe(viewTargets[v]);
+    }
+
+    /* --- Barra fija en celular («Recibe el folleto», PROMPT-V3-META.md 8.4) ------
+       Aparece al pasar el hero y se esconde cuando el formulario o el footer están en
+       pantalla, que ya tienen su botón. Solo en el paso del formulario; desde 48em el CSS
+       no la muestra. */
+    var sticky = root.querySelector('[data-sticky]');
+    if (sticky && stage === 'form' && canObserve) {
+      var seen = { hero: true, apply: false, foot: false };
+      var paintSticky = function () {
+        sticky.classList.toggle('is-on', !seen.hero && !seen.apply && !seen.foot);
+      };
+      watchVisible(root.querySelector('.mas-hero'), function (v) { seen.hero = v; paintSticky(); });
+      watchVisible(document.getElementById('aplicar'), function (v) { seen.apply = v; paintSticky(); });
+      watchVisible(root.querySelector('.mas-footer'), function (v) { seen.foot = v; paintSticky(); });
     }
 
     /* --- Movimiento ------------------------------------------------------------ */
@@ -858,16 +924,25 @@
             (cs.transform !== 'none' || cs.filter !== 'none' || cs.perspective !== 'none' ? 'transform/filter ' : '');
           if (bad) traps.push((n.id ? '#' + n.id : n.tagName.toLowerCase() + (n.classList[0] ? '.' + n.classList[0] : '')) + ' (' + bad.trim() + ')');
         }
-        if (traps.length) add('aviso', 'Contenedores de GHL', 'Pueden romper las tarjetas fijas al hacer scroll y el punto del cursor: ' + traps.slice(0, 4).join(', ') + '. Si ves algo raro, quita esos ajustes de la sección (paso 2).');
+        if (traps.length) add('aviso', 'Contenedores de GHL', 'Pueden romper las tarjetas fijas al hacer scroll, la barra fija del celular y el punto del cursor: ' + traps.slice(0, 4).join(', ') + '. Si ves algo raro, quita esos ajustes de la sección (paso 2).');
         else add('ok', 'Contenedores de GHL', 'Sin overflow ni transform que estorben.');
         var se = document.scrollingElement || document.documentElement;
         if (se.scrollHeight <= window.innerHeight + 4 && root.offsetHeight > window.innerHeight * 1.5) add('falta', 'Scroll de la página', 'La página se desplaza dentro de un contenedor y no en la ventana: el slider de logos y las animaciones no se moverán.');
 
         // 7. Datos para confirmar
-        add(TRACKING_ENABLED ? 'aviso' : 'ok', 'Medición', TRACKING_ENABLED ? 'Encendida: confirma en Meta y GA4 que los eventos no se dupliquen (paso 10).' : 'Apagada, como debe estar hasta conectar el píxel nuevo (paso 10).');
-        if (document.title !== 'Carrera Creativa | Miami Ad School México') add('aviso', 'Título SEO', 'El título de la página es «' + document.title + '». Debe ser «Carrera Creativa | Miami Ad School México» (paso 1).');
-        else add('ok', 'Título SEO', 'Carrera Creativa | Miami Ad School México');
+        if (!TRACKING_ENABLED) add('aviso', 'Medición', 'Apagada: Meta no recibe el evento Lead (spec v3, 8.1).');
+        else if (typeof window.fbq === 'function') add('ok', 'Medición', 'Encendida con el píxel de Meta. Confirma Lead en Probar eventos y que no se duplique.');
+        else add('falta', 'Medición', 'Encendida, pero no encuentro el píxel de Meta en la página (Tracking Code → Header).');
+        var seoTitle = 'Carrera de Copywriter y Director de Arte | Miami Ad School México';
+        if (document.title !== seoTitle) add('aviso', 'Título SEO', 'El título de la página es «' + document.title + '». Debe ser «' + seoTitle + '» (paso 1).');
+        else add('ok', 'Título SEO', seoTitle);
         if (!document.querySelector('meta[property="og:image"]')) add('aviso', 'Imagen para compartir', 'No encuentro og:image. Súbela en Settings de la página (paso 1).');
+        var canons = document.querySelectorAll('link[rel="canonical"]');
+        var canon = canons[0];
+        if (canons.length > 1) add('aviso', 'Canonical repetido', 'Hay ' + canons.length + ' canonical en la página: GHL ya pone uno. Borra la línea del canonical de Tracking Code → Header (paso 1).');
+        var course = [].some.call(document.querySelectorAll('script[type="application/ld+json"]'), function (el) { return /"Course"/.test(el.textContent); });
+        if (!canon || !course) add('aviso', 'SEO del Header', 'Falta ' + (!canon ? 'el canonical' : '') + (!canon && !course ? ' y ' : '') + (!course ? 'el JSON-LD Course' : '') + ': pega ghl/4-header-seo.html en Tracking Code → Header (paso 1).');
+        else add('ok', 'SEO del Header', 'Canonical ' + canon.getAttribute('href') + ' y JSON-LD Course.');
 
         showReview(rows);
       });

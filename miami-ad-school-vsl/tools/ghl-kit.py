@@ -10,6 +10,8 @@ Lee landing.html, landing.css y landing.js y escribe en ghl/:
     1-custom-code.html   → elemento Custom JS/HTML de la sección (paso 3)
     2-custom-css.css     → Settings → Custom CSS de la página (paso 4)
     3-footer.html        → Settings → Tracking Code → Footer de la página (paso 5)
+    4-header-seo.html    → Settings → Tracking Code → Header de la página (paso 6):
+                           canonical y JSON-LD Course, copiados del <head> de landing.html
 
 Las rutas locales (img/..., fonts/...) se cambian por las URLs de GHL que pongas en
 ghl/medios.json. La primera vez el script crea ese archivo con todas las rutas
@@ -29,6 +31,8 @@ OUT = ROOT / 'ghl'
 MEDIA = OUT / 'medios.json'
 START = '<!-- ================= GHL · COPIAR DESDE AQUÍ ================= -->'
 END = '<!-- ================= GHL · HASTA AQUÍ ================= -->'
+SEO_START = '<!-- SEO-HEADER ·'
+SEO_END = '<!-- SEO-HEADER-FIN -->'
 BOLD = 'Obviously Narrow Bold (.woff)'
 MEDIUM = 'Obviously Narrow Medium (.woff)'
 ASSET = re.compile(r'(?<![\w/.-])((?:img|fonts)/[\w./-]+\.(?:webp|png|jpe?g|svg|gif|mp4|woff2?))(?![\w.-])')
@@ -75,8 +79,12 @@ def main():
             text = re.sub(r'(?<![\w/.-])' + re.escape(path) + r'(?![\w.-])', url, text)
         return text
 
-    # 2. HTML del elemento Custom Code
-    html_out = '<!-- ' + NOTE + ' Versión ' + kit + '. -->\n' + swap(block) + '\n'
+    # 2. HTML del elemento Custom Code, sin los comentarios del original (pesa menos y no confunde a
+    #    herramientas que sacan el texto del HTML). En landing.html los comentarios se quedan.
+    body = re.sub(r'<!--.*?-->', '', swap(block), flags=re.S)
+    body = re.sub(r'[ \t]+\n', '\n', body)
+    body = re.sub(r'\n{3,}', '\n\n', body).strip()
+    html_out = '<!-- ' + NOTE + ' Versión ' + kit + '. -->\n' + body + '\n'
 
     # 3. CSS: fuentes de marca, URLs y sin comentarios (pesa menos y no cambia nada)
     if urls.get(BOLD):
@@ -107,12 +115,23 @@ def main():
     (OUT / '2-custom-css.css').write_text(css_out, encoding='utf-8')
     (OUT / '3-footer.html').write_text(js_out, encoding='utf-8')
 
+    # 4 bis. SEO para el Header: canonical y JSON-LD, tal cual están en el <head> de landing.html
+    if html.count(SEO_START) != 1 or html.count(SEO_END) != 1:
+        sys.exit('No encuentro una sola vez las marcas «SEO-HEADER» y «SEO-HEADER-FIN» en el <head> de landing.html.')
+    seo = html[html.index(SEO_START):html.index(SEO_END)]
+    seo = re.sub(r'<!--.*?-->', '', seo, flags=re.S).strip()
+    seo = '\n'.join(line[2:] if line.startswith('  ') else line for line in seo.splitlines())
+    seo_out = ('<!-- ' + NOTE + ' Versión ' + kit + '.\n'
+               '     Va en Settings → Tracking Code → Header de esta página, junto al píxel (que se queda). -->\n' + seo + '\n')
+    (OUT / '4-header-seo.html').write_text(seo_out, encoding='utf-8')
+
     # 5. Reporte
     kb = lambda s: '%.0f KB' % (len(s.encode('utf-8')) / 1024)
     print('Listo en ghl/ · versión ' + kit + ':')
     print('  1-custom-code.html  ' + kb(html_out))
     print('  2-custom-css.css    ' + kb(css_out))
     print('  3-footer.html       ' + kb(js_out))
+    print('  4-header-seo.html   ' + kb(seo_out))
     files = [k for k in media if k not in (BOLD, MEDIUM)]
     filled = [k for k in files if k in urls]
     print('\nMedios con URL de GHL: %d de %d (ghl/medios.json)' % (len(filled), len(files)))

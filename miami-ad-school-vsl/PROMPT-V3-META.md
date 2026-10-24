@@ -94,8 +94,8 @@ Lo revisé en celular (390 px) y escritorio (1440 px), con el panel `?revisar=1`
 | 8 | Preguntas | Objeciones en orden de importancia. | Reordenar + 1 nueva |
 | 9 | Recibe el folleto | Formulario. | Textos más concretos |
 | 10 | Footer | Cierre, legales. | Igual (± misión) |
-| — | Barra fija en celular | Botón siempre a mano. | **Nueva** |
-| — | Nuestra misión | Voz de escuela. | **[DECIDIR]**: quitar o al footer |
+| + | Barra fija en celular | Botón siempre a mano. | **Nueva** |
+| + | Nuestra misión | Voz de escuela. | **[DECIDIR]**: quitar o al footer |
 
 ---
 

@@ -22,6 +22,7 @@ Viene de la sección 10 de `PROMPT-V3-META.md` (24 oct 2026). Mientras Ricardo n
 | 10.12b | 3 a 6 piezas de portafolio con permiso | «Así se ve un portafolio» (6.8) | La sección no existe | Reusar `reserva/books.html` |
 | 10.12c | Maestros: nombre, puesto, agencia, foto y permiso | «Quién te corrige» (6.7) | La sección no existe | Ver el punto 2 |
 | 10.12d | Fotos de clase con permiso | «¿Cómo funciona…?» | Sin fotos nuevas | |
+| 10.12e | Books y puestos de graduados en la página de gracias (después, decisión de Ricardo, 24 oct 2026) | Paso «Tu folleto ya está listo» (`?paso=agenda`) | No está | Con permiso por escrito (C-009) y el puesto y la agencia confirmados por cada graduado. Se puede reusar `reserva/books.html`. Sin promesa de empleo ni «las mejores agencias del mundo» |
 | 10.13 | ¿Aclaración «no es copy de ventas»? | «Dos rutas» | No está | Agregar la línea de 6.3 |
 | 10.14 | Calendario `5vsO5cFmjBZvURwoHY2s` | Aplicar | **En uso:** es el que está activo en GHL («Carrera Creativa · 30 minutos con Ricardo») | Si cambia, `CONFIG.calendarUrl` |
 | 10.15 | Logo oficial y redes | Header y footer | Logo provisional; redes ocultas | P-01 y P-18 |

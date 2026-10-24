@@ -96,6 +96,7 @@ No se usan: «La escuela más premiada del mundo» (C-006), «Ninguna otra escue
 - Barra fija «Recibe el folleto» en celular (`sticky-folleto`).
 - «Tenemos 4 inicios al año» (pedida por Ricardo, 24 oct 2026), entre las preguntas y el formulario: las 4 fechas con la próxima marcada, «Cómo entras: 1. Agenda tu entrevista. 2. Realiza tu prueba creativa.», el botón «Agenda tu entrevista» (abre el calendario) y «¿Primero quieres el folleto? Recíbelo aquí».
 - Footer: «Copywriting y Dirección de Arte».
+- Prácticas (textos de Ricardo, 24 oct 2026): «Learn by doing. Prácticas profesionales de 10 semanas.», «Después de tu primer año de clases tienes la oportunidad de entrar a una agencia top internacional. Imagina estar ahí de 9 am a 6 pm…», «Todo alumno hace dos prácticas, presenciales u online.» y «Dos equipos distintos, dos maneras de trabajar y dos oportunidades de demostrar tu nivel.». El horario de 9 am a 6 pm y «agencia top internacional» son datos de Ricardo; «tienes la oportunidad» evita prometer una agencia específica (C-012).
 
 **Agregados por Ricardo (2026-10-23), fuera de la spec** (historia de la V2; lo que cambió en la V3 está arriba):
 

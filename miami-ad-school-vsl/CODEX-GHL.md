@@ -80,6 +80,7 @@ Es el formulario que la página muestra en «Recibe el folleto».
 - **Campos ocultos nuevos** (*Hidden field*), con estas *query keys* exactas: `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`, `fbclid`. Sirven para saber de qué anuncio viene cada contacto.
 - **Botón:** `Enviarme el folleto`.
 - **Al enviar:** redirigir a `https://preview.tufuturocreativo.com/pruebaoct?paso=agenda#aplicar`.
+- **Prueba (opcional):** si GHL deja poner en la URL de redirección el valor de «Me interesa», usa `…?paso=agenda&interes_programa=` más ese valor. Así la página de gracias abre directo en la ruta que eligió. Si no se puede, déjala como arriba y anótalo en el reporte.
 - **No actives un evento `Lead` de GHL** (ni en el formulario ni en una página de gracias): la landing lo manda una vez. Si GHL ya tiene uno activo, anótalo en el reporte y no lo borres sin preguntar.
 - No agregues ni quites otros campos sin preguntar a Ricardo. Los campos ocultos no cambian el alto del formulario; si cambias campos visibles, avisa: el alto está medido en el CSS.
 

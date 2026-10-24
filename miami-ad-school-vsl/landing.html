@@ -68,8 +68,9 @@
       </div>
 
       <div class="mas-hero__head">
-        <!-- Sello de prueba: frase C-002 (verificada). Si se confirma 2026: «8» y «incluyendo 2026». Sin «Cannes» hasta confirmarlo (PROMPT-V3-META.md 10.11). -->
-        <p class="mas-seal"><span class="mas-seal__n">7</span> <span class="mas-seal__text">veces Future Lions School of the Year, incluyendo&nbsp;2025</span></p>
+        <!-- Sello de prueba, igual que en el footer (Ricardo, 2026-10-24). El reconocimiento es Future Lions School of the Year
+             (C-002): por eso va «(Future Lions)». Si se confirma 2026: «8» e «incluyendo 2026», aquí y en el footer. -->
+        <p class="mas-seal"><span class="mas-seal__n">7</span> <span class="mas-seal__text">veces la Escuela del Año en Cannes Lions (Future Lions), incluyendo&nbsp;2025</span></p>
         <p class="mas-hero__eyebrow"><span>Carrera Creativa</span> · <span>18 meses</span></p>
         <h1 class="mas-hero__title" id="mas-hero-title">Conviértete en <span class="mas-hero__role">Copywriter</span> o <span class="mas-hero__role">Director de&nbsp;Arte</span>.</h1>
       </div>
@@ -363,7 +364,7 @@
         <div class="mas-qa">
           <h3 class="mas-qa__q"><button type="button" class="mas-qa__btn" aria-expanded="true" aria-controls="mas-a5" id="mas-q5">¿Necesito tener portafolio?<span class="mas-qa__icon" aria-hidden="true"></span></button></h3>
           <div class="mas-qa__a" id="mas-a5" role="region" aria-labelledby="mas-q5"><div class="mas-qa__inner">
-            <p>No. Necesitas disposición para construir trabajo nuevo y mejorar el que ya tienes.</p>
+            <p>Para entrar, no: necesitas disposición para construir trabajo nuevo y mejorar el que ya tienes. Para conseguir trabajo en agencias y marcas buenas, definitivamente sí. Por eso aquí lo construyes.</p>
           </div></div>
         </div>
         <div class="mas-qa">
@@ -498,6 +499,28 @@
           <p>Revisa tu correo: ahí encontrarás la confirmación con la fecha, la hora y los detalles de la videollamada. Si quieres, ten a la mano lo que hayas hecho hasta hoy; nos ayuda a conocerte mejor.</p>
           <!-- Video de bienvenida (CONFIG.thanksVideoUrl): lo inserta el JS solo en esta etapa -->
           <div class="mas-done__video" data-thanks-video></div>
+        </div>
+      </div>
+
+      <!-- Página de gracias por ruta (Ricardo, 2026-10-24): videos y books de Copywriter o de Director de Arte.
+           Solo en ?paso=agenda y solo si CONFIG.thanksRoutes tiene contenido (cada persona con permiso por escrito, C-009).
+           Elige la ruta con lo que la persona marcó o tocó (data-program); si no se sabe, empieza en Copywriter
+           y se puede cambiar con los botones. -->
+      <div class="mas-thanks" data-thanks hidden>
+        <div class="mas-thanks__bar">
+          <h3 class="mas-thanks__title" id="mas-thanks-title">Conoce tu&nbsp;ruta</h3>
+          <div class="mas-thanks__switch" role="group" aria-labelledby="mas-thanks-title" data-thanks-switch>
+            <button type="button" class="mas-thanks__opt" data-thanks-route="copywriting" aria-pressed="false">Copywriter</button>
+            <button type="button" class="mas-thanks__opt" data-thanks-route="art-direction" aria-pressed="false">Director de Arte</button>
+          </div>
+        </div>
+        <div class="mas-thanks__block" data-thanks-videos hidden>
+          <h4 class="mas-thanks__sub">Lo que dicen quienes ya lo hicieron</h4>
+          <ul class="mas-thanks__videos" role="list" data-thanks-video-list></ul>
+        </div>
+        <div class="mas-thanks__block" data-thanks-books hidden>
+          <h4 class="mas-thanks__sub">Así se ve un portafolio que demuestra cómo piensas</h4>
+          <ul class="mas-thanks__books" role="list" data-thanks-book-list></ul>
         </div>
       </div>
     </div>

@@ -264,6 +264,27 @@ El formulario ya está en el HTML: es el de GoHighLevel `DWvr3OTjwswSDGd9wnM6`, 
 - También se prellena si la URL trae `?interes_programa=Copywriter` (o `Director de Arte`), por ejemplo desde un anuncio. Los valores viejos (`Copywriting`, `Art Direction`) se siguen entendiendo, para no romper anuncios ya creados.
 - La clave está en `CONFIG.prefillParam` (`interes_programa`) y los valores en `CONFIG.programLabels`. Deben coincidir **exactamente** con las opciones del campo en GHL.
 
+### Página de gracias por ruta (videos y books)
+
+En `?paso=agenda`, debajo del folleto, aparece «Conoce tu ruta» con los videos y los books de **Copywriter** o de **Director de Arte** (Ricardo, 24 oct 2026). Todo sale de `CONFIG.thanksRoutes` en `landing.js`:
+
+```js
+thanksRoutes: {
+  'copywriting': {
+    videos: [{ url: 'https://www.tella.tv/video/…', title: 'Nombre · Copywriter · Generación 2023' }],
+    books: [{ name: 'Nombre', role: 'Copywriter en Agencia', url: 'https://…' }]
+  },
+  'art-direction': { videos: [], books: [] }
+},
+```
+
+- Mientras las dos rutas estén vacías, la sección no se ve. Si solo una tiene contenido, se ve sin los botones para cambiar.
+- **Qué ruta muestra:** la que la persona tocó en «Dos rutas» o la que trae la URL (`?interes_programa=`). Si no se sabe, empieza en Copywriter, y con los botones puede ver la otra.
+- **Para que use lo que marcó en el formulario:** si GHL deja agregar el valor del campo a la URL de redirección, redirige a `…?paso=agenda&interes_programa=` más el valor de «Me interesa». Si no se puede, no pasa nada: se usa lo de arriba.
+- Los videos no arrancan solos. Aceptan Tella, YouTube o Vimeo.
+- Cada video y cada book, **solo con permiso por escrito** de la persona (C-009), con su puesto y agencia confirmados por ella. Nada de «me consiguió trabajo» ni «la mejor escuela».
+- `?revisar=1` dice cuántos videos y books tiene cada ruta.
+
 ### Alto del formulario
 
 El formulario no usa `form_embed.js`, así que su alto es fijo y está medido para cada ancho de pantalla (`--form-h` en el CSS). Si en GHL agregas o quitas campos, revisa en celular que se vea el botón completo y, si no, sube esos valores.

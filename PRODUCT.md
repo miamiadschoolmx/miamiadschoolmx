@@ -28,7 +28,7 @@ Titulares anteriores: «Tu título no te consigue el mejor trabajo. Tu portafoli
 
 ## Operating Context
 
-Anuncio en Meta → hero (con el video) → cinta → dos rutas (Copywriter o Director de Arte) → problema → ¿Cómo funciona…? (18 meses) → prácticas → preguntas → 4 inicios al año (10 de enero, abril, julio y octubre; «Agenda tu entrevista» abre el calendario) → formulario de GHL («Recibe el folleto», con los UTM del anuncio) → folleto y calendario (`?paso=agenda`, evento `Lead`) → si quiere, videollamada con Ricardo (`?paso=confirmado`, evento `Schedule`). En celular, la barra fija «Recibe el folleto» acompaña desde el final del hero.
+Anuncio en Meta → hero (con el video) → cinta → dos rutas (Copywriter o Director de Arte) → problema → ¿Cómo funciona…? (18 meses) → prácticas → preguntas → 4 inicios al año (10 de enero, abril, julio y octubre; «Agenda tu entrevista» abre el calendario) → formulario de GHL («Recibe el folleto», con los UTM del anuncio) → folleto, calendario y, cuando haya permisos, videos y books de su ruta (`?paso=agenda`, evento `Lead`) → si quiere, videollamada con Ricardo (`?paso=confirmado`, evento `Schedule`). En celular, la barra fija «Recibe el folleto» acompaña desde el final del hero.
 
 ## Capabilities and Constraints
 

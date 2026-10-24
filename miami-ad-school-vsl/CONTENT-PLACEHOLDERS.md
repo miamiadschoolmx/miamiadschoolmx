@@ -23,16 +23,16 @@ Viene de la sección 10 de `PROMPT-V3-META.md` (24 oct 2026). Mientras Ricardo n
 | 10.12b | 3 a 6 piezas de portafolio con permiso | «Así se ve un portafolio» (6.8) | La sección no existe | Reusar `reserva/books.html` |
 | 10.12c | Maestros: nombre, puesto, agencia, foto y permiso | «Quién te corrige» (6.7) | La sección no existe | Ver el punto 2 |
 | 10.12d | Fotos de clase con permiso | «¿Cómo funciona…?» | Sin fotos nuevas | |
-| 10.12e | Books y puestos de graduados en la página de gracias, separados por ruta (Ricardo, 24 oct 2026) | Página de gracias por ruta, «Así se ve un portafolio que demuestra cómo piensas» | **Lista y vacía:** no se ve hasta llenar `CONFIG.thanksRoutes` | Nombre, link al book, puesto y agencia confirmados por cada graduado, con permiso por escrito (C-009). Sin promesa de empleo ni «las mejores agencias del mundo» |
+| 10.12e | Books y puestos de graduados en la página de gracias, separados por ruta (Ricardo, 24 oct 2026) | Página de gracias por ruta, «Así se ve un portafolio que demuestra cómo piensas» | **En uso:** los 8 books de la V2, 4 por ruta (Ricardo pidió usarlos, 24 oct 2026), sin puesto. Falta: puesto y agencia de cada uno (P-17) y confirmar su permiso | Nombre, link al book, puesto y agencia confirmados por cada graduado, con permiso por escrito (C-009). Sin promesa de empleo ni «las mejores agencias del mundo» |
 | 10.13 | ¿Aclaración «no es copy de ventas»? | «Dos rutas» | No está | Agregar la línea de 6.3 |
 | 10.14 | Calendario `5vsO5cFmjBZvURwoHY2s` | Aplicar | **En uso:** es el que está activo en GHL («Carrera Creativa · 30 minutos con Ricardo») | Si cambia, `CONFIG.calendarUrl` |
 | 10.15 | Logo oficial y redes | Header y footer | Logo provisional; redes ocultas | P-01 y P-18 |
 
 **«Me interesa» en GHL:** las opciones deben cambiar a `Copywriter`, `Director de Arte` y `Aún no sé` (README-GHL · paso 8). Mientras digan «Art Direction» y «Copywriting», los botones de «Dos rutas» bajan al formulario pero no lo dejan marcado.
 
-## 2. Books (sección oculta)
+## 2. Books
 
-Solo se muestran las tarjetas con relación con MAS y permiso confirmados (claim C-009). Hoy no hay ninguna.
+Desde el 24 de octubre de 2026 los 8 están en la página de gracias por ruta (`CONFIG.thanksRoutes` en `landing.js`), con nombre y link, sin puesto. En la landing no se muestran. Falta confirmar con cada persona el permiso y su puesto actual (C-009, P-17); si alguien no está de acuerdo, se quita de la lista.
 
 | Nombre | Track | Relación con MAS | Hoy en | ¿Permiso? |
 |---|---|---|---|---|

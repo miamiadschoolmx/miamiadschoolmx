@@ -41,9 +41,27 @@
     // si las dos están vacías, la sección no se muestra. Solo con permiso por escrito de cada persona (C-009).
     //   videos: [{ url: 'https://www.tella.tv/video/…', title: 'Nombre · Copywriter · Generación 2023' }]
     //   books:  [{ name: 'Nombre', role: 'Copywriter en Agencia', url: 'https://…' }]
+    // Books: los 8 de la V2 (reserva/books.html), por ruta. Falta el puesto y la agencia de cada uno (P-17):
+    // cuando lleguen confirmados, van en role (por ejemplo, 'Copywriter en Agencia').
     thanksRoutes: {
-      'copywriting': { videos: [], books: [] },
-      'art-direction': { videos: [], books: [] }
+      'copywriting': {
+        videos: [],
+        books: [
+          { name: 'Emmanuel Rocha', url: 'https://www.emmanuelrocha.com/' },
+          { name: 'Antonio Fragoso', url: 'https://thefragoso.com/' },
+          { name: 'Fernando Carrión', url: 'https://www.fercarrion.com/' },
+          { name: 'Jacky Salomé', url: 'https://jackysalome.com/Work' }
+        ]
+      },
+      'art-direction': {
+        videos: [],
+        books: [
+          { name: 'Sarah Cardona', url: 'https://sarahcardonae.com/about' },
+          { name: 'Xavi Ocaña', url: 'https://www.xaviocana.com/' },
+          { name: 'Catarina Barcala', url: 'https://catarinabarcala.com/' },
+          { name: 'Hanna Choi', url: 'https://www.theasianlatina.com/' }
+        ]
+      }
     },
     // Video que se muestra después de agendar (?paso=confirmado). Vacío = no se muestra.
     thanksVideoUrl: 'https://www.tella.tv/video/vid_cmm7163r3000o04l2bbaqai3k',

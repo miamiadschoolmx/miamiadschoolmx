@@ -260,7 +260,7 @@ El formulario ya está en el HTML: es el de GoHighLevel `DWvr3OTjwswSDGd9wnM6`, 
 
 ### Prellenar «Me interesa»
 
-- En «Dos rutas», «Me interesa Copywriter», «Me interesa Director de Arte» y «Aún no sé» prellenan el campo y bajan al formulario.
+- En «Dos rutas», «Quiero ser Copywriter», «Quiero ser Director de Arte» y «Aún no sé» prellenan el campo y bajan al formulario.
 - También se prellena si la URL trae `?interes_programa=Copywriter` (o `Director de Arte`), por ejemplo desde un anuncio. Los valores viejos (`Copywriting`, `Art Direction`) se siguen entendiendo, para no romper anuncios ya creados.
 - La clave está en `CONFIG.prefillParam` (`interes_programa`) y los valores en `CONFIG.programLabels`. Deben coincidir **exactamente** con las opciones del campo en GHL.
 
@@ -331,7 +331,7 @@ Prueba en la **página publicada** en `tufuturocreativo.com`, no solo en el buil
 
 **Recorrido**
 - [ ] Todos los botones «Recibe el folleto» llevan a `#aplicar`, sin salir de la página.
-- [ ] «Me interesa Copywriter» y «Me interesa Director de Arte» bajan al formulario con el campo marcado. Con `?interes_programa=Copywriter` en la URL, también.
+- [ ] «Quiero ser Copywriter» y «Quiero ser Director de Arte» bajan al formulario con el campo marcado. Con `?interes_programa=Copywriter` en la URL, también.
 - [ ] Con `?utm_campaign=prueba` en la URL, el contacto de prueba guarda `prueba` en su campo oculto.
 - [ ] En celular, al pasar el hero aparece abajo la barra «Recibe el folleto»; se esconde al llegar al formulario y al footer.
 - [ ] El video de Tella se reproduce dentro de la página.

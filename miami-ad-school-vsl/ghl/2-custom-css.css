@@ -1,4 +1,4 @@
-/* Generado por tools/ghl-kit.py desde landing.*. No lo edites a mano: cambia el original y vuelve a correr el script. Versión 71f65d2c. */
+/* Generado por tools/ghl-kit.py desde landing.*. No lo edites a mano: cambia el original y vuelve a correr el script. Versión 8b55ee76. */
 @font-face {
   font-family: "Obviously Narrow";
   font-style: normal;
@@ -24,7 +24,7 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 .mas-vsl {
-  --kit: "71f65d2c";
+  --kit: "8b55ee76";
   --black: #0A0A0A;
   --black-2: #151515;
   --white: #F7F5F2;
@@ -575,22 +575,30 @@
 }
 .mas-vsl .mas-route__text { max-width: 30ch; font-size: var(--t-lead); font-weight: 650; line-height: 1.35; }
 .mas-vsl .mas-route__tools { max-width: 36ch; font-weight: 650; line-height: 1.4; color: var(--fg-2); }
-.mas-vsl .mas-route__cta {
-  align-self: flex-start;
-  display: inline-flex;
+.mas-vsl .mas-route__count {
+  display: flex;
   align-items: center;
-  gap: .5rem;
-  min-height: 2.75rem;
+  gap: .875rem;
   margin-top: auto;
-  padding-top: .5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(10, 10, 10, .25);
   font-weight: 800;
   line-height: 1.2;
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: .3em;
 }
-.mas-vsl .mas-route__cta .mas-icon { width: 1.125rem; height: 1.125rem; flex: none; transition: transform .3s var(--ease-out); }
-.mas-vsl .mas-route__cta:hover .mas-icon { transform: translateX(4px); }
+.mas-vsl .mas-route__count span:last-child { max-width: 24ch; }
+.mas-vsl .mas-route__n {
+  flex: none;
+  font-family: var(--font-display);
+  font-stretch: var(--display-stretch);
+  font-weight: var(--display-weight);
+  font-size: clamp(3rem, 2rem + 3vw, 4.75rem);
+  line-height: .8;
+  letter-spacing: -.03em;
+}
+.mas-vsl .mas-route__cta { align-self: flex-start; margin-top: .5rem; }
+@media (max-width: 47.99em) {
+  .mas-vsl .mas-route__cta { align-self: stretch; justify-content: space-between; padding-inline: 1.375rem; text-align: left; }
+}
 .mas-vsl .mas-routes__close {
   max-width: 46ch;
   margin-top: clamp(2rem, 4vw, 3rem);

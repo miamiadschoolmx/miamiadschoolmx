@@ -41,11 +41,17 @@
     // si las dos están vacías, la sección no se muestra. Solo con permiso por escrito de cada persona (C-009).
     //   videos: [{ url: 'https://www.tella.tv/video/…', title: 'Nombre · Copywriter · Generación 2023' }]
     //   books:  [{ name: 'Nombre', role: 'Copywriter en Agencia', url: 'https://…' }]
+    // Videos: 2 por ruta, de los canales de Miami Ad School (Ricardo, 24 oct 2026): primero el de español.
     // Books: los 8 de la V2 (reserva/books.html), por ruta. Falta el puesto y la agencia de cada uno (P-17):
     // cuando lleguen confirmados, van en role (por ejemplo, 'Copywriter en Agencia').
     thanksRoutes: {
       'copywriting': {
-        videos: [],
+        videos: [
+          // Canal de Miami Ad School Buenos Aires: «Que hace un Redactor», en español
+          { url: 'https://www.youtube.com/watch?v=doP4eN-ML4A', title: 'Qué hace un redactor creativo · Miami Ad School Buenos Aires' },
+          // Canal oficial de Miami Ad School: «What does a copywriter ACTUALLY do?»
+          { url: 'https://www.youtube.com/watch?v=0cYLhxYZflQ', title: 'Qué hace en realidad un copywriter, contado por creativos de la industria · Miami Ad School' }
+        ],
         books: [
           { name: 'Emmanuel Rocha', url: 'https://www.emmanuelrocha.com/' },
           { name: 'Antonio Fragoso', url: 'https://thefragoso.com/' },
@@ -54,7 +60,12 @@
         ]
       },
       'art-direction': {
-        videos: [],
+        videos: [
+          // Canal de Miami Ad School Buenos Aires: «Que hace un Director de Arte», en español. Empieza en el segundo 34 (link de Ricardo).
+          { url: 'https://www.youtube.com/watch?v=x86xo7SXLp0&t=34s', title: 'Qué hace un director de arte · Miami Ad School Buenos Aires' },
+          // Canal oficial de Miami Ad School: «What does an Art Director ACTUALLY do? (Ad Pros Share the Truth)»
+          { url: 'https://www.youtube.com/watch?v=ZadLwjaN9mQ', title: 'Qué hace en realidad un director de arte, contado por creativos de la industria · Miami Ad School' }
+        ],
         books: [
           { name: 'Sarah Cardona', url: 'https://sarahcardonae.com/about' },
           { name: 'Xavi Ocaña', url: 'https://www.xaviocana.com/' },
@@ -462,12 +473,14 @@
       var box = root.querySelector('[data-brochure]');
       if (!box || !CONFIG.brochureUrl || box.firstChild) return;
       var a = document.createElement('a');
-      a.className = 'mas-btn mas-btn--ink';
+      // Botón grande (Ricardo, 2026-10-24): es lo primero que la persona busca al llegar aquí
+      a.className = 'mas-btn mas-btn--hot mas-brochure__btn';
       a.href = CONFIG.brochureUrl;
       a.target = '_blank';
       a.rel = 'noopener';
       a.setAttribute('data-event', 'brochure_download');
-      a.textContent = 'Descargar folleto';
+      a.textContent = 'Descarga el folleto';
+      a.insertAdjacentHTML('beforeend', '<svg class="mas-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>');
       box.appendChild(a);
     }
     // Calendario dentro de la página, solo en el paso del folleto. El link de arriba queda como
@@ -504,6 +517,7 @@
       box.setAttribute('data-ready', '1');
       var sw = box.querySelector('[data-thanks-switch]');
       if (sw) sw.hidden = available.length < 2;
+      var title = box.querySelector('[data-thanks-name]');
       var chosen = root.getAttribute('data-program');
       render(available.indexOf(chosen) > -1 ? chosen : available[0]);
       box.hidden = false;
@@ -517,7 +531,16 @@
 
       function render(key) {
         var r = routes[key] || {};
-        for (var p = 0; p < opts.length; p++) opts[p].setAttribute('aria-pressed', String(opts[p].getAttribute('data-thanks-route') === key));
+        var label = '', area = '';
+        for (var p = 0; p < opts.length; p++) {
+          var on = opts[p].getAttribute('data-thanks-route') === key;
+          opts[p].setAttribute('aria-pressed', String(on));
+          if (on) { label = opts[p].textContent; area = opts[p].getAttribute('data-thanks-area') || label; }
+        }
+        // El nombre del programa, en grande, arriba de sus videos y books
+        if (title) title.textContent = label;
+        var vTitle = box.querySelector('[data-thanks-video-title]');
+        if (vTitle) vTitle.textContent = 'Qué hace un ' + label;
         var vWrap = box.querySelector('[data-thanks-videos]'), vList = box.querySelector('[data-thanks-video-list]');
         var bWrap = box.querySelector('[data-thanks-books]'), bList = box.querySelector('[data-thanks-book-list]');
         vList.textContent = '';
@@ -555,12 +578,11 @@
           name.className = 'mas-thanks__name';
           name.textContent = k.name;
           li.appendChild(name);
-          if (k.role) {
-            var role = document.createElement('p');
-            role.className = 'mas-thanks__role';
-            role.textContent = k.role;
-            li.appendChild(role);
-          }
+          // Puesto confirmado si lo hay; si no, lo que estudió («Dirección de Arte» o «Copywriting»: sin género)
+          var role = document.createElement('p');
+          role.className = 'mas-thanks__role';
+          role.textContent = k.role || area;
+          li.appendChild(role);
           var a = document.createElement('a');
           a.className = 'mas-thanks__link';
           a.href = k.url;

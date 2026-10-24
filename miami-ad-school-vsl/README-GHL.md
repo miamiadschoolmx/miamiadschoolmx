@@ -252,7 +252,7 @@ El formulario ya está en el HTML: es el de GoHighLevel `DWvr3OTjwswSDGd9wnM6`, 
 - **Campos ocultos para saber de qué anuncio viene cada contacto (P0-3):** agrega 6 campos ocultos (*Hidden field*) con estas *query keys*, exactas: `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term` y `fbclid`. El JS copia esos parámetros de la URL de la página al formulario (`CONFIG.attributionParams`). Prueba: abre la página con `?utm_campaign=prueba`, envía el formulario y revisa que el contacto tenga `prueba`.
 - **Botón:** `Enviarme el folleto`.
 - **Las preguntas de calificación** (portafolio, situación actual, cuándo empezar) **no** van aquí. Van en el paso de agendar.
-- **Al enviar:** redirigir a `https://tufuturocreativo.com/TU-RUTA?paso=agenda#aplicar`. Ahí la página dice «Tu folleto ya está listo.», muestra «Descargar folleto», el calendario de Ricardo y manda `Lead` a Meta.
+- **Al enviar:** redirigir a `https://tufuturocreativo.com/TU-RUTA?paso=agenda#aplicar`. Ahí la página dice «Tu folleto ya está listo.», muestra el botón grande «Descarga el folleto», el calendario de Ricardo y manda `Lead` a Meta.
 - **No actives un evento `Lead` propio de GHL** en el formulario ni en la página de gracias: lo manda la landing, una vez por sesión. Si GHL también lo manda, Meta lo cuenta doble.
 - **Correo:** el folleto también debe llegar por correo (workflow de GHL), porque la página dice «Te llega a tu correo».
 - **Sticky Contact:** actívalo en el formulario y en el calendario.
@@ -266,7 +266,7 @@ El formulario ya está en el HTML: es el de GoHighLevel `DWvr3OTjwswSDGd9wnM6`, 
 
 ### Página de gracias por ruta (videos y books)
 
-En `?paso=agenda`, debajo del folleto, aparece «Conoce tu ruta» con los videos y los books de **Copywriter** o de **Director de Arte** (Ricardo, 24 oct 2026). Todo sale de `CONFIG.thanksRoutes` en `landing.js`:
+En `?paso=agenda`, debajo del folleto, aparece en grande el nombre del programa (**Copywriter** o **Director de Arte**) con sus videos y sus books, y la línea «Todos ellos son graduados de Miami Ad School México.» (Ricardo, 24 oct 2026). Todo sale de `CONFIG.thanksRoutes` en `landing.js`:
 
 ```js
 thanksRoutes: {
@@ -281,7 +281,8 @@ thanksRoutes: {
 - Mientras las dos rutas estén vacías, la sección no se ve. Si solo una tiene contenido, se ve sin los botones para cambiar.
 - **Qué ruta muestra:** la que la persona tocó en «Dos rutas» o la que trae la URL (`?interes_programa=`). Si no se sabe, empieza en Copywriter, y con los botones puede ver la otra.
 - **Para que use lo que marcó en el formulario:** si GHL deja agregar el valor del campo a la URL de redirección, redirige a `…?paso=agenda&interes_programa=` más el valor de «Me interesa». Si no se puede, no pasa nada: se usa lo de arriba.
-- Los videos no arrancan solos. Aceptan Tella, YouTube o Vimeo.
+- Los videos no arrancan solos. Aceptan Tella, YouTube o Vimeo; un `&t=34s` en el link hace que empiece en ese segundo. Su título es «Qué hace un Copywriter» o «Qué hace un Director de Arte».
+- Hoy tiene 2 videos por ruta (canales de YouTube de Miami Ad School) y los 8 books de la V2. Sin puesto confirmado, cada book dice «Copywriting» o «Dirección de Arte».
 - Cada video y cada book, **solo con permiso por escrito** de la persona (C-009), con su puesto y agencia confirmados por ella. Nada de «me consiguió trabajo» ni «la mejor escuela».
 - `?revisar=1` dice cuántos videos y books tiene cada ruta.
 
@@ -291,7 +292,7 @@ El formulario no usa `form_embed.js`, así que su alto es fijo y está medido pa
 
 ### El folleto en PDF
 
-`CONFIG.brochureUrl` tiene la URL del PDF. El botón «Descargar folleto» se crea **solo después de enviar el formulario**: antes no existe en la página. Si prefieres que el PDF llegue **solo** por correo, deja `brochureUrl: ''`.
+`CONFIG.brochureUrl` tiene la URL del PDF. El botón «Descarga el folleto» (grande, fucsia, a todo lo ancho) se crea **solo después de enviar el formulario**: antes no existe en la página. Si prefieres que el PDF llegue **solo** por correo, deja `brochureUrl: ''`.
 
 ## 9. El calendario de Ricardo
 
@@ -323,7 +324,7 @@ El píxel de Meta `1349923403740237` ya está en la página. La landing **no ins
 | `vsl_50_percent`, `vsl_complete` | Mitad y fin del video (solo `.mp4` propio) |
 | `form_start` | Entra al formulario |
 | `lead_submit` | Se manda como `Lead` |
-| `brochure_download` | Clic en «Descargar folleto» |
+| `brochure_download` | Clic en «Descarga el folleto» |
 | `calendar_click` | Clic en «Agenda tu llamada» (también el de «¿Hay becas?») o en «Agenda tu entrevista» |
 | `appointment_booked` | Se manda como `Schedule` |
 | `social_click` | Clic en una red del footer |
@@ -356,7 +357,7 @@ Prueba en la **página publicada** en `tufuturocreativo.com`, no solo en el buil
 - [ ] Con `?utm_campaign=prueba` en la URL, el contacto de prueba guarda `prueba` en su campo oculto.
 - [ ] En celular, al pasar el hero aparece abajo la barra «Recibe el folleto»; se esconde al llegar al formulario y al footer.
 - [ ] El video de Tella se reproduce dentro de la página.
-- [ ] El formulario se envía y redirige a `?paso=agenda`; aparece «Tu folleto ya está listo.» con «Descargar folleto», y el folleto llega al correo.
+- [ ] El formulario se envía y redirige a `?paso=agenda`; aparece «Tu folleto ya está listo.» con «Descarga el folleto», y el folleto llega al correo.
 - [ ] En «Tenemos 4 inicios al año» está marcada la próxima fecha y «Agenda tu entrevista» abre el calendario en otra pestaña.
 - [ ] En `?paso=agenda` aparece el calendario de Ricardo dentro de la página; agendar redirige a `?paso=confirmado` y llega el correo con el enlace.
 - [ ] El slider de logos se mueve al hacer scroll, las flechas lo adelantan y cargan los 29 logos.

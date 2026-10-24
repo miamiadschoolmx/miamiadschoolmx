@@ -1,4 +1,4 @@
-/* Generado por tools/ghl-kit.py desde landing.*. No lo edites a mano: cambia el original y vuelve a correr el script. Versión 2c2f8266. */
+/* Generado por tools/ghl-kit.py desde landing.*. No lo edites a mano: cambia el original y vuelve a correr el script. Versión 5c3cd0df. */
 @font-face {
   font-family: "Obviously Narrow";
   font-style: normal;
@@ -24,7 +24,7 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 .mas-vsl {
-  --kit: "2c2f8266";
+  --kit: "5c3cd0df";
   --black: #0A0A0A;
   --black-2: #151515;
   --white: #F7F5F2;
@@ -1250,6 +1250,32 @@
   font-weight: 800;
 }
 .mas-vsl .mas-brochure__btn .mas-icon { width: 1.5rem; height: 1.5rem; }
+.mas-vsl .mas-next {
+  margin-top: 1.5rem;
+  font-family: var(--font-display);
+  font-stretch: var(--display-stretch);
+  font-weight: var(--display-weight);
+  font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.25rem);
+  line-height: 1.05;
+  letter-spacing: -.01em;
+}
+.mas-vsl .mas-next strong { color: var(--hot-ink); font-weight: inherit; }
+.mas-vsl .mas-wa {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem 1.25rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+}
+.mas-vsl .mas-wa__text { font-size: var(--t-lead); font-weight: 700; line-height: 1.3; }
+.mas-vsl .mas-wa__sign { display: block; color: var(--light-2); font-size: var(--t-body); font-weight: 600; }
+.mas-vsl .mas-wa__btn { min-height: 3.25rem; }
+@media (max-width: 47.99em) {
+  .mas-vsl .mas-wa__btn { width: 100%; justify-content: space-between; }
+}
 .mas-vsl .mas-brochure__btn:hover .mas-icon { transform: translateY(3px); }
 .mas-vsl .mas-booking { margin-top: 1.75rem; overflow: hidden; border-radius: .75rem; background: #FFFFFF; }
 .mas-vsl .mas-booking iframe { display: block; width: 100%; height: 52rem; border: 0; }

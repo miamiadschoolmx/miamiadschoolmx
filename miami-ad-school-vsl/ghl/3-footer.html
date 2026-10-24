@@ -1,4 +1,4 @@
-<!-- Generado por tools/ghl-kit.py desde landing.*. No lo edites a mano: cambia el original y vuelve a correr el script. Versión 2c2f8266.
+<!-- Generado por tools/ghl-kit.py desde landing.*. No lo edites a mano: cambia el original y vuelve a correr el script. Versión 5c3cd0df.
      Reemplaza con este bloque los scripts anteriores de la landing: ya trae el formulario, el folleto,
      el video y los textos legales. Si hay un píxel o script de medición, ese se queda. -->
 <script>
@@ -84,7 +84,7 @@
     stageParam: 'paso'
   };
   // Versión del kit: tools/ghl-kit.py pone la misma en los 3 bloques. Si no coinciden, ?revisar=1 lo avisa.
-  var KIT = '2c2f8266';
+  var KIT = '5c3cd0df';
 
   /* --- Arranque ------------------------------------------------------------
      En GHL, el HTML del elemento Custom Code y este script llegan en momentos
@@ -174,7 +174,7 @@
       // Meta Pixel (navegador): los eventos con equivalente estándar van como estándar, el resto como
       // personalizados. eventID sirve para deduplicar con la API de Conversiones (CAPI).
       if (typeof window.fbq === 'function') {
-        var META_STANDARD = { lead_submit: 'Lead', appointment_booked: 'Schedule' };
+        var META_STANDARD = { lead_submit: 'Lead', appointment_booked: 'Schedule', whatsapp_click: 'Contact' };
         var metaOpts = { eventID: name + '-' + payload.ts };
         try {
           if (META_STANDARD[name]) window.fbq('track', META_STANDARD[name], payload.detail, metaOpts);
@@ -234,7 +234,7 @@
       if (name === 'social_click' && el.getAttribute('aria-disabled') !== 'true') {
         track(name, { network: el.getAttribute('data-social') });
       }
-      if (name === 'calendar_click' || name === 'brochure_download') track(name);
+      if (name === 'calendar_click' || name === 'brochure_download' || name === 'whatsapp_click') track(name);
     });
     root.addEventListener('click', function (e) {
       var cta = e.target.closest ? e.target.closest('[data-cta]') : null;

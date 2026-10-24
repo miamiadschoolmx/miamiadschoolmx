@@ -37,7 +37,7 @@ Anuncio en Meta → hero (con el video) → cinta → dos rutas (Copywriter o Di
 - Prácticas (C-012): dos prácticas de 10 semanas, en dos agencias distintas de la red de Miami Ad School, presenciales u online. Todo alumno que termina el primer año hace sus dos prácticas.
 - Datos pendientes y su texto de respaldo: `miami-ad-school-vsl/CONTENT-PLACEHOLDERS.md` · punto 1.
 - Prohibido: urgencia falsa, cupos o contadores falsos, testimonios o salarios inventados, promesas de empleo, premios sin fuente, «resultados garantizados», «la mejor escuela del mundo», «la escuela más premiada del mundo» (C-006), «las mejores agencias del mundo», cifras de colocación o salarios (C-003, C-008) y la raya larga (—) en cualquier texto.
-- Sin menú, sin WhatsApp y sin enlaces que saquen del recorrido. La medición está encendida con el píxel de Meta que ya está en GHL (`Lead` y `Schedule`); GA4 y CAPI quedan para después.
+- Sin menú, sin WhatsApp y sin enlaces que saquen del recorrido antes del formulario. Después de pedir el folleto: próxima fecha de inicio y el WhatsApp de Ricardo (55 5252 1843). La medición está encendida con el píxel de Meta que ya está en GHL (`Lead` y `Schedule`); GA4 y CAPI quedan para después.
 
 ## Brand Commitments
 

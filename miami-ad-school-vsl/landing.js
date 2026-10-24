@@ -170,7 +170,7 @@
       // Meta Pixel (navegador): los eventos con equivalente estándar van como estándar, el resto como
       // personalizados. eventID sirve para deduplicar con la API de Conversiones (CAPI).
       if (typeof window.fbq === 'function') {
-        var META_STANDARD = { lead_submit: 'Lead', appointment_booked: 'Schedule' };
+        var META_STANDARD = { lead_submit: 'Lead', appointment_booked: 'Schedule', whatsapp_click: 'Contact' };
         var metaOpts = { eventID: name + '-' + payload.ts };
         try {
           if (META_STANDARD[name]) window.fbq('track', META_STANDARD[name], payload.detail, metaOpts);
@@ -230,7 +230,7 @@
       if (name === 'social_click' && el.getAttribute('aria-disabled') !== 'true') {
         track(name, { network: el.getAttribute('data-social') });
       }
-      if (name === 'calendar_click' || name === 'brochure_download') track(name);
+      if (name === 'calendar_click' || name === 'brochure_download' || name === 'whatsapp_click') track(name);
     });
     root.addEventListener('click', function (e) {
       var cta = e.target.closest ? e.target.closest('[data-cta]') : null;

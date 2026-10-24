@@ -127,7 +127,7 @@ Guarda la página y abre **`https://preview.tufuturocreativo.com/pruebaoct?revis
 4. En «Tenemos 4 inicios al año» está marcado en fucsia el 10 de enero y **«Agenda tu entrevista»** abre el calendario de Ricardo en otra pestaña.
 5. En el celular: al pasar el hero aparece abajo la barra **«Recibe el folleto»**; se esconde al llegar al formulario y al footer.
 6. Abre Meta **Events Manager → Probar eventos** con la URL `https://preview.tufuturocreativo.com/pruebaoct?utm_source=prueba&utm_campaign=prueba-codex`.
-7. Envía el formulario con un correo de prueba: debe redirigir y mostrar **«Tu folleto ya está listo.»**, el botón grande **«Descarga el folleto»** y el **calendario** dentro de la página.
+7. Envía el formulario con un correo de prueba: debe redirigir y mostrar **«Tu folleto ya está listo.»**, el botón grande **«Descarga el folleto»**, la próxima fecha de inicio, el botón **«WhatsApp 55 5252 1843»** (abre WhatsApp con un mensaje para Ricardo) y el **calendario** dentro de la página.
 8. En Probar eventos: llegan `PageView` y **un solo** `Lead`. Toma captura.
 9. En GHL, abre el contacto de prueba: debe tener `prueba` en `utm_source` y `prueba-codex` en `utm_campaign`. Toma captura.
 10. Si el workflow ya está publicado: llega el correo con el folleto.

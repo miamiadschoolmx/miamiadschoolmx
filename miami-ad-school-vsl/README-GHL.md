@@ -266,7 +266,7 @@ El formulario ya está en el HTML: es el de GoHighLevel `DWvr3OTjwswSDGd9wnM6`, 
 
 ### Página de gracias por ruta (videos y books)
 
-En `?paso=agenda`, debajo del folleto, aparece en grande el nombre del programa (**Copywriter** o **Director de Arte**) con sus videos y sus books, y la línea «Todos ellos son graduados de Miami Ad School México.» (Ricardo, 24 oct 2026). Todo sale de `CONFIG.thanksRoutes` en `landing.js`:
+En `?paso=agenda`, debajo de «Descarga el folleto», van la próxima fecha de inicio (se actualiza sola) y el WhatsApp de Ricardo con un mensaje ya escrito. Más abajo aparece en grande el nombre del programa (**Copywriter** o **Director de Arte**) con sus videos y sus books, y la línea «Todos ellos son graduados de Miami Ad School México.» (Ricardo, 24 oct 2026). Todo sale de `CONFIG.thanksRoutes` en `landing.js`:
 
 ```js
 thanksRoutes: {
@@ -325,6 +325,7 @@ El píxel de Meta `1349923403740237` ya está en la página. La landing **no ins
 | `form_start` | Entra al formulario |
 | `lead_submit` | Se manda como `Lead` |
 | `brochure_download` | Clic en «Descarga el folleto» |
+| `whatsapp_click` | Clic en «WhatsApp 55 5252 1843» en la página de gracias. Va a Meta como el evento estándar `Contact` |
 | `calendar_click` | Clic en «Agenda tu llamada» (también el de «¿Hay becas?») o en «Agenda tu entrevista» |
 | `appointment_booked` | Se manda como `Schedule` |
 | `social_click` | Clic en una red del footer |
@@ -380,7 +381,7 @@ Solo después de esta lista: **publicar**.
 
 ## Qué no hacer
 
-- No agregar menú ni WhatsApp: cada salida le resta al folleto. Las únicas redes van en el footer («Síguenos», decisión de Ricardo) y se abren en una pestaña nueva.
+- No agregar menú ni WhatsApp antes del formulario: cada salida le resta al folleto. El WhatsApp de Ricardo (55 5252 1843) va solo en la página de gracias, después de pedir el folleto (Ricardo, 24 oct 2026). Las únicas redes van en el footer («Síguenos», decisión de Ricardo) y se abren en una pestaña nueva.
 - No inventar urgencia, cupos, contadores, testimonios, salarios ni promesas de empleo.
 - No dejar «[VERIFICAR]», «[DECIDIR]» ni corchetes a la vista, y no usar la raya larga en ningún texto (spec v2, sección 1).
 - No hablar de «entrevista» ni de «conversación» antes del formulario, salvo en «Tenemos 4 inicios al año» (justo antes del formulario), donde Ricardo pidió «Agenda tu entrevista. Realiza tu prueba creativa.» (24 oct 2026). Los demás botones dicen «Recibe el folleto».

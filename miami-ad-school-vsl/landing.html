@@ -488,6 +488,16 @@
           <p class="mas-brochure__intro">Consulta el programa a tu ritmo. No necesitas agendar una llamada para descargarlo.</p>
           <!-- El botón de descarga lo crea el JS solo en esta etapa (después de enviar el formulario), con CONFIG.brochureUrl -->
           <div class="mas-brochure" data-brochure></div>
+          <!-- Próximo inicio y WhatsApp de Ricardo (pedidos por Ricardo, 2026-10-24). La fecha la actualiza el JS (data-next-start).
+               El WhatsApp solo aparece aquí, después de pedir el folleto: antes del formulario no hay salidas. -->
+          <p class="mas-next">Próximo inicio: <strong data-next-start>10 de enero de 2027</strong></p>
+          <div class="mas-wa">
+            <p class="mas-wa__text">Si quieres, mándame WhatsApp. <span class="mas-wa__sign">Ricardo</span></p>
+            <a class="mas-btn mas-btn--ink mas-wa__btn" href="https://wa.me/525552521843?text=Hola%20Ricardo%2C%20ya%20tengo%20el%20folleto%20de%20la%20Carrera%20Creativa." target="_blank" rel="noopener noreferrer" data-event="whatsapp_click" data-cta="gracias-whatsapp">
+              WhatsApp 55 5252 1843<span class="mas-sr"> (se abre en una pestaña nueva)</span>
+              <svg class="mas-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
           <!-- Calendario de Ricardo: el JS lo crea aquí solo en esta etapa (CONFIG.calendarUrl y CONFIG.calendarEmbed).
                En GHL no se pega ningún iframe de calendario a mano. -->
           <div class="mas-booking" data-booking hidden></div>

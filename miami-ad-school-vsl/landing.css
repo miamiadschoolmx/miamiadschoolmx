@@ -1410,6 +1410,33 @@
   font-weight: 800;
 }
 .mas-vsl .mas-brochure__btn .mas-icon { width: 1.5rem; height: 1.5rem; }
+/* Próximo inicio y WhatsApp de Ricardo, debajo de «Descarga el folleto» */
+.mas-vsl .mas-next {
+  margin-top: 1.5rem;
+  font-family: var(--font-display);
+  font-stretch: var(--display-stretch);
+  font-weight: var(--display-weight);
+  font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.25rem);
+  line-height: 1.05;
+  letter-spacing: -.01em;
+}
+.mas-vsl .mas-next strong { color: var(--hot-ink); font-weight: inherit; }
+.mas-vsl .mas-wa {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem 1.25rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+}
+.mas-vsl .mas-wa__text { font-size: var(--t-lead); font-weight: 700; line-height: 1.3; }
+.mas-vsl .mas-wa__sign { display: block; color: var(--light-2); font-size: var(--t-body); font-weight: 600; }
+.mas-vsl .mas-wa__btn { min-height: 3.25rem; }
+@media (max-width: 47.99em) {
+  .mas-vsl .mas-wa__btn { width: 100%; justify-content: space-between; }
+}
 .mas-vsl .mas-brochure__btn:hover .mas-icon { transform: translateY(3px); }
 /* Calendario de Ricardo dentro de la página (solo en el paso del folleto). El widget mide unos 800 px. */
 .mas-vsl .mas-booking { margin-top: 1.75rem; overflow: hidden; border-radius: .75rem; background: #FFFFFF; }

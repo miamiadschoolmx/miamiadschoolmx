@@ -1482,7 +1482,7 @@
 .mas-vsl .mas-thanks__opt[aria-pressed="true"] { background: var(--black); color: var(--white); }
 .mas-vsl .mas-thanks__videos,
 .mas-vsl .mas-thanks__books { display: grid; gap: clamp(1rem, 2.5vw, 1.5rem); }
-.mas-vsl .mas-thanks__frame { aspect-ratio: 16 / 9; overflow: hidden; border-radius: .75rem; background: var(--black); }
+.mas-vsl .mas-thanks__frame { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-radius: .75rem; background: var(--black); }
 .mas-vsl .mas-thanks__frame iframe { display: block; width: 100%; height: 100%; border: 0; }
 .mas-vsl .mas-thanks__cap { margin-top: .625rem; font-weight: 700; }
 .mas-vsl .mas-thanks__book {

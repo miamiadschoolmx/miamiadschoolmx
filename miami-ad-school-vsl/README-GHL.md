@@ -281,7 +281,7 @@ thanksRoutes: {
 - Mientras las dos rutas estén vacías, la sección no se ve. Si solo una tiene contenido, se ve sin los botones para cambiar.
 - **Qué ruta muestra:** la que la persona tocó en «Dos rutas» o la que trae la URL (`?interes_programa=`). Si no se sabe, empieza en Copywriter, y con los botones puede ver la otra.
 - **Para que use lo que marcó en el formulario:** si GHL deja agregar el valor del campo a la URL de redirección, redirige a `…?paso=agenda&interes_programa=` más el valor de «Me interesa». Si no se puede, no pasa nada: se usa lo de arriba.
-- Los videos no arrancan solos. Aceptan Tella, YouTube o Vimeo; un `&t=34s` en el link hace que empiece en ese segundo. Su título es «Qué hace un Copywriter» o «Qué hace un Director de Arte».
+- Los videos muestran su portada con «Ver el video» y se cargan solo al tocarlos (como el del hero), así la página no carga YouTube de más. Aceptan Tella, YouTube o Vimeo; un `&t=34s` en el link hace que empiece en ese segundo. Su título es «Qué hace un Copywriter» o «Qué hace un Director de Arte».
 - Hoy tiene 2 videos por ruta (canales de YouTube de Miami Ad School) y los 8 books de la V2. Sin puesto confirmado, cada book dice «Copywriting» o «Dirección de Arte».
 - Cada video y cada book, **solo con permiso por escrito** de la persona (C-009), con su puesto y agencia confirmados por ella. Nada de «me consiguió trabajo» ni «la mejor escuela».
 - `?revisar=1` dice cuántos videos y books tiene cada ruta.
@@ -325,6 +325,7 @@ El píxel de Meta `1349923403740237` ya está en la página. La landing **no ins
 | `form_start` | Entra al formulario |
 | `lead_submit` | Se manda como `Lead` |
 | `brochure_download` | Clic en «Descarga el folleto» |
+| `video_play` | Da play a un video de la página de gracias (`video` y `route` dicen cuál) |
 | `whatsapp_click` | Clic en «WhatsApp 55 5252 1843» en la página de gracias. Va a Meta como el evento estándar `Contact` |
 | `calendar_click` | Clic en «Agenda tu llamada» (también el de «¿Hay becas?») o en «Agenda tu entrevista» |
 | `appointment_booked` | Se manda como `Schedule` |

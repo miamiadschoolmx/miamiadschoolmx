@@ -547,18 +547,37 @@
         (r.videos || []).forEach(function (v) {
           var src = v && v.url && toEmbed(String(v.url));
           if (!src) return;
-          // Sin reproducción automática: aquí hay varios videos y la persona elige cuál ver
-          src = src.replace(/([?&])a=1(?=&|$)/, '$1a=0').replace(/([?&])autoplay=1(&|$)/, '$1autoplay=0$2');
+          var name = v.title || 'Video de Miami Ad School';
           var li = document.createElement('li');
           li.className = 'mas-thanks__video';
           var frame = document.createElement('div');
           frame.className = 'mas-thanks__frame';
-          var f = document.createElement('iframe');
-          f.src = src;
-          f.title = v.title || 'Video de un graduado de Miami Ad School México';
-          f.loading = 'lazy';
-          f.allow = 'fullscreen; picture-in-picture';
-          frame.appendChild(f);
+          // Como el video del hero: portada y «Ver el video»; YouTube (o Tella) se carga solo al tocarlo
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'mas-player__poster';
+          btn.setAttribute('aria-label', 'Ver el video: ' + name);
+          var yt = (String(v.url).match(/(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{11})/) || [])[1];
+          if (yt) {
+            var img = document.createElement('img');
+            img.className = 'mas-player__img';
+            img.src = 'https://i.ytimg.com/vi/' + yt + '/hqdefault.jpg';
+            img.alt = '';
+            img.loading = 'lazy';
+            img.decoding = 'async';
+            btn.appendChild(img);
+          }
+          btn.insertAdjacentHTML('beforeend', '<span class="mas-btn mas-btn--hot mas-player__cta" aria-hidden="true"><span class="mas-player__icon"><svg viewBox="0 0 24 24" focusable="false"><path d="M8.5 5.8v12.4l10-6.2z"/></svg></span>Ver el video</span>');
+          btn.addEventListener('click', function () {
+            var f = document.createElement('iframe');
+            f.src = src;
+            f.title = name;
+            f.allow = 'autoplay; fullscreen; picture-in-picture';
+            f.setAttribute('allowfullscreen', '');
+            frame.replaceChild(f, btn);
+            track('video_play', { video: name, route: key });
+          });
+          frame.appendChild(btn);
           li.appendChild(frame);
           if (v.title) {
             var cap = document.createElement('p');

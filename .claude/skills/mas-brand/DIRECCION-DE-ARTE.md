@@ -77,6 +77,12 @@ Así se aplica a MAS:
   - A creativos se vale el argot de agencia.
 - **Números creativos, nunca de relleno.** Un número tiene que *ser* la imagen. "01/10" o "Paso 1" como único recurso no basta.
 - **Nada de portadas "título + subtítulo + foto centrada".** Un solo protagonista, escala extrema y algo que rompa la retícula: una cinta rotada, un elemento que cruza la mitad o una palabra cortada por el borde.
+- **Colorida y alegre antes que oscura y dramática.** En la portada de "7 charlas TED", el reproductor oscuro con un escenario vacío no convenció ("más colorida, más alegre"). Lo que sí le encantó ("wow, más cool"):
+  - un collage tipo playlist con las 7 miniaturas del carrusel como stickers inclinados de −6° a 6°, con marco Blush y su número (1/7…);
+  - un botón de play gigante en Rubine al centro;
+  - un fondo rosa claro.
+
+  Si la lista tiene fotos variadas, ponerlas todas en la portada da color y adelanta el contenido.
 - **Máximo 8 palabras** en el titular de portada. Va en el idioma del lector, no de la industria.
 - **Copy de Ricardo:** si la manda, úsala tal cual. Si pide "cambia lo que quieras", reescribe con su voz.
 

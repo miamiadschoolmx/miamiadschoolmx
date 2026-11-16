@@ -72,6 +72,8 @@ Si no está claro, pregunta una vez: "¿lo quieres editable en Canva o listo par
 
 ## 2. Dirección de arte: elige los layouts Collins
 
+**Primero lee `DIRECCION-DE-ARTE.md`** (en esta misma carpeta). Ahí está el proceso de portada (5 conceptos, 5 pruebas), la regla del 3 % y cómo elegir e intervenir fotos de apoyo. Los layouts Collins de abajo son el punto de partida, no el techo.
+
 Antes de diseñar, haz el plan slide por slide: qué layout Collins (`BRAND.md §9`) le toca a cada slide según su contenido, y qué par de color. Reglas:
 - 3 a 5 layouts por carrusel: portada, 1–2 de contenido, un respiro (Dato curioso, Frase célebre o foto a sangre) y cierre.
 - Los elementos paralelos van en el mismo layout. Rompe la serie a la mitad con un respiro.

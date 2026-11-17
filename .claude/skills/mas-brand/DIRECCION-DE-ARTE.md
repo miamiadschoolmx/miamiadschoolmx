@@ -86,6 +86,24 @@ Así se aplica a MAS:
 - **Máximo 8 palabras** en el titular de portada. Va en el idioma del lector, no de la industria.
 - **Copy de Ricardo:** si la manda, úsala tal cual. Si pide "cambia lo que quieras", reescribe con su voz.
 
+## Recursos ya aprobados (rótalos, no los repitas seguidos)
+
+A Ricardo le gusta que el estilo cambie poco a poco de pieza en pieza. Cada carrusel nuevo usa un recurso distinto al de los últimos:
+
+| Recurso | Pieza donde funcionó |
+|---|---|
+| Titular pegado en perspectiva (`matrix3d`) sobre la cara de un espectacular real, más un recorte de foto (flamingo) volando encima | Espectaculares |
+| Palabrota censurada con símbolos de cómic (`#$%&!`) en una cinta Rubine | ¿A qué le tienes miedo? |
+| Palabra tachada con trazo de plumón Rubine (SVG) y la respuesta en un bloque Plum sobre foto a sangre | ¿A qué le tienes miedo? |
+| Ventana de navegador rosa con pestañas, URL real y captura del sitio | 7 páginas de tendencias |
+| Sala de museo: marco Plum con paspartú, cédula y una cédula "mal" escrita en la portada | Cine inspirado en pinturas |
+| Collage tipo playlist más barra de progreso por capítulos | Charlas TED |
+| Silla de director con etiqueta y flecha que cruza el corte a la mitad | Book para director creativo |
+
+**Recortes de foto:** si la foto tiene cielo o fondo liso, recorta el sujeto con ImageMagick (`-fuzz` + `floodfill` desde una esquina) y úsalo como PNG encima de otra foto o del diseño. Sigue siendo la foto original, sin filtros.
+
+**Datos de campañas reales:** verifícalos con búsqueda antes de escribirlos. Si no encuentras la frase exacta de un anuncio, no la inventes: usa solo hechos verificados y pídele a Ricardo el ejemplo.
+
 ## Retícula y ritmo
 
 - **Split exacto a la mitad (aprobado):** foto a sangre de 1080 × 675 arriba y texto abajo. Una pestaña "Paso X de 9" sobre la línea del corte da ritmo. Úsalo en guías paso a paso.

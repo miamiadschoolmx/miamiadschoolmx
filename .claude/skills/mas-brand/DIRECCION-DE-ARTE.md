@@ -144,6 +144,8 @@ La foto es una idea, no una ilustración del texto.
 | Stickers, flechas, círculos y tachados en rosa sobre fotos | Centrar todo |
 | Esconder la respuesta para el slide 2 | Clickbait que el carrusel no cumple |
 | Humor y doble sentido limpio | Burlarse de alumnos o de marcas con nombre sin dato |
+| Objetos reales que contrastan con los rosas (VHS, ticket de caja) | Emojis como ilustración principal o en cada slide: se ve infantil |
+| Layout editorial tipo revista para listas de recursos | Letras de carta de rescate o fanzine en piezas largas: se ve amateur |
 
 ## Antes de entregar
 

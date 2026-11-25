@@ -40,7 +40,8 @@ El logo, la paleta y la alineación a la izquierda no cambian.
   - fotos con filtro rosa.
 
 **Entrega**
-- Manda una vista previa (`montage` de los 10 slides) y **un ZIP** con los PNG numerados (`<pieza>-01.png`…). Los PNG sueltos no: descargarlos uno por uno es incómodo.
+- Manda una vista previa (`montage` de todos los slides) y las imágenes **sueltas** en JPG numerados, en una carpeta de Google Drive con el nombre de la pieza y también en el chat. No mandes solo un ZIP: en la Mac de Ricardo los ZIP fallan con "Error 94 - Bad message" (noviembre 2026).
+- Para hacer carruseles sin Ricardo, lee primero `MANUAL-CARRUSELES.md` (en esta carpeta): objetivo, estructura por tipo de pieza, reglas de texto, ejemplos aprobados y checklist.
 - Al final ofrece en una línea: caption (skill `carruseles-mas-instagram`, sin hashtags salvo que los pida), PDF para LinkedIn o un reel.
 - Si pregunta cómo subirlo:
   - selecciona en orden del 01 al 10;
